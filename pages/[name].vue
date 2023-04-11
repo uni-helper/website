@@ -30,11 +30,12 @@ const readmeRender = computed(() => {
       mb-6
       p-2
       bg-light
+      dark:bg-dark
       color-primary
       w-fit
       gap-2
       class="<md:w-full"
-      ><span>Check out</span><strong>{{ repo.repo.name }}</strong> on Github
+      ><span>在</span> Github 上查看 <strong>{{ repo.repo.name }}</strong>
       <div i-carbon:logo-github></div>
       &mdash;
       <div i-carbon:star></div>

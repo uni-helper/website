@@ -29,7 +29,7 @@ const filterSearch = (repos: any) => {
 useHead({
   title: "",
   meta: [
-    { name: "description", content: "Discover the list of Uni Helper tools." },
+    { name: "description", content: "探索 Uni Helper 工具列表" },
   ],
 });
 </script>
@@ -39,11 +39,12 @@ useHead({
     <div>
       <input
         type="text"
-        placeholder="Search"
+        placeholder="搜索"
         v-model="searchVal"
         :disabled="repos.length <= 0"
         mb-3
         border
+        dark:border-dark-200
         p-5
         text-xl
         w-full

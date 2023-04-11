@@ -11,7 +11,16 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="`/${repo.name}`" p-5 border class="group transition-all" hover:bg-primary hover:bg-opacity-10>
+  <NuxtLink
+    :to="`/${repo.name}`"
+    p-5
+    border
+    class="group transition-all"
+    hover:bg-primary
+    hover:bg-opacity-10
+    dark:bg-dark
+    dark:border-dark-200
+  >
     <div flex items-center justify-between group-hover:color-primary>
       <h2 text-xl>{{ repo.name }}</h2>
       <small flex>
