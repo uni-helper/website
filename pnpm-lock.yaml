@@ -4,6 +4,9 @@ devDependencies:
   '@iconify-json/carbon':
     specifier: ^1.1.16
     version: 1.1.16
+  '@iconify-json/ri':
+    specifier: ^1.1.7
+    version: 1.1.7
   '@unocss/nuxt':
     specifier: ^0.51.2
     version: 0.51.2(postcss@8.4.21)(vite@4.2.1)(webpack@5.78.0)
@@ -543,6 +546,12 @@ packages:
 
   /@iconify-json/carbon@1.1.16:
     resolution: {integrity: sha512-AD8bcnRSGA0WfcGEass2FbA0sagrUzrpFx5WchuDy3uf7yKBWumdypdQK121DH321fQDl5+zZQ26T6gC9knwUQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/ri@1.1.7:
+    resolution: {integrity: sha512-ra80AV2Q0wFuzT3YB48DKy0q3IWmmIh2ZbDnMGNX2Wz1lOx9PHgcewVvThk8OaUJOeGkneTMAzKQ64MRrOXEpg==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

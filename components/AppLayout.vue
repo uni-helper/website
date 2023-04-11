@@ -25,34 +25,50 @@
     </div>
   </main>
   <footer py-4 border-t>
-    <div container mx-auto flex items-center gap-4 justify-start class="<sm:p-3">
-      <NuxtLink
-        href="https://github.com/orgs/uni-helper/people"
-        target="_blank"
-        class="link"
-      >
-        &copy;Uni Helper Team
-      </NuxtLink>
-      <NuxtLink
-        href="https://github.com/orgs/uni-helper/discussions"
-        target="_blank"
-        class="link"
-      >
-        Discussions
-      </NuxtLink>
-      <NuxtLink
-        href="https://github.com/uni-helper/website"
-        target="_blank"
-        class="link hidden sm:block"
-      >
-        Contribution
-      </NuxtLink>
+    <div
+      container
+      mx-auto
+      flex
+      items-center
+      gap-4
+      justify-between
+      class="<sm:p-3"
+    >
+      <div>
+        <NuxtLink
+          href="https://github.com/orgs/uni-helper/people"
+          target="_blank"
+          hover:color-primary
+        >
+          &copy;Uni Helper Team
+        </NuxtLink>
+      </div>
+      <div flex gap-4 items-center>
+        <NuxtLink
+          href="https://qm.qq.com/cgi-bin/qm/qr?k=hZdEls2BYb9ZPIaXBxZoNnVwthtJKvcP&jump_from=webapi&authKey=X2GTdlKc1MHuTraaQ3q7TXTOwYo0R0cMoU6B9/OKkBTjLckze7u5BR5NlrnHjTss"
+          target="_blank"
+          aria-label="加入QQ群"
+          hover:color-primary
+        >
+          <div i-ri:qq-fill></div>
+        </NuxtLink>
+        <NuxtLink
+          href="https://github.com/orgs/uni-helper/discussions"
+          target="_blank"
+          aria-label="Discussions"
+          hover:color-primary
+        >
+          <div i-ri:discuss-fill></div>
+        </NuxtLink>
+        <NuxtLink
+          href="https://github.com/uni-helper/website"
+          target="_blank"
+          aria-label="Contribution"
+          hover:color-primary
+        >
+          <div i-carbon:logo-github></div>
+        </NuxtLink>
+      </div>
     </div>
   </footer>
 </template>
-
-<style>
-.link {
-  @apply hover:underline underline-solid underline-primary;
-}
-</style>
