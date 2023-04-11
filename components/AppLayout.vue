@@ -41,7 +41,7 @@
         Discussions
       </NuxtLink>
       <NuxtLink
-        href="https://github.com/uni-helper/uni-helper.github.io"
+        href="https://github.com/uni-helper/website"
         target="_blank"
         class="link"
       >
