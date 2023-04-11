@@ -42,7 +42,7 @@ useHead({
         placeholder="搜索"
         v-model="searchVal"
         :disabled="repos.length <= 0"
-        mb-3
+        mb-4
         border
         dark:border-dark-200
         p-5
