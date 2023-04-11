@@ -1,6 +1,6 @@
 <template>
   <header sticky top-0 bg-light-100 z-2 border-b>
-    <div container mx-auto flex items-center py-4>
+    <div container mx-auto flex items-center py-4 class="<sm:p-3">
       <NuxtLink href="/" mr-2>
         <div i-app-logo text-12></div>
       </NuxtLink>
@@ -20,12 +20,12 @@
   </header>
   <main container mx-auto class="<sm:p-3">
     <NuxtLoadingIndicator />
-    <div py-8>
+    <div py-2 sm:py-8>
       <slot />
     </div>
   </main>
   <footer py-4 border-t>
-    <div container mx-auto flex items-center gap-4 justify-start>
+    <div container mx-auto flex items-center gap-4 justify-start class="<sm:p-3">
       <NuxtLink
         href="https://github.com/orgs/uni-helper/people"
         target="_blank"
@@ -41,9 +41,9 @@
         Discussions
       </NuxtLink>
       <NuxtLink
-        href="https://github.com/uni-helper/uni-helper.github.io"
+        href="https://github.com/uni-helper/website"
         target="_blank"
-        class="link"
+        class="link hidden sm:block"
       >
         Contribution
       </NuxtLink>
