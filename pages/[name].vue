@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import "~/assets/css/github-light.css";
+import "~/assets/css/github-dark.css";
+
 const route = useRoute();
 const { data: repo } = await useFetch<any>(
   `https://ungh.cc/repos/uni-helper/${route.params.name}`
@@ -34,12 +37,12 @@ const readmeRender = computed(() => {
       color-primary
       w-fit
       gap-2
+      flex-wrap
       class="<md:w-full"
-      ><span>在</span> Github 上查看 <strong>{{ repo.repo.name }}</strong>
-      <div i-carbon:logo-github></div>
+      ><span>在</span> <span inline-block i-carbon:logo-github></span> 上查看
+      <strong>{{ repo.repo.name }}</strong>
       &mdash;
-      <div i-carbon:star></div>
-      stars
+      <span inline-block i-carbon:star></span>
       {{ formatStarCount(repo.repo.stars) }}
     </NuxtLink>
     <div text-base prose prose-truegray dark:prose-invert mx-auto max-w-full>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import "~/assets/css/github-light.css";
 const searchVal = ref("");
 const hiddenRepos = new Set([
   ".github",
