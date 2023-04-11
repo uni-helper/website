@@ -6,15 +6,16 @@
       flex
       items-center
       justify-between
-      py-4
+      py-2
+      sm:py-4
       class="<sm:p-3"
     >
       <div flex items-center>
         <NuxtLink href="/" mr-2>
-          <div i-app-logo text-12></div>
+          <div i-app-logo text-8 sm:text-12></div>
         </NuxtLink>
         <div>
-          <NuxtLink href="/"><h1 text-xl font-bold>Uni Helper</h1></NuxtLink>
+          <NuxtLink href="/"><h1 sm:text-xl font-bold>Uni Helper</h1></NuxtLink>
           <p flex items-center gap-2 text-3 md:text-4>
             <span>旨在增强 uni-app 系列产品的开发体验</span>
           </p>
