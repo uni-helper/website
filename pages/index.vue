@@ -6,6 +6,7 @@ const hiddenRepos = new Set([
   "uni-helper.github.io",
   "discussions",
   "website",
+  "renovate-config",
 ]);
 
 const { data: repos } = await useFetch<any>(
