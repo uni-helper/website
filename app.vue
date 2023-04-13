@@ -4,6 +4,10 @@ useHead({
     title
       ? `${title} - Uni Helper`
       : "Uni Helper - 旨在增强 uni-app 系列产品的开发体验",
+  htmlAttrs: {
+    lang: "zh-CN",
+    dir: "ltr",
+  },
 });
 </script>
 

@@ -12,7 +12,7 @@
     "@iconify-json/carbon": "^1.1.16",
     "@iconify-json/ri": "^1.1.7",
     "@nuxtjs/color-mode": "^3.2.0",
-    "@unocss/nuxt": "^0.51.2",
-    "nuxt": "^3.3.3"
+    "@unocss/nuxt": "^0.51.4",
+    "nuxt": "^3.4.0"
   }
 }

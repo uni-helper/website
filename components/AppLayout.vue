@@ -21,7 +21,7 @@
         class="<sm:p-3"
       >
         <div flex items-center>
-          <NuxtLink href="/" mr-2>
+          <NuxtLink href="/" mr-2 aria-label="Uni Helper Logo">
             <div i-app-logo text-8 sm:text-12></div>
           </NuxtLink>
           <div>
@@ -35,7 +35,11 @@
         </div>
         <div flex gap-4 items-center>
           <ThemeSelect />
-          <NuxtLink href="https://github.com/uni-helper" target="_blank">
+          <NuxtLink
+            aria-label="Uni Helper GitHub homepage"
+            href="https://github.com/uni-helper"
+            target="_blank"
+          >
             <div i-carbon:logo-github></div>
           </NuxtLink>
         </div>

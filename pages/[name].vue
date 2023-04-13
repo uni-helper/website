@@ -3,22 +3,37 @@ import "~/assets/css/github-light.css";
 import "~/assets/css/github-dark.css";
 
 const route = useRoute();
+const repoName = route.params.name;
+
 const { data: repo } = await useFetch<any>(
-  `https://ungh.cc/repos/uni-helper/${route.params.name}`
+  `https://ungh.cc/repos/uni-helper/${repoName}`,
+  {
+    transform: (res: any) => {
+      return res.repo;
+    },
+  }
 );
+
+if (!repo.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: `The '${repoName}' Project Not Found`,
+  });
+}
+
 const { data: readme } = await useFetch<any>(
-  `https://ungh.cc/repos/uni-helper/${route.params.name}/readme`
+  `https://ungh.cc/repos/uni-helper/${repoName}/readme`
 );
 
 useHead({
-  title: repo.value.repo.name,
-  meta: [{ name: "description", content: repo.value.repo.description }],
+  title: repo.value?.name,
+  meta: [{ name: "description", content: repo.value?.description }],
 });
 
 const readmeRender = computed(() => {
   return readme.value?.html.replace(
     /src="\./g,
-    `src="https://raw.githubusercontent.com/${repo.value.repo.repo}/main/.`
+    `src="https://raw.githubusercontent.com/${repo.value?.repo}/main/.`
   );
 });
 </script>
@@ -26,7 +41,7 @@ const readmeRender = computed(() => {
 <template>
   <div>
     <NuxtLink
-      :href="`https://github.com/${repo.repo.repo}`"
+      :href="`https://github.com/${repo?.repo}`"
       target="_blank"
       flex
       items-center
@@ -40,10 +55,10 @@ const readmeRender = computed(() => {
       flex-wrap
       class="<md:w-full"
       ><span>在</span> <span inline-block i-carbon:logo-github></span> 上查看
-      <strong>{{ repo.repo.name }}</strong>
+      <strong>{{ repo?.name }}</strong>
       &mdash;
       <span inline-block i-carbon:star></span>
-      {{ formatStarCount(repo.repo.stars) }}
+      {{ formatStarCount(repo?.stars) }}
     </NuxtLink>
     <div text-base prose prose-truegray dark:prose-invert mx-auto max-w-full>
       <div v-html="readmeRender" />

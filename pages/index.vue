@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Repo } from "~/types";
+
 const searchVal = ref("");
 const hiddenRepos = new Set([
   ".github",
@@ -8,7 +10,7 @@ const hiddenRepos = new Set([
   "renovate-config",
 ]);
 
-const { data: repos } = await useFetch<any>(
+const { data: repos } = await useFetch<Repo[]>(
   "https://ungh.cc/orgs/uni-helper/repos",
   {
     transform: (res: any) => {
@@ -19,17 +21,15 @@ const { data: repos } = await useFetch<any>(
   }
 );
 
-const filterSearch = (repos: any) => {
+const filterSearch = (repos: Repo[] | null) => {
+  if (!repos) return [];
   return repos.filter((repo: any) =>
     repo.name.toLowerCase().includes(searchVal.value.toLowerCase())
   );
 };
 
-useHead({
-  title: "",
-  meta: [
-    { name: "description", content: "探索 Uni Helper 工具列表" },
-  ],
+useSeoMeta({
+  description: "探索 Uni Helper 工具列表",
 });
 </script>
 
@@ -40,7 +40,6 @@ useHead({
         type="text"
         placeholder="搜索"
         v-model="searchVal"
-        :disabled="repos.length <= 0"
         mb-4
         border
         dark:border-dark-200

@@ -1,12 +1,8 @@
 <script setup lang="ts">
-interface RepoProp {
-  name: string;
-  description: string;
-  stars: number;
-}
+import type { Repo } from "~/types";
 
 defineProps<{
-  repo: RepoProp;
+  repo: Repo;
 }>();
 </script>
 
@@ -28,6 +24,6 @@ defineProps<{
         {{ formatStarCount(repo.stars) }}
       </small>
     </div>
-    <p mt-2 color-neutral>{{ repo.description || "..." }}</p>
+    <p mt-2 color-neutral-500>{{ repo.description || "..." }}</p>
   </NuxtLink>
 </template>
