@@ -24,6 +24,6 @@ defineProps<{
         {{ formatStarCount(repo.stars) }}
       </small>
     </div>
-    <p mt-2 color-neutral-500>{{ repo.description || "..." }}</p>
+    <p mt-2 color-neutral-500 dark-color-gray >{{ repo.description || "..." }}</p>
   </NuxtLink>
 </template>
