@@ -1,2 +1,3 @@
-export const formatStarCount = (num: number): string =>
-  new Intl.NumberFormat("en-US", { notation: "compact" }).format(num);
+export function formatStarCount(num: number): string {
+  return new Intl.NumberFormat('en-US', { notation: 'compact' }).format(num)
+}
