@@ -1,18 +1,13 @@
 <script setup lang="ts">
 import type { Repo } from '~/types'
 
-defineProps<{
-  repo: Repo
-}>()
+defineProps<{ repo: Repo }>()
 </script>
 
 <template>
   <NuxtLink
-    :to="`/${repo.name}`"
-
-    class="group transition-all"
-
-    border p-5 dark:border-dark-200 dark:bg-dark hover:bg-primary hover:bg-opacity-10
+    :to="`/${repo.name}`" class="group transition-all" border p-5 dark:border-dark-200 dark:bg-dark
+    hover:bg-primary hover:bg-opacity-10
   >
     <div flex items-center justify-between group-hover:color-primary>
       <h2 text-xl>

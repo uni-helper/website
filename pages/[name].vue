@@ -41,11 +41,8 @@ const readmeRender = computed(() => {
 <template>
   <div>
     <NuxtLink
-      :href="`https://github.com/${repo?.repo}`"
-      target="_blank"
-
-      mb-6 w-fit flex flex-wrap items-center gap-2 bg-light p-2 color-primary dark:bg-dark
-      class="<md:w-full"
+      :href="`https://github.com/${repo?.repo}`" target="_blank" mb-6 w-fit flex flex-wrap items-center gap-2
+      bg-light p-2 color-primary dark:bg-dark class="<md:w-full"
     >
       <span>在</span> <span i-carbon:logo-github inline-block /> 上查看
       <strong>{{ repo?.name }}</strong>
