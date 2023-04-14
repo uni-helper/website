@@ -1,14 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { defineNuxtConfig } from "nuxt/config";
+import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   app: {
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
-  modules: ["@unocss/nuxt", "@nuxtjs/color-mode"],
-  css: ["@unocss/reset/tailwind.css"],
+  modules: ['@unocss/nuxt', '@nuxtjs/color-mode'],
+  css: ['@unocss/reset/tailwind.css'],
   colorMode: {
-    classSuffix: "",
-    storageKey: "uni-helper-color-mode"
+    classSuffix: '',
+    storageKey: 'uni-helper-color-mode',
   },
-});
+})

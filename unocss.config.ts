@@ -1,17 +1,17 @@
 import {
   defineConfig,
-  presetIcons,
-  presetUno,
   presetAttributify,
-  transformerDirectives,
+  presetIcons,
   presetTypography,
-} from "unocss";
-import { FileSystemIconLoader } from "@iconify/utils/lib/loader/node-loaders";
+  presetUno,
+  transformerDirectives,
+} from 'unocss'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 
 export default defineConfig({
   theme: {
     colors: {
-      primary: "#2b9939",
+      primary: '#2b9939',
     },
   },
   presets: [
@@ -19,8 +19,8 @@ export default defineConfig({
     presetIcons({
       scale: 1.2,
       collections: {
-        app: FileSystemIconLoader("./assets/icons", (svg: string) =>
-          svg.replaceAll(/#fff/g, "currentColor")
+        app: FileSystemIconLoader('./assets/icons', (svg: string) =>
+          svg.replaceAll(/#fff/g, 'currentColor'),
         ),
       },
     }),
@@ -29,4 +29,4 @@ export default defineConfig({
     presetTypography(),
   ],
   transformers: [transformerDirectives()],
-});
+})
