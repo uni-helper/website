@@ -8,10 +8,6 @@ const { data: repos } = await useFetch<Repo[]>('/api/repos')
 function filterSearch(repos: any) {
   return repos?.filter((repo: any) => repo.name.toLowerCase().includes(searchVal.value.toLowerCase()))
 }
-
-useSeoMeta({
-  description: '探索 Uni Helper 工具列表',
-})
 </script>
 
 <template>

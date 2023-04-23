@@ -1,23 +1,49 @@
 <script setup lang="ts">
+import {
+  baiduSiteVerification,
+  googleSiteVerification,
+  siteDescription,
+  siteDir,
+  siteKeywords,
+  siteLang,
+  siteName,
+  siteOgImage,
+  siteOgType,
+  siteSlogan,
+} from '@/data/meta'
+
 useHead({
   titleTemplate: title =>
     title
-      ? `${title} - Uni Helper`
-      : 'Uni Helper - 旨在增强 uni-app 系列产品的开发体验',
+      ? `${title} - ${siteName}`
+      : `${siteName}- ${siteSlogan}`,
   htmlAttrs: {
-    lang: 'zh-CN',
-    dir: 'ltr',
+    lang: siteLang,
+    dir: siteDir,
   },
   meta: [
     {
-      name: 'google-site-verification',
-      content: 'hqPb74AFcL3IXb7yqjOcOY9v6MJkevvVm-IUSFc9GOk',
+      name: 'baidu-site-verification',
+      content: baiduSiteVerification,
     },
     {
-      name: 'baidu-site-verification',
-      content: 'codeva-VK6wM2Jf0b',
+      name: 'keywords',
+      content: siteKeywords,
     },
   ],
+})
+
+useSeoMeta({
+  ogSiteName: siteName,
+  ogTitle: siteName,
+  description: siteDescription,
+  ogDescription: siteDescription,
+  ogImage: siteOgImage,
+  ogImageAlt: siteSlogan,
+  ogType: siteOgType,
+  ogLocale: siteLang,
+  creator: siteName,
+  googleSiteVerification,
 })
 </script>
 

@@ -25,10 +25,8 @@ const { data: readme } = await useFetch<any>(
   `https://ungh.cc/repos/uni-helper/${repoName}/readme`,
 )
 
-useHead({
-  title: repo.value?.name,
-  meta: [{ name: 'description', content: repo.value?.description }],
-})
+const seoMeta = computed(() => createSeoMetaInput(repo.value))
+useSeoMeta(seoMeta.value)
 
 const readmeRender = computed(() => {
   return readme.value?.html.replace(
