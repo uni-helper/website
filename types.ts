@@ -7,8 +7,9 @@ export interface Repo {
 
 export interface MemberExtra {
   name: string
-  bio: string
-  twitter: string
+  bio: string | null
+  twitter: string | null
+  blog: string | null
 }
 
 export interface Member extends MemberExtra {
