@@ -8,9 +8,14 @@
           </NuxtLink>
           <div>
             <NuxtLink href="/">
-              <h1 font-bold sm:text-xl>
-                Uni Helper
-              </h1>
+              <div font-bold sm:text-xl>
+                <h1 v-if="$route.path === '/'">
+                  Uni Helper
+                </h1>
+                <div v-else>
+                  Uni Helper
+                </div>
+              </div>
             </NuxtLink>
             <p flex items-center gap-2 text-3 md:text-4>
               <span>旨在增强 uni-app 系列产品的开发体验</span>
