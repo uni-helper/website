@@ -8,6 +8,12 @@ useHead({
     lang: 'zh-CN',
     dir: 'ltr',
   },
+  meta: [
+    {
+      name: 'google-site-verification',
+      content: 'hqPb74AFcL3IXb7yqjOcOY9v6MJkevvVm-IUSFc9GOk',
+    },
+  ],
 })
 </script>
 
