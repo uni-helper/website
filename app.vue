@@ -13,6 +13,10 @@ useHead({
       name: 'google-site-verification',
       content: 'hqPb74AFcL3IXb7yqjOcOY9v6MJkevvVm-IUSFc9GOk',
     },
+    {
+      name: 'baidu-site-verification',
+      content: 'codeva-VK6wM2Jf0b',
+    },
   ],
 })
 </script>
