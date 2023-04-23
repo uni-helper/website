@@ -19,6 +19,7 @@
     "@unocss/eslint-config": "^0.51.6",
     "@unocss/nuxt": "^0.51.6",
     "eslint": "^8.39.0",
-    "nuxt": "^3.4.2"
+    "nuxt": "^3.4.2",
+    "nuxt-simple-sitemap": "^2.4.11"
   }
 }

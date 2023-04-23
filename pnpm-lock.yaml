@@ -28,6 +28,9 @@ devDependencies:
   nuxt:
     specifier: ^3.4.2
     version: 3.4.2(@types/node@18.15.13)(eslint@8.39.0)(typescript@5.0.4)
+  nuxt-simple-sitemap:
+    specifier: ^2.4.11
+    version: 2.4.11
 
 packages:
 
@@ -842,6 +845,33 @@ packages:
     resolution: {integrity: sha512-YBI/6o2EBz02tdEJRBK8xkt3zvOFOWlLBf7WKYGBsSYSRtjjgrqPe2skp6VLLmKx5WbHHDNcW+6oACaurxGzeA==}
     dev: true
 
+  /@nuxt/kit@3.4.0:
+    resolution: {integrity: sha512-CBS1wyyGnXpmzIDINnL96WPLvTjf2IQXrgz/hSKTUWra9h/iO/crLjqcuJWpIIMS420qiRoTnHDFALAXY8ktsw==}
+    engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
+    dependencies:
+      '@nuxt/schema': 3.4.0
+      c12: 1.4.1
+      consola: 3.1.0
+      defu: 6.1.2
+      globby: 13.1.4
+      hash-sum: 2.0.0
+      ignore: 5.2.4
+      jiti: 1.18.2
+      knitwork: 1.0.0
+      lodash.template: 4.5.0
+      mlly: 1.2.0
+      pathe: 1.1.0
+      pkg-types: 1.0.2
+      scule: 1.0.0
+      semver: 7.5.0
+      unctx: 2.3.0
+      unimport: 3.0.6(rollup@3.20.7)
+      untyped: 1.3.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /@nuxt/kit@3.4.2:
     resolution: {integrity: sha512-bFUpkyG2ZF6RYqiW+tXnWssccHQQqMF4kZJJLP/0eKXf+Fkt/Is0R7IY768jy8ylnyqeMBbmpg4Zv5gSZjfZQw==}
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
@@ -862,6 +892,28 @@ packages:
       scule: 1.0.0
       semver: 7.5.0
       unctx: 2.3.0
+      unimport: 3.0.6(rollup@3.20.7)
+      untyped: 1.3.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
+  /@nuxt/schema@3.4.0:
+    resolution: {integrity: sha512-i04UuprxtMaBK1qCaAupJEIkUUJDt6vyMpBTJ0aajAxehL6O6xV3xqHB5iqDBmtOWlsRL8vGM+M/E/5E+lKuPg==}
+    engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
+    dependencies:
+      c12: 1.4.1
+      create-require: 1.1.1
+      defu: 6.1.2
+      hookable: 5.5.3
+      jiti: 1.18.2
+      pathe: 1.1.0
+      pkg-types: 1.0.2
+      postcss-import-resolver: 2.0.0
+      scule: 1.0.0
+      std-env: 3.3.2
+      ufo: 1.1.1
       unimport: 3.0.6(rollup@3.20.7)
       untyped: 1.3.2
     transitivePeerDependencies:
@@ -5008,6 +5060,23 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /nuxt-simple-sitemap@2.4.11:
+    resolution: {integrity: sha512-GQLFJ/0WoH5zNTd91mBxq+zT96YFZt71dHxo40M+aCZIQbQE4ikYoXEyOa3K9H+kS/MXLVoHzWAriEemS12jiQ==}
+    dependencies:
+      '@nuxt/kit': 3.4.0
+      chalk: 5.2.0
+      defu: 6.1.2
+      escape-string-regexp: 5.0.0
+      globby: 13.1.4
+      knitwork: 1.0.0
+      pathe: 1.1.0
+      radix3: 1.0.1
+      ufo: 1.1.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /nuxt@3.4.2(@types/node@18.15.13)(eslint@8.39.0)(typescript@5.0.4):
