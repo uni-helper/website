@@ -14,12 +14,15 @@ const { data: members } = await useFetch<Member[]>(
     },
   },
 )
-if (members.value) {
-  members.value?.forEach(async (member) => {
-    const extra = await getExtraInfo(member.username)
-    Object.assign(member, extra)
-  })
-}
+
+watch(members, () => {
+  if (members.value) {
+    members.value?.forEach(async (member) => {
+      const extra = await getExtraInfo(member.username)
+      Object.assign(member, extra)
+    })
+  }
+})
 
 async function getExtraInfo(username: string) {
   const { data } = await useFetch<MemberExtra>(

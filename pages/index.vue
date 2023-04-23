@@ -2,31 +2,11 @@
 import type { Repo } from '~/types'
 
 const searchVal = ref('')
-const hiddenRepos = new Set([
-  '.github',
-  'uni-helper.github.io',
-  'discussions',
-  'website',
-  'renovate-config',
-])
 
-const { data: repos } = await useFetch<Repo[]>(
-  'https://ungh.cc/orgs/uni-helper/repos',
-  {
-    transform: (res: any) => {
-      return res.repos
-        .filter((repo: any) => !hiddenRepos.has(repo.name))
-        .sort((a: any, b: any) => b.stars - a.stars)
-    },
-  },
-)
+const { data: repos } = await useFetch<Repo[]>('/api/repos')
 
-function filterSearch(repos: Repo[] | null) {
-  if (!repos)
-    return []
-  return repos.filter((repo: any) =>
-    repo.name.toLowerCase().includes(searchVal.value.toLowerCase()),
-  )
+function filterSearch(repos: any) {
+  return repos?.filter((repo: any) => repo.name.toLowerCase().includes(searchVal.value.toLowerCase()))
 }
 
 useSeoMeta({
@@ -45,6 +25,8 @@ useSeoMeta({
     <div grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
       <ProjectCard v-for="repo in filterSearch(repos)" :key="repo.id" :repo="repo" />
     </div>
-    <TeamMember />
+    <ClientOnly>
+      <TeamMember />
+    </ClientOnly>
   </div>
 </template>
