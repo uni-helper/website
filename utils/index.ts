@@ -15,7 +15,7 @@ export function createSeoMetaInput(repo: Repo) {
     ogDescription: repo.description,
   }
   if (hardCodeMeta) {
-    if (Artay.isArray(hardCodeMeta.keywords))
+    if (Array.isArray(hardCodeMeta.keywords))
       hardCodeMeta.keywords = hardCodeMeta.keywords.join(',')
 
     return {
