@@ -11,15 +11,15 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.5",
+    "@antfu/eslint-config": "^0.38.6",
     "@iconify-json/carbon": "^1.1.16",
-    "@iconify-json/mdi": "^1.1.50",
+    "@iconify-json/mdi": "^1.1.51",
     "@iconify-json/ri": "^1.1.8",
     "@nuxtjs/color-mode": "^3.2.0",
-    "@unocss/eslint-config": "^0.51.6",
-    "@unocss/nuxt": "^0.51.6",
-    "eslint": "^8.39.0",
-    "nuxt": "^3.4.2",
-    "nuxt-simple-sitemap": "^2.4.11"
+    "@unocss/eslint-config": "^0.51.12",
+    "@unocss/nuxt": "^0.51.12",
+    "eslint": "^8.40.0",
+    "nuxt": "^3.4.3",
+    "nuxt-simple-sitemap": "^2.5.0"
   }
 }
