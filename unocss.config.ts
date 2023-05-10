@@ -26,7 +26,13 @@ export default defineConfig({
     }),
 
     presetAttributify(),
-    presetTypography(),
+    presetTypography({
+      cssExtend: {
+        img: {
+          display: 'inline',
+        },
+      },
+    }),
   ],
   transformers: [transformerDirectives()],
 })
