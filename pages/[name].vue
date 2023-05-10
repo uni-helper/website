@@ -30,8 +30,13 @@ useSeoMeta(seoMeta.value)
 
 const readmeRender = computed(() => {
   return readme.value?.html.replace(
-    /src="\./g,
-    `src="https://raw.githubusercontent.com/${repo.value?.repo}/main/.`,
+    /((?:src)|(?:href))="(?!http|#)\.?\/?([^"]*)"/gm,
+    (_: string, $1: string, $2: string) => {
+      if ($1 === 'src')
+        return `${$1}="https://raw.githubusercontent.com/${repo.value?.repo}/main/${$2}"`
+
+      return `${$1}="https://github.com/${repo.value?.repo}/blob/main/${$2}"`
+    },
   )
 })
 </script>
