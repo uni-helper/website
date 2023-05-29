@@ -15,7 +15,7 @@
     "@iconify-json/carbon": "^1.1.16",
     "@iconify-json/mdi": "^1.1.52",
     "@iconify-json/ri": "^1.1.9",
-    "@nuxthq/ui": "^2.2.1",
+    "@nuxtjs/color-mode": "^3.2.0",
     "@unocss/eslint-config": "^0.52.4",
     "@unocss/nuxt": "^0.52.4",
     "eslint": "^8.41.0",
