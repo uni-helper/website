@@ -25,11 +25,13 @@ function filterSearch(repos: any) {
 </script>
 
 <template>
-  <UInput v-model="searchVal" class="mb-4" color="primary" placeholder="搜索" size="xl" />
-  <div grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
-    <ProjectCard v-for="repo of filterSearch(repos)" :key="repo.id" :repo="repo" />
+  <div>
+    <UInput v-model="searchVal" class="mb-4" color="primary" placeholder="搜索" size="xl" />
+    <div grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
+      <ProjectCard v-for="repo of filterSearch(repos)" :key="repo.id" :repo="repo" />
+    </div>
+    <ClientOnly>
+      <TeamMember />
+    </ClientOnly>
   </div>
-  <ClientOnly>
-    <TeamMember />
-  </ClientOnly>
 </template>

@@ -28,8 +28,8 @@ const { data: readme } = await useFetch<any>(
 const seoMeta = computed(() => createSeoMetaInput(repo.value))
 useSeoMeta(seoMeta.value)
 
-const readmeRender = computed(() => {
-  return readme.value?.html.replace(
+function renderReadme(html: string) {
+  return html.replace(
     /((?:src)|(?:href))="(?!http|#)\.?\/?([^"]*)"/gm,
     (_: string, $1: string, $2: string) => {
       if ($1 === 'src')
@@ -38,7 +38,7 @@ const readmeRender = computed(() => {
       return `${$1}="https://github.com/${repo.value?.repo}/blob/main/${$2}"`
     },
   )
-})
+}
 </script>
 
 <template>
@@ -54,7 +54,7 @@ const readmeRender = computed(() => {
       {{ formatStarCount(repo?.stars) }}
     </NuxtLink>
     <div mx-auto max-w-full text-base prose prose-truegray dark:prose-invert>
-      <div v-html="readmeRender" />
+      <div v-html="renderReadme(readme.html)" />
     </div>
   </div>
 </template>
