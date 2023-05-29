@@ -26,7 +26,10 @@ function filterSearch(repos: any) {
 
 <template>
   <div>
-    <UInput v-model="searchVal" class="mb-4" color="primary" placeholder="搜索" size="xl" />
+    <input
+      v-model="searchVal" type="text" placeholder="搜索" dark="bg-dark" border="~ gray-200 dark:op-50" mb-4 w-full
+      rounded-md bg-light-100 px-5 py-2 text-xl hover:border-primary outline="none active:none"
+    >
     <div grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
       <ProjectCard v-for="repo of filterSearch(repos)" :key="repo.id" :repo="repo" />
     </div>
