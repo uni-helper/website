@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
-  modules: ['@unocss/nuxt', '@nuxtjs/color-mode', 'nuxt-simple-sitemap'],
+  modules: ['@unocss/nuxt', 'nuxt-simple-sitemap', '@nuxthq/ui'],
   css: ['@unocss/reset/tailwind.css'],
   colorMode: {
     classSuffix: '',
