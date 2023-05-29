@@ -21,6 +21,8 @@ watch(members, () => {
       const extra = await getExtraInfo(member.username)
       Object.assign(member, extra)
     })
+    // random sort
+    members.value.sort(() => Math.random() - 0.5)
   }
 })
 

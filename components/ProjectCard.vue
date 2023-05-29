@@ -6,14 +6,14 @@ defineProps<{ repo: Repo }>()
 
 <template>
   <NuxtLink
-    :to="`/${repo.name}`" class="group transition-all" border p-5 dark:border-dark-200 dark:bg-dark
-    hover:bg-primary hover:bg-opacity-10
+    :to="`/${repo.name}`" class="group rounded-md p-5 transition-all" border="~ solid"
+    hover="border-primary border-op-50 bg-primary bg-op-10" p-5 dark:bg-dark
   >
     <div flex items-center justify-between group-hover:color-primary>
       <h2 text-xl>
         {{ repo.name }}
       </h2>
-      <small flex>
+      <small flex items-center>
         <div i-carbon:star mr-1 />
         {{ formatStarCount(repo.stars) }}
       </small>
