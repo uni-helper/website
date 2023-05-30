@@ -1,5 +1,5 @@
 <template>
-  <header sticky top-0 z-2 border="b dark:dark-200" bg="inherit light-100 dark:dark-800">
+  <header sticky top-0 z-2 border="b dark:dark-200" bg="light-100 dark:dark-800">
     <div flex items-center justify-between p="4 <sm:x-2">
       <div flex items-center>
         <NuxtLink href="/" mr-2 aria-label="Uni Helper Logo">
