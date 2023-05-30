@@ -1,6 +1,6 @@
 <template>
   <header sticky top-0 z-2 border="b dark:dark-200" bg="inherit light-100 dark:dark-800">
-    <div m-auto max-w-140ch flex items-center justify-between p="4 <sm:x-2">
+    <div flex items-center justify-between p="4 <sm:x-2">
       <div flex items-center>
         <NuxtLink href="/" mr-2 aria-label="Uni Helper Logo">
           <div i-app-logo text-8 sm:text-12 />

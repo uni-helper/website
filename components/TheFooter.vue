@@ -1,11 +1,6 @@
 <template>
-  <footer border="t dark:dark-200">
-    <div m-auto max-w-140ch flex items-center justify-between gap-4 p="4 <sm:x-2">
-      <div>
-        <NuxtLink href="https://github.com/orgs/uni-helper/people" target="_blank" hover:color-primary>
-          &copy;Uni Helper Team
-        </NuxtLink>
-      </div>
+  <footer border="t dark:dark-200" color-gray>
+    <div flex="~ col" items-center gap-2 p="4 <sm:x-2">
       <div flex items-center gap-4>
         <NuxtLink
           href="https://qm.qq.com/cgi-bin/qm/qr?k=hZdEls2BYb9ZPIaXBxZoNnVwthtJKvcP&jump_from=webapi&authKey=X2GTdlKc1MHuTraaQ3q7TXTOwYo0R0cMoU6B9/OKkBTjLckze7u5BR5NlrnHjTss"
@@ -24,6 +19,12 @@
           hover:color-primary
         >
           <div i-carbon:logo-github />
+        </NuxtLink>
+      </div>
+
+      <div>
+        <NuxtLink href="https://github.com/orgs/uni-helper/people" target="_blank" hover:color-primary>
+          Copyright &copy; PRESENT Uni Helper Team
         </NuxtLink>
       </div>
     </div>
