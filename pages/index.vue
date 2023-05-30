@@ -19,20 +19,29 @@ const { data: repos } = await useFetch<Repo[]>('https://ungh.cc/orgs/uni-helper/
   },
 })
 
-function filterSearch(repos: any) {
-  return repos?.filter((repo: any) => repo.name.toLowerCase().includes(searchVal.value.toLowerCase()))
-}
+const repoList = computed(() => repos.value?.filter((repo: any) => repo.name.toLowerCase().includes(searchVal.value.toLowerCase())) || [])
 </script>
 
 <template>
   <div>
-    <input
-      v-model="searchVal" type="text" placeholder="搜索" dark="bg-dark" border="~ gray-200 dark:op-50" mb-4 w-full
-      rounded-md bg-light-100 px-5 py-2 text-xl hover:border-primary outline="none active:none"
+    <div
+      class="mb-4 flex items-center gap-2 overflow-hidden rounded-md pl-4 text-xl" border="~ gray-200 dark:gray-700/60"
+      hover="border-primary dark:border-primary/60 transition-all" dark="bg-dark"
     >
-    <div grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
-      <ProjectCard v-for="repo of filterSearch(repos)" :key="repo.id" :repo="repo" />
+      <div class="i-carbon-search op-60" />
+      <input
+        v-model="searchVal" type="text" placeholder="快速搜索～"
+        outline="none active:none" w-full bg-light-100 bg-transparent py-2
+      >
     </div>
+    <div grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
+      <ProjectCard v-for="repo of repoList" :key="repo.id" :repo="repo" />
+    </div>
+    <NuxtLink href="https://github.com/uni-helper" target="_blank" aria-label="Contribution">
+      <div v-if="!repoList.length" my-30 text-center text-xl color="gray hover:primary">
+        还没有哦，等待你来添加~
+      </div>
+    </NuxtLink>
     <ClientOnly>
       <TeamMember />
     </ClientOnly>
