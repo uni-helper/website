@@ -27,7 +27,7 @@ function filterSearch(repos: any) {
 <template>
   <div>
     <input
-      v-model="searchVal" type="text" placeholder="搜索" dark="bg-dark" border="~ gray-200 dark:op-50" mb-4 w-full
+      v-model="searchVal" type="text" placeholder="搜索" dark="bg-dark" border="~ gray-200 dark:gray-700" mb-4 w-full
       rounded-md bg-light-100 px-5 py-2 text-xl hover:border-primary outline="none active:none"
     >
     <div grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
