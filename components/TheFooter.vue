@@ -1,6 +1,6 @@
 <template>
   <footer border="t dark:dark-200">
-    <div m-auto max-w-140ch flex items-center justify-between gap-4 p="y-4 <sm:p-3">
+    <div m-auto max-w-140ch flex items-center justify-between gap-4 p="4 <sm:x-2">
       <div>
         <NuxtLink href="https://github.com/orgs/uni-helper/people" target="_blank" hover:color-primary>
           &copy;Uni Helper Team
