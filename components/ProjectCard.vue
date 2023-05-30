@@ -7,7 +7,7 @@ defineProps<{ repo: Repo }>()
 <template>
   <NuxtLink
     :to="`/${repo.name}`" border="~ gray-200 dark:gray-700"
-    hover="border-primary bg-primary/10" group rounded-md p-5 transition-all dark:bg-dark
+    hover="border-primary dark:border-primary bg-primary/10" group rounded-md p-5 transition-all dark:bg-dark
   >
     <div flex items-center justify-between group-hover:color-primary>
       <h2 text-xl>
