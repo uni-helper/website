@@ -19,9 +19,7 @@ const { data: repos } = await useFetch<Repo[]>('https://ungh.cc/orgs/uni-helper/
   },
 })
 
-function filterSearch(repos: any) {
-  return repos?.filter((repo: any) => repo.name.toLowerCase().includes(searchVal.value.toLowerCase()))
-}
+const repoList = computed(() => repos.value?.filter((repo: any) => repo.name.toLowerCase().includes(searchVal.value.toLowerCase())) || [])
 </script>
 
 <template>
@@ -31,8 +29,15 @@ function filterSearch(repos: any) {
       rounded-md bg-light-100 px-5 py-2 text-xl hover:border-primary outline="none active:none"
     >
     <div grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4>
-      <ProjectCard v-for="repo of filterSearch(repos)" :key="repo.id" :repo="repo" />
+      <ProjectCard v-for="repo of repoList" :key="repo.id" :repo="repo" />
     </div>
+    <NuxtLink
+      href="https://github.com/uni-helper" target="_blank" aria-label="Contribution"
+    >
+      <div v-if="!repoList.length" my-30 text-center text-xl color="gray hover:primary">
+        还没有哦，等待你来添加~
+      </div>
+    </NuxtLink>
     <ClientOnly>
       <TeamMember />
     </ClientOnly>
