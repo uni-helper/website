@@ -1,7 +1,7 @@
 <template>
   <div min-h-screen flex flex-col>
     <header sticky top-0 z-2 border-b bg-inherit bg-light-100 dark:border-dark-200 dark:bg-dark-800>
-      <div mx-auto flex items-center justify-between py-2 container sm:py-4 class="<sm:p-3">
+      <div class="<sm:p-3" m-auto mx-auto max-w-140ch flex items-center justify-between py-2 sm:py-4>
         <div flex items-center>
           <NuxtLink href="/" mr-2 aria-label="Uni Helper Logo">
             <div i-app-logo text-8 sm:text-12 />
@@ -30,14 +30,14 @@
         </div>
       </div>
     </header>
-    <main class="<sm:p-3" mx-auto flex-1 container>
+    <main class="<sm:p-3" m-auto mx-auto max-w-140ch flex-1 px-10>
       <NuxtLoadingIndicator />
       <div py-2 sm:py-8>
         <slot />
       </div>
     </main>
     <footer border-t py-4 dark:border-dark-200>
-      <div mx-auto flex items-center justify-between gap-4 container class="<sm:p-3">
+      <div m-auto max-w-140ch flex items-center justify-between gap-4 class="<sm:p-3">
         <div>
           <NuxtLink href="https://github.com/orgs/uni-helper/people" target="_blank" hover:color-primary>
             &copy;Uni Helper Team
