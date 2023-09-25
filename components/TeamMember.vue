@@ -31,6 +31,7 @@ async function getExtraInfo(username: string) {
     `https://api.github.com/users/${username}`,
     {
       transform: (res: any) => ({
+        login: res.login,
         name: res.name,
         twitter: res.twitter_username,
         bio: res.bio,

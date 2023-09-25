@@ -10,6 +10,7 @@ export interface MemberExtra {
   bio: string | null
   twitter: string | null
   blog: string | null
+  login: string | null
 }
 
 export interface Member extends MemberExtra {
