@@ -8,10 +8,10 @@ defineProps<{ member: Member }>()
   <div text-center>
     <img
       loading="lazy" width="100" height="100" m-auto h-25 min-h-25 min-w-25 w-25 rounded-full :src="member.avatar"
-      :alt="member.name"
+      :alt="member.name ?? member.login"
     >
     <div mb-1 mt-2 text-xl>
-      {{ member.name }}
+      {{ member.name ?? member.login }}
     </div>
     <div h-50px op60>
       {{ member.bio ?? '这个人很懒，什么都没留下' }}
