@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
-  modules: ['@unocss/nuxt', 'nuxt-simple-sitemap', '@nuxtjs/color-mode'],
+  modules: ['@unocss/nuxt', 'nuxt-simple-sitemap', '@nuxtjs/color-mode', 'nuxt-gtag'],
   css: ['@unocss/reset/tailwind.css'],
   colorMode: {
     classSuffix: '',
@@ -13,5 +13,8 @@ export default defineNuxtConfig({
   },
   sitemap: {
     siteUrl: 'https://uni-helper.js.org',
+  },
+  gtag: {
+    id: 'G-249B95M763',
   },
 })
