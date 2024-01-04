@@ -27,6 +27,12 @@
           Copyright &copy; PRESENT Uni Helper Team
         </NuxtLink>
       </div>
+
+      <div flex items-center>
+        <NuxtLink href="https://www.netlify.com">
+          <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify">
+        </NuxtLink>
+      </div>
     </div>
   </footer>
 </template>
