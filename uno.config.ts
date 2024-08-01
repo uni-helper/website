@@ -21,8 +21,7 @@ export default defineConfig({
       scale: 1.2,
       collections: {
         app: FileSystemIconLoader('./assets/icons', (svg: string) =>
-          svg.replaceAll(/#fff/g, 'currentColor'),
-        ),
+          svg.replaceAll(/#fff/g, 'currentColor')),
       },
     }),
 
