@@ -1,4 +1,4 @@
-import type { UseSeoMetaInput } from 'unhead'
+import type { UseSeoMetaInput } from '@unhead/schema'
 
 export const siteName = 'Uni Helper'
 export const siteSlogan = '旨在增强 uni-app 系列产品的开发体验'
@@ -13,7 +13,7 @@ export const siteOgType = 'website'
 export const baiduSiteVerification = 'codeva-VK6wM2Jf0b'
 export const googleSiteVerification = 'hqPb74AFcL3IXb7yqjOcOY9v6MJkevvVm-IUSFc9GOk'
 
-interface SeoMeta extends UseSeoMetaInput {
+interface SeoMeta extends Omit<UseSeoMetaInput, 'keywords'> {
   keywords?: string[]
 }
 
