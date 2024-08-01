@@ -1,4 +1,4 @@
-import type { UseSeoMetaInput } from 'unhead'
+import type { UseSeoMetaInput } from '@unhead/schema'
 import { repos, siteName } from '~/data/meta'
 import type { Repo } from '~/types'
 
