@@ -30,7 +30,7 @@ useSeoMeta(seoMeta.value)
 
 function renderReadme(html: string) {
   return html.replace(
-    /((?:src)|(?:href))="(?!http|#)\.?\/?([^"]*)"/gm,
+    /(src|href)="(?!http|#)\.?\/?([^"]*)"/g,
     (_: string, $1: string, $2: string) => {
       if ($1 === 'src')
         return `${$1}="https://raw.githubusercontent.com/${repo.value?.repo}/main/${$2}"`
