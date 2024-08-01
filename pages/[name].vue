@@ -28,8 +28,10 @@ const { data: readme } = await useFetch<any>(
 const seoMeta = computed(() => createSeoMetaInput(repo.value))
 useSeoMeta(seoMeta.value)
 
-function renderReadme(html: string) {
-  return html.replace(
+function renderReadme() {
+  if (!readme.value?.html)
+    return '这个仓库没有说明哦~'
+  return readme.value.html.replace(
     /(src|href)="(?!http|#)\.?\/?([^"]*)"/g,
     (_: string, $1: string, $2: string) => {
       if ($1 === 'src')
@@ -54,7 +56,7 @@ function renderReadme(html: string) {
       {{ formatStarCount(repo?.stars) }}
     </NuxtLink>
     <div mx-auto max-w-full text-base prose prose-truegray dark:prose-invert>
-      <div v-html="renderReadme(readme.html)" />
+      <div v-html="renderReadme()" />
     </div>
   </div>
 </template>
