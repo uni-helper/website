@@ -55,22 +55,24 @@ function handleAnchorClick(key: string) {
           class="project-grid py-2 max-w-500 w-max mx-auto"
           grid="~ cols-1 md:cols-2 gap-4 lg:cols-3"
         >
-          <a
+          <NuxtLink
             v-for="item, idx in projects[key]"
             :key="idx"
             class="item relative flex items-center"
-            :href="`projects/${item.name}`"
-            target="_blank"
+            :to="`${item.name}`"
+            target=""
             :title="item.name"
           >
             <div v-if="item.icon" class="pt-2 pr-5">
               <div class="text-3xl opacity-50" :class="item.icon" />
             </div>
             <div class="flex-auto">
-              <div class="text-normal">{{ item.name }}</div>
+              <div class="text-normal">
+                {{ item.name }}
+              </div>
               <div class="desc text-sm opacity-50 font-normal" v-html="item.desc" />
             </div>
-          </a>
+          </NuxtLink>
         </div>
       </div>
       <div class="pb5 mt10 text-center flex items-center justify-end">
