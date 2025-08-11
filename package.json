@@ -45,6 +45,18 @@
     "unocss-preset-animations": "^1.2.1",
     "unocss-preset-shadcn": "^0.5.0"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ],
+    "ignoredBuiltDependencies": [
+      "@parcel/watcher",
+      "@tailwindcss/oxide",
+      "esbuild",
+      "unrs-resolver",
+      "vue-demi"
+    ]
+  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },

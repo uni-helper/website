@@ -15,7 +15,7 @@ const md = `
 ::code-group{${inStack ? 'in-stack' : ''} ${noSync ? '' : `sync="${sync}"`}}
 ${
   usePm().packageManagers.value.map((pm) => {
-    const code = `${pm.name} create ${name}@latest`
+    const code = `${pm.name} create ${name}`
     return `\`\`\`bash [${pm.name}]\n${code}\n\`\`\`\n`
   }).join('\n')
 }
