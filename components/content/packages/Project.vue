@@ -3,7 +3,7 @@ import {
   PATTERN_BACKGROUND_DIRECTION,
   PATTERN_BACKGROUND_SPEED,
   PATTERN_BACKGROUND_VARIANT,
-} from './../../ui/PatternBackgroundFile'
+} from './../../ui/PatternBackgroundFile/index'
 import PatternBackground from './../../ui/PatternBackgroundFile/PatternBackground.vue'
 
 defineProps<{ projects: Record<string, any[]> }>()
