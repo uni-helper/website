@@ -5,12 +5,6 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@unocss/nuxt',
   ],
-  components: [
-    {
-      path: '~/components',
-      pathPrefix: false,
-    },
-  ],
   devtools: { enabled: true },
   css: [
     '@unocss/reset/tailwind.css',

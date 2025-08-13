@@ -22,19 +22,18 @@ const packagesName = [
   'eslint',
 ]
 
-function shuffleArray(array: string[]): string[] {
-  return array.sort(() => Math.random() - 0.5)
-}
+const shuffledPackagesName = ref(packagesName)
 
-// 使用示例
-const shuffledPackagesName = shuffleArray(packagesName)
+onMounted(() => {
+  shuffledPackagesName.value = [...packagesName].sort(() => Math.random() - 0.5)
+})
 </script>
 
 <template>
   <section
     class="relative mx-auto flex min-h-[52rem] max-w-[800px] flex-col items-center justify-center gap-2 py-8 max-sm:min-h-[28rem] lg:py-24 lg:pb-20 md:py-12 md:pb-8"
   >
-    <ParticlesBg
+    <UiParticlesBg
       class="fixed inset-0 z-[-3]"
       :quantity="250"
       :ease="100"
@@ -68,7 +67,7 @@ const shuffledPackagesName = shuffleArray(packagesName)
       class="transition-all duration-300 text-center text-3xl font-bold leading-tight tracking-tighter lg:leading-[1.1] md:text-6xl"
     >
       uni -
-      <FlipWords
+      <UiFlipWords
         :words="shuffledPackagesName"
         :duration="3000"
       />

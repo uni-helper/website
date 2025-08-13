@@ -1,6 +1,3 @@
 title: vitesse-uni-app
 navigation.redirect: /vitesse-uni-app/getting-started/introduction
-
-sidebar:
-  style: group
 collapse: false

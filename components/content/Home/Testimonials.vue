@@ -68,7 +68,7 @@ const firstRow = ref(reviews)
           开始构建现代化的 Uni App 😄
         </p>
         <NuxtLink to="/packages">
-          <InteractiveHoverButton
+          <UiInteractiveHoverButton
             text="进入"
           />
         </NuxtLink>
@@ -76,12 +76,12 @@ const firstRow = ref(reviews)
 
       <!-- Tilted Marquees -->
       <div class="absolute inset-0 overflow-hidden">
-        <Marquee
+        <UiMarquee
           :style="{ transform: 'translateY(-11.5rem) rotate(-16deg)' }"
           class="marquee"
           :pause-on-hover="false"
         >
-          <ReviewCard
+          <UiReviewCard
             v-for="review in firstRow"
             :key="review.username"
             :img="review.img"
@@ -89,15 +89,15 @@ const firstRow = ref(reviews)
             :username="review.username"
             :body="review.body"
           />
-        </Marquee>
+        </UiMarquee>
 
-        <Marquee
+        <UiMarquee
           :style="{ transform: 'translateY(1rem) rotate(-16deg)' }"
           reverse
           class="marquee"
           :pause-on-hover="false"
         >
-          <ReviewCard
+          <UiReviewCard
             v-for="review in firstRow"
             :key="review.username"
             :img="review.img"
@@ -105,14 +105,14 @@ const firstRow = ref(reviews)
             :username="review.username"
             :body="review.body"
           />
-        </Marquee>
+        </UiMarquee>
 
-        <Marquee
+        <UiMarquee
           :style="{ transform: 'translateY(13.5rem) rotate(-16deg)' }"
           class="marquee"
           :pause-on-hover="false"
         >
-          <ReviewCard
+          <UiReviewCard
             v-for="review in firstRow"
             :key="review.username"
             :img="review.img"
@@ -120,15 +120,15 @@ const firstRow = ref(reviews)
             :username="review.username"
             :body="review.body"
           />
-        </Marquee>
+        </UiMarquee>
 
-        <Marquee
+        <UiMarquee
           :style="{ transform: 'translateY(26rem) rotate(-16deg)' }"
           reverse
           class="marquee"
           :pause-on-hover="false"
         >
-          <ReviewCard
+          <UiReviewCard
             v-for="review in firstRow"
             :key="review.username"
             :img="review.img"
@@ -136,7 +136,7 @@ const firstRow = ref(reviews)
             :username="review.username"
             :body="review.body"
           />
-        </Marquee>
+        </UiMarquee>
       </div>
 
       <!-- Gradient overlay to fade to white at the bottom -->

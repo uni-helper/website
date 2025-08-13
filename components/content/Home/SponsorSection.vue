@@ -3,7 +3,7 @@
 
 <template>
   <div class="m-4 mt-20 text-md flex flex-col items-center">
-    <SparklesText
+    <UiSparklesText
       text="免费 &amp; 开源"
       :colors="{ first: '#9E7AFF', second: '#FE8BBB' }"
       :sparkles-count="10"
@@ -19,8 +19,8 @@
     </div>
   </div>
   <div class="sponsor-btn">
-    <RainbowButton>
+    <UiRainbowButton>
       成为赞助商 <span class="text-red-500 ml-1">♥️</span>
-    </RainbowButton>
+    </UiRainbowButton>
   </div>
 </template>
