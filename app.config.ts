@@ -44,7 +44,7 @@ export default defineAppConfig({
       }],
     },
     toc: {
-      enable: false,
+      title: '本页目录',
     },
     search: {
       enable: true,
