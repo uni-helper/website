@@ -50,6 +50,23 @@ export default defineAppConfig({
     },
     toc: {
       title: '本页目录',
+      iconLinks: [
+        {
+          icon: 'lucide:coffee',
+          to: 'https://github.com/ModyQyW/sponsors',
+          target: '_blank',
+        },
+        {
+          icon: 'ic:baseline-wechat',
+          to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx',
+          target: '_blank',
+        },
+        {
+          icon: 'mdi:qqchat',
+          to: 'https://qm.qq.com/q/5nPFSqa8Eg',
+          target: '_blank',
+        },
+      ],
     },
     search: {
       enable: true,
