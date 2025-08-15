@@ -16,10 +16,10 @@ export default defineAppConfig({
       languageSwitcher: {
         enable: false,
       },
-      // logo: {
-      //   light: '/logo.svg',
-      //   dark: '/logo-dark.svg',
-      // },
+      logo: {
+        light: '/logo.svg',
+        dark: '/logo-dark.svg',
+      },
       nav: [],
       links: [{
         icon: 'lucide:github',
@@ -67,6 +67,9 @@ export default defineAppConfig({
           target: '_blank',
         },
       ],
+      carbonAds: {
+        enable: true,
+      },
     },
     search: {
       enable: true,
