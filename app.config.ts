@@ -34,6 +34,11 @@ export default defineAppConfig({
     main: {
       breadCrumb: true,
       showTitle: true,
+      editLink: {
+        enable: true,
+        text: '在 GitHub 上编辑此页',
+        pattern: 'https://github.com/uni-helper/website/edit/main/content/:path',
+      },
     },
     footer: {
       credits: 'Copyright © 2024',

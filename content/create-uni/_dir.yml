@@ -15,3 +15,22 @@ toc:
     - icon: lucide:coffee
       to: https://afdian.com/a/flippedround
       target: _blank
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/create-uni
+    target: _blank
+  - value: Source
+    icon: lucide:code
+    to: https://github.com/uni-helper/create-uni
+    target: _blank
+  - value: 赞助
+    icon: lucide:coffee
+    to: https://afdian.com/a/flippedround
+    target: _blank
+
+authors:
+  - name: FliPPedDround
+    username: Flippedround
+    avatar: https://www.github.com/fliPPedround.png
+    to: https://github.com/Flippedround
+    target: _blank
