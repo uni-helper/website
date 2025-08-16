@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.0.0",
+    "@iconify-json/ant-design": "^1.2.5",
+    "@iconify-json/arcticons": "^1.2.33",
     "@iconify-json/carbon": "^1.2.11",
     "@iconify-json/codicon": "^1.2.25",
     "@iconify-json/hugeicons": "^1.2.6",

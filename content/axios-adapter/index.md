@@ -1,18 +1,38 @@
-# @uni-helper/axios-adapter
+---
+title: axios-adapter
+description: 适用于 Vue2 和 Vue3 的 uniapp Axios 适配器
+navTruncate: false
+icon: i-simple-icons:axios
 
-> 适用于 Vue2 和 Vue3 的 uniapp Axios 适配器
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/axios-adapter
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/axios-adapter
+    target: _blank
+  - value: 赞助
+    icon: lucide:coffee
+    to: https://afdian.com/a/kejun
+    target: _blank
+---
+
+::alert{to="/uni-network/guide/introduction" target="_blank" icon="lucide:test-tube"}
+  在uni-app中，`uni-network`是一个体积性能更好的替代品
+::
 
 ## 安装
 
-```
-pnpm i @uni-helper/axios-adapter axios
-```
+:pm-install{name="@uni-helper/axios-adapter axios"}
 
 ## 使用
 
-<details>
-<summary>点击查看平台兼容性</summary>
+::collapsible
+#title
+点击查看平台兼容性
 
+#content
 | Vue2 | Vue3 |
 | ---- | ---- |
 | √    | √    |
@@ -29,13 +49,13 @@ pnpm i @uni-helper/axios-adapter axios
 | --------- | --------------- | ------------------- | ------------------ | ------ | --- | ---- | ------- | --------- |
 | √         | √               | √                   | √                  | √      | √   | √    | √       | √         |
 
-</details>
+::
 
 ### 基本用法
 
 ```ts
-import axios from 'axios'
 import { createUniAppAxiosAdapter } from '@uni-helper/axios-adapter'
+import axios from 'axios'
 
 axios.defaults.adapter = createUniAppAxiosAdapter()
 ```
@@ -43,8 +63,8 @@ axios.defaults.adapter = createUniAppAxiosAdapter()
 或者创建自定义实例
 
 ```ts
-import axios from 'axios'
 import { createUniAppAxiosAdapter } from '@uni-helper/axios-adapter'
+import axios from 'axios'
 
 const instance = axios.create({ adapter: createUniAppAxiosAdapter() })
 ```
@@ -52,8 +72,8 @@ const instance = axios.create({ adapter: createUniAppAxiosAdapter() })
 ### 与 [useAxios](https://vueuse.org/integrations/useAxios/) 一起使用
 
 ```ts
-import axios from 'axios'
 import { createUniAppAxiosAdapter } from '@uni-helper/axios-adapter'
+import axios from 'axios'
 
 axios.defaults.adapter = createUniAppAxiosAdapter()
 const { data, isFinished } = useAxios('/posts')
@@ -84,8 +104,11 @@ axios.request({
 
 自 axios 1.4.0 开始，axios 内部已经处理了小程序的兼容性问题
 
-<details>
-<summary>我要使用 `FormData` 和 `Blob` 对象</summary>
+::collapsible
+#title
+我要使用 `FormData` 和 `Blob` 对象
+
+#content
 
 小程序没有 `FormData` 和 `Blob` 对象，
 使用 `pnpm add miniprogram-formdata miniprogram-blob` 来安装对应的 polyfill，然后使用插件
@@ -102,7 +125,7 @@ export default {
 
 如果你使用的是 Vue CLI，改用 `@uni-helper/axios-adapter/webpack` 即可
 
-</details>
+::
 
 ### 版本
 

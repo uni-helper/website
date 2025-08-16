@@ -1,13 +1,13 @@
-title: create-uni
-navigation.redirect: /create-uni/core
+title: axios-adapter
 collapse: false
+showTitle: false
 toc:
   links:
     - title: 点亮星星
       icon: lucide:star
-      to: 'https://github.com/uni-helper/create-uni'
+      to: 'https://github.com/uni-helper/axios-adapter'
       target: _blank
     - title: 反馈问题
       icon: lucide:github
-      to: 'https://github.com/uni-helper/create-uni/issues'
+      to: 'https://github.com/uni-helper/axios-adapter/issues'
       target: _blank

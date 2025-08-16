@@ -1,7 +1,24 @@
-# @uni-helper/plugin-uni
-为 uni-app 提供的 原生 ESM Vite 插件，让你在 ESM-First 环境中零成本接入 uni-app 构建体系。
+---
+title: plugin-uni
+description: 为 uni-app 提供的 原生 ESM Vite 插件，让你在 ESM-First 环境中零成本接入 uni-app 构建体系。
+navTruncate: false
+icon: lucide:rocket
 
-> [!TIP]
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/plugin-uni
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/plugin-uni
+    target: _blank
+  - value: 赞助
+    icon: lucide:coffee
+    to: https://afdian.com/a/flippedround
+    target: _blank
+---
+
+::alert{icon="lucide:info"}
 > - 零运行时影响
 >
 >   本包仅为 ESM 重导出，无额外逻辑，因此不会增加构建耗时或引入潜在缺陷。
@@ -15,6 +32,7 @@
 > - 维护计划
 >
 >   将持续跟进官方 ESM 支持进度；一旦官方提供原生 ESM 版本，本项目将归档并停止维护。
+::
 
 ## ✨ 亮点
 
@@ -27,15 +45,16 @@
 
 ## 📦 安装
 
-```shell
-npm i -D @uni-helper/plugin-uni
-```
+::stack
+::alert
+ 请确保已安装官方插件 `@dcloudio/vite-plugin-uni`，否则本插件将无法正常工作。
+::
 
-> [!IMPORTANT]
-> 请确保已安装官方插件 `@dcloudio/vite-plugin-uni`，否则本插件将无法正常工作。
+:pm-install{name="-D @uni-helper/plugin-uni"}
+::
 
 ## 🔧 使用
-```json
+```json [package.json]
 {
   "type": "module",
   "devDependencies": {
@@ -45,7 +64,7 @@ npm i -D @uni-helper/plugin-uni
 }
 ```
 
-```ts
+```ts [vite.config.ts]
 import Uni from '@uni-helper/plugin-uni'
 // vite.config.ts
 import { defineConfig } from 'vite'
@@ -61,11 +80,3 @@ export default defineConfig({
 1. 本包仅做 ESM 重导出[CJS→ESM 兼容性语法糖](https://nodejs.org/api/esm.html#interoperability-with-commonjs)，不携带任何运行时逻辑。
 2. 通过 peerDependencies 复用用户项目中的 @dcloudio/vite-plugin-uni，确保版本由用户掌控。
 3. 手动导出`d.ts`文件，确保类型与官方插件一致。
-
-## 🙇🏻‍♂️ [赞助](https://afdian.com/a/flippedround)
-
-<p align="center">
-  <a href="https://afdian.com/a/flippedround">
-    <img alt="sponsors" src="https://cdn.jsdelivr.net/gh/FliPPeDround/sponsors/sponsorkit/sponsors.svg"/>
-  </a>
-</p>

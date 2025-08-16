@@ -1,34 +1,46 @@
-# @uni-helper/vite-plugin-uni-pages
+---
+title: vite-plugin-uni-pages
+description: 在 Vite 驱动的 uni-app 上使用基于文件的路由系统。
+navTruncate: false
+icon: i-lucide:file-scan
 
-在 Vite 驱动的 uni-app 上使用基于文件的路由系统。
-
-<a href="https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-pages"><img src="https://img.shields.io/npm/v/@uni-helper/vite-plugin-uni-pages" alt="NPM version"></a></p>
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-pages
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/vite-plugin-uni-pages
+    target: _blank
+  - value: 赞助
+    icon: lucide:coffee
+    to: https://afdian.com/a/kejun
+    target: _blank
+---
 
 ## Packages
 
-- [vite-plugin-uni-pages](./packages/core/)
+- [vite-plugin-uni-pages](https://github.com/uni-helper/vite-plugin-uni-pages/tree/main/packages/core/)
 
   核心，提供基于文件的路由系统
-- [volar-service-uni-pages](./packages/volar/)
+- [volar-service-uni-pages](https://github.com/uni-helper/vite-plugin-uni-pages/tree/main/packages/volar/)
 
   为 `<route>` 块 提供 IntelliSense
-- [pages-json-schema](./packages/schema/)
+- [pages-json-schema](https://github.com/uni-helper/vite-plugin-uni-pages/tree/main/packages/schema/)
 
   为 uni-app 的 `pages.json` 提供 schema
 
 ## 安装
 
-```bash
-pnpm i -D @uni-helper/vite-plugin-uni-pages
-```
+:pm-install{name="-D @uni-helper/vite-plugin-uni-pages"}
 
 ## 使用
 
-```ts
-// vite.config.ts
-import { defineConfig } from 'vite'
+```ts [vite.config.ts]
 import Uni from '@dcloudio/vite-plugin-uni'
 import UniPages from '@uni-helper/vite-plugin-uni-pages'
+// vite.config.ts
+import { defineConfig } from 'vite'
 
 // It is recommended to put it in front of Uni
 export default defineConfig({
@@ -38,8 +50,7 @@ export default defineConfig({
 
 在 `pages.config.(ts|mts|cts|js|cjs|mjs|json)` 定义全局属性，你可以在文件中使用 `#ifdef H5` 类似语法。
 
-```ts
-// pages.config.ts
+```ts [pages.config.ts]
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
@@ -63,7 +74,7 @@ export default defineUniPages({
 - **解析器支持：** JSON, JSON5, YAML
 - **默认：** JSON5
 
-```html
+```vue [index.vue]
 <!-- index.vue -->
 <!-- 使用 type="home" 属性设置首页 -->
 <route type="home" lang="json">
@@ -142,6 +153,7 @@ export interface Options {
    * 排除的页面，相对于 dir 和 subPackages
    * @default []
    * @example ['**/components/**/*.*']
+   */
    */
   exclude: string[]
 
