@@ -12,10 +12,6 @@ badges:
     icon: lucide:code
     to: https://github.com/uni-helper/vite-plugin-uni-pages
     target: _blank
-  - value: 赞助
-    icon: lucide:coffee
-    to: https://afdian.com/a/kejun
-    target: _blank
 ---
 
 ## Packages

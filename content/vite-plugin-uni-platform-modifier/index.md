@@ -1,20 +1,27 @@
-# vite-plugin-uni-platform-modifier
+---
+title: vite-plugin-uni-platform-modifier
+description: 为属性、指令提供平台修饰符并按需编译
+navTruncate: false
+icon: octicon:diff-modified-16
 
-为属性、指令提供平台修饰符并按需编译
-
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-platform-modifier
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/vite-plugin-uni-platform-modifier
+    target: _blank
+---
 
 ## 安装
-
-```bash
-pnpm i -D @uni-helper/vite-plugin-uni-platform-modifier
-```
+:pm-install{name="-D @uni-helper/vite-plugin-uni-platform-modifier"}
 
 ## 使用
 
 ### 配置
 
-```ts
-// vite.config.ts
+```ts [vite.config.ts]
 import { defineConfig } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 import UniPlatformModifier from '@uni-helper/vite-plugin-uni-platform-modifier'
@@ -25,8 +32,8 @@ export default defineConfig({
 ```
 
 ### 编写代码
-
-```html
+::stack
+```vue [index.vue]
 <button
   v-text="'hello'"
   v-text.h5.mp-weixin="'h5&mp-weixin'"
@@ -37,42 +44,50 @@ export default defineConfig({
 />
 ```
 
-<details>
+::accordion{type=multiple collapsible}
+  ::accordion-item
+  #title
+  > 编译到H5
 
-<summary>编译到H5</summary>
+  #content
+  ```vue
+  <button
+    v-text="'h5&mp-weixin'"
+    class="h5-class"
+    @click="handleH5Click"
+  />
+  ```
+  ::
 
-```html
-<button
-  v-text="'h5&mp-weixin'"
-  class="h5-class"
-  @click="handleH5Click"
-/>
-```
-</details>
-<details>
+  ::accordion-item
+  #title
+  > 编译到微信小程序
 
-<summary>编译到微信小程序</summary>
+  #content
+  ```vue
+  <button
+    v-text="'h5&mp-weixin'"
+    class="default-class"
+    @click="handleDefaultClick"
+  />
+  ```
+  ::
 
-```html
-<button
-  v-text="'h5&mp-weixin'"
-  class="default-class"
-  @click="handleDefaultClick"
-/>
-```
-</details>
-<details>
+  ::accordion-item
+  #title
+  > 编译到其他平台
 
-<summary>编译到其他平台</summary>
-
-```html
-<button
-  v-text="'hello'"
-  class="default-class"
-  @click="handleDefaultClick"
-/>
-```
-</details>
+  #content
+  ```vue
+  <button
+    v-text="'hello'"
+    class="default-class"
+    @click="handleDefaultClick"
+  />
+  ```
+  ::
+::
+::
 
 
 ### 支持的修饰符

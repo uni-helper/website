@@ -1,0 +1,13 @@
+title: plugin-uni-components
+collapse: false
+showTitle: false
+toc:
+  links:
+    - title: 点亮星星
+      icon: lucide:star
+      to: 'https://github.com/uni-helper/vite-plugin-uni-components'
+      target: _blank
+    - title: 反馈问题
+      icon: lucide:github
+      to: 'https://github.com/uni-helper/vite-plugin-uni-components/issues'
+      target: _blank

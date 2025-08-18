@@ -1,0 +1,14 @@
+title: plugin-uni-platform-modifier
+collapse: false
+showTitle: false
+toc:
+  links:
+    - title: 点亮星星
+      icon: lucide:star
+      to: 'https://github.com/uni-helper/vite-plugin-uni-platform-modifier'
+
+      target: _blank
+    - title: 反馈问题
+      icon: lucide:github
+      to: 'https://github.com/uni-helper/vite-plugin-uni-platform-modifier/issues'
+      target: _blank

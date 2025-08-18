@@ -39,9 +39,14 @@ export default defineAppConfig({
         text: '在 GitHub 上编辑此页',
         pattern: 'https://github.com/uni-helper/website/edit/main/content/:path',
       },
+      codeIcon: {
+        'vite.config.ts': 'vscode-icons:file-type-vite',
+        'vite.config.js': 'vscode-icons:file-type-vite',
+        'uno.config.ts': 'vscode-icons:file-type-unocss',
+      },
     },
     footer: {
-      credits: 'Copyright © 2024',
+      credits: 'This site is powered by [**Netlify**](https://www.netlify.com)',
       links: [{
         icon: 'lucide:github',
         to: 'https://github.com/uni-helper',

@@ -1,17 +1,24 @@
-# @uni-helper/vite-plugin-uni-middleware
+---
+title: vite-plugin-uni-middleware
+description: 在 Vite 驱动的 uni-app 中使用路由中间件
+navTruncate: false
+icon: mdi:middleware
 
-**WIP** 在 Vite 驱动的 uni-app 中使用路由中间件
-
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-middleware
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/vite-plugin-uni-middleware
+    target: _blank
+---
 ## 安装
-
-```bash
-pnpm i -D @uni-helper/vite-plugin-uni-middleware
-```
+:pm-install{name="-D @uni-helper/vite-plugin-uni-middleware"}
 
 ## 使用
 
-```ts
-// vite.config.ts
+```ts [vite.config.ts]
 import { defineConfig } from "vite";
 import Uni from "@dcloudio/vite-plugin-uni";
 import UniMiddleware from "@uni-helper/vite-plugin-uni-middleware";
@@ -22,8 +29,7 @@ export default defineConfig({
 
 在 `src/middleware` 中定义中间件
 
-```ts
-// src/middleware/auth.ts
+```ts [src/middleware/auth.ts]
 import { defineMiddleware } from "@uni-helper/vite-plugin-uni-middleware/runtime";
 import { useStore } from "../store";
 
@@ -37,8 +43,7 @@ export default defineMiddleware((to, from) => {
 
 在 pages.json 中添加全局或页面的中间件配置
 
-```json
-// pages.json
+```json [pages.json]
 {
   ...
   "middleware": ["global"],
@@ -52,13 +57,13 @@ export default defineMiddleware((to, from) => {
 
 ## 配置
 
-see [types.ts](./src/types.ts)
+see [types.ts](https://github.com/uni-helper/vite-plugin-uni-middleware/tree/main/src/types.ts)
 
 ## 注意
 
 如果你使用 [vite-plugin-uni-pages](https://github.com/uni-helper/vite-plugin-uni-pages), 创建 `pages.d.ts` 来声明 `middleware` 的类型
 
-```ts
+```ts [pages.d.ts]
 declare module "@uni-helper/vite-plugin-uni-pages" {
   export interface PagesConfig {
     middleware: string[];
@@ -69,7 +74,7 @@ export {};
 
 若要为页面添加配置，只需使用 route-block
 
-```vue
+```vue [pages/index/index.vue]
 <route>
 {
   "middleware": ["auth"]

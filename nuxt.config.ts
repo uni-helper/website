@@ -9,6 +9,11 @@ export default defineNuxtConfig({
   css: [
     '@unocss/reset/tailwind.css',
   ],
+  mdc: {
+    highlight: {
+      langs: ['jsonc'],
+    },
+  },
   compatibilityDate: '2024-07-06',
   eslint: {
     config: {

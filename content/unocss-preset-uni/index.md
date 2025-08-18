@@ -1,11 +1,18 @@
-# @uni-helper/unocss-preset-uni
+---
+title: unocss-preset-uni
+description: 专为 uni-app 打造的 UnoCSS 预设
+navTruncate: false
+icon: logos:unocss
 
-专为 uni-app 打造的 UnoCSS 预设
-
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![bundle][bundle-src]][bundle-href]
-[![License][license-src]][license-href]
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/unocss-preset-uni
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/unocss-preset-uni
+    target: _blank
+---
 
 ## 特性
 
@@ -22,20 +29,20 @@
 
 ### 安装
 
-```shell
-pnpm add @uni-helper/unocss-preset-uni -D
+:pm-install{name="-D @uni-helper/unocss-preset-uni unocss-applet unocss"}
 
-# unocss v0.59 或以上
-pnpm add unocss unocss-applet -D
+::collapsible{variant="card"}
+#title
+安装 `unocss v0.58` 以下版本
 
-# unocss v0.58
-pnpm add unocss@0.58.9 unocss-applet@0.7.8 -D
-```
+#content
+:pm-install{name="-D @uni-helper/unocss-preset-uni unocss-applet@0.7.8 unocss@0.58.9"}
+::
+
 
 ### 配置
 
-```ts
-// vite.config.ts，支持 HBuilderX
+```ts [vite.config.ts]
 import { defineConfig } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 
@@ -51,65 +58,27 @@ export default async () => {
 }
 ```
 
-```ts
-// vite.config.mts，不支持 HBuilderX
-import { defineConfig } from 'vite'
-import uniModule from '@dcloudio/vite-plugin-uni'
-import UnoCSS from 'unocss/vite'
-
-// @ts-expect-error missing types
-const Uni = uniModule.default || uniModule
-
-export default defineConfig({
-  plugins: [
-    Uni(),
-    UnoCSS()
-  ]
-})
-```
-
-```ts
-// uno.config.ts，支持 HBuilderX
-import { defineConfig } from 'unocss'
-import { presetUni } from '@uni-helper/unocss-preset-uni'
-
-export default defineConfig({
-  presets: [
-    presetUni()
-  ]
-})
-```
-
 完整配置示例可参考 [uni-helper/vitesse-uni-app](https://github.com/uni-helper/vitesse-uni-app)。
 
 ### 选项
 
-#### uno
-
-- 默认值：`true`
-
+::field{name="uno" type="boolean" defaultValue="true" required}
 是否启用 [@unocss/preset-uno](https://unocss.dev/presets/uno)。对于小程序平台，使用基于 @unocss/preset-uno 分叉而来的 [@unocss-applet/preset-applet](https://github.com/unocss-applet/unocss-applet) 以获取更佳支持。
 
 默认启用。要禁用，请传递 `false`。
 
 除了传递 boolean 值，你也可以传递 @unocss/preset-uno 以及 @unocss-applet/preset-applet 的选项，具体选项请查看上方提供的文档链接，此时仍视为开启。
+::
 
-#### remRpx
-
-- 默认值：`true`
-
+::field{name="remRpx" type="boolean" defaultValue="true" required}
 是否启用 [@unocss-applet/preset-rem-rpx](https://github.com/unocss-applet/unocss-applet/tree/main/packages/preset-rem-rpx)。
 
 默认启用，将 rpx 转换成 rem（即 `mode: "rpx2rem"`）。要禁用，请传递 `false`。
 
 除了传递 boolean 值，你也可以传递 @unocss-applet/preset-rem-rpx 的选项，具体选项请查看上方提供的文档链接，此时仍视为开启。
+::
 
-#### attributify
-
-- 默认值：`true`
-
-是否启用 [@unocss/preset-attributify](https://unocss.dev/presets/attributify)。对于小程序平台，还会自动启用 [@unocss-applet/transformer-attributify](https://github.com/unocss-applet/unocss-applet/tree/main/packages/transformer-attributify) 以获取更佳支持。
-
+::field{name="attributify" type="boolean" defaultValue="true" required}
 默认启用，匹配属性，忽略 `block` 和 `fixed`。要禁用，请传递 `false`。
 
 除了传递 boolean 值，你也可以传递 @unocss/preset-attributify 的选项，具体选项请查看上方提供的文档链接，此时仍视为开启。
@@ -131,6 +100,9 @@ export default defineConfig({
   ]
 })
 ```
+是否启用 [@unocss/preset-attributify](https://unocss.dev/presets/attributify)。对于小程序平台，还会自动启用 [@unocss-applet/transformer-attributify](https://github.com/unocss-applet/unocss-applet/tree/main/packages/transformer-attributify) 以获取更佳支持。
+::
+
 
 ## 示例
 
@@ -160,8 +132,7 @@ export default defineConfig({
 
 你也可以通过自定义 `theme.platforms` 来自定义平台匹配规则:
 
-```ts
-// uno.config.ts
+```ts [uno.config.ts]
 import { defineConfig } from 'unocss'
 import { presetUni } from '@uni-helper/unocss-preset-uni'
 
@@ -220,20 +191,3 @@ platforms = {
 ```
 
 </details>
-
-## 感谢
-
-- [unocss](https://github.com/unocss/unocss.git) 提供大部分函数
-- [unocss-applet](https://github.com/unocss-applet/unocss-applet.git) 提供小程序支持
-- [uni-unocss](https://github.com/okxiaoliang4/uni-unocss) 提供按平台编写灵感
-
-<!-- Badges -->
-
-[npm-version-src]: https://img.shields.io/npm/v/@uni-helper/unocss-preset-uni?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-version-href]: https://npmjs.com/package/@uni-helper/unocss-preset-uni
-[npm-downloads-src]: https://img.shields.io/npm/dm/@uni-helper/unocss-preset-uni?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-downloads-href]: https://npmjs.com/package/@uni-helper/unocss-preset-uni
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/@uni-helper/unocss-preset-uni?style=flat&colorA=18181B&colorB=F0DB4F
-[bundle-href]: https://bundlephobia.com/result?p=@uni-helper/unocss-preset-uni
-[license-src]: https://img.shields.io/github/license/uni-helper/unocss-preset-uni.svg?style=flat&colorA=18181B&colorB=F0DB4F
-[license-href]: https://github.com/uni-helper/unocss-preset-uni/blob/main/LICENSE

@@ -1,0 +1,13 @@
+title: plugin-uni-layouts
+collapse: false
+showTitle: false
+toc:
+  links:
+    - title: 点亮星星
+      icon: lucide:star
+      to: 'https://github.com/uni-helper/vite-plugin-uni-layouts'
+      target: _blank
+    - title: 反馈问题
+      icon: lucide:github
+      to: 'https://github.com/uni-helper/vite-plugin-uni-layouts/issues'
+      target: _blank

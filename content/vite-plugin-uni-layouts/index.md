@@ -1,19 +1,28 @@
-# @uni-helper/vite-plugin-uni-layouts
+---
+title: vite-plugin-uni-layouts
+description:   Vite 下 uni-app 的可定制布局框架
+navTruncate: false
+icon: lucide:layout-dashboard
 
-Vite 下 uni-app 的可定制布局框架
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/vite-plugin-uni-layouts
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/vite-plugin-uni-layouts
+    target: _blank
+---
 
 ## 安装
 
-```bash
-pnpm i -D @uni-helper/vite-plugin-uni-layouts
-```
+:pm-install{name="-D @uni-helper/vite-plugin-uni-layouts"}
 
 ## 使用
 
 ### 配置
 
-```ts
-// vite.config.ts
+```ts [vite.config.ts]
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
@@ -27,8 +36,7 @@ export default defineConfig({
 
 在 `src/layouts` 下创建布局
 
-```vue
-<!-- default.vue -->
+```vue [default.vue]
 <template>
   <slot>main</slot>
 </template>
@@ -38,8 +46,7 @@ export default defineConfig({
 
 在 pages.json 中的页面中添加 layout 配置
 
-```json
-// pages.json
+```json [pages.json]
 {
   // ...
   "pages": [{
@@ -53,8 +60,7 @@ export default defineConfig({
 
 ### 禁用布局
 
-```json
-// pages.json
+```json [pages.json]
 {
   // ...
   "pages": [{
@@ -69,7 +75,7 @@ export default defineConfig({
 
 你需要先**禁用页面**的布局， 然后使用内置组件 `<uni-layout />`, 使用 `name` 属性指定布局，支持动态绑定 name、ref 等任意属性
 
-```vue
+```vue [index.vue]
 <script setup>
 const defaultName = ref('default')
 </script>
@@ -105,7 +111,7 @@ export default {
 
 ## 配置
 
-see [type.ts](./src/types.ts)
+see [type.ts](https://github.com/uni-helper/vite-plugin-uni-layouts/blob/main/src/types.ts)
 
 ## 注意
 

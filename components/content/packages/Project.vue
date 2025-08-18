@@ -60,7 +60,8 @@ function handleAnchorClick(key: string) {
             v-for="item, idx in projects[key]"
             :key="idx"
             class="item relative flex items-center"
-            :to="`${item.name}`"
+            :to="slug(key) !== 'vs-code' ? item.name : `${slug(key)}/${item.name}`"
+
             target=""
             :title="item.name"
           >

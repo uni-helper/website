@@ -33,5 +33,6 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+  "mdc.enableComponentMetadataCompletions": true
 }
