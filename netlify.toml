@@ -9,3 +9,6 @@ NODE_VERSION = "22"
 from = "/*"
 to = "index.html"
 status = 200
+
+[images]
+  remote_images = ["https://github.com/.*"]

@@ -47,13 +47,16 @@
     "@unocss/preset-wind3": "^66.3.3",
     "@unocss/preset-wind4": "^66.3.3",
     "eslint": "^9.31.0",
+    "netlify-cli": "^23.1.4",
     "unocss": "^66.3.3",
     "unocss-preset-animations": "^1.2.1",
     "unocss-preset-shadcn": "^0.5.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "sharp"
+      "netlify-cli",
+      "sharp",
+      "unix-dgram"
     ],
     "ignoredBuiltDependencies": [
       "@parcel/watcher",
