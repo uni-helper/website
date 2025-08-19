@@ -14,24 +14,7 @@ import PatternBackground from './../../ui/PatternBackgroundFile/PatternBackgroun
 
 defineProps<{ projects: Record<string, any[]> }>()
 function slug(name: string) {
-  return name.toLowerCase().replace(/[\s\\/]+/g, '-')
-}
-
-// TODO: 优化滚动效果
-// 1. 希望使用浏览器锚点链接加css滚动来实现，这样的好处是可以通过链接直接跳转到目标位置，但是有个问题，就是滚动到目标位置后，会回到最上面，就先用js实现了
-function handleAnchorClick(key: string) {
-  const element = document.getElementById(slug(key))
-  if (element) {
-    const header = document.querySelector('header')
-    const headerHeight = header?.offsetHeight || 0
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY
-    const offsetPosition = elementPosition - headerHeight - 20 // 额外20px间距
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    })
-  }
+  return name.toLowerCase().replace(/[\s\\&/]+/g, '-')
 }
 </script>
 
@@ -55,6 +38,7 @@ function handleAnchorClick(key: string) {
             '--enter-stage': cidx - 2,
             '--enter-step': '60ms',
           }"
+          class="scroll-mt-16"
         >
           <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>{{ key }}</span>
         </div>
@@ -91,7 +75,7 @@ function handleAnchorClick(key: string) {
         </div>
         <ul>
           <li v-for="key of Object.keys(projects)" :key="key">
-            <a :href="`#${slug(key)}`" @click.prevent="handleAnchorClick(key)">{{ key }}</a>
+            <NuxtLink :href="`#${slug(key)}`">{{ key }}</NuxtLink>
           </li>
         </ul>
       </div>
