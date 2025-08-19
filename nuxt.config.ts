@@ -47,5 +47,15 @@ export default async () => {
         },
       ],
     },
+    image: {
+      domains: [
+        'github.com'
+      ],
+    },
+    vite: {
+      optimizeDeps: {
+        include: ['motion-v', 'clsx', 'tailwind-merge', 'class-variance-authority']
+      }
+    }
   })
 }
