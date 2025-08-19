@@ -2,6 +2,7 @@ import { generatePrerenderRoutes } from './scripts/generate-routes'
 
 export default async () => {
   const prerenderRoutes = await generatePrerenderRoutes('./content')
+  console.log('prerenderRoutes', prerenderRoutes)
 
   return defineNuxtConfig({
     extends: ['shadcn-docs-nuxt'],
