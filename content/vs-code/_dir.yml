@@ -1,0 +1,16 @@
+title: vscode 插件
+collapse: false
+toc:
+  links:
+    - title: 点亮星星
+      icon: lucide:star
+      to: 'https://github.com/uni-helper/uni-helper-vscode'
+      target: _blank
+    - title: 反馈问题
+      icon: lucide:github
+      to: 'https://github.com/uni-helper/uni-helper-vscode/issues'
+      target: _blank
+    - title: 安装插件
+      icon: lucide:download
+      to: https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-helper-vscode
+      target: _blank

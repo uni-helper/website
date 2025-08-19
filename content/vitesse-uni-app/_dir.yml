@@ -1,0 +1,14 @@
+title: vitesse-uni-app
+navigation.redirect: /vitesse-uni-app/getting-started/introduction
+collapse: false
+showTitle: false
+toc:
+  links:
+    - title: 点亮星星
+      icon: lucide:star
+      to: 'https://github.com/uni-helper/vitesse-uni-app'
+      target: _blank
+    - title: 反馈问题
+      icon: lucide:github
+      to: 'https://github.com/uni-helper/vitesse-uni-app/issues'
+      target: _blank

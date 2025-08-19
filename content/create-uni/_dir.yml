@@ -1,0 +1,13 @@
+title: create-uni
+navigation.redirect: /create-uni/core
+collapse: false
+toc:
+  links:
+    - title: 点亮星星
+      icon: lucide:star
+      to: 'https://github.com/uni-helper/create-uni'
+      target: _blank
+    - title: 反馈问题
+      icon: lucide:github
+      to: 'https://github.com/uni-helper/create-uni/issues'
+      target: _blank

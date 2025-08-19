@@ -1,0 +1,14 @@
+title: uni-use
+navigation.redirect: /uni-use/guide/installation
+
+collapse: false
+toc:
+  links:
+    - title: Star on Github
+      icon: lucide:star
+      to: https://github.com/uni-helper/uni-use
+      target: _blank
+    - title: 反馈问题
+      icon: lucide:github
+      to: https://github.com/uni-helper/uni-use/issues
+      target: _blank

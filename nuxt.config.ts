@@ -1,32 +1,51 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-import { defineNuxtConfig } from 'nuxt/config'
+import { generatePrerenderRoutes } from './scripts/generate-routes'
 
-export default defineNuxtConfig({
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-  },
+export default async () => {
+  const prerenderRoutes = await generatePrerenderRoutes('./content')
 
-  modules: [
-    '@unocss/nuxt',
-    '@nuxtjs/color-mode',
-    'nuxt-gtag',
-    '@nuxtjs/sitemap',
-  ],
-
-  css: ['@unocss/reset/tailwind.css'],
-
-  colorMode: {
-    classSuffix: '',
-    storageKey: 'uni-helper-color-mode',
-  },
-
-  site: {
-    url: 'https://uni-helper.js.org',
-  },
-
-  gtag: {
-    id: 'G-249B95M763',
-  },
-
-  compatibilityDate: '2024-08-01',
-})
+  return defineNuxtConfig({
+    extends: ['shadcn-docs-nuxt'],
+    modules: [
+      'motion-v/nuxt',
+      '@nuxt/eslint',
+      '@unocss/nuxt',
+    ],
+    devtools: { enabled: true },
+    css: [
+      '@unocss/reset/tailwind.css',
+    ],
+    site: {
+      url: 'https://uni-helper.js.org/',
+    },
+    mdc: {
+      highlight: {
+        langs: ['jsonc'],
+      },
+    },
+    compatibilityDate: '2024-07-06',
+    nitro: {
+      prerender: {
+        crawlLinks: true,
+        routes: prerenderRoutes,
+      },
+    },
+    eslint: {
+      config: {
+        standalone: false,
+        nuxt: {
+          sortConfigKeys: true,
+        },
+      },
+    },
+    i18n: {
+      defaultLocale: 'zh',
+      locales: [
+        {
+          code: 'zh',
+          name: '简体中文',
+          language: 'zh-CN',
+        },
+      ],
+    },
+  })
+}
