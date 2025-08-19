@@ -31,6 +31,18 @@ const reviews = [
     body: 'uni-app使我旋转',
     img: 'https://github.com/skiyee.png',
   },
+  {
+    name: '不如摸鱼去',
+    username: '@wot-design-uni',
+    body: 'uni-app 有你们是它的三生修来的福分',
+    img: 'https://github.com/Moonofweisheng.png',
+  },
+  {
+    name: 'sKy',
+    username: 'skiyee',
+    body: 'uni-app使我旋转',
+    img: 'https://github.com/skiyee.png',
+  },
 ]
 
 // Rows

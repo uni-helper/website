@@ -41,6 +41,7 @@
     "@iconify-json/ri": "^1.2.5",
     "@iconify-json/simple-icons": "^1.2.44",
     "@iconify-json/tabler": "^1.2.22",
+    "@iconify-json/vscode-icons": "^1.2.29",
     "@nuxt/eslint": "^1.7.1",
     "@unocss/extractor-mdc": "^66.3.3",
     "@unocss/preset-wind3": "^66.3.3",
