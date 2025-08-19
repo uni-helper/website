@@ -1,3 +1,7 @@
+import { generatePrerenderRoutes } from './scripts/generate-routes'
+
+const prerenderRoutes = await generatePrerenderRoutes('./content')
+
 export default defineNuxtConfig({
   extends: ['shadcn-docs-nuxt'],
   modules: [
@@ -9,12 +13,21 @@ export default defineNuxtConfig({
   css: [
     '@unocss/reset/tailwind.css',
   ],
+  site: {
+    url: 'https://uni-helper.js.org/',
+  },
   mdc: {
     highlight: {
       langs: ['jsonc'],
     },
   },
   compatibilityDate: '2024-07-06',
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: prerenderRoutes,
+    },
+  },
   eslint: {
     config: {
       standalone: false,
