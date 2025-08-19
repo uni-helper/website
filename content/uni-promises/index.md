@@ -1,20 +1,30 @@
-# @uni-helper/uni-promises
+---
+title: uni-promises
+description: uni-promises 是为 uni-app 提供的 promise 化的 API
+icon: eos-icons:action-chains-outlined
 
-[![License](https://img.shields.io/github/license/uni-helper/uni-promises)](https://github.com/uni-helper/uni-promises/blob/main/LICENSE)
+navTruncate: false
 
-[![npm](https://img.shields.io/npm/v/@uni-helper/uni-promises)](https://www.npmjs.com/package/@uni-helper/uni-promises)
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/uni-promises
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/uni-promises
+    target: _blank
+---
 
+::alert
 `uni-app` promise 化的 API。要求 `node >= 14.18`。
+::
 
 ## 起步
 
 ### 安装依赖
 
 安装依赖。
-
-```shell
-npm install @uni-helper/uni-promises
-```
+:pm-install{name="@uni-helper/uni-promises"}
 
 <details>
   <summary>yarn v2/v3</summary>
@@ -30,139 +40,139 @@ npm install @uni-helper/uni-promises
 
 ## API
 
-- [addPhoneContact](./src/addPhoneContact/index.ts)
-- [authorize](./src/authorize/index.ts)
-- [checkIsSoterEnrolledInDevice](./src/checkIsSoterEnrolledInDevice/index.ts)
-- [checkIsSupportSoterAuthentication](./src/checkIsSupportSoterAuthentication/index.ts)
-- [checkSession](./src/checkSession/index.ts)
-- [chooseAddress](./src/chooseAddress/index.ts)
-- [chooseFile](./src/chooseFile/index.ts)
-- [chooseImage](./src/chooseImage/index.ts)
-- [chooseInvoice](./src/chooseInvoice/index.ts)
-- [chooseInvoiceTitle](./src/chooseInvoiceTitle/index.ts)
-- [chooseLocation](./src/chooseLocation/index.ts)
-- [chooseMedia](./src/chooseMedia/index.ts)
-- [chooseMessageFile](./src/chooseMessageFile/index.ts)
-- [chooseVideo](./src/chooseVideo/index.ts)
-- [clearStorage](./src/clearStorage/index.ts)
-- [closeBLEConnection](./src/closeBLEConnection/index.ts)
-- [closeBluetoothAdapter](./src/closeBluetoothAdapter/index.ts)
-- [closePreviewImage](./src/closePreviewImage/index.ts)
-- [closeSocket](./src/closeSocket/index.ts)
-- [compressImage](./src/compressImage/index.ts)
-- [compressVideo](./src/compressVideo/index.ts)
-- [connectSocket](./src/connectSocket/index.ts)
-- [createBLEConnection](./src/createBLEConnection/index.ts)
-- [createCameraContext](./src/createCameraContext/index.ts)
-- [createCanvasContext](./src/createCanvasContext/index.ts)
-- [createInnerAudioContext](./src/createInnerAudioContext/index.ts)
-- [createLivePlayerContext](./src/createLivePlayerContext/index.ts)
-- [createLivePusherContext](./src/createLivePusherContext/index.ts)
-- [createMapContext](./src/createMapContext/index.ts)
-- [createMediaContainer](./src/createMediaContainer/index.ts)
-- [createPushMessage](./src/createPushMessage/index.ts)
-- [createSelectorQuery](./src/createSelectorQuery/index.ts)
-- [createVideoContext](./src/createVideoContext/index.ts)
-- [downloadFile](./src/downloadFile/index.ts)
-- [getApp](./src/getApp/index.ts)
-- [getBLEDeviceCharacteristics](./src/getBLEDeviceCharacteristics/index.ts)
-- [getBLEDeviceRSSI](./src/getBLEDeviceRSSI/index.ts)
-- [getBLEDeviceServices](./src/getBLEDeviceServices/index.ts)
-- [getBackgroundAudioManager](./src/getBackgroundAudioManager/index.ts)
-- [getBatteryInfo](./src/getBatteryInfo/index.ts)
-- [getBluetoothAdapterState](./src/getBluetoothAdapterState/index.ts)
-- [getBluetoothDevices](./src/getBluetoothDevices/index.ts)
-- [getCheckBoxState](./src/getCheckBoxState/index.ts)
-- [getClipboardData](./src/getClipboardData/index.ts)
-- [getConnectedBluetoothDevices](./src/getConnectedBluetoothDevices/index.ts)
-- [getExtConfig](./src/getExtConfig/index.ts)
-- [getFileInfo](./src/getFileInfo/index.ts)
-- [getImageInfo](./src/getImageInfo/index.ts)
-- [getLocation](./src/getLocation/index.ts)
-- [getNetworkType](./src/getNetworkType/index.ts)
-- [getProvider](./src/getProvider/index.ts)
-- [getPushClientId](./src/getPushClientId/index.ts)
-- [getRecordManager](./src/getRecordManager/index.ts)
-- [getSavedFileInfo](./src/getSavedFileInfo/index.ts)
-- [getSavedFileList](./src/getSavedFileList/index.ts)
-- [getScreenBrightness](./src/getScreenBrightness/index.ts)
-- [getSelectedTextRange](./src/getSelectedTextRange/index.ts)
-- [getSetting](./src/getSetting/index.ts)
-- [getStorage](./src/getStorage/index.ts)
-- [getStorageInfo](./src/getStorageInfo/index.ts)
-- [getSystemInfo](./src/getSystemInfo/index.ts)
-- [getUserInfo](./src/getUserInfo/index.ts)
-- [getUserProfile](./src/getUserProfile/index.ts)
-- [getVideoInfo](./src/getVideoInfo/index.ts)
-- [hideHomeButton](./src/hideHomeButton/index.ts)
-- [hideNavigationBarLoading](./src/hideNavigationBarLoading/index.ts)
-- [hideShareMenu](./src/hideShareMenu/index.ts)
-- [hideTabBar](./src/hideTabBar/index.ts)
-- [hideTabBarRedDot](./src/hideTabBarRedDot/index.ts)
-- [loadFontFace](./src/loadFontFace/index.ts)
-- [login](./src/login/index.ts)
-- [makePhoneCall](./src/makePhoneCall/index.ts)
-- [navigateBack](./src/navigateBack/index.ts)
-- [navigateBackMiniProgram](./src/navigateBackMiniProgram/index.ts)
-- [navigateTo](./src/navigateTo/index.ts)
-- [navigateToMiniProgram](./src/navigateToMiniProgram/index.ts)
-- [notifyBLECharacteristicValueChange](./src/notifyBLECharacteristicValueChange/index.ts)
-- [openAppAuthorizeSetting](./src/openAppAuthorizeSetting/index.ts)
-- [openBluetoothAdapter](./src/openBluetoothAdapter/index.ts)
-- [openDocument](./src/openDocument/index.ts)
-- [openLocation](./src/openLocation/index.ts)
-- [openSetting](./src/openSetting/index.ts)
-- [openVideoEditor](./src/openVideoEditor/index.ts)
-- [pageScrollTo](./src/pageScrollTo/index.ts)
-- [preLogin](./src/preLogin/index.ts)
-- [previewImage](./src/previewImage/index.ts)
-- [reLaunch](./src/reLaunch/index.ts)
-- [readBLECharacteristicValue](./src/readBLECharacteristicValue/index.ts)
-- [redirectTo](./src/redirectTo/index.ts)
-- [removeSavedFile](./src/removeSavedFile/index.ts)
-- [removeStorage](./src/removeStorage/index.ts)
-- [removeTabBarBadge](./src/removeTabBarBadge/index.ts)
-- [request](./src/request/index.ts)
-- [requestPayment](./src/requestPayment/index.ts)
-- [requestSubscribeMessage](./src/requestSubscribeMessage/index.ts)
-- [saveFile](./src/saveFile/index.ts)
-- [saveImageToPhotosAlbum](./src/saveImageToPhotosAlbum/index.ts)
-- [saveVideoToPhotosAlbum](./src/saveVideoToPhotosAlbum/index.ts)
-- [scanCode](./src/scanCode/index.ts)
-- [sendSocketMessage](./src/sendSocketMessage/index.ts)
-- [setBLEMTU](./src/setBLEMTU/index.ts)
-- [setBackgroundColor](./src/setBackgroundColor/index.ts)
-- [setBackgroundTextStyle](./src/setBackgroundTextStyle/index.ts)
-- [setClipboardData](./src/setClipboardData/index.ts)
-- [setEnableDebug](./src/setEnableDebug/index.ts)
-- [setKeepScreenOn](./src/setKeepScreenOn/index.ts)
-- [setNavigationBarColor](./src/setNavigationBarColor/index.ts)
-- [setNavigationBarTitle](./src/setNavigationBarTitle/index.ts)
-- [setScreenBrightness](./src/setScreenBrightness/index.ts)
-- [setStorage](./src/setStorage/index.ts)
-- [setTabBarBadge](./src/setTabBarBadge/index.ts)
-- [setTabBarItem](./src/setTabBarItem/index.ts)
-- [setTabBarStyle](./src/setTabBarStyle/index.ts)
-- [share](./src/share/index.ts)
-- [shareWithSystem](./src/shareWithSystem/index.ts)
-- [showActionSheet](./src/showActionSheet/index.ts)
-- [showLoading](./src/showLoading/index.ts)
-- [showModal](./src/showModal/index.ts)
-- [showNavigationBarLoading](./src/showNavigationBarLoading/index.ts)
-- [showShareMenu](./src/showShareMenu/index.ts)
-- [showTabBar](./src/showTabBar/index.ts)
-- [showTabBarRedDot](./src/showTabBarRedDot/index.ts)
-- [showToast](./src/showToast/index.ts)
-- [startBluetoothDevicesDiscovery](./src/startBluetoothDevicesDiscovery/index.ts)
-- [startPullDownRefresh](./src/startPullDownRefresh/index.ts)
-- [startSoterAuthentication](./src/startSoterAuthentication/index.ts)
-- [stopBluetoothDevicesDiscovery](./src/stopBluetoothDevicesDiscovery/index.ts)
-- [switchTab](./src/switchTab/index.ts)
-- [uploadFile](./src/uploadFile/index.ts)
-- [vibrate](./src/vibrate/index.ts)
-- [vibrateLong](./src/vibrateLong/index.ts)
-- [vibrateShort](./src/vibrateShort/index.ts)
-- [writeBLECharacteristicValue](./src/writeBLECharacteristicValue/index.ts)
+- [addPhoneContact](https://github.com/uni-helper/uni-promises/tree/main/src/addPhoneContact/index.ts)
+- [authorize](https://github.com/uni-helper/uni-promises/tree/main/src/authorize/index.ts)
+- [checkIsSoterEnrolledInDevice](https://github.com/uni-helper/uni-promises/tree/main/src/checkIsSoterEnrolledInDevice/index.ts)
+- [checkIsSupportSoterAuthentication](https://github.com/uni-helper/uni-promises/tree/main/src/checkIsSupportSoterAuthentication/index.ts)
+- [checkSession](https://github.com/uni-helper/uni-promises/tree/main/src/checkSession/index.ts)
+- [chooseAddress](https://github.com/uni-helper/uni-promises/tree/main/src/chooseAddress/index.ts)
+- [chooseFile](https://github.com/uni-helper/uni-promises/tree/main/src/chooseFile/index.ts)
+- [chooseImage](https://github.com/uni-helper/uni-promises/tree/main/src/chooseImage/index.ts)
+- [chooseInvoice](https://github.com/uni-helper/uni-promises/tree/main/src/chooseInvoice/index.ts)
+- [chooseInvoiceTitle](https://github.com/uni-helper/uni-promises/tree/main/src/chooseInvoiceTitle/index.ts)
+- [chooseLocation](https://github.com/uni-helper/uni-promises/tree/main/src/chooseLocation/index.ts)
+- [chooseMedia](https://github.com/uni-helper/uni-promises/tree/main/src/chooseMedia/index.ts)
+- [chooseMessageFile](https://github.com/uni-helper/uni-promises/tree/main/src/chooseMessageFile/index.ts)
+- [chooseVideo](https://github.com/uni-helper/uni-promises/tree/main/src/chooseVideo/index.ts)
+- [clearStorage](https://github.com/uni-helper/uni-promises/tree/main/src/clearStorage/index.ts)
+- [closeBLEConnection](https://github.com/uni-helper/uni-promises/tree/main/src/closeBLEConnection/index.ts)
+- [closeBluetoothAdapter](https://github.com/uni-helper/uni-promises/tree/main/src/closeBluetoothAdapter/index.ts)
+- [closePreviewImage](https://github.com/uni-helper/uni-promises/tree/main/src/closePreviewImage/index.ts)
+- [closeSocket](https://github.com/uni-helper/uni-promises/tree/main/src/closeSocket/index.ts)
+- [compressImage](https://github.com/uni-helper/uni-promises/tree/main/src/compressImage/index.ts)
+- [compressVideo](https://github.com/uni-helper/uni-promises/tree/main/src/compressVideo/index.ts)
+- [connectSocket](https://github.com/uni-helper/uni-promises/tree/main/src/connectSocket/index.ts)
+- [createBLEConnection](https://github.com/uni-helper/uni-promises/tree/main/src/createBLEConnection/index.ts)
+- [createCameraContext](https://github.com/uni-helper/uni-promises/tree/main/src/createCameraContext/index.ts)
+- [createCanvasContext](https://github.com/uni-helper/uni-promises/tree/main/src/createCanvasContext/index.ts)
+- [createInnerAudioContext](https://github.com/uni-helper/uni-promises/tree/main/src/createInnerAudioContext/index.ts)
+- [createLivePlayerContext](https://github.com/uni-helper/uni-promises/tree/main/src/createLivePlayerContext/index.ts)
+- [createLivePusherContext](https://github.com/uni-helper/uni-promises/tree/main/src/createLivePusherContext/index.ts)
+- [createMapContext](https://github.com/uni-helper/uni-promises/tree/main/src/createMapContext/index.ts)
+- [createMediaContainer](https://github.com/uni-helper/uni-promises/tree/main/src/createMediaContainer/index.ts)
+- [createPushMessage](https://github.com/uni-helper/uni-promises/tree/main/src/createPushMessage/index.ts)
+- [createSelectorQuery](https://github.com/uni-helper/uni-promises/tree/main/src/createSelectorQuery/index.ts)
+- [createVideoContext](https://github.com/uni-helper/uni-promises/tree/main/src/createVideoContext/index.ts)
+- [downloadFile](https://github.com/uni-helper/uni-promises/tree/main/src/downloadFile/index.ts)
+- [getApp](https://github.com/uni-helper/uni-promises/tree/main/src/getApp/index.ts)
+- [getBLEDeviceCharacteristics](https://github.com/uni-helper/uni-promises/tree/main/src/getBLEDeviceCharacteristics/index.ts)
+- [getBLEDeviceRSSI](https://github.com/uni-helper/uni-promises/tree/main/src/getBLEDeviceRSSI/index.ts)
+- [getBLEDeviceServices](https://github.com/uni-helper/uni-promises/tree/main/src/getBLEDeviceServices/index.ts)
+- [getBackgroundAudioManager](https://github.com/uni-helper/uni-promises/tree/main/src/getBackgroundAudioManager/index.ts)
+- [getBatteryInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getBatteryInfo/index.ts)
+- [getBluetoothAdapterState](https://github.com/uni-helper/uni-promises/tree/main/src/getBluetoothAdapterState/index.ts)
+- [getBluetoothDevices](https://github.com/uni-helper/uni-promises/tree/main/src/getBluetoothDevices/index.ts)
+- [getCheckBoxState](https://github.com/uni-helper/uni-promises/tree/main/src/getCheckBoxState/index.ts)
+- [getClipboardData](https://github.com/uni-helper/uni-promises/tree/main/src/getClipboardData/index.ts)
+- [getConnectedBluetoothDevices](https://github.com/uni-helper/uni-promises/tree/main/src/getConnectedBluetoothDevices/index.ts)
+- [getExtConfig](https://github.com/uni-helper/uni-promises/tree/main/src/getExtConfig/index.ts)
+- [getFileInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getFileInfo/index.ts)
+- [getImageInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getImageInfo/index.ts)
+- [getLocation](https://github.com/uni-helper/uni-promises/tree/main/src/getLocation/index.ts)
+- [getNetworkType](https://github.com/uni-helper/uni-promises/tree/main/src/getNetworkType/index.ts)
+- [getProvider](https://github.com/uni-helper/uni-promises/tree/main/src/getProvider/index.ts)
+- [getPushClientId](https://github.com/uni-helper/uni-promises/tree/main/src/getPushClientId/index.ts)
+- [getRecordManager](https://github.com/uni-helper/uni-promises/tree/main/src/getRecordManager/index.ts)
+- [getSavedFileInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getSavedFileInfo/index.ts)
+- [getSavedFileList](https://github.com/uni-helper/uni-promises/tree/main/src/getSavedFileList/index.ts)
+- [getScreenBrightness](https://github.com/uni-helper/uni-promises/tree/main/src/getScreenBrightness/index.ts)
+- [getSelectedTextRange](https://github.com/uni-helper/uni-promises/tree/main/src/getSelectedTextRange/index.ts)
+- [getSetting](https://github.com/uni-helper/uni-promises/tree/main/src/getSetting/index.ts)
+- [getStorage](https://github.com/uni-helper/uni-promises/tree/main/src/getStorage/index.ts)
+- [getStorageInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getStorageInfo/index.ts)
+- [getSystemInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getSystemInfo/index.ts)
+- [getUserInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getUserInfo/index.ts)
+- [getUserProfile](https://github.com/uni-helper/uni-promises/tree/main/src/getUserProfile/index.ts)
+- [getVideoInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getVideoInfo/index.ts)
+- [hideHomeButton](https://github.com/uni-helper/uni-promises/tree/main/src/hideHomeButton/index.ts)
+- [hideNavigationBarLoading](https://github.com/uni-helper/uni-promises/tree/main/src/hideNavigationBarLoading/index.ts)
+- [hideShareMenu](https://github.com/uni-helper/uni-promises/tree/main/src/hideShareMenu/index.ts)
+- [hideTabBar](https://github.com/uni-helper/uni-promises/tree/main/src/hideTabBar/index.ts)
+- [hideTabBarRedDot](https://github.com/uni-helper/uni-promises/tree/main/src/hideTabBarRedDot/index.ts)
+- [loadFontFace](https://github.com/uni-helper/uni-promises/tree/main/src/loadFontFace/index.ts)
+- [login](https://github.com/uni-helper/uni-promises/tree/main/src/login/index.ts)
+- [makePhoneCall](https://github.com/uni-helper/uni-promises/tree/main/src/makePhoneCall/index.ts)
+- [navigateBack](https://github.com/uni-helper/uni-promises/tree/main/src/navigateBack/index.ts)
+- [navigateBackMiniProgram](https://github.com/uni-helper/uni-promises/tree/main/src/navigateBackMiniProgram/index.ts)
+- [navigateTo](https://github.com/uni-helper/uni-promises/tree/main/src/navigateTo/index.ts)
+- [navigateToMiniProgram](https://github.com/uni-helper/uni-promises/tree/main/src/navigateToMiniProgram/index.ts)
+- [notifyBLECharacteristicValueChange](https://github.com/uni-helper/uni-promises/tree/main/src/notifyBLECharacteristicValueChange/index.ts)
+- [openAppAuthorizeSetting](https://github.com/uni-helper/uni-promises/tree/main/src/openAppAuthorizeSetting/index.ts)
+- [openBluetoothAdapter](https://github.com/uni-helper/uni-promises/tree/main/src/openBluetoothAdapter/index.ts)
+- [openDocument](https://github.com/uni-helper/uni-promises/tree/main/src/openDocument/index.ts)
+- [openLocation](https://github.com/uni-helper/uni-promises/tree/main/src/openLocation/index.ts)
+- [openSetting](https://github.com/uni-helper/uni-promises/tree/main/src/openSetting/index.ts)
+- [openVideoEditor](https://github.com/uni-helper/uni-promises/tree/main/src/openVideoEditor/index.ts)
+- [pageScrollTo](https://github.com/uni-helper/uni-promises/tree/main/src/pageScrollTo/index.ts)
+- [preLogin](https://github.com/uni-helper/uni-promises/tree/main/src/preLogin/index.ts)
+- [previewImage](https://github.com/uni-helper/uni-promises/tree/main/src/previewImage/index.ts)
+- [reLaunch](https://github.com/uni-helper/uni-promises/tree/main/src/reLaunch/index.ts)
+- [readBLECharacteristicValue](https://github.com/uni-helper/uni-promises/tree/main/src/readBLECharacteristicValue/index.ts)
+- [redirectTo](https://github.com/uni-helper/uni-promises/tree/main/src/redirectTo/index.ts)
+- [removeSavedFile](https://github.com/uni-helper/uni-promises/tree/main/src/removeSavedFile/index.ts)
+- [removeStorage](https://github.com/uni-helper/uni-promises/tree/main/src/removeStorage/index.ts)
+- [removeTabBarBadge](https://github.com/uni-helper/uni-promises/tree/main/src/removeTabBarBadge/index.ts)
+- [request](https://github.com/uni-helper/uni-promises/tree/main/src/request/index.ts)
+- [requestPayment](https://github.com/uni-helper/uni-promises/tree/main/src/requestPayment/index.ts)
+- [requestSubscribeMessage](https://github.com/uni-helper/uni-promises/tree/main/src/requestSubscribeMessage/index.ts)
+- [saveFile](https://github.com/uni-helper/uni-promises/tree/main/src/saveFile/index.ts)
+- [saveImageToPhotosAlbum](https://github.com/uni-helper/uni-promises/tree/main/src/saveImageToPhotosAlbum/index.ts)
+- [saveVideoToPhotosAlbum](https://github.com/uni-helper/uni-promises/tree/main/src/saveVideoToPhotosAlbum/index.ts)
+- [scanCode](https://github.com/uni-helper/uni-promises/tree/main/src/scanCode/index.ts)
+- [sendSocketMessage](https://github.com/uni-helper/uni-promises/tree/main/src/sendSocketMessage/index.ts)
+- [setBLEMTU](https://github.com/uni-helper/uni-promises/tree/main/src/setBLEMTU/index.ts)
+- [setBackgroundColor](https://github.com/uni-helper/uni-promises/tree/main/src/setBackgroundColor/index.ts)
+- [setBackgroundTextStyle](https://github.com/uni-helper/uni-promises/tree/main/src/setBackgroundTextStyle/index.ts)
+- [setClipboardData](https://github.com/uni-helper/uni-promises/tree/main/src/setClipboardData/index.ts)
+- [setEnableDebug](https://github.com/uni-helper/uni-promises/tree/main/src/setEnableDebug/index.ts)
+- [setKeepScreenOn](https://github.com/uni-helper/uni-promises/tree/main/src/setKeepScreenOn/index.ts)
+- [setNavigationBarColor](https://github.com/uni-helper/uni-promises/tree/main/src/setNavigationBarColor/index.ts)
+- [setNavigationBarTitle](https://github.com/uni-helper/uni-promises/tree/main/src/setNavigationBarTitle/index.ts)
+- [setScreenBrightness](https://github.com/uni-helper/uni-promises/tree/main/src/setScreenBrightness/index.ts)
+- [setStorage](https://github.com/uni-helper/uni-promises/tree/main/src/setStorage/index.ts)
+- [setTabBarBadge](https://github.com/uni-helper/uni-promises/tree/main/src/setTabBarBadge/index.ts)
+- [setTabBarItem](https://github.com/uni-helper/uni-promises/tree/main/src/setTabBarItem/index.ts)
+- [setTabBarStyle](https://github.com/uni-helper/uni-promises/tree/main/src/setTabBarStyle/index.ts)
+- [share](https://github.com/uni-helper/uni-promises/tree/main/src/share/index.ts)
+- [shareWithSystem](https://github.com/uni-helper/uni-promises/tree/main/src/shareWithSystem/index.ts)
+- [showActionSheet](https://github.com/uni-helper/uni-promises/tree/main/src/showActionSheet/index.ts)
+- [showLoading](https://github.com/uni-helper/uni-promises/tree/main/src/showLoading/index.ts)
+- [showModal](https://github.com/uni-helper/uni-promises/tree/main/src/showModal/index.ts)
+- [showNavigationBarLoading](https://github.com/uni-helper/uni-promises/tree/main/src/showNavigationBarLoading/index.ts)
+- [showShareMenu](https://github.com/uni-helper/uni-promises/tree/main/src/showShareMenu/index.ts)
+- [showTabBar](https://github.com/uni-helper/uni-promises/tree/main/src/showTabBar/index.ts)
+- [showTabBarRedDot](https://github.com/uni-helper/uni-promises/tree/main/src/showTabBarRedDot/index.ts)
+- [showToast](https://github.com/uni-helper/uni-promises/tree/main/src/showToast/index.ts)
+- [startBluetoothDevicesDiscovery](https://github.com/uni-helper/uni-promises/tree/main/src/startBluetoothDevicesDiscovery/index.ts)
+- [startPullDownRefresh](https://github.com/uni-helper/uni-promises/tree/main/src/startPullDownRefresh/index.ts)
+- [startSoterAuthentication](https://github.com/uni-helper/uni-promises/tree/main/src/startSoterAuthentication/index.ts)
+- [stopBluetoothDevicesDiscovery](https://github.com/uni-helper/uni-promises/tree/main/src/stopBluetoothDevicesDiscovery/index.ts)
+- [switchTab](https://github.com/uni-helper/uni-promises/tree/main/src/switchTab/index.ts)
+- [uploadFile](https://github.com/uni-helper/uni-promises/tree/main/src/uploadFile/index.ts)
+- [vibrate](https://github.com/uni-helper/uni-promises/tree/main/src/vibrate/index.ts)
+- [vibrateLong](https://github.com/uni-helper/uni-promises/tree/main/src/vibrateLong/index.ts)
+- [vibrateShort](https://github.com/uni-helper/uni-promises/tree/main/src/vibrateShort/index.ts)
+- [writeBLECharacteristicValue](https://github.com/uni-helper/uni-promises/tree/main/src/writeBLECharacteristicValue/index.ts)
 
 ## 构建
 
@@ -170,7 +180,7 @@ npm install @uni-helper/uni-promises
 
 对于 `vue-cli + vue2` 项目，请修改项目根目录 `vue.config.js` 如下所示。这会让 `vue-cli` 处理 `@uni-helper/uni-promises`，保证生成代码符合 `browserslist` 里的配置。我们建议设置 `browserslist` 为 `chrome>=53,ios>=8`
 
-```javascript
+```javascript [vue.config.js]
 module.exports = {
   transpileDependencies: ['@uni-helper/uni-promises'],
 };
@@ -178,7 +188,7 @@ module.exports = {
 
 对于 `vite + vue3` 项目，请先设置 `build.target` 为 `ES6`。
 
-```typescript
+```typescript [vite.config.ts]
 import { defineConfig } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
 
@@ -198,7 +208,7 @@ export default defineConfig({
 
 然后在 `src/main.ts` 或 `src/main.js` 处自行添加 polyfill。以下是使用 [core-js](https://github.com/zloirock/core-js) 的示例（需要自行安装 `core-js`），你也可以使用 [es-shims](https://github.com/es-shims)。
 
-```typescript
+```typescript [src/main.ts]
 import 'core-js/actual/array/iterator';
 import 'core-js/actual/promise';
 import 'core-js/actual/object/assign';

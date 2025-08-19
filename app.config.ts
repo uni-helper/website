@@ -25,6 +25,10 @@ export default defineAppConfig({
         icon: 'lucide:github',
         to: 'https://github.com/uni-helper',
         target: '_blank',
+      }, {
+        icon: 'tabler:brand-wechat',
+        to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx',
+        target: '_blank',
       }],
     },
     aside: {
@@ -51,6 +55,18 @@ export default defineAppConfig({
         icon: 'lucide:github',
         to: 'https://github.com/uni-helper',
         target: '_blank',
+      }, {
+        icon: 'lucide:coffee',
+        to: 'https://github.com/ModyQyW/sponsors',
+        target: '_blank',
+      }, {
+        icon: 'tabler:brand-wechat',
+        to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx',
+        target: '_blank',
+      }, {
+        icon: 'ri:qq-line',
+        to: 'https://qm.qq.com/q/5nPFSqa8Eg',
+        target: '_blank',
       }],
     },
     toc: {
@@ -62,12 +78,12 @@ export default defineAppConfig({
           target: '_blank',
         },
         {
-          icon: 'ic:baseline-wechat',
+          icon: 'tabler:brand-wechat',
           to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx',
           target: '_blank',
         },
         {
-          icon: 'mdi:qqchat',
+          icon: 'ri:qq-line',
           to: 'https://qm.qq.com/q/5nPFSqa8Eg',
           target: '_blank',
         },

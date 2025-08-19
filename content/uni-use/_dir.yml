@@ -1,5 +1,6 @@
 title: uni-use
-navigation.redirect: /uni-use/guide/getting-started
+navigation.redirect: /uni-use/guide/installation
+
 collapse: false
 toc:
   links:
@@ -10,8 +11,4 @@ toc:
     - title: 反馈问题
       icon: lucide:github
       to: https://github.com/uni-helper/uni-use/issues
-      target: _blank
-  iconLinks:
-    - icon: lucide:coffee
-      to: https://afdian.com/a/flippedround
       target: _blank

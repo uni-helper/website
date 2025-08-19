@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * 项列表组件
+ * 灵感来自antfu.me项目列表
+ * MIT
+ * @source https://antfu.me/projects
+ */
 import {
   PATTERN_BACKGROUND_DIRECTION,
   PATTERN_BACKGROUND_SPEED,
@@ -77,9 +83,6 @@ function handleAnchorClick(key: string) {
           </NuxtLink>
         </div>
       </div>
-      <div class="pb5 mt10 text-center flex items-center justify-end">
-        design by antfu.me
-      </div>
     </div>
     <div>
       <div class="table-of-contents">
@@ -94,6 +97,10 @@ function handleAnchorClick(key: string) {
       </div>
     </div>
   </PatternBackground>
+  <div class="text-xs text-gray-500/40 dark:text-gray-400/40 ml-auto text-right pt-0.5">
+    Design by
+    <a href="https://antfu.me/projects">antfu.me</a>
+  </div>
 </template>
 
 <style scoped>

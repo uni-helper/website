@@ -1,4 +1,19 @@
-# 🔺🔹🔸🔻Uni DevTools
+---
+title: uni-devtools
+description: uni-devtools 是为 uni-app 提供的开发者工具
+icon: carbon:executable-program
+
+navTruncate: false
+
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/devtools
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/devtools
+    target: _blank
+---
 
 <pre align="center">
 🏗 积极开发中💪，暂不建议在生产中使用
@@ -6,13 +21,11 @@
 
 </br>
 
-<p align="center"><img  src=".github/assets/demo.png"></p>
+![demo](./devtools/demo.png)
 
 ## 安装
+:pm-install{name="-D @uni-helper/devtools"}
 
-```bash
-pnpm add -D @uni-helper/devtools
-```
 
 ## 使用
 
@@ -39,11 +52,3 @@ export default defineConfig({
 ## 💝 贡献
 
 任何人都可以参与到这个项目的贡献中，欢迎大家参与讨论和贡献代码。
-
-## 🙇🏻‍♂️ [sponsors](https://afdian.com/a/flippedround)
-
-<p align="center">
-  <a href="https://afdian.com/a/flippedround">
-    <img alt="sponsors" src="https://cdn.jsdelivr.net/gh/FliPPeDround/sponsors/sponsorkit/sponsors.svg"/>
-  </a>
-</p>

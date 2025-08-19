@@ -1,10 +1,19 @@
-# @uni-helper/uni-deploy
+---
+title: uni-deploy
+description: 自动化部署 uni-app 应用
+icon: carbon:chart-network
 
-[![License](https://img.shields.io/github/license/uni-helper/uni-deploy)](https://github.com/uni-helper/uni-deploy/blob/main/LICENSE)
+navTruncate: false
 
-[![npm](https://img.shields.io/npm/v/@uni-helper/uni-deploy)](https://www.npmjs.com/package/@uni-helper/uni-deploy)
-
-自动化部署 `uni-app` 应用。要求 `node >= 14.18`。
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/uni-deploy
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/uni-deploy
+    target: _blank
+---
 
 ## 起步
 
@@ -12,9 +21,8 @@
 
 安装依赖。
 
-```shell
-npm install @uni-helper/uni-deploy -D
-```
+:pm-install{name="-D @uni-helper/uni-deploy"}
+
 
 <details>
   <summary>yarn v2/v3</summary>
@@ -43,7 +51,7 @@ npm install @uni-helper/uni-deploy -D
 
 以下是一个 `uni-deploy.config.ts` 的示例。
 
-```typescript
+```typescript [uni-deploy.config.ts]
 import { defineConfig } from 'uni-deploy';
 
 export default defineConfig({

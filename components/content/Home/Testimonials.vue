@@ -5,43 +5,31 @@ const reviews = [
     name: '不如摸鱼去',
     username: '@wot-design-uni',
     body: 'uni-app 有你们是它的三生修来的福分',
-    img: 'https://avatars.githubusercontent.com/u/26426873?v=4',
+    img: 'https://github.com/Moonofweisheng.png',
   },
   {
     name: 'Epiphany',
     username: '@User',
     body: '自从用了 uni-helper，我感觉自己不是在驾驭 uniapp，而是在遛 uniapp。它让我往东，它不敢往西',
-    img: 'https://inspira-ui.com/images/x-logo.svg',
+    img: 'https://github.com/Epiphany.png',
   },
   {
-    name: 'Mattia Guariglia',
-    username: '@matt_guariglia',
-    body: 'Omg 🥰',
-    img: 'https://inspira-ui.com/images/x-logo.svg',
+    name: '辛宝Otto',
+    username: 'Otto-J',
+    body: '喔，做得很棒，支持',
+    img: 'https://github.com/Otto-J.png',
   },
   {
-    name: 'Nelson🐐',
-    username: '@Mathiasokafor3',
-    body: 'Thank you so much for all you do for the Vue/nuxt eco system.',
-    img: 'https://inspira-ui.com/images/x-logo.svg',
+    name: '陈随易',
+    username: '前端之虎陈随易',
+    body: '我用 uni-helper 开发了一个小程序，它的性能非常好，我很满意',
+    img: 'https://github.com/chenbimo.png',
   },
   {
-    name: 'Premdas Vm',
-    username: '@premdasvm',
-    body: 'Man, this is soo good! I\'ve been jealous of React because their eco-system had Magic UI and other ones like this. Inspira UI is 🔥🙌🏼',
-    img: 'https://inspira-ui.com/images/x-logo.svg',
-  },
-  {
-    name: 'Pierre',
-    username: '@PierreHenryBap',
-    body: 'It looks really awesome! Just noticed it a couple of days ago and I can’t wait to try it out.',
-    img: 'https://inspira-ui.com/images/x-logo.svg',
-  },
-  {
-    name: 'Waldemar Enns',
-    username: '@WaldemarEnns',
-    body: 'Awesome! ⭐️ed it immediately',
-    img: 'https://inspira-ui.com/images/x-logo.svg',
+    name: 'sKy',
+    username: 'skiyee',
+    body: 'uni-app使我旋转',
+    img: 'https://github.com/skiyee.png',
   },
 ]
 
@@ -143,6 +131,9 @@ const firstRow = ref(reviews)
       <div
         class="pointer-events-none absolute inset-0 bg-gradient-to-t from-white to-transparent dark:from-background"
       />
+    </div>
+    <div class="text-xs text-gray-500/40 dark:text-gray-400/40 self-end pt-0.5">
+      信息收集自互联网，如果有错误或侵权，请联系我们删除
     </div>
   </div>
 </template>

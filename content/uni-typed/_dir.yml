@@ -3,15 +3,11 @@ navigation.redirect: /uni-typed/guide/getting-started
 collapse: false
 toc:
   links:
-    - title: Star on Github
+    - title: 点亮星星
       icon: lucide:star
       to: https://github.com/uni-helper/uni-typed
       target: _blank
     - title: 反馈问题
       icon: lucide:github
       to: https://github.com/uni-helper/uni-typed/issues
-      target: _blank
-  iconLinks:
-    - icon: lucide:coffee
-      to: https://afdian.com/a/flippedround
       target: _blank

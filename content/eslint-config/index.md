@@ -1,14 +1,19 @@
-# @uni-helper/eslint-config
+---
+title: eslint-config
+description: eslint-config 是为 uni-app 提供的 ESLint 配置
+icon: simple-icons:eslint
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 8px;">
+navTruncate: false
 
-[![License](https://img.shields.io/github/license/uni-helper/eslint-config?style=for-the-badge)](https://github.com/uni-helper/eslint-config/blob/main/LICENSE)
-
-[![npm](https://img.shields.io/npm/v/%40uni-helper%2Feslint-config?style=for-the-badge)](https://www.npmjs.com/package/@uni-helper/eslint-config)
-
-[![npm downloads](https://img.shields.io/npm/dm/%40uni-helper%2Feslint-config?style=for-the-badge)](https://www.npmjs.com/package/@uni-helper/eslint-config)
-
-</div>
+badges:
+  - value: npm
+    to: https://www.npmjs.com/package/@uni-helper/eslint-config
+    target: _blank
+  - value: source
+    icon: lucide:code
+    to: https://github.com/uni-helper/eslint-config
+    target: _blank
+---
 
 基于 [Anthony's ESLint Config](https://github.com/antfu/eslint-config)、适用于 uni-app 项目的 ESLint Config。
 
@@ -29,14 +34,11 @@
 
 ### 手动安装
 
-```bash
-pnpm i -D eslint @antfu/eslint-config @uni-helper/eslint-config
-```
+:pm-install{name="-D eslint @antfu/eslint-config @uni-helper/eslint-config"}
 
 在项目根目录创建 `eslint.config.mjs`：
 
-```js
-// eslint.config.mjs
+```js [eslint.config.mjs]
 import uniHelper from '@uni-helper/eslint-config'
 
 export default uniHelper()
@@ -44,7 +46,7 @@ export default uniHelper()
 
 ### 修改 package.json scripts
 
-```json
+```json [package.json]
 {
   "scripts": {
     "lint": "eslint .",
