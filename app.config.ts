@@ -20,7 +20,20 @@ export default defineAppConfig({
         light: '/logo.svg',
         dark: '/logo-dark.svg',
       },
-      nav: [],
+      nav: [
+        {
+          title: '项目',
+          to: '/packages',
+          target: '_self',
+          showLinkIcon: false,
+        },
+        {
+          title: '博客',
+          to: '/blog',
+          target: '_self',
+          showLinkIcon: false,
+        },
+      ],
       links: [{
         icon: 'lucide:github',
         to: 'https://github.com/uni-helper',
