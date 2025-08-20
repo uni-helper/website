@@ -2,22 +2,16 @@
 // Reviews data
 const reviews = [
   {
-    name: '不如摸鱼去',
-    username: '@wot-design-uni',
-    body: 'uni-app 有你们是它的三生修来的福分',
-    img: 'https://github.com/Moonofweisheng.png',
-  },
-  {
     name: 'Epiphany',
     username: '@User',
     body: '自从用了 uni-helper，我感觉自己不是在驾驭 uniapp，而是在遛 uniapp。它让我往东，它不敢往西',
     img: 'https://github.com/Epiphany.png',
   },
   {
-    name: '辛宝Otto',
-    username: 'Otto-J',
-    body: '喔，做得很棒，支持',
-    img: 'https://github.com/Otto-J.png',
+    name: '不如摸鱼去',
+    username: '@wot-design-uni',
+    body: 'uni-app 有你们是它的三生修来的福分',
+    img: 'https://github.com/Moonofweisheng.png',
   },
   {
     name: '陈随易',
@@ -28,19 +22,25 @@ const reviews = [
   {
     name: 'sKy',
     username: 'skiyee',
-    body: 'uni-app使我旋转',
+    body: 'uni-helper 使我旋转',
     img: 'https://github.com/skiyee.png',
   },
   {
-    name: '不如摸鱼去',
-    username: '@wot-design-uni',
+    name: '辛宝Otto',
+    username: 'Otto-J',
+    body: '喔，做得很棒，支持',
+    img: 'https://github.com/Otto-J.png',
+  },
+  {
+    name: 'Sunpm',
+    username: '@高级炒饭技术专家',
     body: 'uni-app 有你们是它的三生修来的福分',
-    img: 'https://github.com/Moonofweisheng.png',
+    img: 'https://github.com/sunpm.png',
   },
   {
     name: 'sKy',
     username: 'skiyee',
-    body: 'uni-app使我旋转',
+    body: 'uni-helper 使我旋转',
     img: 'https://github.com/skiyee.png',
   },
 ]
