@@ -30,7 +30,11 @@ authors:
 
 **我们相信，事情本可以更好。**
 
-于是，从一个小小的 VSCode 插件开始，uni-app-snippets 逐渐发展成了旨在增强 uni-app 系列产品体验的 uni-helper。
+于是，从一个个简单的插件开始，我们逐渐成长为 “旨在增强 uni-app 系列产品体验” 的 uni-helper。
+
+出于对开源的热爱和一份共同的执着，来自五湖四海的开发者们相遇在此。
+
+uni-helper 的故事，也由此真正开始。
 
 我们陆续提供了：
 - **TypeScript 支持**：为 uni-app 内置组件和 API 提供精准的类型提示，让开发更安心。
@@ -110,11 +114,6 @@ uni-helper 的故事，是无数开源项目的缩影。它始于一个开发者
 我们相信，只要还有人在使用 uni-app，只要还有人对美好的开发体验有向往，uni-helper 就会继续存在下去。因为我们知道，我们不仅仅是在维护代码，更是在守护一种理想——让技术变得更美好，让开发变得更快乐。
 
 这，就是 uni-helper 的故事。一个关于一群理想主义者的故事。一个还在继续书写的故事...
-***
-商务合作请联系我们：
-- :icon{name="lucide:mail"} email: FliPPeDround@qq.com
-- :icon{name="tabler:brand-wechat"} wechat: FliPPeDround
-***
 
 [**uni-helper**](https://github.com/uni-helper) 团队和他的朋友们
 
