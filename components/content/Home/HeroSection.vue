@@ -82,7 +82,7 @@ onMounted(() => {
         <UiButton> 探索世界 </UiButton>
       </NuxtLink>
       <NuxtLink
-        to="https://github.com/unovue/inspira-ui"
+        to="https://github.com/uni-helper"
         target="_blank"
       >
         <UiButton variant="outline">
