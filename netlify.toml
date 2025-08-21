@@ -13,5 +13,5 @@ status = 200
 [images]
 remote_images = [
   "https://github.com/.*",
-  "https://img.shields.io/badge/.*"
+  "https://img.shields.io/.*"
 ]
