@@ -11,4 +11,7 @@ to = "index.html"
 status = 200
 
 [images]
-  remote_images = ["https://github.com/.*"]
+remote_images = [
+  "https://github.com/.*",
+  "https://img.shields.io/badge/.*"
+]
