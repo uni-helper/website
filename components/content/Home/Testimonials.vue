@@ -41,7 +41,7 @@ const reviews = [
   {
     name: 'Sunpm',
     username: '@高级炒饭技术专家',
-    body: '天不生 Uni Helper，uni-app 万古长如夜',
+    body: '天不生 uni-helper，uni-app 万古长如夜',
     img: 'https://github.com/sunpm.png',
   },
   {
