@@ -14,6 +14,13 @@ const reviews = [
     img: 'https://github.com/Moonofweisheng.png',
   },
   {
+
+    name: 'Sunpm',
+    username: '@高级炒饭技术专家',
+    body: '你们是群用爱发电的开源者，uni-app 因为你们而更美好，Respect!!!',
+    img: 'https://github.com/sunpm.png',
+  },
+  {
     name: '陈随易',
     username: '前端之虎陈随易',
     body: '我用 uni-helper 开发了一个小程序，它的性能非常好，我很满意',
@@ -34,7 +41,7 @@ const reviews = [
   {
     name: 'Sunpm',
     username: '@高级炒饭技术专家',
-    body: 'uni-app 有你们是它的三生修来的福分',
+    body: '天不生 Uni Helper，uni-app 万古长如夜',
     img: 'https://github.com/sunpm.png',
   },
   {
