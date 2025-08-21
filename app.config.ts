@@ -28,6 +28,12 @@ export default defineAppConfig({
           showLinkIcon: false,
         },
         {
+          title: '关于我们',
+          to: '/about',
+          target: '_self',
+          showLinkIcon: false,
+        },
+        {
           title: '博客',
           to: '/blog',
           target: '_self',
