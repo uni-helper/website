@@ -2,6 +2,7 @@
 const isDark = computed(() => useColorMode().value === 'dark')
 
 const packagesName = [
+  'awesome',
   'pages',
   'use',
   'create',
@@ -9,7 +10,6 @@ const packagesName = [
   'typed',
   'unocss',
   'axios',
-  'tailwindcss',
   'layout',
   'components',
   'manifest',
