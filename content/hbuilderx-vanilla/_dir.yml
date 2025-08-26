@@ -1,0 +1,18 @@
+title: hbuilderx-vanilla
+navigation.redirect: /hbuilderx-vanilla/introduction
+collapse: false
+showTitle: false
+toc:
+  links:
+    - title: 点亮星星
+      icon: lucide:star
+      to: 'https://github.com/uni-helper/hbuilderx-vanilla'
+      target: _blank
+    - title: 反馈问题
+      icon: lucide:github
+      to: 'https://github.com/uni-helper/hbuilderx-vanilla/issues'
+      target: _blank
+    - title: Docker Hub
+      icon: simple-icons:docker
+      to: 'https://hub.docker.com/r/flymyd114/hbuilderx-vanilla'
+      target: _blank
