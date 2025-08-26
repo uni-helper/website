@@ -19,7 +19,7 @@ badges:
 ---
 
 ::alert{to="/uni-network/guide/introduction" target="_blank" icon="lucide:test-tube"}
-  在uni-app中，`uni-network`是一个体积性能更好的替代品
+  在 uni-app 中，`uni-network`是一个体积性能更好的替代品
 ::
 
 ## 安装
@@ -45,7 +45,7 @@ badges:
 | ---------- | ---------- | ---------- | ---------- |
 | √          | √          | √          | √          |
 
-| H5-Safari | Android Browser | 微信浏览器(Android) | QQ 浏览器(Android) | Chrome | IE  | Edge | Firefox | PC-Safari |
+| H5-Safari | Android Browser | 微信浏览器 (Android) | QQ 浏览器 (Android) | Chrome | IE  | Edge | Firefox | PC-Safari |
 | --------- | --------------- | ------------------- | ------------------ | ------ | --- | ---- | ------- | --------- |
 | √         | √               | √                   | √                  | √      | √   | √    | √       | √         |
 
