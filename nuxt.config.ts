@@ -19,7 +19,7 @@ export default async () => {
     },
     mdc: {
       highlight: {
-        langs: ['jsonc'],
+        langs: ['jsonc', 'python'],
       },
     },
     compatibilityDate: '2024-07-06',
