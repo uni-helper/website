@@ -23,6 +23,13 @@ announcement:
 ::Bookshelf
 ---
 blogs:
+  - title: definePage
+    description: 使用 definePage 宏定义页面
+    to: /blog/definepage
+    footer: 2025-08-28
+    bg: dither
+    author: FliPPeDround
+
   - title: uni-plugin
     description: 让 uni-app 拥抱 ESM 时代
     to: https://juejin.cn/post/7530802836118159395

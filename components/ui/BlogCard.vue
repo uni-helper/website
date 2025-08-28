@@ -6,7 +6,7 @@ const {
   bg = 'liquid',
 } = defineProps<{
   author?: string
-  bg?: 'tetris' | 'liquid'
+  bg?: 'tetris' | 'liquid' | 'aurora' | 'dither'
   title?: string
   description?: string
   footer?: string
@@ -48,6 +48,19 @@ const [UseTemplate, CardInner] = createReusableTemplate()
             />
           </ClientOnly>
         </template>
+        <UiAurora v-if="bg === 'aurora'" />
+        <UiDither
+          v-if="bg === 'dither'"
+          :wave-speed="0.05"
+          :wave-frequency="3"
+          :wave-amplitude="0.3"
+          :wave-color="[0.5, 0.5, 0.5]"
+          :color-num="4"
+          :pixel-size="2"
+          :disable-animation="false"
+          :enable-mouse-interaction="true"
+          :mouse-radius="1"
+        />
       </div>
       <UiCardHeader v-if="icon || title || $slots.title || description || $slots.description" :class="{ 'flex-row items-center gap-5': horizontal }">
         <SmartIcon v-if="icon" :name="icon" :size="iconSize" :class="{ 'mb-2': !horizontal }" />
