@@ -51,7 +51,7 @@ export default defineConfig({
   // ...
   "pages": [{
     "path": "pages/index/index",
-    // 可选, 这是默认值
+    // 可选，这是默认值
     "layout": "default"
   }]
   // ...
@@ -73,7 +73,7 @@ export default defineConfig({
 
 ### 动态布局和额外插槽
 
-你需要先**禁用页面**的布局， 然后使用内置组件 `<uni-layout />`, 使用 `name` 属性指定布局，支持动态绑定 name、ref 等任意属性
+你需要先**禁用页面**的布局，然后使用内置组件 `<uni-layout />`, 使用 `name` 属性指定布局，支持动态绑定 name、ref 等任意属性
 
 ```vue [index.vue]
 <script setup>
@@ -121,12 +121,12 @@ layout 插件并非使用了什么魔法，它只做了两件事：
 2. 将页面使用 layout 组件包裹起来
    所以，在微信小程序下，如果你使用了 web-view , 那么不会生效。
 
-如果你使用 [vite-plugin-uni-pages](https://github.com/uni-helper/vite-plugin-uni-pages), 只需使用 route-block
+如果你使用 [vite-plugin-uni-pages](/vite-plugin-uni-pages), 只需使用 `definePage`
 
-```vue
-<route lang="json">
-{
-  "layout": "anyLayout"
-}
-</route>
+```vue [page.vue]
+<script setup>
+definePage({
+  layout: 'anyLayout'
+})
+</script>
 ```
