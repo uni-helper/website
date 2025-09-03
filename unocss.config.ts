@@ -57,6 +57,8 @@ export default defineConfig({
         /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
         // include js/ts files
         '(components|src|content)/**/*.{js,ts,md}',
+        // include shadcn components
+        '**/shadcn-docs-nuxt/components/**/*.{ts,vue}',
       ],
     },
   },
