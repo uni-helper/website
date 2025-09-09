@@ -3,6 +3,11 @@ export default defineAppConfig({
     site: {
       name: 'uni-helper',
       description: '旨在增强 uni-app 系列产品的开发流程',
+      umami: {
+        enable: true,
+        src: 'https://uni-helper.js.org/',
+        dataWebsiteId: 'b0e565a0-3f70-436d-9b6b-0d35b8080727',
+      },
     },
     theme: {
       customizable: false,
