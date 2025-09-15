@@ -1,5 +1,5 @@
 {
-  "name": "shadcn-docs-nuxt-starter",
+  "name": "@uni-helper/website",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@10.13.1",
