@@ -9,6 +9,7 @@ export default async () => {
       'motion-v/nuxt',
       '@nuxt/eslint',
       '@unocss/nuxt',
+      'nuxt-gtag',
     ],
     devtools: { enabled: true },
     css: [
@@ -56,6 +57,9 @@ export default async () => {
       optimizeDeps: {
         include: ['motion-v', 'clsx', 'tailwind-merge', 'class-variance-authority'],
       },
+    },
+    gtag: {
+      id: 'G-249B95M763',
     },
   })
 }
