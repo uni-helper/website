@@ -12,6 +12,13 @@ export default async () => {
       'nuxt-gtag',
     ],
     devtools: { enabled: true },
+    app: {
+      head: {
+        meta: [
+          { name: 'google-site-verification', content: 'hqPb74AFcL3IXb7yqjOcOY9v6MJkevvVm-IUSFc9GOk' },
+        ],
+      },
+    },
     css: [
       '@unocss/reset/tailwind.css',
     ],
