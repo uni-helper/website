@@ -40,6 +40,7 @@ export default defineConfig({
 - [uni-ui](https://github.com/uni-helper/vite-plugin-uni-components/tree/main/packages/core/src/_resolvers/uni-ui.ts)
 - [wot-design-uni](https://github.com/uni-helper/vite-plugin-uni-components/tree/main/packages/core/src/_resolvers/wot-design-uni.ts)
 - [uv-uni](https://github.com/uni-helper/vite-plugin-uni-components/tree/main/packages/core/src/_resolvers/uv-uni.ts)
+- [uview-pro](https://github.com/uni-helper/vite-plugin-uni-components/tree/main/packages/core/src/_resolvers/uview-pro.ts)
 
 ## UI 组件类型提示
 
