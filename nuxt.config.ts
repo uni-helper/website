@@ -70,5 +70,10 @@ export default async () => {
     gtag: {
       id: 'G-249B95M763',
     },
+    ogImage: {
+      fonts: [
+        'Noto+Sans+SC:400',
+      ],
+    },
   })
 }
