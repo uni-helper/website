@@ -6,6 +6,7 @@ export default async () => {
   return defineNuxtConfig({
     extends: ['shadcn-docs-nuxt'],
     modules: [
+      '@nuxtjs/sitemap',
       'motion-v/nuxt',
       '@nuxt/eslint',
       '@unocss/nuxt',
@@ -24,6 +25,7 @@ export default async () => {
     ],
     site: {
       url: 'https://uni-helper.js.org/',
+      name: 'Uni Helper',
     },
     mdc: {
       highlight: {
