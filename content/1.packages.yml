@@ -100,7 +100,6 @@ projects:
       link: 'https://github.com/uni-helper/uni-app-snippets-vscode'
       desc: 为 VS Code 提供 uni-app 的代码片段
       icon: 'i-ic:outline-snippet-folder'
-    - name: uni-components-snippets-vscode
     - name: uni-ui-snippets-vscode
       link: 'https://github.com/uni-helper/uni-ui-snippets-vscode'
       desc: 为 VS Code 提供 uni-ui 的组件代码片段

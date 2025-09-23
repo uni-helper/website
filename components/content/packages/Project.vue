@@ -56,7 +56,7 @@ function slug(name: string) {
             :title="item.name"
           >
             <div v-if="item.icon" class="pt-2 pr-5">
-              <div class="text-3xl opacity-50" :class="item.icon" />
+              <SmartIcon :name="item.icon" class="size-8 opacity-50" />
             </div>
             <div class="flex-auto">
               <div class="text-normal">
