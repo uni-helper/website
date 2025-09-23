@@ -40,6 +40,12 @@ export default defineAppConfig({
           target: '_self',
           showLinkIcon: false,
         },
+        {
+          title: '关系',
+          to: '/relations',
+          target: '_self',
+          showLinkIcon: false,
+        },
       ],
       links: [{
         icon: 'lucide:github',

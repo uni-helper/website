@@ -50,7 +50,7 @@ function slug(name: string) {
             v-for="item, idx in projects[key]"
             :key="idx"
             class="item relative flex items-center"
-            :to="slug(key) !== 'vs-code' ? item.name : `${slug(key)}/${item.name}`"
+            :to="slug(key) !== 'vs-code' ? `/${item.name}` : `/${slug(key)}/${item.name}`"
 
             target=""
             :title="item.name"
@@ -75,7 +75,9 @@ function slug(name: string) {
         </div>
         <ul>
           <li v-for="key of Object.keys(projects)" :key="key">
-            <NuxtLink :href="`#${slug(key)}`">{{ key }}</NuxtLink>
+            <NuxtLink :href="`#${slug(key)}`">
+              {{ key }}
+            </NuxtLink>
           </li>
         </ul>
       </div>
