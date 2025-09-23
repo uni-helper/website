@@ -8,11 +8,11 @@ export default defineEventHandler(async (event) => {
 
   const populatedPackages = await Promise.all(
     projects.map(async (pkg) => {
-      const [npmPackageJson, githubPackageJson] = await Promise.all([
-        pkg.npm ? fetchPackageJson(pkg.npm) : null,
-        pkg.github ? fetchPackageJsonFromGitHub(pkg.github) : null,
-      ])
-      const packageJson = npmPackageJson || githubPackageJson
+      const packageJson = pkg.npm
+        ? await fetchPackageJson(pkg.npm)
+        : pkg.github
+          ? await fetchPackageJsonFromGitHub(pkg.github)
+          : null
       return {
         id: pkg.name.toLowerCase(),
         title: pkg.name,

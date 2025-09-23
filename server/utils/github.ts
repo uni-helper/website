@@ -18,6 +18,20 @@ const cachedGitHubPackageJsons = defineCachedFunction(async (repo: string) => {
   getKey: (name: string) => `githubPackages:${name}`,
 })
 
+const cachedGithubRelease = defineCachedFunction(async (repo: string) => {
+  const { releases } = await $fetch<{ releases: any[] }>(`https://ungh.cc/repos/${repo}/releases`)
+  return releases
+}, {
+  maxAge: 1000 * 60 * 10, // 10 minutes
+  group: 'github',
+  name: 'githubReleases',
+  getKey: (name: string) => `githubReleases:${name}`,
+})
+
 export async function fetchPackageJsonFromGitHub(repo: string) {
   return await cachedGitHubPackageJsons(repo)
+}
+
+export async function fetchReleasesFromGitHub(repo: string) {
+  return await cachedGithubRelease(repo)
 }
