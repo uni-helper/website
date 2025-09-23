@@ -2,7 +2,7 @@ import { readdir, stat } from 'node:fs/promises'
 import { join } from 'node:path'
 
 export async function generatePrerenderRoutes(contentDir: string = './content') {
-  const routes = new Set(['/', '/packages'])
+  const routes = new Set(['/', '/packages', '/api/_content/packages.json'])
 
   /**
    * 递归扫描目录

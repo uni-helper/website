@@ -50,13 +50,13 @@ function slug(name: string) {
             v-for="item, idx in projects[key]"
             :key="idx"
             class="item relative flex items-center"
-            :to="slug(key) !== 'vs-code' ? item.name : `${slug(key)}/${item.name}`"
+            :to="slug(key) !== 'vs-code' ? `/${item.name}` : `/${slug(key)}/${item.name}`"
 
             target=""
             :title="item.name"
           >
             <div v-if="item.icon" class="pt-2 pr-5">
-              <div class="text-3xl opacity-50" :class="item.icon" />
+              <SmartIcon :name="item.icon" class="size-8 opacity-50" />
             </div>
             <div class="flex-auto">
               <div class="text-normal">
@@ -75,7 +75,9 @@ function slug(name: string) {
         </div>
         <ul>
           <li v-for="key of Object.keys(projects)" :key="key">
-            <NuxtLink :href="`#${slug(key)}`">{{ key }}</NuxtLink>
+            <NuxtLink :href="`#${slug(key)}`">
+              {{ key }}
+            </NuxtLink>
           </li>
         </ul>
       </div>

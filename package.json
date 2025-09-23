@@ -23,8 +23,11 @@
     "ogl": "^1.0.11",
     "shadcn-docs-nuxt": "^1.1.1",
     "theme-colors": "^0.1.0",
+    "vis-network": "^10.0.2",
     "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "vue-sonner": "^2.0.8",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.0.0",
@@ -50,6 +53,7 @@
     "@unocss/extractor-mdc": "^66.3.3",
     "@unocss/preset-wind3": "^66.3.3",
     "@unocss/preset-wind4": "^66.3.3",
+    "@ztl-uwu/nuxt-content": "2.13.8",
     "eslint": "^9.31.0",
     "netlify-cli": "^23.1.4",
     "unocss": "^66.3.3",

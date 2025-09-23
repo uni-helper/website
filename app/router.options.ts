@@ -35,7 +35,7 @@ export default <RouterConfig>{
     if (savedPosition) {
       return {
         ...savedPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       }
     }
 

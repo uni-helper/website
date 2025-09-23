@@ -11,6 +11,7 @@ export default async () => {
       '@nuxt/eslint',
       '@unocss/nuxt',
       'nuxt-gtag',
+      '@ztl-uwu/nuxt-content',
     ],
     devtools: { enabled: true },
     app: {
