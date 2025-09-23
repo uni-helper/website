@@ -29,8 +29,8 @@ export default defineAppConfig({
           showLinkIcon: false,
         },
         {
-          title: '关于我们',
-          to: '/about',
+          title: '关系',
+          to: '/relations',
           target: '_self',
           showLinkIcon: false,
         },
@@ -41,8 +41,14 @@ export default defineAppConfig({
           showLinkIcon: false,
         },
         {
-          title: '关系',
-          to: '/relations',
+          title: '更新日志',
+          to: '/changelog',
+          target: '_self',
+          showLinkIcon: false,
+        },
+        {
+          title: '关于我们',
+          to: '/about',
           target: '_self',
           showLinkIcon: false,
         },
