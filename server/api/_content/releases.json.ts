@@ -2,8 +2,6 @@ import type { MDCRoot } from '@nuxtjs/mdc'
 import type { PackageContent, Project } from '~/types/package'
 import type { Release } from '~/types/releases'
 import { serverQueryContent } from '#content/server'
-import { parseMarkdown } from '@nuxtjs/mdc/runtime'
-import { fetchReleasesFromGitHub } from '~/server/utils/github'
 
 export default defineEventHandler(async (event) => {
   const { projects: _projects } = await serverQueryContent<PackageContent>(event).where({ _path: /^\/packages$/ }).findOne()
