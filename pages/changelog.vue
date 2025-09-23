@@ -28,7 +28,7 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
 </script>
 
 <template>
-  <div class="size-full xl:grid xl:grid-cols-2">
+  <div v-if="page" class="size-full xl:grid xl:grid-cols-2">
     <section
       class="relative isolate border-b border-border xl:border-b-0 xl:sticky xl:inset-y-0 xl:h-screen overflow-hidden"
     >
@@ -57,7 +57,8 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
       >
         <UiChangelogVersion
           v-for="release in releases" :key="release.tag" :to="release.url" target="_blank"
-          :title="release.title" :badge="{
+          :title="release.title" 
+          :badge="{
             label: release.repo,
             variant: 'outline',
           }"
