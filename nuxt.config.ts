@@ -1,8 +1,10 @@
+import type { NitroRouteConfig } from 'nitropack'
 import { defineNuxtConfig } from 'nuxt/config'
 import { generatePrerenderRoutes } from './scripts/generate-routes'
 
 export default async () => {
   const prerenderRoutes = await generatePrerenderRoutes('./content')
+  const swrRoutes = ['/api/_content/packages.json', '/api/_content/releases.json']
 
   return defineNuxtConfig({
     extends: ['shadcn-docs-nuxt'],
@@ -38,7 +40,16 @@ export default async () => {
     nitro: {
       prerender: {
         crawlLinks: true,
-        routes: prerenderRoutes,
+      },
+      routeRules: {
+        ...prerenderRoutes.reduce((acc, route) => {
+          acc[route] = { isr: true, prerender: true }
+          return acc
+        }, {} as Record<string, NitroRouteConfig>),
+        ...swrRoutes.reduce((acc, route) => {
+          acc[route] = { swr: true, prerender: true }
+          return acc
+        }, {} as Record<string, NitroRouteConfig>),
       },
       netlify: {
         images: {
@@ -74,7 +85,7 @@ export default async () => {
     },
     vite: {
       optimizeDeps: {
-        include: ['motion-v', 'clsx', 'tailwind-merge', 'class-variance-authority'],
+        include: ['motion-v', 'clsx', 'tailwind-merge', 'class-variance-authority', 'reka-ui', 'scule'],
       },
     },
     gtag: {
