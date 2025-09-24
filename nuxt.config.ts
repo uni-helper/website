@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from 'nuxt/config'
 import { generatePrerenderRoutes } from './scripts/generate-routes'
 
 export default async () => {
@@ -38,6 +39,14 @@ export default async () => {
       prerender: {
         crawlLinks: true,
         routes: prerenderRoutes,
+      },
+      netlify: {
+        images: {
+          remote_images: [
+            'https://github.com/.*',
+            'https://img.shields.io/.*',
+          ],
+        },
       },
     },
     eslint: {
