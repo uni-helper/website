@@ -18,11 +18,6 @@ interface UserProps {
   [key: string]: any
 }
 
-interface LinkProps {
-  to?: any
-  target?: string
-}
-
 interface ChangelogVersionProps {
   as?: any
   title?: string
@@ -32,8 +27,8 @@ interface ChangelogVersionProps {
   authors?: UserProps[]
   image?: string | Partial<HTMLImageElement>
   indicator?: boolean
-  to?: LinkProps['to']
-  target?: LinkProps['target']
+  to?: any
+  target?: string
   onClick?: (event: MouseEvent) => void | Promise<void>
   class?: any
   ui?: any
@@ -166,14 +161,13 @@ const datetime = computed(() => {
 
 <template>
   <DefineLinkTemplate>
-    <Link
-      v-if="to"
+    <NuxtLink
       v-bind="{ to, target, ...$attrs }"
       :class="cn('focus:outline-none peer')"
       tabindex="-1"
     >
       <span class="absolute inset-0" aria-hidden="true" />
-    </Link>
+    </NuxtLink>
   </DefineLinkTemplate>
 
   <DefineDateTemplate v-slot="{ hidden }">

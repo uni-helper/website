@@ -6,9 +6,11 @@ import { serverQueryContent } from '#content/server'
 export default defineEventHandler(async (event) => {
   const { projects: _projects } = await serverQueryContent<PackageContent>(event).where({ _path: /^\/packages$/ }).findOne()
   const projects = Object.values(_projects || {}).flat() as Project[]
-  const repos = projects.map(p => p.github).filter(Boolean) as string[]
   const releases: Release[] = await Promise.all(
-    repos.map(async (repo) => {
+    projects.map(async (preject) => {
+      const repo = preject.github
+      if (!repo)
+        return []
       const releases = await fetchReleasesFromGitHub(repo)
       return Promise.all(
         releases
@@ -28,6 +30,7 @@ export default defineEventHandler(async (event) => {
             }
             return {
               url: `https://github.com/${repo}/releases/tag/${release.tag}`,
+              icon: preject.icon,
               repo,
               tag: release.tag,
               title: release.name || release.tag,
@@ -37,7 +40,7 @@ export default defineEventHandler(async (event) => {
           }),
       )
     }),
-  ).then(results => results.flat())
+  ).then(results => results.flat().filter(Boolean))
 
   return releases.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 20)
 })

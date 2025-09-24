@@ -40,10 +40,10 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
         <div class="flex flex-col">
           <Logo class="justify-center mb-6" />
           <h2 class="sm:text-4xl lg:text-5xl text-pretty tracking-tight font-bold text-left text-4xl">
-            {{page.title}}
+            {{ page.title }}
           </h2>
           <p class="text-base sm:text-lg text-muted-foreground text-balance mt-6 text-left max-w-lg">
-            {{page.description}}
+            {{ page.description }}
           </p>
         </div>
       </div>
@@ -56,12 +56,10 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
         }"
       >
         <UiChangelogVersion
-          v-for="release in releases" :key="release.tag" :to="release.url" target="_blank"
-          :title="release.title" 
-          :badge="{
-            label: release.repo,
-            variant: 'outline',
-          }"
+          v-for="release in releases" :key="release.tag"
+          :to="release.url"
+          target="_blank"
+          :title="release.title"
           :date="formatTimeAgo(new Date(release.date))"
           :ui="{
             root: 'flex items-start',
@@ -72,6 +70,14 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
             indicator: 'sticky top-0 pt-16 -mt-16 sm:pt-24 sm:-mt-24 lg:pt-32 lg:-mt-32',
           }"
         >
+          <template #badge>
+            <UiBadge variant="outline" as-child>
+              <NuxtLink :to="`https://github.com/${release.repo}`" target="_blank" class="flex items-center">
+                <SmartIcon :name="release.icon" class="size-3 mr-1" />
+                {{ release.repo }}
+              </NuxtLink>
+            </UiBadge>
+          </template>
           <template #body>
             <div
               class="relative"
@@ -80,16 +86,19 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
                 'h-[200px] overflow-y-hidden': !release.open && release.body.children.length > 4,
               }"
             >
-              <MDCRenderer v-if="release.body" :body="release.body" style="zoom: 0.85" class="mt-2" />
+              <MDCRenderer v-if="release.body?.children?.length" :body="release.body" style="zoom: 0.85" class="mt-2" />
+              <p v-else class="leading-7 [&:not(:first-child)]:mt-6" style="zoom: 0.85">
+                <em>No significant changes</em>
+              </p>
               <div
                 v-if="!release.open && release.body.children.length > 4"
                 class="h-16 absolute inset-x-0 bottom-0 flex items-end justify-center"
-                :class="{ 'bg-gradient-to-t from-default to-default/50': !release.open }"
+                :class="{ 'bg-gradient-to-t from-background to-background/50': !release.open }"
               >
                 <ButtonLink
                   size="sm" left-icon="i-lucide-chevron-down" variant="outline"
-                  :data-state="release.open ? 'open' : 'closed'" class="group"
-                  :ui="{ leadingIcon: 'group-data-[state=open]:rotate-180' }" @click="release.open = !release.open"
+                  :data-state="release.open ? 'open' : 'closed'"
+                  @click="release.open = !release.open"
                 >
                   {{ release.open ? '收起版本' : '展开版本' }}
                 </ButtonLink>
