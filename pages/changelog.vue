@@ -12,8 +12,15 @@ if (error.value) {
     fatal: true,
   })
 }
+const config = useAppConfig().shadcnDocs
 
 useSeoMeta({
+  title: page.value?.title,
+  description: page.value?.description,
+  titleTemplate: `%s - ${config.header.title}`,
+})
+
+defineOgImageComponent('ShadcnDocs', {
   title: page.value?.title,
   description: page.value?.description,
 })
@@ -86,8 +93,8 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
                 'h-[200px] overflow-y-hidden': !release.open && release.body.children.length > 4,
               }"
             >
-              <MDCRenderer v-if="release.body?.children?.length" :body="release.body" style="zoom: 0.85" class="mt-2" />
-              <p v-else class="leading-7 [&:not(:first-child)]:mt-6" style="zoom: 0.85">
+              <MDCRenderer v-if="release.body?.children?.length" :body="release.body" style="zoom: 0.85" class="mt-6" />
+              <p v-else class="leading-7 mt-6" style="zoom: 0.85">
                 <em>No significant changes</em>
               </p>
               <div

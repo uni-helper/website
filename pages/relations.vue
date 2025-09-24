@@ -13,11 +13,18 @@ if (error.value) {
   })
 }
 
+const config = useAppConfig().shadcnDocs
+
 useSeoMeta({
   title: page.value?.title,
   description: page.value?.description,
+  titleTemplate: `%s - ${config.header.title}`,
 })
 
+defineOgImageComponent('ShadcnDocs', {
+  title: page.value?.title,
+  description: page.value?.description,
+})
 const loading = ref(true)
 
 const openUniHelper = ref(false)
