@@ -50,6 +50,12 @@ const reviews = [
     body: 'uni-helper 使我旋转',
     img: 'https://github.com/skiyee.png',
   },
+  {
+    name: 'xiaohe0601',
+    username: '@xiaohe0601',
+    body: 'uni-helper 让 uni-app 拥有了现代化的 Web 开发体验',
+    img: 'https://github.com/xiaohe0601.png',
+  },
 ]
 
 // Rows
