@@ -16,11 +16,11 @@ projects:
       desc: '由 Vite & uni-app 驱动的跨端快速启动模板'
       icon: i-carbon-campsite
       github: uni-helper/vitesse-uni-app
-    - name: uni
-      link: 'https://github.com/uni-helper/uni'
+    - name: unh
+      link: 'https://github.com/uni-helper/unh'
       desc: 二次封装的启动命令，可以自定义 hooks
       icon: 'i-lucide:mouse-pointer-click'
-      npm: '@uni-helper/uni'
+      npm: '@uni-helper/unh'
 
   Network:
     - name: uni-network
