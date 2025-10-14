@@ -136,16 +136,16 @@ function validate() {
 
       <UiDialogFooter class="sm:justify-between w-full">
         <div class="flex gap-2">
-          <UiButton size="sm" type="button" variant="destructive" @click="clear">
+          <UiButton size="sm" type="button" variant="ghost" c-red-400 hover="bg-red-950 c-red-400" @click="clear">
             清除选择
           </UiButton>
-          <UiButton size="sm" type="button" variant="destructive" @click="removeAll">
+          <UiButton size="sm" type="button" variant="ghost" c-red-400 hover="bg-red-950 c-red-400" @click="removeAll">
             删除全部
           </UiButton>
         </div>
         <div class="flex gap-2">
           <UiDialogClose as-child>
-            <UiButton size="sm" type="button" variant="secondary" @click="cancel">
+            <UiButton size="sm" type="button" variant="ghost" @click="cancel">
               关闭
             </UiButton>
           </UiDialogClose>
