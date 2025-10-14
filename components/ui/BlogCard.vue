@@ -6,7 +6,7 @@ const {
   bg = 'liquid',
 } = defineProps<{
   author?: string
-  bg?: 'tetris' | 'liquid' | 'aurora' | 'dither'
+  bg?: 'tetris' | 'liquid' | 'aurora' | 'dither' | 'dotGrid'
   title?: string
   description?: string
   footer?: string
@@ -60,6 +60,20 @@ const [UseTemplate, CardInner] = createReusableTemplate()
           :disable-animation="false"
           :enable-mouse-interaction="true"
           :mouse-radius="1"
+        />
+        <UiDotGrid
+          v-if="bg === 'dotGrid'"
+          :dot-size="5"
+          :gap="10"
+          base-color="#333333"
+          active-color="#27FF64"
+          :proximity="40"
+          :speed-trigger="100"
+          :shock-radius="250"
+          :shock-strength="5"
+          :max-speed="5000"
+          :resistance="750"
+          :return-duration="1.5"
         />
       </div>
       <UiCardHeader v-if="icon || title || $slots.title || description || $slots.description" :class="{ 'flex-row items-center gap-5': horizontal }">

@@ -23,6 +23,13 @@ announcement:
 ::Bookshelf
 ---
 blogs:
+  - title: uni-helper/unh
+    description: uni-helper 是一个基于 uni-app 的工具链，它可以帮助你快速开发 uni-app 项目
+    to: /blog/unh
+    footer: 2025-10-14
+    bg: dotGrid
+    author: FliPPeDround
+
   - title: definePage
     description: 使用 definePage 宏定义页面
     to: /blog/definepage
@@ -43,7 +50,7 @@ blogs:
     footer: 2025-01-09
     bg: liquid
     author: FliPPeDround
-  
+
   - title: uni-helper 2024 年路线图
     description: uni-helper 2024 年路线图
     to: https://juejin.cn/post/7355738271694487591
@@ -73,4 +80,3 @@ blogs:
     author: ModyQyW
 ---
 ::
-

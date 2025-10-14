@@ -72,18 +72,19 @@ export function definePageMacro() {
   return {
     name: 'uni-pages-define-page',
     transform(code, id) {
-      if (!id.endsWith('.vue')) return null
-      
+      if (!id.endsWith('.vue'))
+        return null
+
       // 使用 AST 解析器识别 definePage 调用
       const ast = parse(code)
       const definePageNodes = findDefinePageCalls(ast)
-      
+
       // 提取并执行宏函数
       const pageConfig = executeDefinePageMacro(definePageNodes, id)
-      
+
       // 生成路由配置并注入到 pages.json
       injectPageConfig(pageConfig)
-      
+
       // 移除宏调用，避免影响运行时
       return removeDefinePageCalls(ast)
     }
@@ -98,7 +99,7 @@ export function definePageMacro() {
 ```typescript
 function executeDefinePageMacro(nodes, id) {
   const code = generateScriptFromNodes(nodes)
-  
+
   // 创建一个新的虚拟机上下文，支持动态导入
   const vmContext = {
     module: {},
@@ -108,7 +109,7 @@ function executeDefinePageMacro(nodes, id) {
     require: createRequire(dir),
     import: (id: string) => import(id),
   }
-  
+
   // 使用 vm 模块执行 JavaScript 代码
   const script = new vm.Script(code, id)
 
@@ -204,13 +205,15 @@ definePage({
 结合 `@uni-helper/uni-env` 包，实现平台特定的路由配置：
 
 ```typescript
-import { isH5, isMP, isApp } from '@uni-helper/uni-env'
+import { isApp, isH5, isMP } from '@uni-helper/uni-env'
 
 definePage(() => ({
   style: {
-    navigationBarTitleText: isH5 ? 'Web 版' : 
-                           isMP ? '小程序版' : 
-                           'App 版',
+    navigationBarTitleText: isH5
+      ? 'Web 版'
+      : isMP
+        ? '小程序版'
+        : 'App 版',
     navigationStyle: isMP ? 'custom' : 'default'
   }
 }))
@@ -304,7 +307,6 @@ definePage({
 - 宏函数无法访问 SFC 内部的变量（如 ref、computed 等）
 - 宏执行时，Vue 组件尚未实例化
 - 宏返回的配置会被提取并合并到最终的 pages.json 中
-
 
 ## 总结
 
