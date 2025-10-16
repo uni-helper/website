@@ -25,6 +25,6 @@ defineOgImageComponent('ShadcnDocs', {
 
 <template>
   <div>
-    <Project :projects="page.projects" />
+    <Project v-if="page" :projects="page.projects" />
   </div>
 </template>
