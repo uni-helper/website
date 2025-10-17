@@ -22,7 +22,7 @@
     "nuxt": "^3.17.6",
     "nuxt-gtag": "4.0.0",
     "ogl": "^1.0.11",
-    "shadcn-docs-nuxt": "^1.1.1",
+    "shadcn-docs-nuxt": "^1.1.4",
     "theme-colors": "^0.1.0",
     "vis-network": "^10.0.2",
     "vue": "^3.5.17",
