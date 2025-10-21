@@ -7,7 +7,7 @@
       text="免费 &amp; 开源"
       :colors="{ first: '#9E7AFF', second: '#FE8BBB' }"
       :sparkles-count="10"
-      class="my-8"
+      class="my-8 text-nowrap"
     />
     <div class="text-center opacity-65">
       <div>

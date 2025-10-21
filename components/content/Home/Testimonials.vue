@@ -64,7 +64,7 @@ const firstRow = ref(reviews)
 
 <template>
   <div class="flex w-full max-w-7xl flex-col items-center justify-center p-4">
-    <div class="py-12 text-5xl font-semibold">
+    <div class="py-12 text-5xl font-semibold text-nowrap">
       深受社区喜爱<span class="text-4xl"> ❤️</span>
     </div>
     <div
