@@ -25,3 +25,6 @@ logs
 
 # Local Netlify folder
 .netlify
+
+# uni-use files
+content/uni-use/2.api/*.md

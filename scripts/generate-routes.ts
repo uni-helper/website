@@ -33,7 +33,7 @@ export async function generatePrerenderRoutes(contentDir: string = './content') 
           // 移除文件名的数字前缀
           const cleanName = fileName.replace(/^\d+\./, '')
           const routePath = basePath ? `/${basePath}/${cleanName}` : `/${cleanName}`
-          routes.add(routePath)
+          routes.add(routePath.toLowerCase())
         }
       }
     }
