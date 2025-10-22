@@ -5,7 +5,9 @@ import process from 'node:process'
 
 // 配置
 const TEMP_DIR = '/tmp/uni-use-temp'
-const TARGET_DIR = '/Users/flippedround/Documents/uni-website/content/uni-use/2.api'
+// 自动获取当前工作目录下的 content/uni-use/2.api
+const TARGET_DIR = `${process.cwd()}/content/uni-use/2.api`
+console.log(TARGET_DIR)
 const REPO_URL = 'https://github.com/uni-helper/uni-use.git'
 const SOURCE_DIR = `${TEMP_DIR}/src`
 
