@@ -61,13 +61,17 @@ export default defineConfig({
     prepare() {
       console.log('prepare')
     },
-    // 构建时的钩子，接收平台参数
-    build(platform: string) {
-      console.log('build:', platform)
+    // 开发前的钩子，接收平台参数
+    dev(platform: string, options: Record<string, any>) {
+      console.log('dev:', platform, options)
     },
-    // 开发时的钩子，接收平台参数
-    dev(platform: string) {
-      console.log('dev:', platform)
+    // 构建前的钩子，接收平台参数
+    build(platform: string, options: Record<string, any>) {
+      console.log('build:', platform, options)
+    },
+		// 构建后的钩子，接收平台参数
+    onBuildAfter(platform: string, options: Record<string, any>) {
+      console.log('buildAfter:', platform, options)
     },
   },
   // 自动生成配置
@@ -112,6 +116,10 @@ unh -h
 
 ::field{name="dev" type="(inputPlatform: string) => void | Promise<void>"}
 开发前执行，执行`unh dev`时调用
+::
+
+::field{name="onBuildAfter" type="(inputPlatform: string) => void | Promise<void>"}
+构建后执行，执行`unh build`时调用
 ::
 
 ## `autoGenerate`
