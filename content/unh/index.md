@@ -69,7 +69,7 @@ export default defineConfig({
     build(platform: string, options: Record<string, any>) {
       console.log('build:', platform, options)
     },
-		// 构建后的钩子，接收平台参数
+    // 构建后的钩子，接收平台参数
     onBuildAfter(platform: string, options: Record<string, any>) {
       console.log('buildAfter:', platform, options)
     },
@@ -119,7 +119,7 @@ unh -h
 ::
 
 ::field{name="onBuildAfter" type="(inputPlatform: string) => void | Promise<void>"}
-构建后执行，执行`unh build`时调用
+构建后执行，执行`unh build`后调用
 ::
 
 ## `autoGenerate`
