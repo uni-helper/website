@@ -39,12 +39,11 @@ badges:
 :pm-install{name="-D @uni-helper/unocss-preset-uni unocss-applet@0.7.8 unocss@0.58.9"}
 ::
 
-
 ### 配置
 
 ```ts [vite.config.ts]
-import { defineConfig } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
+import { defineConfig } from 'vite'
 
 export default async () => {
   const UnoCSS = (await import('unocss/vite')).default
@@ -86,9 +85,9 @@ export default async () => {
 注意：部分情况下组件库的属性命名可能会与此模式冲突，如果出现样式无效的情况，请尝试关闭此选项，或者设置 `prefixedOnly` 选项值为 `true`，只扫描前缀匹配的属性。
 
 ```ts
-import { defineConfig } from 'unocss'
 import { isMp } from '@uni-helper/uni-env'
 import { presetUni } from '@uni-helper/unocss-preset-uni'
+import { defineConfig } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -102,7 +101,6 @@ export default defineConfig({
 ```
 是否启用 [@unocss/preset-attributify](https://unocss.dev/presets/attributify)。对于小程序平台，还会自动启用 [@unocss-applet/transformer-attributify](https://github.com/unocss-applet/unocss-applet/tree/main/packages/transformer-attributify) 以获取更佳支持。
 ::
-
 
 ## 示例
 
@@ -133,8 +131,8 @@ export default defineConfig({
 你也可以通过自定义 `theme.platforms` 来自定义平台匹配规则:
 
 ```ts [uno.config.ts]
-import { defineConfig } from 'unocss'
 import { presetUni } from '@uni-helper/unocss-preset-uni'
+import { defineConfig } from 'unocss'
 
 export default defineConfig({
   presets: [

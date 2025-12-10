@@ -25,10 +25,10 @@ badges:
 
 ```ts
 // ESM
-import { createHbuilderX } from "@uni-helper/hbuilderx-cli";
+import { createHbuilderX } from '@uni-helper/hbuilderx-cli'
 
 // CommonJS
-const { createHbuilderX } = require("@uni-helper/hbuilderx-cli");
+const { createHbuilderX } = require('@uni-helper/hbuilderx-cli')
 ```
 
 ### 命令行

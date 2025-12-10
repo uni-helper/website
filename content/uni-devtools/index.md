@@ -26,13 +26,12 @@ badges:
 ## 安装
 :pm-install{name="-D @uni-helper/devtools"}
 
-
 ## 使用
 
 ```ts
-import { defineConfig } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 import DevTools from '@uni-helper/devtools'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [

@@ -22,9 +22,9 @@ badges:
 ### 配置
 
 ```ts [vite.config.ts]
-import { defineConfig } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 import UniPlatformModifier from '@uni-helper/vite-plugin-uni-platform-modifier'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [Uni(), UniPlatformModifier()],
@@ -89,9 +89,7 @@ export default defineConfig({
 ::
 ::
 
-
 ### 支持的修饰符
-
 
 ```js
 ['app', 'app-plus', 'h5', 'mp-360', 'mp-alipay', 'mp-baidu', 'mp-jd', 'mp-kuaishou', 'mp-lark', 'mp-qq', 'mp-toutiao', 'mp-weixin', 'quickapp-webview', 'quickapp-webview-huawei', 'quickapp-webview-union']

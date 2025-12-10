@@ -21,9 +21,9 @@ badges:
 ## 使用
 
 ```ts [vite.config.ts]
-import { defineConfig } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [UniPlatform(), Uni()],

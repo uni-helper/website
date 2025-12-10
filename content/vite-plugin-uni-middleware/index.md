@@ -19,26 +19,27 @@ badges:
 ## 使用
 
 ```ts [vite.config.ts]
-import { defineConfig } from "vite";
-import Uni from "@dcloudio/vite-plugin-uni";
-import UniMiddleware from "@uni-helper/vite-plugin-uni-middleware";
+import Uni from '@dcloudio/vite-plugin-uni'
+import UniMiddleware from '@uni-helper/vite-plugin-uni-middleware'
+import { defineConfig } from 'vite'
+
 export default defineConfig({
   plugins: [Uni(), UniMiddleware()],
-});
+})
 ```
 
 在 `src/middleware` 中定义中间件
 
 ```ts [src/middleware/auth.ts]
-import { defineMiddleware } from "@uni-helper/vite-plugin-uni-middleware/runtime";
-import { useStore } from "../store";
+import { defineMiddleware } from '@uni-helper/vite-plugin-uni-middleware/runtime'
+import { useStore } from '../store'
 
 export default defineMiddleware((to, from) => {
-  const store = useStore();
+  const store = useStore()
   if (!store.isLogin) {
-    return "/pages/login/index";
+    return '/pages/login/index'
   }
-});
+})
 ```
 
 在 pages.json 中添加全局或页面的中间件配置
@@ -64,12 +65,12 @@ see [types.ts](https://github.com/uni-helper/vite-plugin-uni-middleware/tree/mai
 如果你使用 [vite-plugin-uni-pages](https://github.com/uni-helper/vite-plugin-uni-pages), 创建 `pages.d.ts` 来声明 `middleware` 的类型
 
 ```ts [pages.d.ts]
-declare module "@uni-helper/vite-plugin-uni-pages" {
+declare module '@uni-helper/vite-plugin-uni-pages' {
   export interface PagesConfig {
-    middleware: string[];
+    middleware: string[]
   }
 }
-export {};
+export {}
 ```
 
 若要为页面添加配置，只需使用 route-block

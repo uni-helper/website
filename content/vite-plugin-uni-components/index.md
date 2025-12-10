@@ -20,9 +20,9 @@ badges:
 ## 使用
 
 ```ts [vite.config.ts]
-import { defineConfig } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 import Components from '@uni-helper/vite-plugin-uni-components'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
@@ -67,4 +67,3 @@ declare module 'vue' {
 }
 ```
 ::
-

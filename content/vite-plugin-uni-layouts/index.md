@@ -23,9 +23,9 @@ badges:
 ### 配置
 
 ```ts [vite.config.ts]
-import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [UniLayouts(), uni()],
@@ -79,11 +79,16 @@ export default defineConfig({
 <script setup>
 const defaultName = ref('default')
 </script>
+
 <template>
   <uni-layout :name="defaultName">
-    <template #header>uni-layout header</template>
+    <template #header>
+      uni-layout header
+    </template>
     use slot
-    <template #footer>uni-layout footer</template>
+    <template #footer>
+      uni-layout footer
+    </template>
   </uni-layout>
 </template>
 ```

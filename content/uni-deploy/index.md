@@ -23,7 +23,6 @@ badges:
 
 :pm-install{name="-D @uni-helper/uni-deploy"}
 
-
 <details>
   <summary>yarn v2/v3</summary>
   <p>请参考 <a href="https://yarnpkg.com/configuration/yarnrc/#nodeLinker">文档</a> 设置 <code>nodeLinker</code> 为 <code>node_modules</code>。</p>
@@ -82,61 +81,61 @@ export default defineConfig({
 类型定义如下。
 
 ```typescript
-import type { MiniProgramCI as Wechat } from 'miniprogram-ci/dist/@types/types';
+import type { MiniProgramCI as Wechat } from 'miniprogram-ci/dist/@types/types'
 
 export interface MpWeixinConfig {
   /** 项目 appid，会尝试搜索 project.config.json 和 manifest.json 并将其中微信小程序字段的 appid 作为默认值 */
-  appid?: string;
+  appid?: string
   /** 项目路径，会尝试搜索 project.config.json 并将其目录作为默认值 */
-  projectPath?: string;
+  projectPath?: string
   /**
    * 请阅读 https://developers.weixin.qq.com/miniprogram/dev/devtools/ci.html
    *
    * @deprecated 不建议使用，建议在 .env 或 process.env 设置 MP_WEIXIN_PRIVATE_KEY
    */
-  privateKey?: string;
+  privateKey?: string
   /**
    * 请阅读 https://developers.weixin.qq.com/miniprogram/dev/devtools/ci.html
    *
    * @deprecated 不建议使用，建议在 .env 或 process.env 设置 MP_WEIXIN_PRIVATE_KEY_PATH
    */
-  privateKeyPath?: string;
+  privateKeyPath?: string
   /** 项目类型，默认为 miniProgram */
-  type?: Wechat.ProjectType;
+  type?: Wechat.ProjectType
   /** 需要排除的路径 */
-  ignores?: string[];
+  ignores?: string[]
   /**
    * 项目版本，会尝试搜索 package.json 和 manifest.json，并将 version (package.json) 或 versionName (manifest.json)
    * 作为默认值
    */
-  version?: string;
+  version?: string
   /** 编译设置，会尝试搜索 project.config.json，并将 setting 作为默认值 */
-  setting?: Wechat.ICompileSettings;
+  setting?: Wechat.ICompileSettings
   /** 备注，默认为 Handled by uni-deploy */
-  desc?: string;
+  desc?: string
   /** 使用的机器人，可选 1 - 30 */
-  robot?: number;
+  robot?: number
   /** 编译过程中开启的线程数 */
-  threads?: number;
+  threads?: number
   /** 是否使用异步方式上传，当代码包大于 5MB 时，默认开启 */
-  useCOS?: boolean;
+  useCOS?: boolean
   /** 是否允许过滤无依赖文件，默认开启 */
-  allowIgnoreUnusedFiles?: boolean;
+  allowIgnoreUnusedFiles?: boolean
   /** 进度更新监听函数 */
-  onProgressUpdate?: (task: Wechat.ITaskStatus | string) => void;
+  onProgressUpdate?: (task: Wechat.ITaskStatus | string) => void
   /** 预览时主包、分包体积上限是否调整为4M */
-  bigPackageSizeSupport?: boolean;
+  bigPackageSizeSupport?: boolean
   /** 二维码文件的格式，默认为 image */
-  qrcodeFormat?: 'base64' | 'image' | 'terminal';
+  qrcodeFormat?: 'base64' | 'image' | 'terminal'
   /** 二维码文件保存路径，默认为 qrcode.png */
-  qrcodeOutputDest?: string;
+  qrcodeOutputDest?: string
   /** 预览页面路径 */
-  pagePath?: string;
+  pagePath?: string
   /** 预览页面路径启动参数 */
-  searchQuery?: string;
+  searchQuery?: string
   /** 默认值 1011，具体含义见 https://developers.weixin.qq.com/miniprogram/dev/reference/scene-list.html */
-  scene?: number;
-  test?: boolean;
+  scene?: number
+  test?: boolean
 }
 ```
 
@@ -145,7 +144,7 @@ export interface MpWeixinConfig {
 类型定义如下。
 
 ```typescript
-import type { EBuildTarget as AlipayBuildTarget } from 'minidev';
+import type { EBuildTarget as AlipayBuildTarget } from 'minidev'
 
 export interface MpAlipayConfig {
   /**
@@ -154,80 +153,80 @@ export interface MpAlipayConfig {
    *
    * 请注意，这里跟随微信小程序使用 appid，而并非 appId
    */
-  appid?: string;
+  appid?: string
   /** 项目路径，会尝试搜索 mini.project.json 并将其目录作为默认值 */
-  projectPath?: string;
+  projectPath?: string
   /**
    * 请阅读 https://opendocs.alipay.com/mini/02q29w
    *
    * @deprecated 不建议使用，建议在 .env 或 process.env 设置 MP_ALIPAY_PRIVATE_KEY
    */
-  privateKey?: string;
+  privateKey?: string
   /**
    * 请阅读 https://opendocs.alipay.com/mini/02q29w
    *
    * @deprecated 不建议使用，建议在 .env 或 process.env 设置 MP_ALIPAY_TOOL_ID
    */
-  toolId?: string;
+  toolId?: string
   /** 端类型 */
-  clientType?: string;
+  clientType?: string
   /** 开放平台 bundleId, 此项会覆盖 clientType 的效果 */
-  bundleId?: string;
+  bundleId?: string
   /**
    * 项目版本，会尝试搜索 package.json 和 manifest.json，并将 version (package.json) 或 versionName (manifest.json)
    * 作为默认值
    */
-  version?: string;
+  version?: string
   /** 上传成功后是否自动设置为体验版本，需要对应权限 */
-  experience?: boolean;
+  experience?: boolean
   /** 上传时需要删除的版本号 */
-  deleteVersion?: string;
+  deleteVersion?: string
   /** 强制构建类别，默认为 v2 */
-  appxv?: 'v1' | 'v2' | 'legacy-v1';
+  appxv?: 'v1' | 'v2' | 'legacy-v1'
   /** 构建缓存路径, 默认为系统缓存路径 */
-  cacheDir?: string;
+  cacheDir?: string
   /** 产物路径 */
-  output?: string;
+  output?: string
   /** 是否开启 sourceMap */
-  sourceMap?: boolean;
+  sourceMap?: boolean
   /** 插件 Id，构建插件时将生成到代码中 */
-  pluginId?: string;
+  pluginId?: string
   /** 多进程编译 */
-  parallel?: boolean;
+  parallel?: boolean
   /** 是否需要压缩，默认不开 */
-  minify?: boolean;
+  minify?: boolean
   /** 构建类型 */
-  buildTarget?: AlipayBuildTarget;
+  buildTarget?: AlipayBuildTarget
   /** 是否开启 less 编译 */
-  enableLess?: boolean;
+  enableLess?: boolean
   /** 是否开启 ts 编译 */
-  enableTypescript?: boolean;
+  enableTypescript?: boolean
   /** 是否开启紧凑产物模式 */
-  compact?: boolean;
+  compact?: boolean
   /** 是否忽略 http 请求白名单校验 */
-  ignoreHttpDomainCheck?: boolean;
+  ignoreHttpDomainCheck?: boolean
   /** 是否忽略 webview 加载域名白名单校验 */
-  ignoreWebViewDomainCheck?: boolean;
+  ignoreWebViewDomainCheck?: boolean
   /** 是否自动推送到客户端 */
-  autoPush?: boolean;
+  autoPush?: boolean
   /** 自定义启动参数 */
-  launchParams?: any;
+  launchParams?: any
   /** 移动应用 ID */
-  ampeProductId?: string;
+  ampeProductId?: string
   /** 设备 ID */
-  ampeDeviceId?: string;
+  ampeDeviceId?: string
   /** 产品 ID */
-  ampeHostAppId?: string;
+  ampeHostAppId?: string
   /** 入口页面 */
-  page?: string;
+  page?: string
   /** 页面参数, 可在当前页面的 onLoad 中取得，如: name=vendor&color=black */
-  pageQuery?: string;
+  pageQuery?: string
   /** 全局参数，app.js 的 onLaunch 中取得，如: name=vendor&color=black */
-  query?: string;
+  query?: string
   /** 场景值 */
-  scene?: string;
+  scene?: string
   /** 模拟更新 */
-  simulateUpdate?: boolean;
+  simulateUpdate?: boolean
 }
 ```
 
@@ -238,11 +237,11 @@ export interface MpAlipayConfig {
 ```typescript
 export interface ImConfig {
   /** @deprecated 机器人 webhook，建议在 .env 或 process.env 设置 */
-  webhook?: string | string[];
+  webhook?: string | string[]
 }
 export interface DingtalkConfig extends ImConfig {
   /** @deprecated 机器人 webhook，建议在 .env 或 process.env 设置 DINGTALK_WEBHOOK */
-  webhook?: string | string[];
+  webhook?: string | string[]
 }
 ```
 
@@ -251,11 +250,11 @@ export interface DingtalkConfig extends ImConfig {
 ```typescript
 export interface ImConfig {
   /** @deprecated 机器人 webhook，建议在 .env 或 process.env 设置 */
-  webhook?: string | string[];
+  webhook?: string | string[]
 }
 export interface WecomConfig extends ImConfig {
   /** @deprecated 机器人 webhook，建议在 .env 或 process.env 设置 WECOM_WEBHOOK */
-  webhook?: string | string[];
+  webhook?: string | string[]
 }
 ```
 
