@@ -7,6 +7,7 @@ export default async () => {
   const swrRoutes = ['/api/_content/packages.json', '/api/_content/releases.json']
 
   return defineNuxtConfig({
+    sourcemap: false,
     extends: ['shadcn-docs-nuxt'],
     modules: [
       '@nuxtjs/sitemap',
