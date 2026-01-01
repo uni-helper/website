@@ -15,8 +15,7 @@
   },
   "dependencies": {
     "@nuxtjs/sitemap": "^7.4.7",
-    "@unocss/nuxt": "^66.3.3",
-    "@unocss/reset": "^66.3.3",
+    "@unocss/preset-mini": "^66.5.12",
     "@vueuse/core": "^13.6.0",
     "gsap": "^3.13.0",
     "motion-v": "^1.6.1",
@@ -58,10 +57,8 @@
     "@ztl-uwu/nuxt-content": "2.13.8",
     "cross-env": "^10.0.0",
     "eslint": "^9.31.0",
-    "tsx": "^4.20.6",
-    "unocss": "^66.3.3",
-    "unocss-preset-animations": "^1.2.1",
-    "unocss-preset-shadcn": "^0.5.0"
+    "rimraf": "^6.1.2",
+    "tsx": "^4.20.6"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

@@ -26,32 +26,30 @@ function slug(name: string) {
     class="flex w-full items-center justify-center"
     :speed="PATTERN_BACKGROUND_SPEED.Slow"
   >
-    <div class="max-w-300 mx-auto">
+    <div class="max-w-[1200px] mx-auto">
       <div
-        v-for="key, cidx in Object.keys(projects)" :key="key" slide-enter
+        v-for="key, cidx in Object.keys(projects)" :key="key"
+        class="slide-enter"
         :style="{ '--enter-stage': cidx + 1 }"
       >
         <div
           :id="slug(key)"
-          select-none relative h18 mt5 slide-enter
+          class="scroll-mt-16 select-none relative h-[72px] mt-5 slide-enter"
           :style="{
             '--enter-stage': cidx - 2,
             '--enter-step': '60ms',
           }"
-          class="scroll-mt-16"
         >
-          <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>{{ key }}</span>
+          <span class="text-[5em] text-transparent absolute left-[-1rem] top-0 font-bold leading-[1em] [-webkit-text-stroke:1.5px_#aaa] opacity-35 dark:opacity-20">{{ key }}</span>
         </div>
         <div
-          class="project-grid py-2 max-w-500 w-max mx-auto"
-          grid="~ cols-1 md:cols-2 gap-4 lg:cols-3"
+          class="py-2 max-w-[2000px] w-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3"
         >
           <NuxtLink
             v-for="item, idx in projects[key]"
             :key="idx"
-            class="item relative flex items-center"
+            class="relative flex items-center bg-transparent text-[1.1rem] w-[350px] max-w-full pt-2 px-3.5 pb-3.5 rounded-md hover:bg-[#88888811]"
             :to="slug(key) !== 'vs-code' ? `/${item.name}` : `/${slug(key)}/${item.name}`"
-
             target=""
             :title="item.name"
           >
@@ -68,14 +66,14 @@ function slug(name: string) {
         </div>
       </div>
     </div>
-    <div>
-      <div class="table-of-contents">
-        <div class="table-of-contents-anchor">
-          <div class="i-ri-menu-2-fill" />
+    <div class="group">
+      <div class="fixed top-[90px] bottom-0 text-[0.8em] left-5 z-[200] overflow-hidden hidden lg:flex flex-col w-[100px] lg:w-[200px] xl:w-[300px]">
+        <div class="mx-2 w-7 h-7 text-lg flex items-center justify-center bg-background rounded text-[#8887] border border-border shadow md:border-transparent md:shadow-none transition duration-[400ms] group-hover:text-inherit">
+          <SmartIcon name="ri-menu-2-fill" />
         </div>
-        <ul>
-          <li v-for="key of Object.keys(projects)" :key="key">
-            <NuxtLink :href="`#${slug(key)}`">
+        <ul class="text-ellipsis h-full overflow-y-auto rounded opacity-0 mt-1 pb-5 transition duration-700 group-hover:opacity-75 list-none">
+          <li v-for="key of Object.keys(projects)" :key="key" class="pl-[0.8rem] leading-[1.5em] mt-[0.5em] before:hidden">
+            <NuxtLink :href="`#${slug(key)}`" class="opacity-75 hover:opacity-100 transition">
               {{ key }}
             </NuxtLink>
           </li>
@@ -88,67 +86,3 @@ function slug(name: string) {
     <a href="https://antfu.me/projects">antfu.me</a>
   </div>
 </template>
-
-<style scoped>
-.project-grid a.item {
-  background: transparent;
-  font-size: 1.1rem;
-  width: 350px;
-  max-width: 100%;
-  padding: 0.5rem 0.875rem 0.875rem;
-  border-radius: 6px;
-}
-
-.project-grid a.item:hover {
-  background: #88888811;
-}
-
-.table-of-contents {
-  position: fixed;
-  top: 90px;
-  bottom: 0;
-  font-size: 0.8em;
-  left: 20px;
-  z-index: 200;
-  overflow: hidden;
-  --uno: hidden lg-flex flex-col w-100px lg-w-200px xl-w-300px;
-}
-
-.table-of-contents-anchor {
-  --uno: 'mx2 w-7 h-7 text-lg flex items-center justify-center bg-base rounded text-hex-8887 border border-base shadow md:border-transparent md:shadow-none transition duration-400';
-}
-
-.table-of-contents > ul {
-  text-overflow: ellipsis;
-  height: 100%;
-  overflow-y: auto;
-  --uno: rounded op0 mt-1 pb-5 transition duration-700;
-}
-
-*:hover > .table-of-contents > .table-of-contents-anchor,
-.toc-always-on .table-of-contents > .table-of-contents-anchor {
-  --uno: text-inherit;
-}
-
-.toc-always-on .table-of-contents > ul {
-  opacity: 0.6;
-}
-
-*:hover > .table-of-contents > ul {
-  opacity: 0.75;
-}
-
-.table-of-contents ul > li::before {
-  display: none;
-}
-
-.table-of-contents ul > li {
-  padding-left: 0.8rem;
-  line-height: 1.5em;
-  margin-top: 0.5em;
-}
-
-.table-of-contents ul > li > a {
-  --uno: op75 hover-op100 transition;
-}
-</style>

@@ -13,7 +13,6 @@ export default async () => {
       '@nuxtjs/sitemap',
       'motion-v/nuxt',
       '@nuxt/eslint',
-      '@unocss/nuxt',
       'nuxt-gtag',
       '@ztl-uwu/nuxt-content',
     ],
@@ -25,9 +24,6 @@ export default async () => {
         ],
       },
     },
-    css: [
-      '@unocss/reset/tailwind.css',
-    ],
     site: {
       url: 'https://uni-helper.js.org/',
       name: 'Uni Helper',
@@ -36,6 +32,13 @@ export default async () => {
       highlight: {
         langs: ['jsonc', 'python'],
       },
+    },
+    icon: {
+      provider: 'iconify',
+      serverBundle: 'remote',
+    },
+    fonts: {
+      provider: 'fontsource',
     },
     compatibilityDate: '2024-07-06',
     nitro: {

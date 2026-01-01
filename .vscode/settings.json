@@ -34,5 +34,8 @@
     "pcss",
     "postcss"
   ],
-  "mdc.enableComponentMetadataCompletions": true
+  "mdc.enableComponentMetadataCompletions": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
