@@ -22,6 +22,7 @@
     "motion-v": "^1.6.1",
     "nuxt": "^3.17.6",
     "nuxt-gtag": "4.0.0",
+    "nuxt-umami": "3.2.1",
     "ogl": "^1.0.11",
     "shadcn-docs-nuxt": "^1.1.4",
     "theme-colors": "^0.1.0",

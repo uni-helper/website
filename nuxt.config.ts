@@ -16,12 +16,27 @@ export default async () => {
       '@unocss/nuxt',
       'nuxt-gtag',
       '@ztl-uwu/nuxt-content',
+      'nuxt-umami',
     ],
     devtools: { enabled: true },
     app: {
       head: {
         meta: [
           { name: 'google-site-verification', content: 'hqPb74AFcL3IXb7yqjOcOY9v6MJkevvVm-IUSFc9GOk' },
+        ],
+        script: [
+          {
+            innerHTML: `
+              var _hmt = _hmt || [];
+              (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?32c126f9b300c6f3343505a50ca7a936";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+              })();
+            `,
+            type: 'text/javascript',
+          },
         ],
       },
     },
@@ -96,6 +111,19 @@ export default async () => {
       fonts: [
         'Noto+Sans+SC:400',
       ],
+    },
+    umami: {
+      id: '50408ad1-cfe7-4bbf-be7a-ca51f9ee461c',
+      host: 'https://cloud.umami.is',
+      autoTrack: true,
+      ignoreLocalhost: true,
+      // proxy: 'cloak',
+      // useDirective: true,
+      // excludeQueryParams: false,
+      domains: ['uni-helper.cn', 'uni-helper.js.org', 'uni-helper.netlify.app'],
+      // customEndpoint: '/my-custom-endpoint',
+      // enabled: false,
+      // logErrors: true,
     },
   })
 }
