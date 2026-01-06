@@ -14,7 +14,7 @@ const SOURCE_DIR = `${TEMP_DIR}/src`
 // 清理临时目录
 function cleanTempDir() {
   if (existsSync(TEMP_DIR)) {
-    execSync(`npx rimraf -rf ${TEMP_DIR}`, { stdio: 'inherit' })
+    execSync(`rimraf -rf ${TEMP_DIR}`, { stdio: 'inherit' })
   }
 }
 
