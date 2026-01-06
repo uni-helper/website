@@ -87,7 +87,7 @@ export default defineAppConfig({
       },
     },
     footer: {
-      credits: 'This site is powered by [**Netlify**](https://www.netlify.com)',
+      credits: 'This site is powered by [**Nuxt**](https://nuxt.com/)',
       links: [{
         icon: 'lucide:github',
         to: 'https://github.com/uni-helper',
