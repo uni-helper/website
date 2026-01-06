@@ -154,7 +154,7 @@ const firstRow = ref(reviews)
 
       <!-- Gradient overlay to fade to white at the bottom -->
       <div
-        class="pointer-events-none absolute inset-0 bg-gradient-to-t from-white to-transparent dark:from-background"
+        class="pointer-events-none absolute inset-0 bg-linear-to-t from-white to-transparent dark:from-background"
       />
     </div>
     <div class="text-xs text-gray-500/40 dark:text-gray-400/40 self-end pt-0.5">

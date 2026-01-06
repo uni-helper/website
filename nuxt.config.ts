@@ -13,9 +13,7 @@ export default async () => {
       '@nuxtjs/sitemap',
       'motion-v/nuxt',
       '@nuxt/eslint',
-      '@unocss/nuxt',
       'nuxt-gtag',
-      '@ztl-uwu/nuxt-content',
     ],
     devtools: { enabled: true },
     app: {
@@ -40,7 +38,7 @@ export default async () => {
       },
     },
     css: [
-      '@unocss/reset/tailwind.css',
+      '~/assets/css/tailwind.css',
     ],
     site: {
       url: 'https://uni-helper.js.org/',

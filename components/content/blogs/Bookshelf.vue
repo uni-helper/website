@@ -11,7 +11,7 @@ defineProps<{ blogs: {
 
 <template>
   <div
-    class="group grid gap-4 [&:not(:first-child)]:mt-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1"
+    class="group grid gap-4 not-first:mt-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1"
   >
     <UiBlogCard
       v-for="blog in blogs"

@@ -100,7 +100,7 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
               <div
                 v-if="!release.open && release.body.children.length > 4"
                 class="h-16 absolute inset-x-0 bottom-0 flex items-end justify-center"
-                :class="{ 'bg-gradient-to-t from-background to-background/50': !release.open }"
+                :class="{ 'bg-linear-to-t from-background to-background/50': !release.open }"
               >
                 <ButtonLink
                   size="sm" left-icon="i-lucide-chevron-down" variant="outline"

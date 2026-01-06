@@ -32,7 +32,7 @@ const isCN = computed(() => {
     <template v-if="isCN">
       <div class="md:h-16 leading-16 text-sm flex justify-center items-center gap-x-6 flex-wrap [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-4">
         <div class="flex items-center gap-2">
-          <img src="./police.png" width="20">
+          <img src="/police.png" width="20">
           <a href="https://beian.mps.gov.cn/#/query/webSearch?code=44060402003023" rel="noreferrer" target="_blank">粤公网安备44060402003023号</a>
         </div>
         <a

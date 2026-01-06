@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Data, Edge, Options } from 'vis-network'
 import type { RelationPackage } from '~/types/package'
-import { colors } from 'unocss/preset-mini'
+import colors from 'tailwindcss/colors'
 import { Network } from 'vis-network'
 
 const emits = defineEmits<{
