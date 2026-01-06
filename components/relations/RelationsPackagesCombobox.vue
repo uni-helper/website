@@ -26,7 +26,7 @@ const selection = defineModel<RelationPackage[]>('selection', {
         >
           <SmartIcon v-if="item.icon" :name="item.icon" />
           {{ item.name }}
-          <SmartIcon v-if="selection.includes(item)" name="i-ph-check" class="w-4 ml-auto" />
+          <SmartIcon v-if="selection.includes(item)" name="i-ph-check" class="ml-auto" :size="16" />
         </UiCommandItem>
       </UiCommandGroup>
     </UiCommandList>

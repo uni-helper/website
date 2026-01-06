@@ -118,7 +118,7 @@ const settingsItems = computed(() => [[{
           Uni-Helper 包
         </UiButton>
         <UiButton size="sm" variant="ghost" @click="emits('openNpm', true)">
-          <SmartIcon name="i-simple-icons:npm" class="size-5" />
+          <SmartIcon name="i-simple-icons:npm" :size="20" />
           NPM 包
         </UiButton>
       </div>

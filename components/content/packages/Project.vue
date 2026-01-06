@@ -33,18 +33,16 @@ function slug(name: string) {
       >
         <div
           :id="slug(key)"
-          select-none relative h18 mt5 slide-enter
           :style="{
             '--enter-stage': cidx - 2,
             '--enter-step': '60ms',
           }"
-          class="scroll-mt-16"
+          class="scroll-mt-16 select-none relative h-18 mt-5 slide-enter"
         >
           <span class="text-[5em] text-transparent absolute -left-[1rem] top-0 font-bold leading-[1em] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#aaa] opacity-35 dark:opacity-20">{{ key }}</span>
         </div>
         <div
-          class="project-grid py-2 max-w-500 w-max mx-auto"
-          grid="~ cols-1 md:cols-2 gap-4 lg:cols-3"
+          class="project-grid py-2 max-w-500 w-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3"
         >
           <NuxtLink
             v-for="item, idx in projects[key]"
@@ -56,7 +54,7 @@ function slug(name: string) {
             :title="item.name"
           >
             <div v-if="item.icon" class="pt-2 pr-5">
-              <SmartIcon :name="item.icon" class="size-8 opacity-50" />
+              <SmartIcon :name="item.icon" class="opacity-50" :size="32" />
             </div>
             <div class="flex-auto">
               <div class="text-normal">

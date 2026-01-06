@@ -80,7 +80,7 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
           <template #badge>
             <UiBadge variant="outline" as-child>
               <NuxtLink :to="`https://github.com/${release.repo}`" target="_blank" class="flex items-center">
-                <SmartIcon :name="release.icon" class="size-3 mr-1" />
+                <SmartIcon :name="release.icon" class="mr-1" :size="12" />
                 {{ release.repo }}
               </NuxtLink>
             </UiBadge>
