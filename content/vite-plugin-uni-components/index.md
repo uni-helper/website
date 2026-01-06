@@ -41,6 +41,7 @@ export default defineConfig({
 - [wot-design-uni](https://github.com/uni-helper/vite-plugin-uni-components/tree/main/packages/core/src/_resolvers/wot-design-uni.ts)
 - [uv-uni](https://github.com/uni-helper/vite-plugin-uni-components/tree/main/packages/core/src/_resolvers/uv-uni.ts)
 - [uview-pro](https://github.com/uni-helper/vite-plugin-uni-components/tree/main/packages/core/src/_resolvers/uview-pro.ts)
+- [z-paging](https://github.com/uni-helper/vite-plugin-uni-components/blob/main/packages/core/src/_resolvers/z-paging.ts)
 
 ## UI 组件类型提示
 
