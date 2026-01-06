@@ -94,6 +94,9 @@ export default async () => {
         },
       ],
     },
+    icon: {
+      serverBundle: 'remote',
+    },
     image: {
       domains: [
         'github.com',
