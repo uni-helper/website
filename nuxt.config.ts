@@ -16,7 +16,6 @@ export default async () => {
       '@unocss/nuxt',
       'nuxt-gtag',
       '@ztl-uwu/nuxt-content',
-      'nuxt-umami',
     ],
     devtools: { enabled: true },
     app: {
@@ -114,19 +113,6 @@ export default async () => {
       fonts: [
         'Noto+Sans+SC:400',
       ],
-    },
-    umami: {
-      id: '50408ad1-cfe7-4bbf-be7a-ca51f9ee461c',
-      host: 'https://cloud.umami.is',
-      autoTrack: true,
-      ignoreLocalhost: true,
-      // proxy: 'cloak',
-      // useDirective: true,
-      // excludeQueryParams: false,
-      domains: ['uni-helper.cn', 'uni-helper.js.org', 'uni-helper.netlify.app'],
-      // customEndpoint: '/my-custom-endpoint',
-      // enabled: false,
-      // logErrors: true,
     },
   })
 }
