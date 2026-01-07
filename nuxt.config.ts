@@ -92,6 +92,7 @@ export default async () => {
       ],
     },
     icon: {
+      provider: 'iconify',
       serverBundle: 'remote',
     },
     image: {
