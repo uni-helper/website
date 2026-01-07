@@ -1,7 +1,7 @@
 {
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
-  "nodeVersion": "22.21.1",
+  "nodeVersion": "24",
   "redirects": [
     {
       "source": "/*",
