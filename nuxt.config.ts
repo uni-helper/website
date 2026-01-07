@@ -113,5 +113,8 @@ export default async () => {
         'Noto+Sans+SC:400',
       ],
     },
+    sitemap: {
+      zeroRuntime: true,
+    },
   })
 }
