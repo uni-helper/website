@@ -30,7 +30,7 @@ const tree = computed(() => {
           class="text-foreground/80 hover:bg-muted hover:text-primary flex h-8 items-center gap-2 rounded-md p-2 text-sm"
         >
           <SmartIcon
-            name="ri-menu-2-fill"
+            name="ri:menu-2-fill"
             class="self-center"
             :size="16"
           />

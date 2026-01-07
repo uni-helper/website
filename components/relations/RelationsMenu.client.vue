@@ -16,14 +16,14 @@ const { logo } = useConfig().value.header
 
 const settingsItems = computed(() => [[{
   label: settings.value.showDependencies ? '隐藏依赖' : '显示依赖',
-  icon: 'i-ph:graph',
+  icon: 'ph:graph',
   click: () => {
     updateQuery({ showDependencies: !settings.value.showDependencies })
   },
 
 }, {
   label: settings.value.showDevDependencies ? '隐藏开发依赖' : '显示开发依赖',
-  icon: 'i-ph-line-segments',
+  icon: 'ph:line-segments',
   click: () => {
     updateQuery({ showDevDependencies: !settings.value.showDevDependencies })
   },
@@ -31,14 +31,14 @@ const settingsItems = computed(() => [[{
 }], [{
   // Children can be dependencies or devDependencies. It's not standalone but related to the previous
   label: settings.value.showChildren ? '隐藏子节点' : '显示子节点',
-  icon: 'i-ph-tree-structure',
+  icon: 'ph:tree-structure',
   click: () => {
     updateQuery({ showChildren: !settings.value.showChildren })
   },
 }], [
   {
     label: openMenu.value ? '隐藏菜单' : '显示菜单',
-    icon: 'i-ph-house',
+    icon: 'ph:house',
     shortcuts: [metaSymbol.value, 'm'],
     click: () => {
       openMenu.value = !openMenu.value
@@ -46,7 +46,7 @@ const settingsItems = computed(() => [[{
   },
   {
     label: openLegend.value ? '隐藏图例' : '显示图例',
-    icon: 'i-ph:bookmark',
+    icon: 'ph:bookmark',
     shortcuts: [metaSymbol.value, 'l'],
     click: () => {
       openLegend.value = !openLegend.value
@@ -55,7 +55,7 @@ const settingsItems = computed(() => [[{
 ], [
   {
     label: '关于',
-    icon: 'i-ph:info',
+    icon: 'ph:info',
     shortcuts: [metaSymbol.value, 'i'],
     click: () => {
       openAbout.value = !openAbout.value
@@ -63,14 +63,14 @@ const settingsItems = computed(() => [[{
   },
   {
     label: '帮助',
-    icon: 'i-simple-icons-github',
+    icon: 'simple-icons:github',
     shortcuts: [metaSymbol.value, 'h'],
     to: 'https://github.com/uni-helper/website/issues',
     target: '_blank',
   },
   {
     label: '讨论',
-    icon: 'i-simple-icons-github',
+    icon: 'simple-icons:github',
     to: 'https://github.com/orgs/uni-helper/discussions',
     target: '_blank',
   },
@@ -89,14 +89,14 @@ const settingsItems = computed(() => [[{
         <UiDropdownMenu>
           <UiDropdownMenuTrigger as-child>
             <UiButton size="icon" variant="ghost">
-              <span className="i-ph-faders-horizontal" />
+              <SmartIcon name="ph:faders-horizontal" />
             </UiButton>
           </UiDropdownMenuTrigger>
           <UiDropdownMenuContent class="w-56">
             <UiDropdownMenuGroup v-for="group in settingsItems" :key="group[0].label">
               <UiDropdownMenuSeparator v-if="group !== settingsItems[0]" class="my-1" />
               <UiDropdownMenuItem v-for="item in group" :key="item.label" class="relative" @click="item.click">
-                <span :class="item.icon" />
+                <SmartIcon :name="item.icon" />
                 <span>{{ item.label }}</span>
                 <UiDropdownMenuShortcut v-if="(item as any).shortcuts" class="flex gap-1">
                   <span v-for="(shortcut, index) in (item as any).shortcuts" :key="index" class="uppercase">
@@ -118,7 +118,7 @@ const settingsItems = computed(() => [[{
           Uni-Helper 包
         </UiButton>
         <UiButton size="sm" variant="ghost" @click="emits('openNpm', true)">
-          <SmartIcon name="i-simple-icons:npm" :size="20" />
+          <SmartIcon name="simple-icons:npm" :size="20" />
           NPM 包
         </UiButton>
       </div>

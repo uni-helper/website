@@ -103,7 +103,7 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
                 :class="{ 'bg-linear-to-t from-background to-background/50': !release.open }"
               >
                 <ButtonLink
-                  size="sm" left-icon="i-lucide-chevron-down" variant="outline"
+                  size="sm" left-icon="lucide:chevron-down" variant="outline"
                   :data-state="release.open ? 'open' : 'closed'"
                   @click="release.open = !release.open"
                 >

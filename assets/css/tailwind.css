@@ -1,10 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@plugin '@egoist/tailwindcss-icons' {
-  scale: 1.2;
-}
-
 @config '../../tailwind.config.js';
 @source '../../node_modules/shadcn-docs-nuxt';
 

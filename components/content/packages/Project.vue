@@ -69,7 +69,7 @@ function slug(name: string) {
     <div>
       <div class="table-of-contents">
         <div class="table-of-contents-anchor">
-          <div class="i-ri-menu-2-fill" />
+          <SmartIcon name="ri:menu-2-fill" />
         </div>
         <ul>
           <li v-for="key of Object.keys(projects)" :key="key">
