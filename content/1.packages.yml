@@ -57,7 +57,7 @@ projects:
     - name: vite-plugin-uni-components
       link: 'https://github.com/uni-helper/vite-plugin-uni-components'
       desc: 为 uni-app 提供基于文件的按需自动引入组件
-      icon: carbon-workspace-import
+      icon: carbon:workspace-import
       npm: '@uni-helper/vite-plugin-uni-components'
       github: uni-helper/vite-plugin-uni-components
     - name: vite-plugin-uni-manifest
