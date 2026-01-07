@@ -91,6 +91,9 @@ export default async () => {
         },
       ],
     },
+    fonts: {
+      priority: ['bunny', 'fontsource', 'google'],
+    },
     icon: {
       provider: 'iconify',
       serverBundle: 'remote',
@@ -102,7 +105,7 @@ export default async () => {
     },
     vite: {
       optimizeDeps: {
-        include: ['motion-v', 'clsx', 'tailwind-merge', 'class-variance-authority', 'reka-ui', 'scule'],
+        include: ['motion-v', 'clsx', 'tailwind-merge', 'class-variance-authority', 'reka-ui', 'scule', 'dayjs', '@braintree/sanitize-url'],
       },
     },
     gtag: {
