@@ -1,0 +1,12 @@
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "nodeVersion": "22.21.1",
+  "redirects": [
+    {
+      "source": "/*",
+      "destination": "index.html",
+      "statusCode": 200
+    }
+  ]
+}
