@@ -6,7 +6,7 @@
   "scripts": {
     "build": "pnpm update:uni-use && cross-env NODE_OPTIONS='--max-old-space-size=8192' nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "pnpm update:uni-use && cross-env NODE_OPTIONS='--max-old-space-size=8192' nuxt generate",
     "preview": "nuxt preview",
     "update:uni-use": "tsx scripts/update-uni-use-files.ts",
     "lint": "eslint .",
