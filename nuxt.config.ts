@@ -13,10 +13,7 @@ export default async () => {
       '@nuxtjs/sitemap',
       'motion-v/nuxt',
       '@nuxt/eslint',
-      '@unocss/nuxt',
       'nuxt-gtag',
-      '@ztl-uwu/nuxt-content',
-      'nuxt-umami',
     ],
     devtools: { enabled: true },
     app: {
@@ -41,7 +38,7 @@ export default async () => {
       },
     },
     css: [
-      '@unocss/reset/tailwind.css',
+      '~/assets/css/tailwind.css',
     ],
     site: {
       url: 'https://uni-helper.js.org/',
@@ -94,6 +91,13 @@ export default async () => {
         },
       ],
     },
+    fonts: {
+      priority: ['bunny', 'fontsource', 'google'],
+    },
+    icon: {
+      provider: 'iconify',
+      serverBundle: 'remote',
+    },
     image: {
       domains: [
         'github.com',
@@ -101,7 +105,7 @@ export default async () => {
     },
     vite: {
       optimizeDeps: {
-        include: ['motion-v', 'clsx', 'tailwind-merge', 'class-variance-authority', 'reka-ui', 'scule'],
+        include: ['motion-v', 'clsx', 'tailwind-merge', 'class-variance-authority', 'reka-ui', 'scule', 'dayjs', '@braintree/sanitize-url'],
       },
     },
     gtag: {
@@ -112,18 +116,8 @@ export default async () => {
         'Noto+Sans+SC:400',
       ],
     },
-    umami: {
-      id: '50408ad1-cfe7-4bbf-be7a-ca51f9ee461c',
-      host: 'https://cloud.umami.is',
-      autoTrack: true,
-      ignoreLocalhost: true,
-      // proxy: 'cloak',
-      // useDirective: true,
-      // excludeQueryParams: false,
-      domains: ['uni-helper.cn', 'uni-helper.js.org', 'uni-helper.netlify.app'],
-      // customEndpoint: '/my-custom-endpoint',
-      // enabled: false,
-      // logErrors: true,
+    sitemap: {
+      zeroRuntime: true,
     },
   })
 }

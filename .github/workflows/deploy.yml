@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           cache: 'pnpm'
-          node-version: '22.21.1'
+          node-version-file: '.node-version'
       
       - name: Install dependencies
         run: pnpm install
@@ -30,6 +30,6 @@ jobs:
         run: pnpm run build
       
       - name: Deploy to Tencent EdgeOne Pages
-        run: pnpx edgeone pages deploy .output/public -n website -t ${{ secrets.EDGEONE_API_TOKEN }}
+        run: pnpx edgeone pages -n website -t ${{ secrets.EDGEONE_API_TOKEN }}
         env:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}

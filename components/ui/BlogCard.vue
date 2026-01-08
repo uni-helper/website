@@ -36,13 +36,13 @@ const [UseTemplate, CardInner] = createReusableTemplate()
       ]"
     >
       <div
-        class="relative flex justify-center h-fit aspect-[16/9] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-white dark:bg-black"
+        class="relative flex justify-center h-fit aspect-video w-full flex-col items-center overflow-hidden rounded-md bg-white dark:bg-black"
       >
         <UiLiquidBackground v-if="bg === 'liquid'" />
         <template v-if="bg === 'tetris'">
           <ClientOnly>
             <UiTetris
-              class="h-full w-full [mask-image:radial-gradient(450px_circle_at_center,#00C16A,transparent)]"
+              class="h-full w-full mask-[radial-gradient(450px_circle_at_center,#00C16A,transparent)]"
               :base="15"
               square-color="#00C16A"
             />
@@ -110,7 +110,7 @@ const [UseTemplate, CardInner] = createReusableTemplate()
     </UiCard>
   </UseTemplate>
 
-  <div class="group-has-[div]:!mt-0 [&:not(:first-child)]:mt-5">
+  <div class="group-has-[div]:mt-0! not-first:mt-5">
     <NuxtLinkLocale v-if="to" :to :target>
       <CardInner />
     </NuxtLinkLocale>

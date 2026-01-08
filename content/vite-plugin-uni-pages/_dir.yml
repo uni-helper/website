@@ -2,7 +2,7 @@ title: plugin-uni-pages
 collapse: false
 navigation.redirect: /vite-plugin-uni-pages/guide
 showTitle: false
-icon: i-lucide:file-scan
+icon: lucide:file-scan
 
 toc:
   links:

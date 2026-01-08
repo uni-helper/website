@@ -2,7 +2,7 @@
 title: axios-adapter
 description: 适用于 Vue2 和 Vue3 的 uniapp Axios 适配器
 navTruncate: false
-icon: i-simple-icons:axios
+icon: simple-icons:axios
 
 badges:
   - value: npm

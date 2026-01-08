@@ -58,9 +58,10 @@ onMounted(() => {
         orientation="vertical"
       />
       <span class="underline-offset-4 hover:underline">Get Started</span>
-      <Icon
+      <SmartIcon
         name="lucide:arrow-right"
-        class="ml-1 size-4"
+        class="ml-1"
+        :size="16"
       />
     </NuxtLink>
     <h1

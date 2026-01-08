@@ -1,7 +1,5 @@
-# @unocss-include
-
 title: 全部项目
-icon: ri-menu-2-fill
+icon: ri:menu-2-fill
 fullpage: true
 description: 探索 uni-helper 生态系统中所有精心维护的开源项目，从开发工具到核心库，助力 uni-app 开发体验全面提升
 
@@ -10,31 +8,31 @@ projects:
     - name: create-uni
       link: 'https://github.com/uni-helper/create-uni'
       desc: 快速创建uni-app项目
-      icon: i-codicon-package
+      icon: codicon:package
       npm: create-uni
       github: uni-helper/create-uni
     - name: vitesse-uni-app
       link: 'https://github.com/uni-helper/vitesse-uni-app'
       desc: '由 Vite & uni-app 驱动的跨端快速启动模板'
-      icon: i-carbon-campsite
+      icon: carbon:campsite
       github: uni-helper/vitesse-uni-app
     - name: unh
       link: 'https://github.com/uni-helper/unh'
       desc: 二次封装的启动命令，可以自定义 hooks
-      icon: 'i-lucide:mouse-pointer-click'
+      icon: 'lucide:mouse-pointer-click'
       npm: '@uni-helper/unh'
 
   Network:
     - name: uni-network
       link: 'https://github.com/uni-helper/uni-network'
       desc: 为 uni-app 打造的基于 Promise 的 HTTP 客户端
-      icon: i-carbon-content-delivery-network
+      icon: carbon:content-delivery-network
       npm: '@uni-helper/uni-network'
       github: uni-helper/uni-network
     - name: axios-adapter
       link: 'https://github.com/uni-helper/axios-adapter'
       desc: 为 uni-app 提供的 Axios 适配器
-      icon: 'i-simple-icons:axios'
+      icon: 'simple-icons:axios'
       npm: '@uni-helper/axios-adapter'
       github: uni-helper/axios-adapter
 
@@ -42,99 +40,99 @@ projects:
     - name: plugin-uni
       link: 'https://github.com/uni-helper/plugin-uni'
       desc: 支持ESM规范的uni-app插件
-      icon: 'i-ph:union-fill'
+      icon: 'ph:union-fill'
       npm: '@uni-helper/plugin-uni'
     - name: vite-plugin-uni-pages
       link: 'https://github.com/uni-helper/vite-plugin-uni-pages'
       desc: 在 Vite 驱动的 uni-app 上使用基于文件的路由系统
-      icon: 'i-lucide:file-scan'
+      icon: 'lucide:file-scan'
       npm: '@uni-helper/vite-plugin-uni-pages'
       github: uni-helper/vite-plugin-uni-pages
     - name: vite-plugin-uni-layouts
       link: 'https://github.com/uni-helper/vite-plugin-uni-layouts'
       desc: 为 Vite 下的 uni-app 提供类 nuxt 的 layouts 系统
-      icon: 'i-lucide:layout-dashboard'
+      icon: 'lucide:layout-dashboard'
       npm: '@uni-helper/vite-plugin-uni-layouts'
       github: uni-helper/vite-plugin-uni-layouts
     - name: vite-plugin-uni-components
       link: 'https://github.com/uni-helper/vite-plugin-uni-components'
       desc: 为 uni-app 提供基于文件的按需自动引入组件
-      icon: i-carbon-workspace-import
+      icon: carbon:workspace-import
       npm: '@uni-helper/vite-plugin-uni-components'
       github: uni-helper/vite-plugin-uni-components
     - name: vite-plugin-uni-manifest
       link: 'https://github.com/uni-helper/vite-plugin-uni-manifest'
       desc: 使用 TypeScript 来编写 uni-app 的 manifest.json
-      icon: 'i-lucide:file-cog'
+      icon: 'lucide:file-cog'
       npm: '@uni-helper/vite-plugin-uni-manifest'
       github: uni-helper/vite-plugin-uni-manifest
     - name: vite-plugin-uni-platform
       link: 'https://github.com/uni-helper/vite-plugin-uni-platform'
       desc: '基于文件名 (*.<h5|mp-weixin|app>.*) 的按平台编译插件'
-      icon: 'i-carbon:platforms'
+      icon: 'carbon:platforms'
       npm: '@uni-helper/vite-plugin-uni-platform'
       github: uni-helper/vite-plugin-uni-platform
     - name: vite-plugin-uni-platform-modifier
       link: 'https://github.com/uni-helper/vite-plugin-uni-platform-modifier'
       desc: 为属性、指令提供平台修饰符并按需编译
-      icon: 'i-octicon:diff-modified-16'
+      icon: 'octicon:diff-modified-16'
       npm: '@uni-helper/vite-plugin-uni-platform-modifier'
       github: uni-helper/vite-plugin-uni-platform-modifier
     - name: vite-plugin-uni-middleware
       link: 'https://github.com/uni-helper/vite-plugin-uni-middleware'
       desc: 为 uni-app 提供中间件支持
-      icon: 'i-mdi:middleware'
+      icon: 'mdi:middleware'
       npm: '@uni-helper/vite-plugin-uni-middleware'
       github: uni-helper/vite-plugin-uni-middleware
   CSS:
     - name: unocss-preset-uni
       link: 'https://github.com/uni-helper/unocss-preset-uni'
       desc: 为 uni-app 提供 UnoCSS 的预设
-      icon: 'i-logos:unocss'
+      icon: 'logos:unocss'
       npm: '@uni-helper/unocss-preset-uni'
       github: uni-helper/unocss-preset-uni
   VS Code:
     - name: uni-helper-vscode
       link: 'https://github.com/uni-helper/uni-helper-vscode'
       desc: 为 VS Code 提供 uni-app 的开发体验
-      icon: i-codicon-package
+      icon: codicon:package
       github: uni-helper/uni-helper-vscode
     - name: uni-highlight-vscode
       link: 'https://github.com/uni-helper/uni-highlight-vscode'
       desc: 在 VS Code 中对条件编译的代码注释部分提供了语法高亮
-      icon: 'i-carbon:text-highlight'
+      icon: 'carbon:text-highlight'
       github: uni-helper/uni-highlight-vscode
     - name: uni-app-schemas-vscode
       link: 'https://github.com/uni-helper/uni-app-schemas-vscode'
       desc: 为 VS Code 提供 uni-app 的 JSON Schema 支持
-      icon: i-codicon-json
+      icon: codicon:json
       github: uni-helper/uni-app-schemas-vscode
     - name: uni-app-snippets-vscode
       link: 'https://github.com/uni-helper/uni-app-snippets-vscode'
       desc: 为 VS Code 提供 uni-app 的代码片段
-      icon: 'i-ic:outline-snippet-folder'
+      icon: 'ic:outline-snippet-folder'
       github: uni-helper/uni-app-snippets-vscode
     - name: uni-ui-snippets-vscode
       link: 'https://github.com/uni-helper/uni-ui-snippets-vscode'
       desc: 为 VS Code 提供 uni-ui 的组件代码片段
-      icon: 'i-ic:outline-snippet-folder'
+      icon: 'ic:outline-snippet-folder'
       github: uni-helper/uni-ui-snippets-vscode
     - name: uni-cloud-snippets-vscode
       link: 'https://github.com/uni-helper/uni-cloud-snippets-vscode'
       desc: 为 VS Code 提供 uni-cloud 的代码片段
-      icon: 'i-ic:outline-snippet-folder'
+      icon: 'ic:outline-snippet-folder'
       github: uni-helper/uni-cloud-snippets-vscode
     - name: uni-create-view
       link: 'https://github.com/uni-helper/uni-create-view'
       desc: 为 VS Code 提供 uni-app 的快速创建页面、组件等功能
-      icon: 'i-ic:outline-create-new-folder'
+      icon: 'ic:outline-create-new-folder'
       github: uni-helper/uni-create-view
 
   TypeScript:
     - name: uni-typed
       link: 'https://github.com/uni-helper/uni-typed'
       desc: 为 uni-app 提供 TypeScript 类型定义
-      icon: 'i-hugeicons:typescript-01'
+      icon: 'hugeicons:typescript-01'
       npm: '@uni-helper/uni-app-types'
       github: uni-helper/uni-typed
 
@@ -142,20 +140,20 @@ projects:
     - name: uni-devtools
       link: 'https://github.com/uni-helper/devtools'
       desc: 为 uni-app 提供的开发者工具
-      icon: 'i-carbon:executable-program'
+      icon: 'carbon:executable-program'
       npm: '@uni-helper/devtools'
 
   Libs:
     - name: uni-use
       link: 'https://github.com/uni-helper/uni-use'
       desc: 为 uni-app 提供的组合式 API
-      icon: 'i-logos:vueuse'
+      icon: 'logos:vueuse'
       npm: '@uni-helper/uni-use'
       github: uni-helper/uni-use
     - name: uni-promises
       link: 'https://github.com/uni-helper/uni-promises'
       desc: 为 uni-app 提供的 Promise 相关 API
-      icon: i-lucide-refresh-ccw-dot
+      icon: lucide:refresh-ccw-dot
       npm: '@uni-helper/uni-promises'
       github: uni-helper/uni-promises
 
@@ -163,7 +161,7 @@ projects:
     - name: eslint-config
       link: 'https://github.com/uni-helper/eslint-config'
       desc: 为 uni-app 提供的 ESLint 规则
-      icon: 'i-simple-icons:eslint'
+      icon: 'simple-icons:eslint'
       npm: '@uni-helper/eslint-config'
       github: uni-helper/eslint-config
 
@@ -171,26 +169,26 @@ projects:
     - name: awesome-uni-app
       link: 'https://github.com/uni-helper/awesome-uni-app'
       desc: 多端统一开发框架 uni-app 优秀学习资源汇总
-      icon: 'i-simple-icons:awesomelists'
+      icon: 'simple-icons:awesomelists'
 
   Build & Deploy:
     - name: uni-env
       link: 'https://github.com/uni-helper/uni-env'
       desc: 在 uni-app 中优雅地判断当前环境
-      icon: 'i-carbon:chart-network'
+      icon: 'carbon:chart-network'
       npm: '@uni-helper/uni-env'
       github: uni-helper/uni-env
     - name: uni-deploy
       link: 'https://github.com/uni-helper/uni-deploy'
       desc: uni-app 构建工具
-      icon: 'i-material-symbols:deployed-code-update-outline-rounded'
+      icon: 'material-symbols:deployed-code-update-outline-rounded'
       npm: '@uni-helper/uni-deploy'
     - name: hbuilderx-cli
       link: 'https://github.com/uni-helper/hbuilderx-cli'
       desc: HBuilderX cli 的 CJS/ESM 包装
-      icon: 'i-carbon:build-tool'
+      icon: 'carbon:build-tool'
       npm: '@uni-helper/hbuilderx-cli'
     - name: hbuilderx-vanilla
       link: 'https://github.com/uni-helper/hbuilderx-vanilla'
       desc: 优雅地在Linux环境下构建uni-app项目的wgt热更新包
-      icon: 'i-carbon:package'
+      icon: 'carbon:package'

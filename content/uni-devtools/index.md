@@ -21,7 +21,7 @@ badges:
 
 </br>
 
-![demo](./devtools/demo.png)
+![demo](./devtools/demo.jpg)
 
 ## 安装
 :pm-install{name="-D @uni-helper/devtools"}

@@ -6,4 +6,6 @@ ignoredBuiltDependencies:
   - vue-demi
 
 onlyBuiltDependencies:
+  - netlify-cli
   - sharp
+  - unix-dgram

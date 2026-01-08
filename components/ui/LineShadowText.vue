@@ -33,7 +33,7 @@ if (!content) {
         'relative z-0 inline-flex',
         'after:absolute after:left-[0.04em] after:top-[0.04em] after:-z-10',
         'after:bg-[linear-gradient(45deg,transparent_45%,var(--shadow-color)_45%,var(--shadow-color)_55%,transparent_0)]',
-        'after:bg-[length:0.06em_0.06em] after:bg-clip-text after:text-transparent',
+        'after:bg-size-[0.06em_0.06em] after:bg-clip-text after:text-transparent',
         'after:content-[attr(data-text)]',
         'animate-line-shadow',
         props.class,

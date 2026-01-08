@@ -80,7 +80,7 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
           <template #badge>
             <UiBadge variant="outline" as-child>
               <NuxtLink :to="`https://github.com/${release.repo}`" target="_blank" class="flex items-center">
-                <SmartIcon :name="release.icon" class="size-3 mr-1" />
+                <SmartIcon :name="release.icon" class="mr-1" :size="12" />
                 {{ release.repo }}
               </NuxtLink>
             </UiBadge>
@@ -100,10 +100,10 @@ const { data: releases } = await useFetch(`/api/_content/releases.json`, {
               <div
                 v-if="!release.open && release.body.children.length > 4"
                 class="h-16 absolute inset-x-0 bottom-0 flex items-end justify-center"
-                :class="{ 'bg-gradient-to-t from-background to-background/50': !release.open }"
+                :class="{ 'bg-linear-to-t from-background to-background/50': !release.open }"
               >
                 <ButtonLink
-                  size="sm" left-icon="i-lucide-chevron-down" variant="outline"
+                  size="sm" left-icon="lucide:chevron-down" variant="outline"
                   :data-state="release.open ? 'open' : 'closed'"
                   @click="release.open = !release.open"
                 >

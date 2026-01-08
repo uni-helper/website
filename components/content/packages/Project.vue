@@ -33,18 +33,16 @@ function slug(name: string) {
       >
         <div
           :id="slug(key)"
-          select-none relative h18 mt5 slide-enter
           :style="{
             '--enter-stage': cidx - 2,
             '--enter-step': '60ms',
           }"
-          class="scroll-mt-16"
+          class="scroll-mt-16 select-none relative h-18 mt-5 slide-enter"
         >
-          <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>{{ key }}</span>
+          <span class="text-[5em] text-transparent absolute -left-[1rem] top-0 font-bold leading-[1em] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#aaa] opacity-35 dark:opacity-20">{{ key }}</span>
         </div>
         <div
-          class="project-grid py-2 max-w-500 w-max mx-auto"
-          grid="~ cols-1 md:cols-2 gap-4 lg:cols-3"
+          class="project-grid py-2 max-w-500 w-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3"
         >
           <NuxtLink
             v-for="item, idx in projects[key]"
@@ -56,7 +54,7 @@ function slug(name: string) {
             :title="item.name"
           >
             <div v-if="item.icon" class="pt-2 pr-5">
-              <SmartIcon :name="item.icon" class="size-8 opacity-50" />
+              <SmartIcon :name="item.icon" class="opacity-50" :size="32" />
             </div>
             <div class="flex-auto">
               <div class="text-normal">
@@ -71,7 +69,7 @@ function slug(name: string) {
     <div>
       <div class="table-of-contents">
         <div class="table-of-contents-anchor">
-          <div class="i-ri-menu-2-fill" />
+          <SmartIcon name="ri:menu-2-fill" />
         </div>
         <ul>
           <li v-for="key of Object.keys(projects)" :key="key">
@@ -111,23 +109,66 @@ function slug(name: string) {
   left: 20px;
   z-index: 200;
   overflow: hidden;
-  --uno: hidden lg-flex flex-col w-100px lg-w-200px xl-w-300px;
+  display: none;
+  width: 100px;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .table-of-contents {
+    display: flex;
+    width: 200px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .table-of-contents {
+    width: 300px;
+  }
 }
 
 .table-of-contents-anchor {
-  --uno: 'mx2 w-7 h-7 text-lg flex items-center justify-center bg-base rounded text-hex-8887 border border-base shadow md:border-transparent md:shadow-none transition duration-400';
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 1.125rem;
+  line-height: 1.76rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  color: #8887;
+  border-width: 1px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .4s;
+}
+
+@media (min-width: 768px) {
+  .table-of-contents-anchor {
+    border-color: transparent;
+    box-shadow: none;
+  }
 }
 
 .table-of-contents > ul {
   text-overflow: ellipsis;
   height: 100%;
   overflow-y: auto;
-  --uno: rounded op0 mt-1 pb-5 transition duration-700;
+  border-radius: 0.25rem;
+  opacity: 0;
+  margin-top: 0.25rem;
+  padding-bottom: 1.25rem;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .7s;
 }
 
 *:hover > .table-of-contents > .table-of-contents-anchor,
 .toc-always-on .table-of-contents > .table-of-contents-anchor {
-  --uno: text-inherit;
+  color: inherit;
 }
 
 .toc-always-on .table-of-contents > ul {
@@ -149,6 +190,13 @@ function slug(name: string) {
 }
 
 .table-of-contents ul > li > a {
-  --uno: op75 hover-op100 transition;
+  opacity: 0.75;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .15s;
+}
+
+.table-of-contents ul > li > a:hover {
+  opacity: 1;
 }
 </style>
