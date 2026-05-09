@@ -178,11 +178,6 @@ projects:
       icon: 'carbon:chart-network'
       npm: '@uni-helper/uni-env'
       github: uni-helper/uni-env
-    - name: uni-deploy
-      link: 'https://github.com/uni-helper/uni-deploy'
-      desc: uni-app 构建工具
-      icon: 'material-symbols:deployed-code-update-outline-rounded'
-      npm: '@uni-helper/uni-deploy'
     - name: hbuilderx-cli
       link: 'https://github.com/uni-helper/hbuilderx-cli'
       desc: HBuilderX cli 的 CJS/ESM 包装
