@@ -67,7 +67,9 @@ Cloudflare Pages Functions 的包体限制是 25 MiB。OG 图片使用 `public/o
 - EdgeOne 检测到 `@nuxt/content` 后强制走静态部署，忽略 `edgeone.json` 的 `buildCommand`，实际执行 `npm run generate`
 - 所以 `generate` 必须先跑 `update:uni-use`，否则 `content/uni-use/2.api/` 是空的，预渲染会在 `/uni-use/api` 拿 404 并退出
 - Node 固定 24.18.0：EdgeOne 预装的最高版本，没有 26
-- `nuxt generate` 的静态产物不包含 `/changelog` 和 `/api/_content/releases.json`，部署后要单独确认这两个地址
+- `generate` 带 `STATIC_CHANGELOG=1`：`/changelog`、`/api/_content/releases.json`、`/api/_content/packages.json` 在构建时预渲染，数据停留在部署时刻
+- 定时部署：EdgeOne 项目设置里创建部署钩子，把 URL 存成 GitHub secret `EDGEONE_DEPLOY_HOOK`；`.github/workflows/scheduled-deploy.yml` 每 6 小时 POST 一次，没配 secret 时直接跳过
+- 构建失败（比如 `ungh.cc` 不可用）不会覆盖上一次部署，changelog 停留在旧快照
 
 ## 依赖锁定
 

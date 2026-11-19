@@ -1,0 +1,23 @@
+name: Scheduled EdgeOne deploy
+
+on:
+  schedule:
+    # EdgeOne 是静态部署，changelog 数据停留在上一次构建，每 6 小时重建一次。
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger EdgeOne deploy hook
+        env:
+          DEPLOY_HOOK: ${{ secrets.EDGEONE_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$DEPLOY_HOOK" ]; then
+            echo "EDGEONE_DEPLOY_HOOK is not configured, skipping."
+            exit 0
+          fi
+          curl -fsS -X POST "$DEPLOY_HOOK"
