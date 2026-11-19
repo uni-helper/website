@@ -62,6 +62,13 @@ pnpm preview
 
 Cloudflare Pages Functions 的包体限制是 25 MiB。OG 图片使用 `public/og.png` 一张静态品牌卡片（1200x600），worker 里不再打包 OG 渲染器和字体。当前 worker 约 3.6 MB。
 
+### EdgeOne
+
+- EdgeOne 检测到 `@nuxt/content` 后强制走静态部署，忽略 `edgeone.json` 的 `buildCommand`，实际执行 `npm run generate`
+- 所以 `generate` 必须先跑 `update:uni-use`，否则 `content/uni-use/2.api/` 是空的，预渲染会在 `/uni-use/api` 拿 404 并退出
+- Node 固定 24.18.0：EdgeOne 预装的最高版本，没有 26
+- `nuxt generate` 的静态产物不包含 `/changelog` 和 `/api/_content/releases.json`，部署后要单独确认这两个地址
+
 ## 依赖锁定
 
 - `pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 只用于放行 `@nuxt/content` 的当前版本，等默认策略覆盖后可以删掉。
