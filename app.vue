@@ -16,6 +16,9 @@ function clean(entries: any[], dirMeta: Map<string, any>): any[] {
         children: entry.children ? clean(entry.children, dirMeta) : undefined,
       }
     })
+    // 目录下没有任何真实页面时（比如 uni-use API 文档没同步），
+    // 不要留下一个指向空目录的链接，否则侧栏会出现必然 404 的入口。
+    .filter(entry => entry.page !== false || !!entry.children?.length)
 }
 
 // 只在开发和预渲染阶段查询内容数据库。运行时（Cloudflare 没有 D1）不查，
