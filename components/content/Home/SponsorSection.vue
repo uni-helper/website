@@ -18,9 +18,9 @@
       </div>
     </div>
   </div>
-  <NuxtLinkLocale to="/about" class="sponsor-btn">
+  <NuxtLink to="/about" class="sponsor-btn">
     <UiRainbowButton>
       成为赞助商 <span class="text-red-500 ml-1">♥️</span>
     </UiRainbowButton>
-  </NuxtLinkLocale>
+  </NuxtLink>
 </template>

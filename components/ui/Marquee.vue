@@ -10,6 +10,7 @@ withDefaults(
     repeat?: number
   }>(),
   {
+    class: '',
     pauseOnHover: false,
     vertical: false,
     repeat: 4,

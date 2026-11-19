@@ -16,13 +16,13 @@ const legend = [{
 
 <template>
   <div>
-    <UiCard class="grid grid-cols-2 p-4 sm:p-4">
+    <div class="bg-card text-card-foreground grid grid-cols-2 rounded-xl border p-4 shadow sm:p-4">
       <template v-for="item in legend" :key="item.text">
         <div class="flex items-center gap-2">
           <span class="block rounded-full w-2 h-2 ring-1" :class="item.color" />
           <span class="text-sm text-muted-foreground"> {{ item.text }}</span>
         </div>
       </template>
-    </UiCard>
+    </div>
   </div>
 </template>

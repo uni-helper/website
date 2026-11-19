@@ -75,9 +75,9 @@ function hexToRgb(hex: string) {
   if (!m)
     return { r: 0, g: 0, b: 0 }
   return {
-    r: Number.parseInt(m[1], 16),
-    g: Number.parseInt(m[2], 16),
-    b: Number.parseInt(m[3], 16),
+    r: Number.parseInt(m[1]!, 16),
+    g: Number.parseInt(m[2]!, 16),
+    b: Number.parseInt(m[3]!, 16),
   }
 }
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
+
 function toggleDark(event: MouseEvent) {
-  // @ts-expect-error experimental API
-  const isAppearanceTransition = document.startViewTransition
+  const isAppearanceTransition = 'startViewTransition' in document
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   if (!isAppearanceTransition) {
@@ -45,9 +45,8 @@ function toggleDark(event: MouseEvent) {
 </script>
 
 <template>
-  <UiButton variant="ghost" size="icon" @click="toggleDark">
+  <UButton color="neutral" variant="ghost" square aria-label="切换主题" @click="toggleDark">
     <SmartIcon name="lucide:sun" class="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" :size="18" />
     <SmartIcon name="lucide:moon" class="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" :size="18" />
-    <span class="sr-only">Toggle theme</span>
-  </UiButton>
+  </UButton>
 </template>

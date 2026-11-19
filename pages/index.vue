@@ -1,0 +1,3 @@
+<template>
+  <DocsPage path="/" />
+</template>

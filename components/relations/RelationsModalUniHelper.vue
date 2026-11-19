@@ -30,39 +30,40 @@ function selectAll() {
 </script>
 
 <template>
-  <UiDialog v-model:open="open">
-    <UiDialogContent class="w-full sm:max-w-lg md:max-w-2xl xl:max-w-5xl">
-      <UiDialogHeader>
-        <UiDialogTitle>管理 UniHelper 仓库</UiDialogTitle>
-        <UiDialogDescription>
-          在此处更改您的配置文件，完成后单击验证。
-        </UiDialogDescription>
-      </UiDialogHeader>
+  <UModal v-model:open="open" :ui="{ content: 'w-full sm:max-w-lg md:max-w-2xl xl:max-w-5xl' }">
+    <template #header>
+      <span>管理 UniHelper 仓库</span>
+      <p class="text-muted-foreground mt-1 text-sm">在此处更改您的配置文件，完成后单击验证。</p>
+    </template>
+    <template #body>
 
       <RelationsPackagesCombobox v-model:selection="selection" :packages="packages" />
 
-      <UiDialogFooter class="sm:justify-between w-full">
+    </template>
+
+    <template #footer>
+      <div class="flex w-full justify-between">
         <div class="flex gap-2">
-          <UiButton size="sm" type="button" variant="ghost" c-red-400 hover="bg-red-950 c-red-400" @click="clear">
+          <UButton size="sm" type="button" color="error" variant="ghost" @click="clear">
             清除选择
-          </UiButton>
-          <UiButton size="sm" type="button" variant="outline" @click="selectAll">
+          </UButton>
+          <UButton size="sm" type="button" color="neutral" variant="outline" @click="selectAll">
             全选
-          </UiButton>
+          </UButton>
         </div>
         <div class="flex gap-2">
-          <UiDialogClose as-child>
-            <UiButton size="sm" type="button" variant="ghost" @click="cancel">
+          
+            <UButton size="sm" type="button" color="neutral" variant="ghost" @click="cancel">
               关闭
-            </UiButton>
-          </UiDialogClose>
-          <UiDialogClose as-child>
-            <UiButton size="sm" type="button" variant="default" @click="validate">
+            </UButton>
+          
+          
+            <UButton size="sm" type="button" color="neutral" variant="solid" @click="validate">
               验证
-            </UiButton>
-          </UiDialogClose>
+            </UButton>
+          
         </div>
-      </UiDialogFooter>
-    </UiDialogContent>
-  </UiDialog>
+      </div>
+    </template>
+  </UModal>
 </template>

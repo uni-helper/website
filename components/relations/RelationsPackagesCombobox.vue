@@ -9,26 +9,31 @@ const props = defineProps<{
 const selection = defineModel<RelationPackage[]>('selection', {
   default: () => [],
 })
+
+const groups = computed(() => [{
+  id: 'packages',
+  label: '包',
+  items: props.packages.map(pkg => ({
+    id: pkg.name,
+    label: pkg.name,
+    icon: pkg.icon,
+  })),
+}])
+
+const model = computed({
+  get: () => selection.value.map(pkg => pkg.name),
+  set: (names: string[]) => {
+    selection.value = props.packages.filter(pkg => names.includes(pkg.name))
+  },
+})
 </script>
 
 <template>
-  <UiCommand>
-    <UiCommandInput placeholder="搜索包" />
-    <UiCommandList>
-      <UiCommandEmpty>No results found.</UiCommandEmpty>
-      <UiCommandGroup class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-        <UiCommandItem
-          v-for="item in packages" :key="item.name" :value="item.name" @select="() => {
-            selection = selection.includes(item)
-              ? selection.filter(i => i.name !== item.name)
-              : [...selection, item]
-          }"
-        >
-          <SmartIcon v-if="item.icon" :name="item.icon" />
-          {{ item.name }}
-          <SmartIcon v-if="selection.includes(item)" name="ph:check" class="ml-auto" :size="16" />
-        </UiCommandItem>
-      </UiCommandGroup>
-    </UiCommandList>
-  </UiCommand>
+  <UCommandPalette
+    v-model="model"
+    :groups="groups"
+    multiple
+    placeholder="搜索包"
+    class="h-80"
+  />
 </template>

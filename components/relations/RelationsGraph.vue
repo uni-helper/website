@@ -28,7 +28,6 @@ const selectionNames = computed<string[]>(() => {
 
 function getIconifyIcon(icon?: string) {
   if (icon) {
-    // eslint-disable-next-line regexp/no-super-linear-backtracking
     const regex = /i-([\w-]+?)[:-]([\w-]+)$/
     const match = icon.match(regex)
     if (match) {

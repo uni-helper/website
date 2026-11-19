@@ -12,6 +12,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   base: 10,
+  class: '',
 })
 
 const theme = getColors(props.squareColor)
@@ -27,7 +28,6 @@ function createGrid() {
   grid.value = []
 
   for (let i = 0; i < rows.value; i++) {
-    // eslint-disable-next-line unicorn/no-new-array
     grid.value.push(new Array(cols.value).fill(null))
   }
 }
@@ -35,43 +35,43 @@ function createGrid() {
 function createNewCell() {
   const x = Math.floor(Math.random() * cols.value)
 
-  grid.value[0][x] = true
+  grid.value[0]![x] = true
 }
 
 function moveCellsDown() {
   for (let row = rows.value - 1; row >= 0; row--) {
     for (let col = 0; col < cols.value; col++) {
-      const cell = grid.value[row][col]
-      const nextCell = Array.isArray(grid.value[row + 1]) ? grid.value[row + 1][col] : cell
+      const cell = grid.value[row]![col]
+      const nextCell = Array.isArray(grid.value[row + 1]) ? grid.value[row + 1]![col] : cell
       if (cell !== null && nextCell === null) {
-        grid.value[row + 1][col] = grid.value[row][col]
-        grid.value[row][col] = null
+        grid.value[row + 1]![col] = grid.value[row]![col]!
+        grid.value[row]![col] = null
       }
     }
   }
 
   setTimeout(() => {
-    const isFilled = grid.value[rows.value - 1].every(cell => cell !== null)
+    const isFilled = grid.value[rows.value - 1]!.every(cell => cell !== null)
     if (Array.isArray(grid.value[rows.value]) && isFilled) {
       for (let col = 0; col < cols.value; col++) {
-        grid.value[rows.value][col] = null
+        grid.value[rows.value]![col] = null
       }
     }
   }, 500)
 }
 
 function clearColumn() {
-  const isFilled = grid.value[rows.value - 1].every(cell => cell === true)
+  const isFilled = grid.value[rows.value - 1]!.every(cell => cell === true)
   if (!isFilled)
     return
 
   for (let col = 0; col < cols.value; col++) {
-    grid.value[rows.value - 1][col] = null
+    grid.value[rows.value - 1]![col] = null
   }
 }
 
 function removeCell(row: number, col: number) {
-  grid.value[row][col] = null
+  grid.value[row]![col] = null
 }
 
 function calcGrid() {

@@ -1,18 +1,18 @@
-import type { Package, PackageContent, Project } from '~/types/package'
-import { serverQueryContent } from '#content/server'
+import type { Package, Project } from '~/types/package'
 import { fetchPackageJsonFromGitHub } from '~/server/utils/github'
 
 export default defineEventHandler(async (event) => {
-  const { projects: _projects } = await serverQueryContent<PackageContent>(event).where({ _path: /^\/packages$/ }).findOne()
-  const projects = Object.values(_projects || {}).flat() as Project[]
+  // 项目列表在 nuxt.config 里从 content/1.packages.yml 读入，避免运行时依赖内容数据库。
+  const projects = useRuntimeConfig(event).projects as unknown as Project[]
 
-  const populatedPackages = await Promise.all(
+  return await Promise.all(
     projects.map(async (pkg) => {
       const packageJson = pkg.npm
         ? await fetchPackageJson(pkg.npm)
         : pkg.github
           ? await fetchPackageJsonFromGitHub(pkg.github)
           : null
+
       return {
         id: pkg.name.toLowerCase(),
         title: pkg.name,
@@ -21,14 +21,11 @@ export default defineEventHandler(async (event) => {
         npm: packageJson
           ? {
               name: packageJson.name || pkg.npm || pkg.github || pkg.name,
-              dependencies: Object.keys(packageJson?.dependencies || {}),
-              devDependencies: Object.keys(packageJson?.devDependencies || {}),
+              dependencies: Object.keys(packageJson.dependencies || {}),
+              devDependencies: Object.keys(packageJson.devDependencies || {}),
             }
           : undefined,
       } satisfies Package
-    },
-    ),
+    }),
   )
-
-  return populatedPackages
 })

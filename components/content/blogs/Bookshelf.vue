@@ -4,7 +4,7 @@ defineProps<{ blogs: {
   description: string
   to: string
   footer: string
-  bg?: 'tetris' | 'liquid' | 'aurora'
+  bg?: 'tetris' | 'liquid' | 'aurora' | 'dither' | 'dotGrid'
   author?: string
 }[] }>()
 </script>

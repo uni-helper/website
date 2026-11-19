@@ -2,7 +2,6 @@
 import { cva } from 'class-variance-authority'
 import { defu } from 'defu'
 import { Motion, useScroll, useSpring, useTransform } from 'motion-v'
-import { Primitive } from 'reka-ui'
 import { computed } from 'vue'
 import { cn } from '@/lib/utils'
 import UChangelogVersion from './ChangelogVersion.vue'
@@ -51,8 +50,11 @@ interface ChangelogVersionsSlots<T extends ChangelogVersionProps = ChangelogVers
 // 组件 Props 和 Slots
 const props = withDefaults(defineProps<ChangelogVersionsProps>(), {
   as: 'div',
+  versions: () => [],
   indicator: true,
   indicatorMotion: true,
+  class: '',
+  ui: () => ({}),
 })
 
 const slots = defineSlots<ChangelogVersionsSlots>()
@@ -90,7 +92,7 @@ const height = useTransform(() => `${y.get() * 100}%`)
 </script>
 
 <template>
-  <Primitive :as="as" :class="cn(rootVariants(), props.ui?.root)">
+  <component :is="as" :class="cn(rootVariants(), props.ui?.root)">
     <div v-if="!!props.indicator || !!slots.indicator" :class="cn(indicatorVariants(), props.ui?.indicator)">
       <slot name="indicator">
         <Motion v-if="!!props.indicatorMotion" :class="cn(beamVariants(), props.ui?.beam)" :style="{ height }" />
@@ -111,5 +113,5 @@ const height = useTransform(() => `${y.get() * 100}%`)
         </UChangelogVersion>
       </slot>
     </div>
-  </Primitive>
+  </component>
 </template>

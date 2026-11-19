@@ -21,10 +21,10 @@ function add() {
       <span class="absolute start-0 inset-y-0 flex items-center justify-center px-2">
         <SmartIcon name="simple-icons:npm" />
       </span>
-      <UiButton :disabled="!input">
+      <UButton color="neutral" variant="solid" :disabled="!input">
         <SmartIcon v-if="loading" name="ph:spinner" class="mr-1 animate-spin" />
         添加
-      </UiButton>
+      </UButton>
     </div>
   </form>
 </template>

@@ -9,6 +9,7 @@ interface RainbowButtonProps {
 }
 
 const props = withDefaults(defineProps<RainbowButtonProps>(), {
+  class: '',
   speed: 2,
   is: 'button',
 })

@@ -1,28 +1,14 @@
 <script setup lang="ts">
-const props = defineProps<{
-  prevNext: any
+defineProps<{
+  prevNext?: any
   side: 'left' | 'right'
 }>()
-
-const { path } = useRoute()
-const prevNextPath = computed(() => props.prevNext?._path)
-
-// 优化：使用更简洁的路径匹配逻辑
-const shouldShow = computed(() => {
-  if (!prevNextPath.value)
-    return false
-
-  const current = path.split('/')[1] || ''
-  const target = prevNextPath.value.split('/')[1] || ''
-
-  return current === target
-})
 </script>
 
 <template>
-  <NuxtLinkLocale
-    v-if="shouldShow"
-    :to="prevNextPath"
+  <NuxtLink
+    v-if="prevNext"
+    :to="prevNext.path"
     class="basis-1/3"
   >
     <div class="hover:bg-muted/50 mb-4 space-y-2 rounded-lg border p-4 transition-all">
@@ -43,5 +29,5 @@ const shouldShow = computed(() => {
         </div>
       </div>
     </div>
-  </NuxtLinkLocale>
+  </NuxtLink>
 </template>

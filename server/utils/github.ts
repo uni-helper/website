@@ -8,7 +8,7 @@ const cachedGitHubPackageJsons = defineCachedFunction(async (repo: string) => {
   try {
     return await fetchGitHubFile(repo, repository.defaultBranch, packageJsonPath)
   }
-  catch (_error) {
+  catch {
     return null
   }
 }, {

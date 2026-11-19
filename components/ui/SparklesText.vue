@@ -25,6 +25,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   sparklesCount: 10,
   colors: () => ({ first: '#9E7AFF', second: '#FE8BBB' }),
+  class: '',
 })
 
 const sparkles = ref<Sparkle[]>([])

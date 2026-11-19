@@ -1,118 +1,63 @@
 <script setup lang="ts">
 import type { Release } from '~/types/releases'
-import { formatTimeAgo } from '@vueuse/core'
-import Logo from 'shadcn-docs-nuxt/components/layout/Header/Logo.vue'
 
-const route = useRoute()
-const { data: page, error } = await useAsyncData<any>(route.path, () => queryContent(route.path).findOne())
-if (error.value) {
-  throw createError({
-    statusCode: 404,
-    message: 'Page not found',
-    fatal: true,
-  })
+const config = useAppConfig()
+
+// 页面元数据直接写死，避免 /changelog 在 Cloudflare 上运行时查询内容数据库。
+const page = {
+  title: '更新日志',
+  description: '查看 uni-helper 生态系统中所有项目的最新更新日志，了解每个版本的改进和新功能。',
 }
-const config = useAppConfig().shadcnDocs
 
 useSeoMeta({
-  title: page.value?.title,
-  description: page.value?.description,
-  titleTemplate: `%s - ${config.header.title}`,
+  title: page.title,
+  description: page.description,
+  titleTemplate: '%s - uni-helper',
+  // /changelog 是运行时页面，零运行时 OG 不会为它生成图片，用一张静态卡片兜底。
+  ogImage: config.site.ogImage,
+  twitterCard: 'summary_large_image',
 })
 
-defineOgImageComponent('ShadcnDocs', {
-  title: page.value?.title,
-  description: page.value?.description,
-})
-
-const { data: releases } = await useFetch(`/api/_content/releases.json`, {
-  transform: releases => releases.map((release: Release) => ({
-    ...release,
-    open: false,
-  })),
-  deep: true,
+const { data: releases } = await useFetch<Release[]>('/api/_content/releases.json', {
+  default: () => [],
 })
 </script>
 
 <template>
-  <div v-if="page" class="size-full xl:grid xl:grid-cols-2">
+  <div class="size-full xl:grid xl:grid-cols-2">
     <section
-      class="relative isolate border-b border-border xl:border-b-0 xl:sticky xl:inset-y-0 xl:h-screen overflow-hidden"
+      class="relative isolate overflow-hidden border-b border-border xl:sticky xl:inset-y-0 xl:h-screen xl:border-b-0"
     >
       <UiSkyBg />
-      <div class="absolute -right-1/2 z-[-1] rounded-full bg-primary blur-[300px] size-60 sm:size-100 transform -translate-y-1/2 top-1/2" />
+      <div class="absolute -right-1/2 top-1/2 z-[-1] size-60 -translate-y-1/2 rounded-full bg-primary blur-[300px] sm:size-100" />
       <div
-        class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 h-full items-center justify-center"
+        class="mx-auto flex h-full w-full max-w-full flex-col items-center justify-center gap-8 px-4 py-16 sm:gap-16 sm:px-6 sm:py-24 lg:grid lg:px-8 lg:py-32"
       >
         <div class="flex flex-col">
-          <Logo class="justify-center mb-6" />
-          <h2 class="sm:text-4xl lg:text-5xl text-pretty tracking-tight font-bold text-left text-4xl">
+          <NuxtLink to="/" class="mb-6 flex items-center">
+            <img src="/logo.svg" alt="" class="h-7 dark:hidden">
+            <img src="/logo-dark.svg" alt="" class="hidden h-7 dark:block">
+            <span class="ml-3 self-center font-bold">uni-helper</span>
+          </NuxtLink>
+          <h2 class="text-left text-4xl font-bold tracking-tight text-pretty sm:text-4xl lg:text-5xl">
             {{ page.title }}
           </h2>
-          <p class="text-base sm:text-lg text-muted-foreground text-balance mt-6 text-left max-w-lg">
+          <p class="text-muted-foreground mt-6 max-w-lg text-left text-base text-balance sm:text-lg">
             {{ page.description }}
           </p>
         </div>
       </div>
     </section>
-    <div class="px-4 sm:px-6 xl:px-0 xl:-ms-30 xl:flex-1">
+
+    <div class="px-4 sm:px-6 xl:-ms-30 xl:flex-1 xl:px-0">
       <UiChangelogVersions
-        :indicator-motion="false" :ui="{
+        :indicator-motion="false"
+        :ui="{
           root: 'py-16 sm:py-24 lg:py-32',
           indicator: 'inset-y-0',
         }"
       >
-        <UiChangelogVersion
-          v-for="release in releases" :key="release.tag"
-          :to="release.url"
-          target="_blank"
-          :title="release.title"
-          :date="formatTimeAgo(new Date(release.date))"
-          :ui="{
-            root: 'flex items-start',
-            container: 'max-w-xl 2xl:mx-12 w-full',
-            header: 'border-b border-border pb-4',
-            title: 'text-3xl',
-            date: 'text-xs/9 font-mono',
-            indicator: 'sticky top-0 pt-16 -mt-16 sm:pt-24 sm:-mt-24 lg:pt-32 lg:-mt-32',
-          }"
-        >
-          <template #badge>
-            <UiBadge variant="outline" as-child>
-              <NuxtLink :to="`https://github.com/${release.repo}`" target="_blank" class="flex items-center">
-                <SmartIcon :name="release.icon" class="mr-1" :size="12" />
-                {{ release.repo }}
-              </NuxtLink>
-            </UiBadge>
-          </template>
-          <template #body>
-            <div
-              class="relative"
-              :class="{
-                'h-auto min-h-[200px]': release.open,
-                'h-[200px] overflow-y-hidden': !release.open && release.body.children.length > 4,
-              }"
-            >
-              <MDCRenderer v-if="release.body?.children?.length" :body="release.body" style="zoom: 0.85" class="mt-6" />
-              <p v-else class="leading-7 mt-6" style="zoom: 0.85">
-                <em>No significant changes</em>
-              </p>
-              <div
-                v-if="!release.open && release.body.children.length > 4"
-                class="h-16 absolute inset-x-0 bottom-0 flex items-end justify-center"
-                :class="{ 'bg-linear-to-t from-background to-background/50': !release.open }"
-              >
-                <ButtonLink
-                  size="sm" left-icon="lucide:chevron-down" variant="outline"
-                  :data-state="release.open ? 'open' : 'closed'"
-                  @click="release.open = !release.open"
-                >
-                  {{ release.open ? '收起版本' : '展开版本' }}
-                </ButtonLink>
-              </div>
-            </div>
-          </template>
-        </UiChangelogVersion>
+        <ChangelogRelease v-for="release in releases" :key="release.tag" :release="release" />
       </UiChangelogVersions>
     </div>
   </div>

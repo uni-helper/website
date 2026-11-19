@@ -11,8 +11,9 @@ import {
   PATTERN_BACKGROUND_VARIANT,
 } from './../../ui/PatternBackgroundFile/index'
 import PatternBackground from './../../ui/PatternBackgroundFile/PatternBackground.vue'
+import type { Project } from '~/types/package'
 
-defineProps<{ projects: Record<string, any[]> }>()
+defineProps<{ projects: Record<string, Project[]> }>()
 function slug(name: string) {
   return name.toLowerCase().replace(/[\s\\&/]+/g, '-')
 }
@@ -45,8 +46,8 @@ function slug(name: string) {
           class="project-grid py-2 max-w-500 w-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3"
         >
           <NuxtLink
-            v-for="item, idx in projects[key]"
-            :key="idx"
+            v-for="item in projects[key]"
+            :key="item.name"
             class="item relative flex items-center"
             :to="slug(key) !== 'vs-code' ? `/${item.name}` : `/${slug(key)}/${item.name}`"
 
@@ -60,7 +61,9 @@ function slug(name: string) {
               <div class="text-normal">
                 {{ item.name }}
               </div>
-              <div class="desc text-sm opacity-50 font-normal" v-html="item.desc" />
+              <div class="desc text-sm opacity-50 font-normal">
+                {{ item.desc }}
+              </div>
             </div>
           </NuxtLink>
         </div>

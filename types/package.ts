@@ -1,10 +1,8 @@
-import type { ParsedContent } from '@ztl-uwu/nuxt-content'
-
 export interface Package extends Record<string, unknown> {
   id: string
   title: string
-  description: string
-  icon: string
+  description?: string
+  icon?: string
   npm?: {
     name: string
     dependencies: string[]
@@ -14,15 +12,11 @@ export interface Package extends Record<string, unknown> {
 
 export interface Project {
   name: string
-  link: string
-  desc: string
-  icon: string
+  link?: string
+  desc?: string
+  icon?: string
   npm?: string
   github?: string
-}
-
-export interface PackageContent extends ParsedContent {
-  projects: Record<string, Project[]>
 }
 
 export type RelationPackageSource = 'npm' | 'uni-helper'

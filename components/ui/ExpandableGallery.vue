@@ -7,7 +7,9 @@ interface Props {
   class?: HTMLAttributes['class']
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  class: '',
+})
 </script>
 
 <template>
@@ -21,6 +23,8 @@ const props = defineProps<Props>()
         class="relative h-full object-cover"
         :src="image"
         :alt="image"
+        loading="lazy"
+        decoding="async"
       >
     </div>
   </div>

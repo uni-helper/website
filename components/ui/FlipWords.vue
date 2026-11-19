@@ -22,15 +22,16 @@ function startAnimation() {
   isVisible.value = false
 
   setTimeout(() => {
-    const currentIndex = props.words.indexOf(currentWord.value)
+    const currentIndex = props.words.indexOf(currentWord.value ?? '')
     const nextWord = props.words[currentIndex + 1] || props.words[0]
-    currentWord.value = nextWord
+    if (nextWord)
+      currentWord.value = nextWord
     isVisible.value = true
   }, 600)
 }
 
 const splitWords = computed(() => {
-  return currentWord.value.split(' ').map(word => ({
+  return (currentWord.value ?? '').split(' ').map(word => ({
     word,
     letters: word.split(''),
   }))

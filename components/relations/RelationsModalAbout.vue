@@ -3,13 +3,12 @@ const open = defineModel<boolean>('open', { required: true })
 </script>
 
 <template>
-  <UiDialog v-model:open="open">
-    <UiDialogContent>
-      <UiDialogHeader>
-        <UiDialogTitle>关于 Uni-Helper Relations</UiDialogTitle>
-        <UiDialogDescription />
-      </UiDialogHeader>
+  <UModal v-model:open="open">
+    <template #header>
+      <span>关于 Uni-Helper Relations</span>
+    </template>
+    <template #body>
       <slot />
-    </UiDialogContent>
-  </UiDialog>
+    </template>
+  </UModal>
 </template>

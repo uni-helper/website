@@ -39,7 +39,6 @@ onMounted(() => {
       :ease="100"
       :color="isDark ? '#FFF' : '#000'"
       :staticity="10"
-      refresh
     />
     <span
       class="fixed top-0 z-[-1] h-screen w-full bg-white opacity-40 dark:bg-black dark:opacity-50"
@@ -53,10 +52,7 @@ onMounted(() => {
         name="lucide:rocket"
         :size="16"
       />
-      <UiSeparator
-        class="mx-2 h-4 dark:bg-gray-600"
-        orientation="vertical"
-      />
+      <span class="mx-2 h-4 w-px bg-border dark:bg-gray-600" />
       <span class="underline-offset-4 hover:underline">Get Started</span>
       <SmartIcon
         name="lucide:arrow-right"
@@ -80,19 +76,19 @@ onMounted(() => {
 
     <div class="mt-4 flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
       <NuxtLink to="/packages">
-        <UiButton> 探索世界 </UiButton>
+        <UButton color="neutral" variant="solid">探索世界</UButton>
       </NuxtLink>
       <NuxtLink
         to="https://github.com/uni-helper"
         target="_blank"
       >
-        <UiButton variant="outline">
+        <UButton color="neutral" variant="outline">
           <SmartIcon
             name="lucide:github"
             class="mr-1"
           />
           Github
-        </UiButton>
+        </UButton>
       </NuxtLink>
     </div>
   </section>

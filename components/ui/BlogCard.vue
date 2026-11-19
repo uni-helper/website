@@ -1,119 +1,89 @@
 <script setup lang="ts">
-const {
-  showLinkIcon = true,
-  horizontal = false,
-  iconSize = 24,
-  bg = 'liquid',
-} = defineProps<{
+const props = withDefaults(defineProps<{
   author?: string
   bg?: 'tetris' | 'liquid' | 'aurora' | 'dither' | 'dotGrid'
   title?: string
   description?: string
   footer?: string
-  content?: string
   to?: string
   target?: string
   icon?: string
   iconSize?: number
   inStack?: boolean
-  img?: string
   showLinkIcon?: boolean
   horizontal?: boolean
-}>()
-
-defineSlots()
+}>(), {
+  author: '',
+  bg: 'liquid',
+  title: '',
+  description: '',
+  footer: '',
+  to: '',
+  target: '',
+  icon: '',
+  iconSize: 24,
+  inStack: false,
+  showLinkIcon: true,
+  horizontal: false,
+})
 
 const [UseTemplate, CardInner] = createReusableTemplate()
 </script>
 
 <template>
   <UseTemplate>
-    <UiCard
-      class="relative h-full overflow-hidden transition-all"
+    <div
+      class="bg-card text-card-foreground relative h-full overflow-hidden rounded-xl border shadow transition-all"
       :class="[
-        to && 'hover:bg-muted',
-        inStack && 'mb-0 rounded-none border-none shadow-none',
+        props.to && 'hover:bg-muted',
+        props.inStack && 'mb-0 rounded-none border-none shadow-none',
       ]"
     >
       <div
         class="relative flex justify-center h-fit aspect-video w-full flex-col items-center overflow-hidden rounded-md bg-white dark:bg-black"
       >
-        <UiLiquidBackground v-if="bg === 'liquid'" />
-        <template v-if="bg === 'tetris'">
-          <ClientOnly>
-            <UiTetris
-              class="h-full w-full mask-[radial-gradient(450px_circle_at_center,#00C16A,transparent)]"
-              :base="15"
-              square-color="#00C16A"
-            />
-          </ClientOnly>
-        </template>
-        <UiAurora v-if="bg === 'aurora'" />
-        <UiDither
-          v-if="bg === 'dither'"
-          :wave-speed="0.05"
-          :wave-frequency="3"
-          :wave-amplitude="0.3"
-          :wave-color="[0.5, 0.5, 0.5]"
-          :color-num="4"
-          :pixel-size="2"
-          :disable-animation="false"
-          :enable-mouse-interaction="true"
-          :mouse-radius="1"
-        />
-        <UiDotGrid
-          v-if="bg === 'dotGrid'"
-          :dot-size="5"
-          :gap="10"
-          base-color="#333333"
-          active-color="#27FF64"
-          :proximity="40"
-          :speed-trigger="100"
-          :shock-radius="250"
-          :shock-strength="5"
-          :max-speed="5000"
-          :resistance="750"
-          :return-duration="1.5"
-        />
+        <UiBlogCardBackground :bg="props.bg" />
       </div>
-      <UiCardHeader v-if="icon || title || $slots.title || description || $slots.description" :class="{ 'flex-row items-center gap-5': horizontal }">
-        <SmartIcon v-if="icon" :name="icon" :size="iconSize" :class="{ 'mb-2': !horizontal }" />
+      <div v-if="props.icon || props.title || $slots.title || props.description || $slots.description" class="flex flex-col gap-y-1.5 p-6" :class="{ 'flex-row items-center gap-5': props.horizontal }">
+        <SmartIcon v-if="props.icon" :name="props.icon" :size="props.iconSize" :class="{ 'mb-2': !props.horizontal }" />
         <div class="flex flex-col gap-1.5">
-          <UiCardTitle v-if="title || $slots.title">
-            <ContentSlot :use="$slots.title" unwrap="p" />
-            {{ title }}
-          </UiCardTitle>
-          <UiCardDescription v-if="description || $slots.description" class="min-h-[40px]">
-            <ContentSlot :use="$slots.description" unwrap="p" />
-            {{ description }}
-          </UiCardDescription>
-        </div>
-      </UiCardHeader>
-
-      <div class="flex p-6 pt-0 justify-between items-center">
-        <ContentSlot :use="$slots.footer" unwrap="p" />
-        <div class="flex items-center gap-2">
-          <NuxtImg
-            :src="`https://github.com/${author}.png`"
-            class="rounded-full"
-            width="32"
-            height="32"
-            alt=""
-          />
-          <div class="flex flex-col">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ author }}</span>
-            <span class="text-sm text-gray-500">{{ footer }}</span>
+          <div v-if="props.title || $slots.title" class="text-2xl font-semibold leading-none tracking-tight">
+            <MDCSlot name="title" unwrap="p" />
+            {{ props.title }}
+          </div>
+          <div v-if="props.description || $slots.description" class="text-muted-foreground min-h-[40px] text-sm">
+            <MDCSlot name="description" unwrap="p" />
+            {{ props.description }}
           </div>
         </div>
       </div>
-      <SmartIcon v-if="to && showLinkIcon" name="lucide:arrow-up-right" class="absolute right-4 top-4" />
-    </UiCard>
+
+      <div class="flex p-6 pt-0 justify-between items-center">
+        <MDCSlot name="footer" unwrap="p" />
+        <div v-if="props.author" class="flex items-center gap-2">
+          <img
+            :src="`https://github.com/${props.author}.png`"
+            class="size-8 rounded-full"
+            width="32"
+            height="32"
+            loading="lazy"
+            decoding="async"
+            alt=""
+          >
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ props.author }}</span>
+            <span class="text-sm text-gray-500">{{ props.footer }}</span>
+          </div>
+        </div>
+      </div>
+      <SmartIcon v-if="props.to && props.showLinkIcon" name="lucide:arrow-up-right" class="absolute right-4 top-4" />
+    </div>
   </UseTemplate>
 
   <div class="group-has-[div]:mt-0! not-first:mt-5">
-    <NuxtLinkLocale v-if="to" :to :target>
+    <NuxtLink v-if="props.to" :to="props.to" :target="props.target">
       <CardInner />
-    </NuxtLinkLocale>
+    </NuxtLink>
     <CardInner v-else />
   </div>
 </template>

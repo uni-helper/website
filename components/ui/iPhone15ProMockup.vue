@@ -10,6 +10,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   width: 433,
   height: 882,
+  src: '',
 })
 </script>
 
@@ -78,6 +79,7 @@ withDefaults(defineProps<Props>(), {
       width="431"
       height="863"
       referrerpolicy="strict-origin-when-cross-origin"
+      loading="lazy"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       :src="src" frameborder="0"
     />

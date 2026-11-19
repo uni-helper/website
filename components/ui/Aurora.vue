@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<AuroraProps>(), {
   blend: 0.5,
   speed: 1.0,
   intensity: 1.0,
+  time: undefined,
   className: '',
   style: () => ({}),
 })
@@ -155,6 +156,8 @@ function initAurora() {
   gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
   gl.canvas.style.backgroundColor = 'transparent'
 
+  // 先声明，等 gl/容器准备好后再创建；prefer-const 看不到后面的赋值。
+  // eslint-disable-next-line prefer-const
   let program: Program | undefined
 
   const resize = () => {

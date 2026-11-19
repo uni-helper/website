@@ -33,6 +33,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const canvasContainerRef = ref<HTMLDivElement | null>(null)
+let resizeObserver: ResizeObserver | undefined
+let frameId = 0
 const context = ref<CanvasRenderingContext2D | null>(null)
 const circles = ref<Circle[]>([])
 const mouse = reactive<{ x: number, y: number }>({ x: 0, y: 0 })
@@ -69,11 +71,16 @@ onMounted(() => {
 
   initCanvas()
   animate()
-  window.addEventListener('resize', initCanvas)
+
+  // 首屏样式或布局还没就绪时容器可能是 0×0，只初始化一次会让画布永久空白。
+  resizeObserver = new ResizeObserver(() => initCanvas())
+  if (canvasContainerRef.value)
+    resizeObserver.observe(canvasContainerRef.value)
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', initCanvas)
+  resizeObserver?.disconnect()
+  cancelAnimationFrame(frameId)
 })
 
 watch([mouseX, mouseY], () => {
@@ -101,15 +108,16 @@ function onMouseMove() {
 }
 
 function resizeCanvas() {
+  const ratio = pixelRatio.value || 1
   if (canvasContainerRef.value && canvasRef.value && context.value) {
     circles.value.length = 0
     canvasSize.w = canvasContainerRef.value.offsetWidth
     canvasSize.h = canvasContainerRef.value.offsetHeight
-    canvasRef.value.width = canvasSize.w * pixelRatio.value
-    canvasRef.value.height = canvasSize.h * pixelRatio.value
+    canvasRef.value.width = canvasSize.w * ratio
+    canvasRef.value.height = canvasSize.h * ratio
     canvasRef.value.style.width = `${canvasSize.w}px`
     canvasRef.value.style.height = `${canvasSize.h}px`
-    context.value.scale(pixelRatio.value, pixelRatio.value)
+    context.value.scale(ratio, ratio)
   }
 }
 
@@ -162,6 +170,8 @@ function clearContext() {
 
 function drawParticles() {
   clearContext()
+  if (!canvasSize.w || !canvasSize.h)
+    return
   const particleCount = props.quantity
   for (let i = 0; i < particleCount; i++) {
     const circle = circleParams()
@@ -238,7 +248,7 @@ function animate() {
       )
     }
   })
-  window.requestAnimationFrame(animate)
+  frameId = window.requestAnimationFrame(animate)
 }
 </script>
 

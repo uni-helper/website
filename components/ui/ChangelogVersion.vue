@@ -1,14 +1,11 @@
 <script lang="ts" setup>
-import type { BadgeVariants } from 'shadcn-docs-nuxt/components/ui/badge'
 import { createReusableTemplate } from '@vueuse/core'
 import { cva } from 'class-variance-authority'
-import { Primitive, useDateFormatter } from 'reka-ui'
 import { computed } from 'vue'
 import { cn } from '@/lib/utils'
 
-// 定义 Props 类型
 interface BadgeProps {
-  variant?: BadgeVariants['variant']
+  variant?: string
   [key: string]: any
 }
 
@@ -34,7 +31,6 @@ interface ChangelogVersionProps {
   ui?: any
 }
 
-// 定义 Slots 类型
 interface ChangelogVersionSlots {
   header: (props?: object) => any
   badge: (props?: object) => any
@@ -49,25 +45,28 @@ interface ChangelogVersionSlots {
   indicator: (props?: object) => any
 }
 
-// 组件 Props 和 Slots
 defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<ChangelogVersionProps>(), {
   as: 'article',
+  title: '',
+  description: '',
+  date: '',
+  badge: '',
+  authors: () => [],
+  image: '',
   indicator: true,
+  to: '',
+  target: '',
+  onClick: undefined,
+  class: '',
+  ui: () => ({}),
 })
 
 const slots = defineSlots<ChangelogVersionSlots>()
 
-// 使用 cva 定义样式变体
-const rootVariants = cva('relative', {
-  variants: {},
-})
-
-const containerVariants = cva('flex flex-col mx-auto max-w-2xl', {
-  variants: {},
-})
-
+const rootVariants = cva('relative')
+const containerVariants = cva('flex flex-col mx-auto max-w-2xl')
 const metaVariants = cva('flex items-center gap-3 mb-2', {
   variants: {
     badge: {
@@ -75,7 +74,6 @@ const metaVariants = cva('flex items-center gap-3 mb-2', {
     },
   },
 })
-
 const dateVariants = cva('text-sm/6 text-accent-foreground truncate', {
   variants: {
     hidden: {
@@ -83,23 +81,10 @@ const dateVariants = cva('text-sm/6 text-accent-foreground truncate', {
     },
   },
 })
-
-const titleVariants = cva('relative text-xl text-pretty font-semibold text-foreground', {
-  variants: {},
-})
-
-const descriptionVariants = cva('text-base text-pretty text-muted mt-1', {
-  variants: {},
-})
-
-const imageWrapperVariants = cva('relative overflow-hidden rounded-lg aspect-[16/9] mt-5', {
-  variants: {},
-})
-
-const authorsVariants = cva('flex flex-wrap gap-x-4 gap-y-1.5', {
-  variants: {},
-})
-
+const titleVariants = cva('relative text-xl text-pretty font-semibold text-foreground')
+const descriptionVariants = cva('text-base text-pretty text-muted mt-1')
+const imageWrapperVariants = cva('relative overflow-hidden rounded-lg aspect-[16/9] mt-5')
+const authorsVariants = cva('flex flex-wrap gap-x-4 gap-y-1.5')
 const footerVariants = cva('border-t border-border pt-5 flex items-center justify-between', {
   variants: {
     body: {
@@ -107,20 +92,11 @@ const footerVariants = cva('border-t border-border pt-5 flex items-center justif
     },
   },
 })
+const indicatorVariants = cva('absolute start-0 top-0 w-32 hidden lg:flex items-center justify-end gap-3 min-w-0')
+const dotVariants = cva('size-4 rounded-full bg-background ring-1 ring-border flex items-center justify-center my-1')
+const dotInnerVariants = cva('size-2 rounded-full bg-primary')
 
-const indicatorVariants = cva('absolute start-0 top-0 w-32 hidden lg:flex items-center justify-end gap-3 min-w-0', {
-  variants: {},
-})
-
-const dotVariants = cva('size-4 rounded-full bg-background ring-1 ring-border flex items-center justify-center my-1', {
-  variants: {},
-})
-
-const dotInnerVariants = cva('size-2 rounded-full bg-primary', {
-  variants: {},
-})
-
-const formatter = useDateFormatter('zh-CN')
+const formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' })
 
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate()
 const [DefineDateTemplate, ReuseDateTemplate] = createReusableTemplate<{ hidden?: boolean }>({
@@ -133,12 +109,11 @@ const [DefineDateTemplate, ReuseDateTemplate] = createReusableTemplate<{ hidden?
 })
 
 const date = computed(() => {
-  if (!props.date) {
+  if (!props.date)
     return
-  }
 
   try {
-    return formatter.custom(new Date(props.date), { dateStyle: 'medium' })
+    return formatter.format(new Date(props.date))
   }
   catch {
     return props.date
@@ -146,12 +121,11 @@ const date = computed(() => {
 })
 
 const datetime = computed(() => {
-  if (!props.date) {
+  if (!props.date)
     return
-  }
 
   try {
-    return new Date(props.date)?.toISOString()
+    return new Date(props.date).toISOString()
   }
   catch {
     return undefined
@@ -171,38 +145,38 @@ const datetime = computed(() => {
   </DefineLinkTemplate>
 
   <DefineDateTemplate v-slot="{ hidden }">
-    <time v-if="date" :datetime="datetime" :class="cn(dateVariants({ hidden }), props.ui?.date)">
+    <time v-if="date" :datetime="datetime" :class="cn(dateVariants({ hidden }), ui?.date)">
       <slot name="date">
         {{ date }}
       </slot>
     </time>
   </DefineDateTemplate>
 
-  <Primitive :as="as" :class="cn(rootVariants(), props.ui?.root, props.class)" @click="onClick">
-    <div v-if="!!props.indicator || !!slots.indicator" :class="cn(indicatorVariants(), props.ui?.indicator)">
+  <component :is="as" :class="cn(rootVariants(), ui?.root, props.class)" @click="onClick">
+    <div v-if="!!props.indicator || !!slots.indicator" :class="cn(indicatorVariants(), ui?.indicator)">
       <slot name="indicator">
         <ReuseDateTemplate />
 
-        <div :class="cn(dotVariants(), props.ui?.dot)">
-          <div :class="cn(dotInnerVariants(), props.ui?.dotInner)" />
+        <div :class="cn(dotVariants(), ui?.dot)">
+          <div :class="cn(dotInnerVariants(), ui?.dotInner)" />
         </div>
       </slot>
     </div>
 
-    <div :class="cn(containerVariants(), props.ui?.container)">
-      <div v-if="!!slots.header || (date || !!slots.date) || (badge || !!slots.badge) || (title || !!slots.title) || (description || !!slots.description) || (image || !!slots.image)" :class="props.ui?.header">
+    <div :class="cn(containerVariants(), ui?.container)">
+      <div v-if="!!slots.header || (date || !!slots.date) || (badge || !!slots.badge) || (title || !!slots.title) || (description || !!slots.description) || (image || !!slots.image)" :class="ui?.header">
         <slot name="header">
-          <div v-if="(date || !!slots.date) || (badge || !!slots.badge)" :class="cn(metaVariants({ badge: (!!badge || !!slots.badge) || !props.indicator }), props.ui?.meta)">
+          <div v-if="(date || !!slots.date) || (badge || !!slots.badge)" :class="cn(metaVariants({ badge: (!!badge || !!slots.badge) || !props.indicator }), ui?.meta)">
             <slot name="badge">
-              <UiBadge v-if="badge" v-bind="typeof badge === 'string' ? {} : badge">
+              <UBadge v-if="badge" v-bind="typeof badge === 'string' ? {} : { variant: badge.variant as any, label: badge.label }">
                 {{ typeof badge === 'string' ? badge : badge?.label }}
-              </UiBadge>
+              </UBadge>
             </slot>
 
             <ReuseDateTemplate :hidden="!!props.indicator" />
           </div>
 
-          <h2 v-if="title || !!slots.title" :class="cn(titleVariants(), props.ui?.title)">
+          <h2 v-if="title || !!slots.title" :class="cn(titleVariants(), ui?.title)">
             <ReuseLinkTemplate />
 
             <slot name="title">
@@ -210,13 +184,13 @@ const datetime = computed(() => {
             </slot>
           </h2>
 
-          <div v-if="description || !!slots.description" :class="cn(descriptionVariants(), props.ui?.description)">
+          <div v-if="description || !!slots.description" :class="cn(descriptionVariants(), ui?.description)">
             <slot name="description">
               {{ description }}
             </slot>
           </div>
 
-          <div v-if="image || !!slots.image" :class="cn(imageWrapperVariants(), props.ui?.imageWrapper)">
+          <div v-if="image || !!slots.image" :class="cn(imageWrapperVariants(), ui?.imageWrapper)">
             <ReuseLinkTemplate />
           </div>
         </slot>
@@ -224,14 +198,17 @@ const datetime = computed(() => {
 
       <slot name="body" />
 
-      <div v-if="!!slots.footer || (authors?.length || !!slots.authors) || !!slots.actions" :class="cn(footerVariants({ body: !!slots.body }), props.ui?.footer)">
+      <div v-if="!!slots.footer || (authors?.length || !!slots.authors) || !!slots.actions" :class="cn(footerVariants({ body: !!slots.body }), ui?.footer)">
         <slot name="footer">
-          <div v-if="authors?.length || !!slots.authors" :class="cn(authorsVariants(), props.ui?.authors)">
+          <div v-if="authors?.length || !!slots.authors" :class="cn(authorsVariants(), ui?.authors)">
             <slot name="authors">
-              <UiAvatar v-for="author in authors" :key="author.name" class="size-8">
-                <UiAvatarImage :src="author.image" :alt="`@${author.name}`" />
-                <UiAvatarFallback>{{ author.name[0] }}</UiAvatarFallback>
-              </UiAvatar>
+              <UAvatar
+                v-for="author in authors"
+                :key="author.name"
+                :src="author.image"
+                :alt="author.name"
+                size="sm"
+              />
             </slot>
           </div>
 
@@ -239,5 +216,5 @@ const datetime = computed(() => {
         </slot>
       </div>
     </div>
-  </Primitive>
+  </component>
 </template>

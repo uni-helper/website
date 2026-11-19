@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import type { Package, RelationPackage } from '~/types/package'
 
+const config = useAppConfig()
 const route = useRoute()
 
-const { data: page, error } = await useAsyncData<any>(route.path, () => queryContent(route.path).findOne())
+const { data: page, error } = await useAsyncData(`content:${route.path}`, () => queryCollection('content').path(route.path).first())
 
 if (error.value) {
   throw createError({
@@ -13,17 +14,12 @@ if (error.value) {
   })
 }
 
-const config = useAppConfig().shadcnDocs
-
 useSeoMeta({
   title: page.value?.title,
   description: page.value?.description,
-  titleTemplate: `%s - ${config.header.title}`,
-})
-
-defineOgImageComponent('ShadcnDocs', {
-  title: page.value?.title,
-  description: page.value?.description,
+  titleTemplate: '%s - uni-helper',
+  ogImage: config.site.ogImage,
+  twitterCard: 'summary_large_image',
 })
 const loading = ref(true)
 
@@ -178,7 +174,7 @@ defineShortcuts({
     <RelationsModalUniHelper v-model:open="openUniHelper" />
     <RelationsModalNpm v-model:open="openNpm" />
     <RelationsModalAbout v-model:open="openAbout">
-      <ContentRenderer :value="page" />
+      <ContentRenderer v-if="page" :value="page" />
     </RelationsModalAbout>
     <RelationsSlideoverPackage v-model:open="openSlideover" :package="selectedNode" @view-relations="onViewRelations" />
     <RelationsGraph
@@ -197,9 +193,9 @@ defineShortcuts({
           </span>
         </template>
         <template v-else>
-          <UiButton aria-label="打开关于面板" size="icon" variant="ghost" @click="openAbout = true">
+          <UButton aria-label="打开关于面板" color="neutral" variant="ghost" square @click="openAbout = true">
             <SmartIcon name="i-ph:info" />
-          </UiButton>
+          </UButton>
           <span class="ml-2">
             请选择一个包以开始
           </span>
@@ -207,11 +203,11 @@ defineShortcuts({
       </span>
     </div>
 
-    <UiButton
-      class="absolute z-20 bottom-4 right-4 rounded-full" size="icon" aria-label="打开关于面板" variant="outline"
+    <UButton
+      class="absolute z-20 bottom-4 right-4 rounded-full" color="neutral" square aria-label="打开关于面板" variant="outline"
       @click="openAbout = true"
     >
       <SmartIcon name="i-ph:info" />
-    </UiButton>
+    </UButton>
   </div>
 </template>
