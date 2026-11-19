@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "uni-helper",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-11-18",
+  "compatibility_flags": ["nodejs_compat"]
+}

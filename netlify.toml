@@ -3,15 +3,4 @@ publish = "dist"
 command = "pnpm build"
 
 [build.environment]
-NODE_VERSION = "24"
-
-[[redirects]]
-from = "/*"
-to = "index.html"
-status = 200
-
-[images]
-remote_images = [
-  "https://github.com/.*",
-  "https://img.shields.io/.*"
-]
+NODE_VERSION = "26"

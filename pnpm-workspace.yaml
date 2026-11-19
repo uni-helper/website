@@ -1,11 +1,7 @@
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
-  - esbuild
-  - unrs-resolver
-  - vue-demi
+allowBuilds:
+  esbuild: true
+  sharp: true
+  vue-demi: true
+minimumReleaseAgeExclude:
+  - '@nuxt/content@3.17.0'
 
-onlyBuiltDependencies:
-  - netlify-cli
-  - sharp
-  - unix-dgram

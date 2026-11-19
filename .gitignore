@@ -28,3 +28,6 @@ logs
 
 # uni-use files
 content/uni-use/2.api/*.md
+
+# Wrangler local state
+.wrangler
