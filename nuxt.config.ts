@@ -64,9 +64,17 @@ for (const file of readdirSync('./content', { recursive: true }) as string[]) {
 // /changelog 必须走运行时（见下方 routeRules），否则 release 数据会在构建时写死。
 const runtimeRoutes = new Set(['/changelog'])
 
+// EdgeOne 只有静态托管（nuxt generate），没有运行时接口。静态构建时把 changelog
+// 和两个内容接口预渲染成文件，数据停留在部署时刻，由定时部署刷新。
+const staticContent = process.env.STATIC_CHANGELOG === '1'
+
 export default async () => {
   const prerenderRoutes = (await generatePrerenderRoutes('./content'))
     .filter(route => !runtimeRoutes.has(route))
+
+  const staticRoutes = staticContent
+    ? ['/changelog', '/api/_content/releases.json', '/api/_content/packages.json']
+    : []
 
   return defineNuxtConfig({
     sourcemap: false,
@@ -151,16 +159,18 @@ export default async () => {
       },
       prerender: {
         crawlLinks: true,
-        routes: [...prerenderRoutes, '/api/search.json'],
+        routes: [...prerenderRoutes, '/api/search.json', ...staticRoutes],
       },
-      routeRules: {
-        ...dirRedirects,
-        // SWR 在缓存未命中时会先返回空响应，页面首屏会拿不到 release 列表。
-        // 这里直接运行时 SSR，数据层交给 server/utils 里的 defineCachedFunction（10 分钟）。
-        '/changelog': { prerender: false },
-        '/api/_content/releases.json': { prerender: false },
-        '/api/_content/packages.json': { prerender: false },
-      },
+      routeRules: staticContent
+        ? { ...dirRedirects }
+        : {
+            ...dirRedirects,
+            // 动态托管上 /changelog 走运行时 SSR，数据层交给 server/utils 里的 defineCachedFunction（10 分钟）。
+            // 静态构建（STATIC_CHANGELOG=1）时不加这些规则，让 staticRoutes 里的路由被预渲染。
+            '/changelog': { prerender: false },
+            '/api/_content/releases.json': { prerender: false },
+            '/api/_content/packages.json': { prerender: false },
+          },
     },
     eslint: {
       config: {
