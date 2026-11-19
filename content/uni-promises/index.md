@@ -15,33 +15,27 @@ badges:
     target: _blank
 ---
 
-::alert
-`uni-app` promise 化的 API。要求 `node >= 14.18`。
-::
+本库把 `uni-app` 的回调式 API 封装为 Promise。要求 `node >= 14.18`。
 
-## 起步
+本库不支持 `uni_modules`。
 
-### 安装依赖
+## 安装
 
-安装依赖。
 :pm-install{name="@uni-helper/uni-promises"}
 
-<details>
-  <summary>yarn v2/v3</summary>
-  <p>请参考 <a href="https://yarnpkg.com/configuration/yarnrc/#nodeLinker">文档</a> 设置 <code>nodeLinker</code> 为 <code>node_modules</code>。</p>
-</details>
+用 yarn v2/v3 时，必须按 [yarnrc 文档](https://yarnpkg.com/configuration/yarnrc/#nodeLinker) 把 `nodeLinker` 设为 `node_modules`。
 
-<details>
-  <summary>pnpm</summary>
-  <p>请参考 <a href="https://pnpm.io/npmrc#shamefully-hoist">文档</a> 设置 <code>shamefully-hoist</code> 为 <code>true</code>。</p>
-</details>
-
-不考虑支持 `uni_modules`。
+用 pnpm 时，必须按 [pnpm 文档](https://pnpm.io/npmrc#shamefully-hoist) 把 `shamefully-hoist` 设为 `true`。
 
 ## API
 
+本库导出以下 Promise 化 API。名单与 `src/` 下的目录一一对应：
+
 - [addPhoneContact](https://github.com/uni-helper/uni-promises/tree/main/src/addPhoneContact/index.ts)
 - [authorize](https://github.com/uni-helper/uni-promises/tree/main/src/authorize/index.ts)
+- [canvasGetImageData](https://github.com/uni-helper/uni-promises/tree/main/src/canvasGetImageData/index.ts)
+- [canvasPutImageData](https://github.com/uni-helper/uni-promises/tree/main/src/canvasPutImageData/index.ts)
+- [canvasToTempFilePath](https://github.com/uni-helper/uni-promises/tree/main/src/canvasToTempFilePath/index.ts)
 - [checkIsSoterEnrolledInDevice](https://github.com/uni-helper/uni-promises/tree/main/src/checkIsSoterEnrolledInDevice/index.ts)
 - [checkIsSupportSoterAuthentication](https://github.com/uni-helper/uni-promises/tree/main/src/checkIsSupportSoterAuthentication/index.ts)
 - [checkSession](https://github.com/uni-helper/uni-promises/tree/main/src/checkSession/index.ts)
@@ -61,6 +55,7 @@ badges:
 - [closeSocket](https://github.com/uni-helper/uni-promises/tree/main/src/closeSocket/index.ts)
 - [compressImage](https://github.com/uni-helper/uni-promises/tree/main/src/compressImage/index.ts)
 - [compressVideo](https://github.com/uni-helper/uni-promises/tree/main/src/compressVideo/index.ts)
+- [configMTLS](https://github.com/uni-helper/uni-promises/tree/main/src/configMTLS/index.ts)
 - [connectSocket](https://github.com/uni-helper/uni-promises/tree/main/src/connectSocket/index.ts)
 - [createBLEConnection](https://github.com/uni-helper/uni-promises/tree/main/src/createBLEConnection/index.ts)
 - [createCameraContext](https://github.com/uni-helper/uni-promises/tree/main/src/createCameraContext/index.ts)
@@ -80,6 +75,7 @@ badges:
 - [getBLEDeviceServices](https://github.com/uni-helper/uni-promises/tree/main/src/getBLEDeviceServices/index.ts)
 - [getBackgroundAudioManager](https://github.com/uni-helper/uni-promises/tree/main/src/getBackgroundAudioManager/index.ts)
 - [getBatteryInfo](https://github.com/uni-helper/uni-promises/tree/main/src/getBatteryInfo/index.ts)
+- [getBeacons](https://github.com/uni-helper/uni-promises/tree/main/src/getBeacons/index.ts)
 - [getBluetoothAdapterState](https://github.com/uni-helper/uni-promises/tree/main/src/getBluetoothAdapterState/index.ts)
 - [getBluetoothDevices](https://github.com/uni-helper/uni-promises/tree/main/src/getBluetoothDevices/index.ts)
 - [getCheckBoxState](https://github.com/uni-helper/uni-promises/tree/main/src/getCheckBoxState/index.ts)
@@ -109,6 +105,7 @@ badges:
 - [hideShareMenu](https://github.com/uni-helper/uni-promises/tree/main/src/hideShareMenu/index.ts)
 - [hideTabBar](https://github.com/uni-helper/uni-promises/tree/main/src/hideTabBar/index.ts)
 - [hideTabBarRedDot](https://github.com/uni-helper/uni-promises/tree/main/src/hideTabBarRedDot/index.ts)
+- [index.ts](https://github.com/uni-helper/uni-promises/tree/main/src/index.ts/index.ts)
 - [loadFontFace](https://github.com/uni-helper/uni-promises/tree/main/src/loadFontFace/index.ts)
 - [login](https://github.com/uni-helper/uni-promises/tree/main/src/login/index.ts)
 - [makePhoneCall](https://github.com/uni-helper/uni-promises/tree/main/src/makePhoneCall/index.ts)
@@ -133,8 +130,10 @@ badges:
 - [removeStorage](https://github.com/uni-helper/uni-promises/tree/main/src/removeStorage/index.ts)
 - [removeTabBarBadge](https://github.com/uni-helper/uni-promises/tree/main/src/removeTabBarBadge/index.ts)
 - [request](https://github.com/uni-helper/uni-promises/tree/main/src/request/index.ts)
+- [requestMerchantTransfer](https://github.com/uni-helper/uni-promises/tree/main/src/requestMerchantTransfer/index.ts)
 - [requestPayment](https://github.com/uni-helper/uni-promises/tree/main/src/requestPayment/index.ts)
 - [requestSubscribeMessage](https://github.com/uni-helper/uni-promises/tree/main/src/requestSubscribeMessage/index.ts)
+- [requestVirtualPayment](https://github.com/uni-helper/uni-promises/tree/main/src/requestVirtualPayment/index.ts)
 - [saveFile](https://github.com/uni-helper/uni-promises/tree/main/src/saveFile/index.ts)
 - [saveImageToPhotosAlbum](https://github.com/uni-helper/uni-promises/tree/main/src/saveImageToPhotosAlbum/index.ts)
 - [saveVideoToPhotosAlbum](https://github.com/uni-helper/uni-promises/tree/main/src/saveVideoToPhotosAlbum/index.ts)
@@ -163,11 +162,24 @@ badges:
 - [showTabBar](https://github.com/uni-helper/uni-promises/tree/main/src/showTabBar/index.ts)
 - [showTabBarRedDot](https://github.com/uni-helper/uni-promises/tree/main/src/showTabBarRedDot/index.ts)
 - [showToast](https://github.com/uni-helper/uni-promises/tree/main/src/showToast/index.ts)
+- [startAccelerometer](https://github.com/uni-helper/uni-promises/tree/main/src/startAccelerometer/index.ts)
+- [startBeaconDiscovery](https://github.com/uni-helper/uni-promises/tree/main/src/startBeaconDiscovery/index.ts)
 - [startBluetoothDevicesDiscovery](https://github.com/uni-helper/uni-promises/tree/main/src/startBluetoothDevicesDiscovery/index.ts)
+- [startCompass](https://github.com/uni-helper/uni-promises/tree/main/src/startCompass/index.ts)
+- [startFacialRecognitionVerify](https://github.com/uni-helper/uni-promises/tree/main/src/startFacialRecognitionVerify/index.ts)
+- [startGyroscope](https://github.com/uni-helper/uni-promises/tree/main/src/startGyroscope/index.ts)
+- [startLocationUpdate](https://github.com/uni-helper/uni-promises/tree/main/src/startLocationUpdate/index.ts)
+- [startLocationUpdateBackground](https://github.com/uni-helper/uni-promises/tree/main/src/startLocationUpdateBackground/index.ts)
 - [startPullDownRefresh](https://github.com/uni-helper/uni-promises/tree/main/src/startPullDownRefresh/index.ts)
 - [startSoterAuthentication](https://github.com/uni-helper/uni-promises/tree/main/src/startSoterAuthentication/index.ts)
+- [stopAccelerometer](https://github.com/uni-helper/uni-promises/tree/main/src/stopAccelerometer/index.ts)
+- [stopBeaconDiscovery](https://github.com/uni-helper/uni-promises/tree/main/src/stopBeaconDiscovery/index.ts)
 - [stopBluetoothDevicesDiscovery](https://github.com/uni-helper/uni-promises/tree/main/src/stopBluetoothDevicesDiscovery/index.ts)
+- [stopCompass](https://github.com/uni-helper/uni-promises/tree/main/src/stopCompass/index.ts)
+- [stopGyroscope](https://github.com/uni-helper/uni-promises/tree/main/src/stopGyroscope/index.ts)
+- [stopLocationUpdate](https://github.com/uni-helper/uni-promises/tree/main/src/stopLocationUpdate/index.ts)
 - [switchTab](https://github.com/uni-helper/uni-promises/tree/main/src/switchTab/index.ts)
+- [types.ts](https://github.com/uni-helper/uni-promises/tree/main/src/types.ts/index.ts)
 - [uploadFile](https://github.com/uni-helper/uni-promises/tree/main/src/uploadFile/index.ts)
 - [vibrate](https://github.com/uni-helper/uni-promises/tree/main/src/vibrate/index.ts)
 - [vibrateLong](https://github.com/uni-helper/uni-promises/tree/main/src/vibrateLong/index.ts)
@@ -176,9 +188,11 @@ badges:
 
 ## 构建
 
-目前 `@uni-helper/uni-promises` 会使用 `unbuild` 将 `uni` API 之外的部分转译到 `ES2017`（即 `ES8`）。`uni` API 需要在项目构建时由 `uni-app` 官方提供的插件处理。
+`@uni-helper/uni-promises` 用 `unbuild` 把 `uni` API 之外的部分转译到 `ES2017`（即 `ES8`）。`uni` API 必须由 uni-app 官方插件在项目构建时处理。
 
-对于 `vue-cli + vue2` 项目，请修改项目根目录 `vue.config.js` 如下所示。这会让 `vue-cli` 处理 `@uni-helper/uni-promises`，保证生成代码符合 `browserslist` 里的配置。我们建议设置 `browserslist` 为 `chrome>=53,ios>=8`
+### vue-cli + vue2
+
+修改项目根目录的 `vue.config.js`，让 `vue-cli` 处理本库，保证生成代码符合 `browserslist` 里的配置。建议把 `browserslist` 设为 `chrome>=53,ios>=8`。
 
 ```javascript [vue.config.js]
 module.exports = {
@@ -186,11 +200,13 @@ module.exports = {
 }
 ```
 
-对于 `vite + vue3` 项目，请先设置 `build.target` 为 `ES6`。
+### vite + vue3
+
+先把 `build.target` 设为 `ES6`。
 
 ```typescript [vite.config.ts]
-import { defineConfig } from 'vite';
-import uni from '@dcloudio/vite-plugin-uni';
+import uni from '@dcloudio/vite-plugin-uni'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -199,17 +215,17 @@ export default defineConfig({
     cssTarget: 'chrome61', // https://cn.vitejs.dev/config/build-options.html#build-csstarget
   },
   plugins: [
-    ...,
+    // ...
     uni(),
-    ...,
+    // ...
   ],
-});
+})
 ```
 
-然后在 `src/main.ts` 或 `src/main.js` 处自行添加 polyfill。以下是使用 [core-js](https://github.com/zloirock/core-js) 的示例（需要自行安装 `core-js`），你也可以使用 [es-shims](https://github.com/es-shims)。
+然后在 `src/main.ts` 或 `src/main.js` 里自行添加 polyfill。下面是使用 [core-js](https://github.com/zloirock/core-js) 的示例，需要自行安装 `core-js`。也可以使用 [es-shims](https://github.com/es-shims)。
 
 ```typescript [src/main.ts]
-// 你可以根据需要自行添加额外的 polyfills
+// 按需添加额外的 polyfill
 // import 'core-js/actual/object/values'
 import { createSSRApp } from 'vue'
 import App from './App.vue'
@@ -226,15 +242,15 @@ export function createApp() {
 }
 ```
 
-微信小程序的 JavaScript 支持度见 [wechat-miniprogram/miniprogram-compat](https://github.com/wechat-miniprogram/miniprogram-compat)。微信小程序要支持 `vue3`，需设置基础库最低版本为 2.11.2 或以上，2.11.2 对应 `chrome>=53,ios>=10`。
+微信小程序的 JavaScript 支持度见 [wechat-miniprogram/miniprogram-compat](https://github.com/wechat-miniprogram/miniprogram-compat)。
 
-## 延伸
+微信小程序要支持 `vue3`，基础库最低版本必须是 2.11.2 或以上。2.11.2 对应 `chrome>=53,ios>=10`。
 
-<del>如果你觉得这个库有用，你可以到 [这个 ISSUE](https://github.com/dcloudio/uni-app/issues/4084) 投票，鼓励官方引入支持。</del>
+## 与官方类型定义的关系
 
-尽管 `@dcloudio/types@3.3.0` 开始提供基于 Promise 的类型定义，但它不能正确地同时支持 Vue 2 和 Vue 3，需要手动适配。而这个库基于回调方法封装 Promise，能正确地同时支持 Vue 2 和 Vue 3。
+`@dcloudio/types@3.3.0` 起提供基于 Promise 的类型定义，但不能同时正确支持 Vue 2 与 Vue 3，需要手动适配。
 
-在官方提供的类型定义不能覆盖这个库之前，这个库依旧保持维护。
+本库基于回调方法封装 Promise，同时支持 Vue 2 与 Vue 3。在官方类型定义覆盖本库的功能之前，本库继续维护。
 
 ## 致谢
 

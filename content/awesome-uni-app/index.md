@@ -19,9 +19,9 @@ badges:
 
 ## 官方资源
 
-- [官方文档](https://uniapp.dcloud.io/)
+- [官方文档](https://uniapp.dcloud.net.cn/)
 - [GitHub 仓库](https://github.com/dcloudio/uni-app)
-- [更新日志](https://uniapp.dcloud.net.cn/release-note-alpha.html)
+- [更新日志](https://uniapp.dcloud.net.cn/release.html)
 - [迁移指南](https://uniapp.dcloud.net.cn/translate.html)
 - [插件市场](https://ext.dcloud.net.cn/)
 
