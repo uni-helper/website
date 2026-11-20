@@ -388,3 +388,16 @@
 .docs-content img {
   border-radius: 0.5rem;
 }
+
+/* 提示框正文按普通文档排版：不跟着提示色变色，首尾也不留下多余的上下边距。 */
+.docs-content .alert-body {
+  color: hsl(var(--foreground));
+}
+
+.docs-content .alert-body > :first-child {
+  margin-top: 0;
+}
+
+.docs-content .alert-body > :last-child {
+  margin-bottom: 0;
+}
