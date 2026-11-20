@@ -5,15 +5,11 @@ const props = withDefaults(defineProps<{
   title?: string
   icon?: string
   type?: AlertType
-  to?: string
-  target?: string
   inStack?: boolean
 }>(), {
   title: '',
   icon: '',
   type: 'default',
-  to: '',
-  target: '',
   inStack: false,
 })
 
@@ -30,24 +26,23 @@ const THEMES: Record<AlertType, { color: 'neutral' | 'info' | 'warning' | 'succe
 
 const theme = computed(() => THEMES[props.type])
 const isOutline = computed(() => props.type === 'default' || props.type === 'secondary')
-const NuxtLink = resolveComponent('NuxtLink')
 </script>
 
 <template>
-  <component :is="to ? NuxtLink : 'div'" v-bind="to ? { to, target } : undefined">
+  <!-- 提示框本身不是链接：正文可能是任意 Markdown，包进 <a> 会得到嵌套的非法 anchor，
+       浏览器拆开后整块卡片的链接就失效了。需要整块可点时，由正文里的链接自己用 ::after 铺满。 -->
+  <UAlert
+    :title="title"
+    :icon="icon || theme.icon"
+    :color="theme.color"
+    :variant="isOutline ? 'outline' : 'subtle'"
+    class="border"
+    :class="[theme.border, inStack && 'rounded-none border-0 shadow-none']"
+    :ui="{ description: 'alert-body' }"
+  >
     <!-- UAlert 没有默认插槽，正文（段落、列表、代码块）只能走 description -->
-    <UAlert
-      :title="title"
-      :icon="icon || theme.icon"
-      :color="theme.color"
-      :variant="isOutline ? 'outline' : 'subtle'"
-      class="border"
-      :class="[theme.border, inStack && 'rounded-none border-0 shadow-none']"
-      :ui="{ description: 'alert-body' }"
-    >
-      <template #description>
-        <slot />
-      </template>
-    </UAlert>
-  </component>
+    <template #description>
+      <slot />
+    </template>
+  </UAlert>
 </template>
