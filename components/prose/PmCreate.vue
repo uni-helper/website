@@ -2,12 +2,8 @@
 const props = withDefaults(defineProps<{
   inStack?: boolean
   name: string
-  sync?: string
-  noSync?: boolean
 }>(), {
   inStack: false,
-  sync: '',
-  noSync: false,
 })
 
 const commands = computed(() => usePm().packageManagers.value.map(pm => ({

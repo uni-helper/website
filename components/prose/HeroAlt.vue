@@ -37,7 +37,7 @@
         >
           <UButton
             size="sm"
-            :color="action.variant === 'outline' ? 'neutral' : 'neutral'"
+            color="neutral"
             :variant="action.variant === 'outline' ? 'outline' : 'solid'"
           >
             <SmartIcon v-if="action.leftIcon" :name="action.leftIcon" class="mr-1" :size="16" />
