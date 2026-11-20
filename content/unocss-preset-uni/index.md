@@ -60,7 +60,7 @@ export default defineConfig({
 
 ### 选项
 
-::field{name="uno" type="boolean" defaultValue="true"}
+::field{name="uno" type="boolean"}
 是否启用 [@unocss/preset-wind3](https://unocss.dev/presets/wind3)（默认）/ [@unocss/preset-wind4](https://unocss.dev/presets/wind4)。对于小程序平台，使用 [@unocss-applet/preset-applet](https://github.com/unocss-applet/unocss-applet)（包裹 wind3/wind4 并做小程序语法兼容）以获取更佳支持。
 
 默认启用（wind3）。要禁用，请传递 `false`。
@@ -70,7 +70,7 @@ export default defineConfig({
 > 小程序平台会自动叠加 [`@unocss/preset-legacy-compat`](https://unocss.dev/presets/legacy-compat)，把 `color()` 中的 `oklch`/`oklab` 等新色彩空间回退为兼容写法（小程序 wxss 不支持这些色彩空间），无需手动配置。
 ::
 
-::field{name="remRpx" type="boolean" defaultValue="true"}
+::field{name="remRpx" type="boolean"}
 是否启用 [@unocss-applet/preset-rem-rpx](https://github.com/unocss-applet/unocss-applet/tree/main/packages/preset-rem-rpx)。控制底层预设输出的 `rem` / `rpx` 互转。
 
 默认启用，两端默认 `mode` 不同：小程序端不显式传 `mode`，由 preset-rem-rpx 走默认的 `rem2rpx`（把 `rem` 转换成 `rpx`）；其它平台（H5、App、快应用等）传 `mode: 'rpx2rem'`（保留 `rem`）。要禁用，请传递 `false`。
@@ -80,7 +80,7 @@ export default defineConfig({
 除了传递 boolean 值，你也可以传递 @unocss-applet/preset-rem-rpx 的选项，具体选项请查看上方提供的文档链接，此时仍视为开启。
 ::
 
-::field{name="attributify" type="boolean" defaultValue="true"}
+::field{name="attributify" type="boolean"}
 是否启用 [@unocss/preset-attributify](https://unocss.dev/presets/attributify)。对于小程序平台，还会自动启用 [@unocss-applet/transformer-attributify](https://github.com/unocss-applet/unocss-applet/tree/main/packages/transformer-attributify) 以获取更佳支持。
 
 默认启用，匹配属性。小程序端额外忽略 `block` 和 `fixed`（避免与小程序原生属性冲突），其它平台不忽略任何属性。要禁用，请传递 `false`。
