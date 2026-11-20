@@ -59,12 +59,8 @@ import { VitePluginUniPlatformModifier } from '@uni-helper/vite-plugin-uni-platf
 
 ### 编译结果
 
-::accordion{type=multiple collapsible}
-  ::accordion-item
-  #title
-  > 编译到 H5
-
-  #content
+::accordion
+  ::accordion-item{label="编译到 H5"}
   ```vue
   <button
     v-text="'h5&mp-weixin'"
@@ -74,11 +70,7 @@ import { VitePluginUniPlatformModifier } from '@uni-helper/vite-plugin-uni-platf
   ```
   ::
 
-  ::accordion-item
-  #title
-  > 编译到微信小程序
-
-  #content
+  ::accordion-item{label="编译到微信小程序"}
   ```vue
   <button
     v-text="'h5&mp-weixin'"
@@ -88,11 +80,7 @@ import { VitePluginUniPlatformModifier } from '@uni-helper/vite-plugin-uni-platf
   ```
   ::
 
-  ::accordion-item
-  #title
-  > 编译到其他平台
-
-  #content
+  ::accordion-item{label="编译到其他平台"}
   ```vue
   <button
     v-text="'hello'"
