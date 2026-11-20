@@ -205,7 +205,7 @@ const datetime = computed(() => {
               <UAvatar
                 v-for="author in authors"
                 :key="author.name"
-                :src="author.image"
+                :src="author.src"
                 :alt="author.name"
                 size="sm"
               />
