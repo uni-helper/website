@@ -33,10 +33,43 @@ if (!navigation.value.length && (import.meta.dev || import.meta.prerender)) {
 }
 
 provide('navigation', navigation)
+
+const config = useAppConfig()
+const siteUrl = config.site.url
+
+// 站点级结构化数据，页面级的面包屑在 Breadcrumb 里追加。
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          name: config.site.name,
+          url: siteUrl,
+          description: config.site.description,
+          inLanguage: 'zh-CN',
+        },
+        {
+          '@type': 'Organization',
+          name: config.site.name,
+          url: siteUrl,
+          logo: `${siteUrl}/logo.svg`,
+          sameAs: ['https://github.com/uni-helper'],
+        },
+      ],
+    }),
+  }],
+})
 </script>
 
 <template>
   <UApp>
+    <!-- Agent 靠这段隐藏说明找到索引和 Markdown 版本，删掉会失去 Agent 可发现性。 -->
+    <div class="sr-only">
+      For AI agents: the documentation index is at <a href="/llms.txt">/llms.txt</a>, and every documentation page is available as Markdown by appending <code>.md</code> to its URL.
+    </div>
     <NuxtLoadingIndicator :color="false" class="z-100 bg-primary/80" />
     <LayoutHeader />
     <div class="min-h-screen">

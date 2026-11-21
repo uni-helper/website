@@ -3,7 +3,10 @@ import { join } from 'node:path'
 import type { Project } from './types/package'
 import { parse } from 'yaml'
 import { defineNuxtConfig } from 'nuxt/config'
+import { AGENT_ASSETS_DIR, generateAgentFiles } from './scripts/generate-agent-files'
 import { generatePrerenderRoutes } from './scripts/generate-routes'
+
+const SITE_URL = 'https://uni-helper.js.org'
 
 // 运行时路由需要一份不依赖内容数据库的项目列表（Cloudflare 上没有 D1 绑定）。
 const packageData = parse(readFileSync('./content/1.packages.yml', 'utf8'))
@@ -72,6 +75,9 @@ export default async () => {
   const prerenderRoutes = (await generatePrerenderRoutes('./content'))
     .filter(route => !runtimeRoutes.has(route))
 
+  // Agent 产物（每页 .md 和根目录 llms.txt）在构建时生成，由 nitro 当静态资源发布。
+  generateAgentFiles('./content', SITE_URL)
+
   const staticRoutes = staticContent
     ? ['/changelog', '/api/_content/releases.json', '/api/_content/packages.json']
     : []
@@ -90,6 +96,7 @@ export default async () => {
     devtools: { enabled: true },
     app: {
       head: {
+        htmlAttrs: { lang: 'zh-CN' },
         meta: [
           { name: 'google-site-verification', content: 'hqPb74AFcL3IXb7yqjOcOY9v6MJkevvVm-IUSFc9GOk' },
         ],
@@ -116,7 +123,7 @@ export default async () => {
       projects,
     },
     site: {
-      url: 'https://uni-helper.js.org/',
+      url: `${SITE_URL}/`,
       name: 'Uni Helper',
     },
     content: {
@@ -149,6 +156,7 @@ export default async () => {
     },
     compatibilityDate: '2026-11-18',
     nitro: {
+      publicAssets: [{ dir: AGENT_ASSETS_DIR }],
       // Cloudflare Pages 的 _routes.json 只有 100 条规则，不能把 269 个静态路由全部列进 exclude。
       // 反过来只让 Worker 处理运行时路由，其余路径全部由 Pages 直接当静态资源返回。
       cloudflare: {

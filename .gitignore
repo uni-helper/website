@@ -5,6 +5,8 @@
 .nitro
 .cache
 dist
+# 构建时生成的 Agent 产物（每页 .md 和 llms.txt），由 scripts/generate-agent-files.ts 写入
+.agent-assets
 
 # Node dependencies
 node_modules

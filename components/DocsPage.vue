@@ -13,7 +13,6 @@ if (import.meta.server && !import.meta.dev && !import.meta.prerender) {
   })
 }
 
-const config = useAppConfig()
 const { data: page } = await useAsyncData(`content:${props.path}`, () => queryCollection('content').path(props.path).first())
 
 if (!page.value) {
@@ -33,20 +32,20 @@ const section = computed(() => props.path.split('/').filter(Boolean)[0])
 const { data: sectionMeta } = await useAsyncData(`section:${section.value}`, () =>
   hasToc.value && section.value ? queryCollection('content').path(`/${section.value}/_dir`).first() : Promise.resolve(null))
 
-useSeoMeta({
+usePageSeo({
   title: page.value?.title,
   description: page.value?.description,
-  titleTemplate: '%s - uni-helper',
-  ogImage: config.site.ogImage,
-  twitterCard: 'summary_large_image',
+  type: isHome.value ? 'website' : 'article',
+  // 首页标题来自 content/index.md，已经是完整标题，不再拼站点名。
+  bareTitle: isHome.value,
 })
 </script>
 
 <template>
   <div v-if="page">
-    <div v-if="isFullpage || isHome" class="container mx-auto px-4 py-6 md:px-8">
+    <main v-if="isFullpage || isHome" class="container mx-auto px-4 py-6 md:px-8">
       <ContentRenderer :value="page" />
-    </div>
+    </main>
 
     <div v-else class="min-h-screen border-b">
       <div
@@ -55,13 +54,6 @@ useSeoMeta({
           ? 'md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[240px_minmax(0,1fr)]'
           : ''"
       >
-        <aside
-          v-if="page.aside !== false"
-          class="fixed top-[102px] z-30 -ml-2 hidden h-[calc(100vh-6rem)] w-full shrink-0 overflow-y-auto md:sticky md:top-[101px] md:block"
-        >
-          <LayoutAside />
-        </aside>
-
         <main
           class="relative py-6 lg:py-8"
           :class="hasToc ? 'lg:grid lg:grid-cols-[1fr_220px] lg:gap-14' : ''"
@@ -118,6 +110,14 @@ useSeoMeta({
             </div>
           </div>
         </main>
+
+        <!-- 侧栏放在正文之后，Agent 拿到的 HTML 才不会被上百条导航链接埋住；md:order-first 保持左侧显示。 -->
+        <aside
+          v-if="page.aside !== false"
+          class="fixed top-[102px] z-30 -ml-2 hidden h-[calc(100vh-6rem)] w-full shrink-0 overflow-y-auto md:sticky md:top-[101px] md:order-first md:block"
+        >
+          <LayoutAside />
+        </aside>
       </div>
     </div>
   </div>
