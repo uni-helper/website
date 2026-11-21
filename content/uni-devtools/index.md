@@ -19,7 +19,7 @@ badges:
 项目正在积极开发，暂不建议在生产环境使用。
 ::
 
-![demo](./devtools/demo.jpg)
+![demo](/devtools/demo.jpg)
 
 在浏览器里调试 uni-app 小程序：组件树与状态、Pinia / Vuex、页面栈、网络请求、Vite 构建管线。AI Agent 可以通过 MCP 读取同一份运行时数据。
 
