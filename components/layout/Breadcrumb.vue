@@ -17,6 +17,24 @@ const breadcrumbs = computed(() => {
 
   return items
 })
+
+// 面包屑结构化数据，搜索引擎用它生成路径式的搜索结果。
+const siteUrl = useAppConfig().site.url
+useHead(() => ({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.value.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.title,
+        item: `${siteUrl}${item.to}`,
+      })),
+    }),
+  }],
+}))
 </script>
 
 <template>

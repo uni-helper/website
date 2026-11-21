@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const config = useAppConfig()
 const { data: page } = await useAsyncData('packages', () => queryCollection('packages').first())
 
 if (!page.value) {
@@ -10,17 +9,14 @@ if (!page.value) {
   })
 }
 
-useSeoMeta({
+usePageSeo({
   title: page.value.title,
   description: page.value.description,
-  titleTemplate: '%s - uni-helper',
-  ogImage: config.site.ogImage,
-  twitterCard: 'summary_large_image',
 })
 </script>
 
 <template>
-  <div>
+  <main>
     <Project v-if="page" :projects="page.projects" />
-  </div>
+  </main>
 </template>

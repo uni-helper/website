@@ -1,11 +1,9 @@
 <script lang="ts" setup>
 import type { Package, RelationPackage } from '~/types/package'
 
-const config = useAppConfig()
 const route = useRoute()
 
 const { data: page, error } = await useAsyncData(`content:${route.path}`, () => queryCollection('content').path(route.path).first())
-
 if (error.value) {
   throw createError({
     statusCode: 404,
@@ -14,12 +12,9 @@ if (error.value) {
   })
 }
 
-useSeoMeta({
+usePageSeo({
   title: page.value?.title,
   description: page.value?.description,
-  titleTemplate: '%s - uni-helper',
-  ogImage: config.site.ogImage,
-  twitterCard: 'summary_large_image',
 })
 const loading = ref(true)
 

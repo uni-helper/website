@@ -47,14 +47,14 @@ const [UseTemplate, CardInner] = createReusableTemplate()
       <div v-if="props.icon || props.title || $slots.title || props.description || $slots.description" class="flex flex-col gap-y-1.5 p-6" :class="{ 'flex-row items-center gap-5': props.horizontal }">
         <SmartIcon v-if="props.icon" :name="props.icon" :size="props.iconSize" :class="{ 'mb-2': !props.horizontal }" />
         <div class="flex flex-col gap-1.5">
-          <div v-if="props.title || $slots.title" class="text-2xl font-semibold leading-none tracking-tight">
+          <h3 v-if="props.title || $slots.title" class="text-2xl font-semibold leading-none tracking-tight">
             <MDCSlot name="title" unwrap="p" />
             {{ props.title }}
-          </div>
-          <div v-if="props.description || $slots.description" class="text-muted-foreground min-h-[40px] text-sm">
+          </h3>
+          <p v-if="props.description || $slots.description" class="text-muted-foreground min-h-[40px] text-sm">
             <MDCSlot name="description" unwrap="p" />
             {{ props.description }}
-          </div>
+          </p>
         </div>
       </div>
 

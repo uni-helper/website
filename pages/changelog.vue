@@ -1,22 +1,13 @@
 <script setup lang="ts">
 import type { Release } from '~/types/releases'
 
-const config = useAppConfig()
-
 // 页面元数据直接写死，避免 /changelog 在 Cloudflare 上运行时查询内容数据库。
 const page = {
   title: '更新日志',
   description: '查看 uni-helper 生态系统中所有项目的最新更新日志，了解每个版本的改进和新功能。',
 }
 
-useSeoMeta({
-  title: page.title,
-  description: page.description,
-  titleTemplate: '%s - uni-helper',
-  // /changelog 是运行时页面，零运行时 OG 不会为它生成图片，用一张静态卡片兜底。
-  ogImage: config.site.ogImage,
-  twitterCard: 'summary_large_image',
-})
+usePageSeo({ title: page.title, description: page.description })
 
 const { data: releases } = await useFetch<Release[]>('/api/_content/releases.json', {
   default: () => [],
@@ -24,7 +15,7 @@ const { data: releases } = await useFetch<Release[]>('/api/_content/releases.jso
 </script>
 
 <template>
-  <div class="size-full xl:grid xl:grid-cols-2">
+  <main class="size-full xl:grid xl:grid-cols-2">
     <section
       class="relative isolate overflow-hidden border-b border-border xl:sticky xl:inset-y-0 xl:h-screen xl:border-b-0"
     >
@@ -60,5 +51,5 @@ const { data: releases } = await useFetch<Release[]>('/api/_content/releases.jso
         <ChangelogRelease v-for="release in releases" :key="release.tag" :release="release" />
       </UiChangelogVersions>
     </div>
-  </div>
+  </main>
 </template>

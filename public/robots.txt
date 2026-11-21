@@ -1,1 +1,4 @@
 User-agent: *
+Allow: /
+
+Sitemap: https://uni-helper.js.org/sitemap.xml

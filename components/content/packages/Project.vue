@@ -40,7 +40,7 @@ function slug(name: string) {
           }"
           class="scroll-mt-16 select-none relative h-18 mt-5 slide-enter"
         >
-          <span class="text-[5em] text-transparent absolute -left-[1rem] top-0 font-bold leading-[1em] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#aaa] opacity-35 dark:opacity-20">{{ key }}</span>
+          <h2 class="text-[5em] text-transparent absolute -left-[1rem] top-0 font-bold leading-[1em] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#aaa] opacity-35 dark:opacity-20">{{ key }}</h2>
         </div>
         <div
           class="project-grid py-2 max-w-500 w-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3"
@@ -61,9 +61,9 @@ function slug(name: string) {
               <div class="text-normal">
                 {{ item.name }}
               </div>
-              <div class="desc text-sm opacity-50 font-normal">
+              <p class="desc text-sm opacity-50 font-normal">
                 {{ item.desc }}
-              </div>
+              </p>
             </div>
           </NuxtLink>
         </div>
