@@ -2,6 +2,7 @@
 import type { Data, Edge, Options } from 'vis-network'
 import type { RelationPackage } from '~/types/package'
 import colors from 'tailwindcss/colors'
+import { getColors } from 'theme-colors'
 import { Network } from 'vis-network'
 
 const emits = defineEmits<{
@@ -13,7 +14,7 @@ const _white = colors.white
 const _cyan = colors.cyan
 const _pink = colors.pink
 const _violet = colors.violet
-const _yellow = colors.yellow
+const _brand = getColors('#2b9939')
 
 const colorMode = useColorMode()
 const { packages } = useRelationsPackages()
@@ -237,11 +238,11 @@ onMounted(() => {
           face: 'Nunito',
         },
         color: {
-          background: _yellow[300],
-          border: _yellow[500],
+          background: _brand[300],
+          border: _brand[500],
           highlight: {
-            background: _yellow[400],
-            border: _yellow[600],
+            background: _brand[400],
+            border: _brand[600],
           },
         },
       },
@@ -269,11 +270,11 @@ onMounted(() => {
           face: 'Nunito',
         },
         color: {
-          background: _yellow[900],
-          border: _yellow[600],
+          background: _brand[900],
+          border: _brand[600],
           highlight: {
-            background: _yellow[700],
-            border: _yellow[500],
+            background: _brand[700],
+            border: _brand[500],
           },
         },
       },

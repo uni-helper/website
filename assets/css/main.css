@@ -29,6 +29,10 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-mint: var(--brand-mint);
+  --color-brand-soft: var(--brand-soft);
 
   --radius-xl: calc(var(--radius) + 4px);
   --radius-lg: var(--radius);
@@ -37,8 +41,8 @@
 }
 
 /*
- * 这里保留原 shadcn zinc 主题的取值。Nuxt UI 的语义 token 全部指向它们，
- * 这样 U* 组件和现有自定义组件的颜色仍然是同一套。
+ * uni-helper 设计系统的语义 token。
+ * 语义色以 HSL 分量保存，方便 Tailwind 与 Nuxt UI 共用；品牌色不随主题变化，直接保存为十六进制。
  */
 :root {
   --background: 0 0% 100%;
@@ -55,12 +59,17 @@
   --muted-foreground: 240 3.8% 46.1%;
   --accent: 240 4.8% 95.9%;
   --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
+  --destructive: 0 72.2% 50.6%;
   --destructive-foreground: 0 0% 98%;
   --border: 240 5.9% 90%;
   --input: 240 5.9% 90%;
   --ring: 240 5.9% 10%;
   --radius: 0.5rem;
+
+  --brand: #2b9939;
+  --brand-deep: #1c6325;
+  --brand-mint: #8acb9b;
+  --brand-soft: #a9d6b0;
 
   --ui-bg: hsl(var(--background));
   --ui-bg-muted: hsl(var(--muted));

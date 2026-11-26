@@ -68,7 +68,7 @@ watch(isVisible, (newValue) => {
     >
       <div
         v-show="isVisible"
-        class="relative z-10 inline-block text-left text-neutral-900 dark:text-neutral-100" :class="[
+        class="relative z-10 inline-block text-left text-foreground" :class="[
           props.class,
         ]"
       >

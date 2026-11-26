@@ -41,7 +41,7 @@ onMounted(() => {
       :staticity="10"
     />
     <span
-      class="fixed top-0 z-[-1] h-screen w-full bg-white opacity-40 dark:bg-black dark:opacity-50"
+      class="fixed top-0 z-[-1] h-screen w-full bg-background opacity-40 dark:opacity-50"
     />
     <NuxtLink
       to="/packages"
@@ -52,7 +52,7 @@ onMounted(() => {
         name="lucide:rocket"
         :size="16"
       />
-      <span class="mx-2 h-4 w-px bg-border dark:bg-gray-600" />
+      <span class="mx-2 h-4 w-px bg-border" />
       <span class="underline-offset-4 hover:underline">Get Started</span>
       <SmartIcon
         name="lucide:arrow-right"
@@ -70,7 +70,7 @@ onMounted(() => {
       />
     </h1>
 
-    <span class="mt-4 text-center text-lg text-gray-600 sm:text-xl dark:text-gray-200">
+    <span class="mt-4 text-center text-lg text-muted-foreground sm:text-xl">
       旨在增强 uni-app 系列产品的开发体验
     </span>
 

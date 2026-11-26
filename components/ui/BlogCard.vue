@@ -33,14 +33,14 @@ const [UseTemplate, CardInner] = createReusableTemplate()
 <template>
   <UseTemplate>
     <div
-      class="bg-card text-card-foreground relative h-full overflow-hidden rounded-xl border shadow transition-all"
+      class="bg-card text-card-foreground relative h-full overflow-hidden rounded-xl border shadow-sm transition-all"
       :class="[
         props.to && 'hover:bg-muted',
         props.inStack && 'mb-0 rounded-none border-none shadow-none',
       ]"
     >
       <div
-        class="relative flex justify-center h-fit aspect-video w-full flex-col items-center overflow-hidden rounded-md bg-white dark:bg-black"
+        class="relative flex justify-center h-fit aspect-video w-full flex-col items-center overflow-hidden rounded-md bg-background"
       >
         <UiBlogCardBackground :bg="props.bg" />
       </div>
@@ -71,8 +71,8 @@ const [UseTemplate, CardInner] = createReusableTemplate()
             alt=""
           >
           <div class="flex flex-col">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ props.author }}</span>
-            <span class="text-sm text-gray-500">{{ props.footer }}</span>
+            <span class="text-sm font-medium text-foreground">{{ props.author }}</span>
+            <span class="text-sm text-muted-foreground">{{ props.footer }}</span>
           </div>
         </div>
       </div>

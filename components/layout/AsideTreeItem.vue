@@ -34,7 +34,7 @@ const titleClass = computed(() => props.link.navTruncate === false ? '' : 'trunc
         <span
           v-for="badge in link.navBadges ?? []"
           :key="badge.value"
-          class="mx-0.5 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-black"
+          class="mx-0.5 rounded-md bg-brand-soft px-1.5 py-0.5 text-xs leading-none font-normal text-brand-deep"
         >{{ badge.value }}</span>
         <SmartIcon
           name="lucide:chevron-down"
@@ -60,7 +60,7 @@ const titleClass = computed(() => props.link.navTruncate === false ? '' : 'trunc
       <span
         v-for="badge in link.navBadges ?? []"
         :key="badge.value"
-        class="mx-0.5 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-black"
+        class="mx-0.5 rounded-md bg-brand-soft px-1.5 py-0.5 text-xs leading-none font-normal text-brand-deep"
       >{{ badge.value }}</span>
     </NuxtLink>
   </li>

@@ -14,7 +14,7 @@ export default defineAppConfig({
   header: {
     title: 'uni-helper',
     logo: {
-      light: '/logo.svg',
+      light: '/logo-green.svg',
       dark: '/logo-dark.svg',
     },
     nav: [

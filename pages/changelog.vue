@@ -26,7 +26,7 @@ const { data: releases } = await useFetch<Release[]>('/api/_content/releases.jso
       >
         <div class="flex flex-col">
           <NuxtLink to="/" class="mb-6 flex items-center">
-            <img src="/logo.svg" alt="" class="h-7 dark:hidden">
+            <img src="/logo-green.svg" alt="" class="h-7 dark:hidden">
             <img src="/logo-dark.svg" alt="" class="hidden h-7 dark:block">
             <span class="ml-3 self-center font-bold">uni-helper</span>
           </NuxtLink>

@@ -68,7 +68,7 @@ const firstRow = ref(reviews)
       深受社区喜爱<span class="text-4xl"> ❤️</span>
     </div>
     <div
-      class="relative h-[430px] w-full overflow-hidden rounded-xl border bg-white shadow-lg dark:bg-background"
+      class="relative h-[430px] w-full overflow-hidden rounded-xl border bg-background shadow-lg"
     >
       <!-- Center Text -->
       <div
@@ -154,10 +154,10 @@ const firstRow = ref(reviews)
 
       <!-- Gradient overlay to fade to white at the bottom -->
       <div
-        class="pointer-events-none absolute inset-0 bg-linear-to-t from-white to-transparent dark:from-background"
+        class="pointer-events-none absolute inset-0 bg-linear-to-t from-background to-transparent"
       />
     </div>
-    <div class="text-xs text-gray-500/40 dark:text-gray-400/40 self-end pt-0.5">
+    <div class="text-xs text-muted-foreground/40 self-end pt-0.5">
       信息收集自互联网，如果有错误或侵权，请联系我们删除
     </div>
   </div>

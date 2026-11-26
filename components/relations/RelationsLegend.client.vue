@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const legend = [{
-  color: 'bg-yellow-300 ring-yellow-500 dark:bg-yellow-900 dark:ring-yellow-600',
+  color: 'bg-brand-soft ring-brand dark:bg-brand-deep dark:ring-brand',
   text: '已选择的包',
 }, {
   color: 'bg-cyan-300 ring-cyan-500 dark:bg-cyan-900 dark:ring-cyan-600',
