@@ -5,6 +5,7 @@ import { parse } from 'yaml'
 import { defineNuxtConfig } from 'nuxt/config'
 import { AGENT_ASSETS_DIR, generateAgentFiles } from './scripts/generate-agent-files'
 import { generatePrerenderRoutes } from './scripts/generate-routes'
+import { uniHelperShikiTheme } from './shiki-theme'
 
 const SITE_URL = 'https://uni-helper.js.org'
 
@@ -138,6 +139,11 @@ export default async () => {
         markdown: {
           highlight: {
             langs: ['jsonc', 'python'],
+            theme: {
+              light: uniHelperShikiTheme,
+              default: uniHelperShikiTheme,
+              dark: uniHelperShikiTheme,
+            },
           },
         },
       },
@@ -152,9 +158,24 @@ export default async () => {
           'pm-install': 'ProsePmInstall',
           'pm-run': 'ProsePmRun',
           'pm-x': 'ProsePmX',
+          'pre': 'ProsePre',
           'read-more': 'ProseReadMore',
           'stack': 'ProseStack',
           'ui-kbd': 'ProseKbd',
+        },
+      },
+    },
+    mdc: {
+      highlight: {
+        theme: {
+          light: 'uni-helper',
+          default: 'uni-helper',
+          dark: 'uni-helper',
+        },
+      },
+      components: {
+        map: {
+          pre: 'ProsePre',
         },
       },
     },

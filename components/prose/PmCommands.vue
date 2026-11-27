@@ -12,8 +12,8 @@ const { copy, copied } = useClipboard()
 </script>
 
 <template>
-  <div class="bg-card overflow-hidden" :class="inStack ? 'my-0 rounded-none border-0' : 'my-5 rounded-xl border'">
-    <div class="bg-muted flex items-center gap-1 border-b px-2 py-1.5">
+  <div class="bg-code-bg text-code-fg overflow-hidden" :class="inStack ? 'my-0 rounded-none border-0' : 'my-5 rounded-xl border'">
+    <div class="flex items-center gap-1 border-b px-2 py-1.5">
       <button
         v-for="command in commands"
         :key="command.name"
