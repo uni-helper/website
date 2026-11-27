@@ -14,6 +14,7 @@
     "update:uni-use": "tsx scripts/update-uni-use-files.ts",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
+    "test": "node --import tsx --test scripts/*.test.ts",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
