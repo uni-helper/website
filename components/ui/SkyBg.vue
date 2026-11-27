@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<{
   speed?: 'slow' | 'normal' | 'fast'
 }>(), {
   starCount: 50,
-  color: 'hsl(var(--primary))',
+  color: 'var(--primary)',
   size: () => ({
     min: 1,
     max: 3,
@@ -26,20 +26,42 @@ const props = withDefaults(defineProps<{
 
 const route = useRoute()
 
-// Generate random stars
-function generateStars(count: number): Star[] {
-  return Array.from({ length: count }, () => {
-    const x = Math.floor(Math.random() * 100)
-    const y = Math.floor(Math.random() * 100)
-    const size = Math.random() * (props.size.max - props.size.min) + props.size.min
-    const twinkleDelay = Math.random() * 5
+// Stars are decorative but must render identically on the server and client.
+// A small seeded PRNG keeps the layout stable without a hydration mismatch.
+function hashString(value: string) {
+  let hash = 2166136261
+  for (let i = 0; i < value.length; i++) {
+    hash ^= value.charCodeAt(i)
+    hash = Math.imul(hash, 16777619)
+  }
+  return hash >>> 0
+}
 
-    return { x, y, size, twinkleDelay, id: Math.random().toString(36).substring(2, 9) }
+function mulberry32(seed: number) {
+  return () => {
+    seed |= 0
+    seed = (seed + 0x6D2B79F5) | 0
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+function generateStars(count: number, seed: number): Star[] {
+  const random = mulberry32(seed)
+
+  return Array.from({ length: count }, (_, index) => {
+    const x = Math.floor(random() * 100)
+    const y = Math.floor(random() * 100)
+    const size = random() * (props.size.max - props.size.min) + props.size.min
+    const twinkleDelay = random() * 5
+
+    return { x, y, size, twinkleDelay, id: `star-${index}` }
   })
 }
 
 // Generate all stars
-const stars = useState<Star[]>(`${kebabCase(route.path)}-sky`, () => generateStars(props.starCount))
+const stars = useState<Star[]>(`${kebabCase(route.path)}-sky`, () => generateStars(props.starCount, hashString(route.path)))
 
 // Compute twinkle animation duration based on speed
 const twinkleDuration = computed(() => {

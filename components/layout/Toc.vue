@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { useMediaQuery } from '@vueuse/core'
-
 const props = defineProps<{
   links: any[]
   extraLinks?: any[]
 }>()
 
 const config = useAppConfig()
-const isDesktop = useMediaQuery('(min-width: 1024px)')
 
 const flatLinks = computed(() => {
   const flatten = (links: any[]): any[] => links.flatMap(link => [link, ...(link.children ? flatten(link.children) : [])])
@@ -100,6 +97,6 @@ watch(() => props.links, () => nextTick(updateActive))
     </div>
 
     <div class="flex-grow" />
-    <LayoutCarbonAds v-if="isDesktop" />
+    <LayoutCarbonAds />
   </div>
 </template>

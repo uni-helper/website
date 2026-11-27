@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useMediaQuery } from '@vueuse/core'
 defineProps<{
   page: any
 }>()
@@ -21,8 +20,6 @@ const surround = computed(() => {
     next: index >= 0 && index < scoped.length - 1 ? scoped[index + 1] : undefined,
   }
 })
-
-const isDesktop = useMediaQuery('(min-width: 1024px)')
 </script>
 
 <template>
@@ -38,7 +35,7 @@ const isDesktop = useMediaQuery('(min-width: 1024px)')
       <LayoutPrevNextButton :prev-next="surround.next" side="right" />
     </div>
 
-    <div v-if="!isDesktop" class="mt-6 flex justify-center">
+    <div class="mt-6 flex justify-center lg:hidden">
       <LayoutCarbonAds />
     </div>
   </div>
