@@ -40,6 +40,16 @@ function backHome() {
       >
         回到首页
       </button>
+      <div class="mt-6 flex items-center gap-6">
+        <a
+          href="https://github.com/ModyQyW/sponsors"
+          target="_blank"
+          rel="noreferrer"
+          class="text-link hover:text-link-hover text-sm font-semibold underline underline-offset-4"
+        >
+          成为赞助商
+        </a>
+      </div>
     </main>
   </div>
 </template>

@@ -25,30 +25,29 @@ export default defineAppConfig({
       { title: '关于我们', to: '/about' },
     ],
     links: [
-      { icon: 'lucide:github', to: 'https://github.com/uni-helper', target: '_blank' },
-      { icon: 'tabler:brand-wechat', to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx', target: '_blank' },
+      { icon: 'lucide:github', label: 'GitHub', to: 'https://github.com/uni-helper', target: '_blank' },
+      { icon: 'tabler:brand-wechat', label: '微信', to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx', target: '_blank' },
     ],
   },
   footer: {
-    credits: 'This site is powered by Nuxt',
     creditsLink: 'https://nuxt.com/',
     links: [
-      { icon: 'lucide:github', to: 'https://github.com/uni-helper', target: '_blank' },
-      { icon: 'lucide:coffee', to: 'https://github.com/ModyQyW/sponsors', target: '_blank' },
-      { icon: 'tabler:brand-wechat', to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx', target: '_blank' },
-      { icon: 'ri:qq-line', to: 'https://qm.qq.com/q/5nPFSqa8Eg', target: '_blank' },
+      { icon: 'lucide:github', label: 'GitHub', to: 'https://github.com/uni-helper', target: '_blank' },
+      { icon: 'lucide:coffee', label: '赞助', to: 'https://github.com/ModyQyW/sponsors', target: '_blank' },
+      { icon: 'tabler:brand-wechat', label: '微信', to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx', target: '_blank' },
+      { icon: 'ri:qq-line', label: 'QQ', to: 'https://qm.qq.com/q/5nPFSqa8Eg', target: '_blank' },
     ],
   },
   toc: {
     title: '本页目录',
     iconLinks: [
-      { icon: 'lucide:coffee', to: 'https://github.com/ModyQyW/sponsors', target: '_blank' },
-      { icon: 'tabler:brand-wechat', to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx', target: '_blank' },
-      { icon: 'ri:qq-line', to: 'https://qm.qq.com/q/5nPFSqa8Eg', target: '_blank' },
+      { icon: 'lucide:coffee', label: '赞助', to: 'https://github.com/ModyQyW/sponsors', target: '_blank' },
+      { icon: 'tabler:brand-wechat', label: '微信', to: 'https://h5.hlcode.com.cn/?id=NE0myp6&f=wx', target: '_blank' },
+      { icon: 'ri:qq-line', label: 'QQ', to: 'https://qm.qq.com/q/5nPFSqa8Eg', target: '_blank' },
     ],
   },
   search: {
-    placeholder: 'Search...',
+    placeholder: '搜索...',
     placeholderDetailed: '搜索文档...',
   },
 })

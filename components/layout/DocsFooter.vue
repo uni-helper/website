@@ -34,9 +34,5 @@ const surround = computed(() => {
       <span class="flex-1" />
       <LayoutPrevNextButton :prev-next="surround.next" side="right" />
     </div>
-
-    <div class="mt-6 flex justify-center lg:hidden">
-      <LayoutCarbonAds />
-    </div>
   </div>
 </template>

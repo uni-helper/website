@@ -208,12 +208,22 @@ defineShortcuts({
     </div>
 
     <UButton
-      class="absolute z-20 bottom-4 right-4 rounded-full" color="neutral" square aria-label="打开关于面板" variant="outline"
+      class="absolute z-20 bottom-4 right-16 rounded-md"
+      color="neutral"
+      square
+      variant="outline"
+      icon="lucide:coffee"
+      to="https://github.com/ModyQyW/sponsors"
+      target="_blank"
+      aria-label="成为赞助商"
+    />
+    <UButton
+      class="absolute z-20 bottom-4 right-4 rounded-md" color="neutral" square aria-label="打开关于面板" variant="outline"
       @click="openAbout = true"
     >
       <SmartIcon name="i-ph:info" />
     </UButton>
-    <p class="pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-background/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur md:hidden">
+    <p class="pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-background/80 px-3 py-1 text-sm text-muted-foreground backdrop-blur md:hidden">
       双指缩放、拖动画布
     </p>
   </main>

@@ -108,6 +108,15 @@ const menuItems = computed(() => {
           NPM 包
         </UButton>
       </div>
+
+      <a
+        href="https://github.com/ModyQyW/sponsors"
+        target="_blank"
+        rel="noreferrer"
+        class="text-link hover:text-link-hover mt-3 inline-flex text-sm font-semibold underline underline-offset-4"
+      >
+        成为赞助商
+      </a>
     </div>
   </div>
 </template>

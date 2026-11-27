@@ -61,8 +61,10 @@ watch(() => props.links, () => nextTick(updateActive))
 
 <template>
   <div class="flex flex-col gap-5 lg:h-[calc(100vh-6.5rem)] lg:overflow-y-auto">
+    <LayoutSponsorCta compact />
+
     <div v-if="links?.length" class="border-b pb-5 text-sm">
-      <p class="mb-2 text-base font-semibold">{{ config.toc.title }}</p>
+      <p class="mb-2 uh-type-heading-4">{{ config.toc.title }}</p>
       <LayoutTocList :links="links" :active-id="activeId" />
     </div>
 
@@ -90,13 +92,10 @@ watch(() => props.links, () => nextTick(updateActive))
         variant="ghost"
         square
         size="sm"
-        :aria-label="link.icon"
+        :aria-label="link.label"
       >
         <SmartIcon :name="link.icon" :size="18" />
       </UButton>
     </div>
-
-    <div class="flex-grow" />
-    <LayoutCarbonAds />
   </div>
 </template>

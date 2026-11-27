@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const config = useAppConfig()
+const route = useRoute()
+
+// 首页已有独立的赞助区块，页脚不再重复。
+const showSponsor = computed(() => route.path !== '/')
 
 const isCN = computed(() => {
   if (typeof window === 'undefined')
@@ -24,10 +28,12 @@ const isCloudflare = computed(() => {
 
 <template>
   <footer class="text-muted-foreground py-6 md:py-0">
+    <LayoutSponsorCta v-if="showSponsor" class="mb-6 md:mt-6" />
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 md:h-16 md:flex-row md:px-8">
       <span class="text-sm">
-        This site is powered by
+        本站由
         <a :href="config.footer.creditsLink" target="_blank" rel="noreferrer" class="font-semibold underline underline-offset-4">Nuxt</a>
+        驱动
       </span>
       <span class="flex-1" />
       <div class="flex flex-wrap justify-center gap-2 md:justify-end">
@@ -39,7 +45,7 @@ const isCloudflare = computed(() => {
           color="neutral"
           variant="ghost"
           square
-          :aria-label="link.icon"
+          :aria-label="link.label"
         >
           <SmartIcon :name="link.icon" :size="20" />
         </UButton>
