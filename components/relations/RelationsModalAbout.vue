@@ -5,7 +5,7 @@ const open = defineModel<boolean>('open', { required: true })
 <template>
   <UModal v-model:open="open">
     <template #header>
-      <span>关于 Uni-Helper Relations</span>
+      <span>关于 uni-helper 关系图</span>
     </template>
     <template #body>
       <slot />

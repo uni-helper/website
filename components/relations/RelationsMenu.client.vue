@@ -86,7 +86,7 @@ const menuItems = computed(() => {
       <div class="mb-2 flex items-center justify-between gap-4">
         <div class="flex items-end gap-4">
           <h1 class="font-bold whitespace-nowrap">
-            Uni-Helper 关系
+            uni-helper 关系
           </h1>
         </div>
 
@@ -101,7 +101,7 @@ const menuItems = computed(() => {
         <UButton size="sm" color="neutral" variant="ghost" class="justify-start" @click="emits('openUniHelper', true)">
           <img :src="config.header.logo.light" alt="" class="size-6 dark:hidden">
           <img :src="config.header.logo.dark" alt="" class="hidden h-6 dark:block">
-          Uni-Helper 包
+          uni-helper 包
         </UButton>
         <UButton size="sm" color="neutral" variant="ghost" class="justify-start" @click="emits('openNpm', true)">
           <SmartIcon name="simple-icons:npm" :size="20" />

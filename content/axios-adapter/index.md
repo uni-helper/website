@@ -18,8 +18,8 @@ badges:
     target: _blank
 ---
 
-::alert{to="/uni-network/guide/introduction" target="_blank" icon="lucide:test-tube"}
-  在 uni-app 中，`uni-network`是一个体积性能更好的替代品
+::alert{icon="lucide:test-tube"}
+  在 uni-app 中，[`uni-network`](/uni-network/guide/introduction) 是一个体积性能更好的替代品
 ::
 
 本适配器封装 uni-app 的 `uni.request`、`uni.downloadFile`、`uni.uploadFile` 等接口，让 axios 的编程方式在 uni-app 各平台继续可用。

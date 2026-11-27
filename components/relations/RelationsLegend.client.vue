@@ -4,7 +4,7 @@ const legend = [{
   text: '已选择的包',
 }, {
   color: 'bg-cyan-300 ring-cyan-500 dark:bg-cyan-900 dark:ring-cyan-600',
-  text: 'Uni-Helper 包',
+  text: 'uni-helper 包',
 }, {
   color: 'bg-pink-300 ring-pink-500 dark:bg-pink-900 dark:ring-pink-800',
   text: '生产依赖项（实线）',
