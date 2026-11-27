@@ -14,11 +14,11 @@ withDefaults(defineProps<{
       <a
         :href="`#${link.id}`"
         class="block py-1 pl-4.5 transition-colors"
-        :class="link.id === activeId ? 'text-primary' : 'text-muted-foreground hover:text-primary'"
+        :class="link.id === activeId ? 'text-foreground font-semibold' : 'text-muted-foreground hover:text-foreground'"
       >
         <span
           v-if="link.id === activeId"
-          class="bg-border absolute inset-y-0 left-0 w-px"
+          class="bg-border-strong absolute inset-y-0 left-0 w-px"
           aria-hidden="true"
         />
         {{ link.text }}

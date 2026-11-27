@@ -64,11 +64,11 @@ const firstRow = ref(reviews)
 
 <template>
   <div class="flex w-full max-w-7xl flex-col items-center justify-center p-4">
-    <div class="py-12 text-5xl font-semibold text-nowrap">
+    <h2 class="py-12 text-5xl font-semibold text-nowrap">
       深受社区喜爱<span class="text-4xl"> ❤️</span>
-    </div>
+    </h2>
     <div
-      class="relative h-[430px] w-full overflow-hidden rounded-xl border bg-background shadow-lg"
+      class="relative h-[430px] w-full overflow-hidden rounded-xl border bg-card shadow-lg"
     >
       <!-- Center Text -->
       <div
@@ -157,7 +157,7 @@ const firstRow = ref(reviews)
         class="pointer-events-none absolute inset-0 bg-linear-to-t from-background to-transparent"
       />
     </div>
-    <div class="text-xs text-muted-foreground/40 self-end pt-0.5">
+    <div class="text-xs text-muted-foreground self-end pt-0.5">
       信息收集自互联网，如果有错误或侵权，请联系我们删除
     </div>
   </div>

@@ -11,7 +11,7 @@ defineProps<Props>()
 
 <template>
   <figure
-    class="relative w-64 cursor-pointer overflow-hidden rounded-xl border border-border bg-card p-4 hover:bg-muted"
+    class="relative w-64 cursor-pointer overflow-hidden rounded-xl border border-border bg-card p-4 hover:bg-card-hover"
   >
     <div class="flex flex-row items-center gap-2">
       <img

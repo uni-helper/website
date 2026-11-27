@@ -102,6 +102,10 @@ export default async () => {
         ],
         script: [
           {
+            innerHTML: `try { const theme = localStorage.getItem("nuxt-color-mode"); if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme } catch {}`,
+            type: 'text/javascript',
+          },
+          {
             innerHTML: `
               var _hmt = _hmt || [];
               (function() {

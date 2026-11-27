@@ -23,8 +23,8 @@ const isCloudflare = computed(() => {
 </script>
 
 <template>
-  <footer class="text-muted-foreground py-6 md:px-8 md:py-0">
-    <div class="container mx-auto flex flex-col items-center justify-between gap-2 md:h-16 md:flex-row">
+  <footer class="text-muted-foreground py-6 md:py-0">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 md:h-16 md:flex-row md:px-8">
       <span class="text-sm">
         This site is powered by
         <a :href="config.footer.creditsLink" target="_blank" rel="noreferrer" class="font-semibold underline underline-offset-4">Nuxt</a>
@@ -45,7 +45,7 @@ const isCloudflare = computed(() => {
         </UButton>
       </div>
     </div>
-    <div class="flex flex-wrap items-center justify-center gap-x-6 text-sm leading-16 md:h-16 [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-4">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-6 px-4 text-sm leading-16 md:h-16 md:px-8 [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-4">
       <template v-if="isCN">
         <div>托管于 <a rel="noreferrer" href="https://cloud.tencent.com/product/teo" target="_blank"> Tencent Edgeone </a></div>
         <div class="flex items-center gap-2">

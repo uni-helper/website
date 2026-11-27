@@ -27,7 +27,8 @@ watch(() => route.path, () => {
             v-for="item in config.header.nav"
             :key="item.to"
             :to="item.to"
-            class="hover:bg-muted rounded-md px-2 py-2 text-sm font-semibold"
+            class="text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md px-2 py-2 text-sm font-semibold"
+            active-class="bg-accent text-accent-foreground"
           >
             {{ item.title }}
           </NuxtLink>

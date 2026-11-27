@@ -35,7 +35,7 @@ const [UseTemplate, CardInner] = createReusableTemplate()
     <div
       class="bg-card text-card-foreground relative h-full overflow-hidden rounded-xl border shadow-sm transition-all"
       :class="[
-        props.to && 'hover:bg-muted',
+        props.to && 'hover:bg-card-hover',
         props.inStack && 'mb-0 rounded-none border-none shadow-none',
       ]"
     >
@@ -47,10 +47,10 @@ const [UseTemplate, CardInner] = createReusableTemplate()
       <div v-if="props.icon || props.title || $slots.title || props.description || $slots.description" class="flex flex-col gap-y-1.5 p-6" :class="{ 'flex-row items-center gap-5': props.horizontal }">
         <SmartIcon v-if="props.icon" :name="props.icon" :size="props.iconSize" :class="{ 'mb-2': !props.horizontal }" />
         <div class="flex flex-col gap-1.5">
-          <h3 v-if="props.title || $slots.title" class="text-2xl font-semibold leading-none tracking-tight">
+          <h2 v-if="props.title || $slots.title" class="uh-type-heading-2">
             <MDCSlot name="title" unwrap="p" />
             {{ props.title }}
-          </h3>
+          </h2>
           <p v-if="props.description || $slots.description" class="text-muted-foreground min-h-[40px] text-sm">
             <MDCSlot name="description" unwrap="p" />
             {{ props.description }}

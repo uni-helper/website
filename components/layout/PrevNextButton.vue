@@ -11,7 +11,7 @@ defineProps<{
     :to="prevNext.path"
     class="basis-1/3"
   >
-    <div class="hover:bg-muted/50 mb-4 space-y-2 rounded-lg border p-4 transition-all">
+    <div class="hover:bg-card-hover mb-4 space-y-2 rounded-lg border p-4 transition-all">
       <div class="flex flex-row gap-3">
         <div v-if="side === 'left'" class="flex size-6 min-w-6">
           <SmartIcon name="lucide:arrow-left" :size="20" class="mx-auto self-center" />

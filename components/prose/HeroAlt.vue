@@ -21,10 +21,10 @@
         <SmartIcon name="lucide:arrow-right" class="ml-1" :size="16" />
       </NuxtLink>
 
-      <h1 class="text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]">
+      <h1 class="uh-type-display">
         <MDCSlot name="title" unwrap="p" />
       </h1>
-      <p class="text-foreground max-w-2xl text-lg font-light">
+      <p class="text-foreground max-w-2xl text-lg">
         <MDCSlot name="description" unwrap="p" />
       </p>
 

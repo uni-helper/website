@@ -5,7 +5,7 @@ const { nav, links, logo, title } = config.header
 
 <template>
   <header class="bg-background/80 sticky top-0 z-40 backdrop-blur-lg">
-    <div class="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between gap-2 px-4 md:px-8">
+    <div class="mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 px-4 md:px-8">
       <NuxtLink to="/" class="hidden flex-1 items-center md:flex">
         <img :src="logo.light" alt="" class="h-7 dark:hidden">
         <img :src="logo.dark" alt="" class="hidden h-7 dark:block">
@@ -19,7 +19,8 @@ const { nav, links, logo, title } = config.header
           v-for="item in nav"
           :key="item.to"
           :to="item.to"
-          class="hover:bg-muted hover:text-primary inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition-colors"
+          class="hover:bg-accent hover:text-accent-foreground inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition-colors"
+          active-class="bg-accent text-accent-foreground"
         >
           {{ item.title }}
         </NuxtLink>

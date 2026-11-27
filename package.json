@@ -42,6 +42,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/mdc": "^0.23.4",
+    "@uni-helper/design": "^0.1.1",
     "cross-env": "^10.1.0",
     "eslint": "^10.15.0",
     "rimraf": "^6.1.4",

@@ -9,7 +9,7 @@
       :sparkles-count="10"
       class="my-8 text-nowrap"
     />
-    <div class="text-center opacity-65">
+    <div class="text-center text-muted-foreground">
       <div>
         Uni Helper 基于 MIT 许可发布，并将始终保持免费和开源。
       </div>
@@ -20,7 +20,7 @@
   </div>
   <NuxtLink
     to="/about"
-    class="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+    class="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
   >
     成为赞助商
   </NuxtLink>

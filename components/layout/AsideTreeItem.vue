@@ -26,7 +26,7 @@ const titleClass = computed(() => props.link.navTruncate === false ? '' : 'trunc
   <li>
     <div v-if="link.children?.length">
       <button
-        class="text-foreground/80 hover:bg-muted hover:text-primary flex h-8 w-full cursor-pointer items-center gap-2 rounded-md p-2 text-left text-sm"
+        class="text-muted-foreground hover:bg-accent hover:text-accent-foreground flex h-8 w-full cursor-pointer items-center gap-2 rounded-md p-2 text-left text-sm"
         @click="open = !open"
       >
         <SmartIcon v-if="link.icon" :name="link.icon" class="min-w-4" :size="16" />
@@ -34,7 +34,7 @@ const titleClass = computed(() => props.link.navTruncate === false ? '' : 'trunc
         <span
           v-for="badge in link.navBadges ?? []"
           :key="badge.value"
-          class="mx-0.5 rounded-md bg-brand-soft px-1.5 py-0.5 text-xs leading-none font-normal text-brand-deep"
+          class="mx-0.5 rounded-sm bg-brand-soft px-1.5 py-0.5 text-xs leading-none font-semibold text-brand-deep"
         >{{ badge.value }}</span>
         <SmartIcon
           name="lucide:chevron-down"
@@ -52,8 +52,8 @@ const titleClass = computed(() => props.link.navTruncate === false ? '' : 'trunc
     <NuxtLink
       v-else
       :to="link.path"
-      class="text-foreground/80 hover:bg-muted hover:text-primary flex min-h-9 items-center gap-2 rounded-md p-2 text-sm"
-      :class="[isActive && 'bg-muted !text-primary font-medium']"
+      class="text-muted-foreground hover:bg-accent hover:text-accent-foreground flex min-h-9 items-center gap-2 rounded-md p-2 text-sm"
+      :class="[isActive && 'bg-accent text-accent-foreground font-semibold']"
     >
       <SmartIcon v-if="link.icon" :name="link.icon" class="min-w-4" :size="16" />
       <span :class="titleClass">{{ link.title }}</span>

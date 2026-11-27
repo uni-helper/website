@@ -245,6 +245,9 @@ importers:
       '@nuxtjs/mdc':
         specifier: ^0.23.4
         version: 0.23.4(@nuxt/schema@4.6.4)(confbox@0.2.4)(dotenv@17.4.2)(giget@3.3.1)(jiti@2.7.0)(magic-string@1.4.5)(mlly@1.8.2)(oxc-parser@0.153.0)(rolldown@1.2.19)(supports-color@10.2.2)(unplugin@3.7.0(esbuild@0.28.2)(rolldown@1.2.19)(rollup@4.68.5)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1)))
+      '@uni-helper/design':
+        specifier: ^0.1.1
+        version: 0.1.1
       cross-env:
         specifier: ^10.1.0
         version: 10.1.0
@@ -2416,6 +2419,10 @@ packages:
         optional: true
       webpack:
         optional: true
+
+  '@uni-helper/design@0.1.1':
+    resolution: {integrity: sha512-V8k5gPa9ztbbh6ELsMq0W/bVmIJWhegPOvsfNyd6xPHFLym3WATzBqeryfYZ8CzPVzMmTW+cq78rv0ASTH5VDQ==}
+    engines: {node: ^22.18.0 || ^24.11.0 || ^26}
 
   '@unrs/resolver-binding-android-arm-eabi@1.13.0':
     resolution: {integrity: sha512-60E5mvmIiW+i1E/HYeSX4iE4A8s9NJSGYPu7UM0DJght1c2tTkWwuyDyAwzsEXhKM/XbbndfnTiXdfrf27d2hw==}
@@ -8750,6 +8757,8 @@ snapshots:
       - rolldown
       - rollup
       - unloader
+
+  '@uni-helper/design@0.1.1': {}
 
   '@unrs/resolver-binding-android-arm-eabi@1.13.0':
     optional: true

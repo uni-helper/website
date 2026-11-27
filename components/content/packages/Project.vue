@@ -27,7 +27,7 @@ function slug(name: string) {
     class="flex w-full items-center justify-center"
     :speed="PATTERN_BACKGROUND_SPEED.Slow"
   >
-    <div class="max-w-300 mx-auto overflow-x-clip">
+    <div class="max-w-300 mx-auto overflow-x-clip relative z-10">
       <div
         v-for="key, cidx in Object.keys(projects)" :key="key" slide-enter
         :style="{ '--enter-stage': cidx + 1 }"
@@ -40,7 +40,7 @@ function slug(name: string) {
           }"
           class="scroll-mt-16 select-none relative h-18 mt-5 slide-enter"
         >
-          <h2 class="text-[3em] sm:text-[5em] text-transparent absolute -left-[1rem] top-0 font-bold leading-[1em] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#aaa] opacity-35 dark:opacity-20">{{ key }}</h2>
+          <h2 class="text-[3em] sm:text-[5em] text-transparent absolute -left-[1rem] top-0 font-bold leading-[1em] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:var(--border-strong)] opacity-35 dark:opacity-20">{{ key }}</h2>
         </div>
         <div
           class="project-grid py-2 max-w-500 w-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3"
@@ -61,7 +61,7 @@ function slug(name: string) {
               <div class="text-normal">
                 {{ item.name }}
               </div>
-              <p class="desc text-sm opacity-50 font-normal">
+              <p class="desc text-sm text-muted-foreground font-normal">
                 {{ item.desc }}
               </p>
             </div>
@@ -84,7 +84,7 @@ function slug(name: string) {
       </div>
     </div>
   </PatternBackground>
-  <div class="text-xs text-muted-foreground/40 ml-auto text-right pt-0.5">
+  <div class="text-xs text-muted-foreground ml-auto text-right pt-0.5">
     Design by
     <a href="https://antfu.me/projects">antfu.me</a>
   </div>
@@ -101,7 +101,7 @@ function slug(name: string) {
 }
 
 .project-grid a.item:hover {
-  background: #88888811;
+  background: var(--card-hover);
 }
 
 .table-of-contents {

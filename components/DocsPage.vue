@@ -43,13 +43,13 @@ usePageSeo({
 
 <template>
   <div v-if="page">
-    <main v-if="isFullpage || isHome" class="container mx-auto px-4 py-6 md:px-8">
+    <main v-if="isFullpage || isHome" class="mx-auto max-w-7xl px-4 py-6 md:px-8">
       <ContentRenderer :value="page" />
     </main>
 
     <div v-else class="min-h-screen border-b">
       <div
-        class="container mx-auto flex-1 items-start px-4 md:grid md:gap-6 md:px-8 lg:gap-10"
+        class="mx-auto flex-1 items-start px-4 md:grid md:gap-6 md:px-8 lg:gap-10 max-w-7xl"
         :class="page.aside !== false
           ? 'md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[240px_minmax(0,1fr)]'
           : ''"
@@ -62,7 +62,7 @@ usePageSeo({
             <LayoutBreadcrumb v-if="page.breadcrumb !== false" class="mb-4" />
 
             <div class="mb-8">
-              <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight wrap-break-word lg:text-5xl">
+              <h1 class="uh-type-display scroll-m-20 wrap-break-word">
                 {{ page.title }}
               </h1>
               <p v-if="page.description" class="text-muted-foreground pt-1 text-lg">

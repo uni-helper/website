@@ -1,116 +1,16 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
 @import 'tw-animate-css';
+@import '@uni-helper/design/tailwind.css';
+@import '@uni-helper/design/nuxt-ui.css';
 
 @source '../../content/**/*';
 @source '../../components/**/*';
 @source '../../pages/**/*';
 
-@theme inline {
-  --font-sans: 'Geist', 'Noto Sans SC', 'Noto Sans CJK SC', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-mono: 'Geist Mono', 'Noto Sans Mono CJK SC', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --color-brand: var(--brand);
-  --color-brand-deep: var(--brand-deep);
-  --color-brand-mint: var(--brand-mint);
-  --color-brand-soft: var(--brand-soft);
-
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-}
-
-/*
- * uni-helper 设计系统的语义 token。
- * 语义色以 HSL 分量保存，方便 Tailwind 与 Nuxt UI 共用；品牌色不随主题变化，直接保存为十六进制。
- */
+/* The design system reads --foreground per theme, so this stays correct in light and dark. */
 :root {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 72.2% 50.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 5.9% 10%;
-  --radius: 0.5rem;
-
-  --brand: #2b9939;
-  --brand-deep: #1c6325;
-  --brand-mint: #8acb9b;
-  --brand-soft: #a9d6b0;
-
-  --ui-bg: hsl(var(--background));
-  --ui-bg-muted: hsl(var(--muted));
-  --ui-bg-elevated: hsl(var(--secondary));
-  --ui-bg-accented: hsl(var(--accent));
-  --ui-bg-inverted: hsl(var(--primary));
-  --ui-border: hsl(var(--border));
-  --ui-border-muted: hsl(var(--border));
-  --ui-border-accented: hsl(var(--border));
-  --ui-text: hsl(var(--foreground));
-  --ui-text-highlighted: hsl(var(--foreground));
-  --ui-text-toned: hsl(var(--muted-foreground));
-  --ui-text-muted: hsl(var(--muted-foreground));
-  --ui-text-dimmed: hsl(var(--muted-foreground));
-  --ui-text-inverted: hsl(var(--primary-foreground));
-  --ui-primary: hsl(var(--primary));
-  --ui-primary-foreground: hsl(var(--primary-foreground));
-  --ui-container: 80rem;
-  --ui-header-height: 3.5rem;
-}
-
-.dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
+  --pattern-color: color-mix(in srgb, var(--foreground) 30%, transparent);
 }
 
 @layer base {
@@ -119,16 +19,33 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: hsl(var(--border));
+    border-color: var(--border);
   }
 
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: var(--background);
+    color: var(--foreground);
   }
 
   ::selection {
-    background-color: hsl(var(--primary) / 0.16);
+    background-color: color-mix(in srgb, var(--primary) 16%, transparent);
+  }
+
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: var(--focus-width) solid var(--ring);
+    outline-offset: var(--focus-offset);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -233,60 +150,53 @@
   opacity: 0;
 }
 
-/* 文档正文：对齐 shadcn-docs 的排版，避免换成 Nuxt UI prose 后字号和间距漂移。 */
+/* 文档正文：跟随 uni-helper 设计系统的字号、行高、链接和代码样式。 */
 .docs-content {
-  font-size: 1rem;
-  line-height: 1.75;
+  font: var(--text-body);
 }
 
 .docs-content h1 {
   scroll-margin: 5rem;
-  font-size: 2.25rem;
-  line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  font: var(--text-display);
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
 .docs-content h2 {
   scroll-margin: 5rem;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   margin-bottom: 0;
-  border-bottom: 1px solid hsl(var(--border));
-  padding-bottom: 0.5rem;
-  font-size: 1.875rem;
-  line-height: 1.2;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  font: var(--text-heading-1);
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
 .docs-content h3 {
   scroll-margin: 5rem;
   margin-top: 2rem;
   margin-bottom: 0;
-  font-size: 1.5rem;
-  line-height: 1.3;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  font: var(--text-heading-2);
+  letter-spacing: 0;
+  line-height: 1.35;
 }
 
 .docs-content h4 {
   margin-top: 1.5rem;
   margin-bottom: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font: var(--text-heading-3);
 }
 
 .docs-content h5 {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   margin-bottom: 0;
-  font-size: 1.125rem;
-  font-weight: 600;
+  font: var(--text-heading-4);
 }
 
 .docs-content p {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  line-height: 1.75;
+  line-height: var(--type-body-line);
 }
 
 .docs-content > :first-child {
@@ -297,7 +207,7 @@
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 4px;
-  color: inherit;
+  color: var(--link);
   border-bottom: 0;
 }
 
@@ -310,10 +220,11 @@
 .docs-content h5 > a[href^='#'],
 .docs-content h6 > a[href^='#'] {
   text-decoration: none;
+  color: inherit;
 }
 
 .docs-content a:hover {
-  color: hsl(var(--primary));
+  color: var(--link-hover);
 }
 
 .docs-content ul {
@@ -343,25 +254,24 @@
 
 .docs-content blockquote {
   margin-top: 1.5rem;
-  border-left: 2px solid hsl(var(--border));
-  padding-left: 1.5rem;
-  font-style: italic;
+  border-left: var(--border-width-strong) solid var(--border-strong);
+  padding-left: var(--space-4);
+  color: var(--muted-foreground);
 }
 
 .docs-content hr {
   margin-top: 3rem;
   margin-bottom: 3rem;
-  border-color: hsl(var(--border));
+  border-color: var(--border);
 }
 
 .docs-content code {
   position: relative;
-  border-radius: 0.25rem;
-  background-color: hsl(var(--muted));
-  padding: 0.2rem 0.3rem;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--muted);
+  padding: 2px var(--space-1-5);
+  color: var(--foreground);
+  font: var(--text-code);
 }
 
 .docs-content pre code {
@@ -369,38 +279,39 @@
   background: transparent;
   padding: 0;
   border-radius: 0;
-  font-size: 0.875rem;
-  line-height: 1.7;
+  font: inherit;
 }
 
 .docs-content pre {
   overflow-x: auto;
+  font: var(--text-code);
 }
 
 .docs-content table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.875rem;
+  font: var(--text-small);
 }
 
 .docs-content th,
 .docs-content td {
-  border: 1px solid hsl(var(--border));
-  padding: 0.5rem 1rem;
+  border-block-end: var(--border-width) solid var(--border);
+  padding: var(--space-2) var(--space-3);
   text-align: left;
 }
 
 .docs-content th {
-  font-weight: 600;
+  color: var(--muted-foreground);
+  font: var(--text-nav);
 }
 
 .docs-content img {
-  border-radius: 0.5rem;
+  border-radius: var(--radius-lg);
 }
 
 /* 提示框正文按普通文档排版：不跟着提示色变色，首尾也不留下多余的上下边距。 */
 .docs-content .alert-body {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .docs-content .alert-body > :first-child {
