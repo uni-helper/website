@@ -13,19 +13,24 @@ const props = withDefaults(defineProps<{
   inStack: false,
 })
 
-// 旧主题的提示类型对应到 Nuxt UI 的颜色、边框和默认图标。default 和 secondary 只有描边，不带颜色和图标。
-const THEMES: Record<AlertType, { color: 'neutral' | 'info' | 'warning' | 'success' | 'error', border: string, icon: string }> = {
-  default: { color: 'neutral', border: '', icon: '' },
-  secondary: { color: 'neutral', border: '', icon: '' },
-  info: { color: 'info', border: 'border-info-500/50', icon: 'lucide:info' },
-  note: { color: 'info', border: 'border-info-500/50', icon: 'lucide:pencil' },
-  warning: { color: 'warning', border: 'border-warning-500/50', icon: 'lucide:triangle-alert' },
-  success: { color: 'success', border: 'border-success-500/50', icon: 'lucide:lightbulb' },
-  danger: { color: 'error', border: 'border-error-500/50', icon: 'lucide:triangle-alert' },
+// 设计系统的提示框：默认卡片底色，状态类型只给边框、图标和淡色底，正文保持前景色。
+const THEMES: Record<AlertType, { root: string, icon: string, iconClass: string }> = {
+  default: { root: 'border-border bg-card', icon: '', iconClass: 'text-muted-foreground' },
+  secondary: { root: 'border-border bg-card', icon: '', iconClass: 'text-muted-foreground' },
+  info: { root: 'border-info/40 bg-info/8', icon: 'lucide:info', iconClass: 'text-info' },
+  note: { root: 'border-info/40 bg-info/8', icon: 'lucide:pencil', iconClass: 'text-info' },
+  warning: { root: 'border-warning/40 bg-warning/8', icon: 'lucide:triangle-alert', iconClass: 'text-warning' },
+  success: { root: 'border-success/40 bg-success/8', icon: 'lucide:lightbulb', iconClass: 'text-success' },
+  danger: { root: 'border-error/40 bg-error/8', icon: 'lucide:triangle-alert', iconClass: 'text-error' },
 }
 
 const theme = computed(() => THEMES[props.type])
-const isOutline = computed(() => props.type === 'default' || props.type === 'secondary')
+const ui = computed(() => ({
+  root: 'items-start gap-3 p-4 ring-0',
+  title: 'text-sm font-semibold',
+  description: 'alert-body text-sm',
+  icon: `size-6 shrink-0 ${theme.value.iconClass}`,
+}))
 </script>
 
 <template>
@@ -34,11 +39,11 @@ const isOutline = computed(() => props.type === 'default' || props.type === 'sec
   <UAlert
     :title="title"
     :icon="icon || theme.icon"
-    :color="theme.color"
-    :variant="isOutline ? 'outline' : 'subtle'"
+    color="neutral"
+    variant="outline"
     class="border"
-    :class="[theme.border, inStack && 'rounded-none border-0 shadow-none']"
-    :ui="{ description: 'alert-body' }"
+    :class="[theme.root, inStack ? 'my-0 rounded-none border-0 bg-transparent ring-0' : 'my-4']"
+    :ui="ui"
   >
     <!-- UAlert 没有默认插槽，正文（段落、列表、代码块）只能走 description -->
     <template #description>

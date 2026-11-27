@@ -21,7 +21,7 @@ const tree = computed(() => {
       <li>
         <NuxtLink
           to="/packages"
-          class="text-muted-foreground hover:bg-accent hover:text-accent-foreground flex h-8 items-center gap-2 rounded-md p-2 text-sm"
+          class="text-muted-foreground hover:bg-accent hover:text-accent-foreground flex h-9 items-center gap-2 rounded-md p-2 text-sm"
         >
           <SmartIcon name="ri:menu-2-fill" :size="16" class="self-center" />
           全部项目

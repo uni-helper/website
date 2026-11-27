@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-card text-card-foreground divide-border divide-y overflow-hidden rounded-xl border shadow [&:not(:first-child)]:mt-5">
+  <div class="bg-card text-card-foreground divide-border divide-y overflow-hidden rounded-lg border shadow-sm [&:not(:first-child)]:mt-5">
     <div
       v-for="(child, index) in $slots.default?.() ?? []"
       :key="index"

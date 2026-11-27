@@ -19,7 +19,7 @@ const { nav, links, logo, title } = config.header
           v-for="item in nav"
           :key="item.to"
           :to="item.to"
-          class="hover:bg-accent hover:text-accent-foreground inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition-colors"
+          class="hover:bg-accent hover:text-accent-foreground inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition-colors"
           active-class="bg-accent text-accent-foreground"
         >
           {{ item.title }}
@@ -37,7 +37,7 @@ const { nav, links, logo, title } = config.header
           color="neutral"
           variant="ghost"
           square
-          :aria-label="link.icon"
+          :aria-label="link.label"
         >
           <SmartIcon :name="link.icon" :size="18" />
         </UButton>

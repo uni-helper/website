@@ -10,7 +10,7 @@ const shortcut = computed(() => metaSymbol.value === '⌘' ? '⌘K' : 'Ctrl K')
     <UButton
       color="neutral"
       variant="outline"
-      class="text-muted-foreground hover:text-accent-foreground h-8 w-full justify-start rounded-md pr-1.5 font-normal md:w-40 lg:w-60"
+      class="text-muted-foreground hover:text-accent-foreground h-9 w-full justify-start rounded-md pr-1.5 font-normal md:w-40 lg:w-60"
       @click="open = true"
     >
       <SmartIcon name="lucide:search" :size="14" />

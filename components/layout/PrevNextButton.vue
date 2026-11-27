@@ -17,7 +17,7 @@ defineProps<{
           <SmartIcon name="lucide:arrow-left" :size="20" class="mx-auto self-center" />
         </div>
         <span class="w-full space-y-2 self-center" :class="[side === 'left' ? 'text-left' : 'text-right']">
-          <div class="text-lg font-semibold">
+          <div class="uh-type-heading-4">
             {{ prevNext.title }}
           </div>
           <div v-if="prevNext.description" class="text-muted-foreground text-sm">

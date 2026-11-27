@@ -24,7 +24,7 @@
       <h1 class="uh-type-display">
         <MDCSlot name="title" unwrap="p" />
       </h1>
-      <p class="text-foreground max-w-2xl text-lg">
+      <p class="text-foreground max-w-2xl uh-type-body">
         <MDCSlot name="description" unwrap="p" />
       </p>
 

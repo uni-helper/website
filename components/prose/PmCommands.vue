@@ -13,7 +13,7 @@ const copyLabel = computed(() => copied.value ? '已复制' : '复制命令')
 </script>
 
 <template>
-  <div class="bg-code-bg text-code-fg overflow-hidden" :class="inStack ? 'my-0 rounded-none border-0' : 'my-5 rounded-xl border'">
+  <div class="bg-code-bg text-code-fg overflow-hidden" :class="inStack ? 'my-0 rounded-none border-0' : 'my-5 rounded-lg border'">
     <div class="flex items-center gap-1 border-b px-2 py-1.5">
       <button
         v-for="command in commands"
@@ -40,6 +40,6 @@ const copyLabel = computed(() => copied.value ? '已复制' : '复制命令')
         </UTooltip>
       </div>
     </div>
-    <pre class="overflow-x-auto p-4 text-sm leading-7"><code>{{ current.code }}</code></pre>
+    <pre class="overflow-x-auto p-4 text-sm/5"><code>{{ current.code }}</code></pre>
   </div>
 </template>

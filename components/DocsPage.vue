@@ -26,11 +26,12 @@ if (!page.value) {
 const isHome = computed(() => props.path === '/')
 const isFullpage = computed(() => page.value?.fullpage === true)
 const hasToc = computed(() => page.value?.toc !== false && !!page.value?.body?.toc?.links?.length)
+// 文档页始终保留右侧栏；没有标题时也要放 _dir.yml 里的附加链接，三栏宽度才不会跳。
+const showSideColumn = computed(() => page.value?.toc !== false && (page.value?.aside !== false || hasToc.value))
 
-// 只有渲染目录时才需要 _dir.yml 里的附加链接。
 const section = computed(() => props.path.split('/').filter(Boolean)[0])
 const { data: sectionMeta } = await useAsyncData(`section:${section.value}`, () =>
-  hasToc.value && section.value ? queryCollection('content').path(`/${section.value}/_dir`).first() : Promise.resolve(null))
+  showSideColumn.value && section.value ? queryCollection('content').path(`/${section.value}/_dir`).first() : Promise.resolve(null))
 
 usePageSeo({
   title: page.value?.title,
@@ -56,7 +57,7 @@ usePageSeo({
       >
         <main
           class="relative py-6 lg:py-8"
-          :class="hasToc ? 'lg:grid lg:grid-cols-[1fr_220px] lg:gap-14' : ''"
+          :class="showSideColumn ? 'lg:grid lg:grid-cols-[1fr_220px] lg:gap-14' : ''"
         >
           <div class="mx-auto w-full min-w-0">
             <LayoutBreadcrumb v-if="page.breadcrumb !== false" class="mb-4" />
@@ -65,7 +66,7 @@ usePageSeo({
               <h1 class="uh-type-display scroll-m-20 wrap-break-word">
                 {{ page.title }}
               </h1>
-              <p v-if="page.description" class="text-muted-foreground pt-1 text-lg">
+              <p v-if="page.description" class="text-muted-foreground pt-1 uh-type-body">
                 {{ page.description }}
               </p>
 
@@ -76,7 +77,7 @@ usePageSeo({
                   :to="badge.to"
                   :target="badge.target"
                 >
-                  <UBadge variant="soft" color="neutral" class="gap-1 rounded-md">
+                  <UBadge variant="soft" color="neutral" class="gap-1 rounded-sm">
                     {{ badge.value }}
                     <SmartIcon v-if="badge.to || badge.icon" :name="badge.icon || 'lucide:external-link'" :size="12" />
                   </UBadge>
@@ -94,7 +95,7 @@ usePageSeo({
                   <UAvatar v-if="author.avatar" :src="author.avatar" :alt="author.name" size="sm" />
                   <div>
                     <div class="text-sm font-semibold">{{ author.name }}</div>
-                    <div v-if="author.username" class="text-muted-foreground text-xs font-medium leading-4">@{{ author.username }}</div>
+                    <div v-if="author.username" class="text-muted-foreground text-sm font-medium leading-5">@{{ author.username }}</div>
                   </div>
                 </NuxtLink>
               </div>
@@ -104,7 +105,7 @@ usePageSeo({
             <LayoutDocsFooter :page="page" />
           </div>
 
-          <div v-if="hasToc" class="hidden text-sm lg:block">
+          <div v-if="showSideColumn" class="hidden text-sm lg:block">
             <div class="sticky md:top-[91px]">
               <LayoutToc :links="page.body?.toc?.links ?? []" :extra-links="(sectionMeta as any)?.toc?.links ?? []" />
             </div>

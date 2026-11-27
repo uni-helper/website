@@ -11,7 +11,7 @@ defineProps<{
       :href="`https://github.com/uni-helper/website/edit/main/content/${path}.md`"
       target="_blank"
       rel="noreferrer"
-      class="text-primary text-sm font-semibold"
+      class="text-link hover:text-link-hover text-sm font-semibold underline underline-offset-4"
     >
       <span class="flex items-center gap-2">
         <SmartIcon name="lucide:square-pen" :size="16" />

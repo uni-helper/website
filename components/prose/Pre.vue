@@ -60,15 +60,15 @@ function copyCode() {
   >
     <div
       v-if="filename && !hideHeader"
-      class="flex items-center gap-1.5 rounded-t-md border border-b-0 border-border bg-code-bg pl-4 pr-12 py-3"
+      class="flex items-center gap-1.5 rounded-t-lg border border-b-0 border-border bg-code-bg px-3 py-2"
     >
-      <span class="text-sm/6 text-code-fg">{{ filename }}</span>
+      <span class="text-sm text-code-muted">{{ filename }}</span>
     </div>
 
     <pre
       ref="preRef"
-      class="font-mono text-sm/6 border border-border bg-code-bg text-code-fg pl-4 pr-12 py-3 whitespace-pre-wrap wrap-break-word overflow-x-auto"
-      :class="[filename && !hideHeader ? 'rounded-t-none' : 'rounded-md', shikiClass]"
+      class="font-mono text-sm/5 border border-border bg-code-bg text-code-fg p-4 pr-12 whitespace-pre-wrap wrap-break-word overflow-x-auto"
+      :class="[filename && !hideHeader ? 'rounded-t-none' : 'rounded-lg', shikiClass]"
     ><slot /></pre>
 
     <UTooltip :text="copyLabel">
@@ -79,7 +79,8 @@ function copyCode() {
         size="sm"
         square
         aria-label="复制代码"
-        class="absolute top-[11px] end-[11px] z-10"
+        class="absolute z-10 rounded-sm"
+        :class="filename && !hideHeader ? 'top-1 end-1' : 'top-3 end-3'"
         @click="copyCode"
       >
         <UIcon v-if="copied" name="lucide:check" class="size-4" />
