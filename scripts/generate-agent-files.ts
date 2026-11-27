@@ -71,7 +71,8 @@ function collectPages(dir: string, base = '', section?: string, pages: AgentPage
     }
 
     // 1.packages.yml 是数据集合，页面由 pages/packages.vue 负责，单独生成。
-    if (!/\.(md|yml)$/.test(entry.name) || entry.name === '1.packages.yml')
+    // changelog 是运行时数据，不能写成只有标题的静态 Markdown。
+    if (!/\.(md|yml)$/.test(entry.name) || entry.name === '1.packages.yml' || entry.name === '3.changelog.yml')
       continue
 
     const isIndex = entry.name.startsWith('index.')
@@ -94,7 +95,7 @@ function collectPages(dir: string, base = '', section?: string, pages: AgentPage
 /** llms.txt 的分组标题取自 _dir.yml，没有就用目录名。 */
 function sectionTitle(contentDir: string, segment: string) {
   try {
-    const { data } = splitFrontmatter(readFileSync(join(contentDir, segment, '_dir.yml'), 'utf8'))
+    const { data } = readContentFile(join(contentDir, segment, '_dir.yml'))
     return typeof data.title === 'string' ? data.title : segment
   }
   catch {
@@ -123,7 +124,7 @@ function packagesPage(contentDir: string, siteUrl: string) {
 }
 
 function agentNote(siteUrl: string) {
-  return `> For AI agents: the complete documentation index is at ${siteUrl}/llms.txt. Every documentation page is also available as Markdown by appending \`.md\` to its URL.`
+  return `> For AI agents: the complete documentation index is at ${siteUrl}/llms.txt. Every static documentation page is also available as Markdown by appending \`.md\` to its URL.`
 }
 
 function renderMarkdown(page: AgentPage, siteUrl: string) {
@@ -172,6 +173,7 @@ function renderLlmsTxt(pages: AgentPage[], contentDir: string, siteUrl: string) 
     lines.push('## 站点', '')
     for (const page of rootPages)
       lines.push(`- [${page.title}](${siteUrl}${page.mdPath})${page.description ? `: ${page.description}` : ''}`)
+    lines.push(`- [更新日志](${siteUrl}/changelog): 实时页面，无静态 Markdown 版本。`)
     lines.push('')
   }
 

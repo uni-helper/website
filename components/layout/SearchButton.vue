@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const config = useAppConfig()
 const { open } = useContentSearch()
+const { metaSymbol } = useShortcuts()
+const shortcut = computed(() => metaSymbol.value === '⌘' ? '⌘K' : 'Ctrl K')
 </script>
 
 <template>
@@ -13,7 +15,7 @@ const { open } = useContentSearch()
     >
       <SmartIcon name="lucide:search" :size="14" />
       <span class="mr-auto overflow-hidden">{{ config.search.placeholder }}</span>
-      <kbd class="ml-auto hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-foreground md:inline-flex">⌘K</kbd>
+      <kbd class="ml-auto hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-foreground md:inline-flex">{{ shortcut }}</kbd>
     </UButton>
   </div>
 
