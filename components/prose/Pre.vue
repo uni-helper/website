@@ -36,14 +36,14 @@ const shikiClass = computed(() => {
 })
 
 function copyCode() {
-  copyToClipboard(props.code ?? preRef.value?.textContent ?? '')
+  copyToClipboard(props.code || preRef.value?.textContent || '')
 }
 </script>
 
 <template>
   <div
     v-bind="$attrs"
-    class="relative group my-5"
+    class="relative my-5"
     :class="filename && !hideHeader ? '[&>pre]:rounded-t-none [&>pre]:my-0' : ''"
   >
     <div
@@ -55,7 +55,7 @@ function copyCode() {
 
     <pre
       ref="preRef"
-      class="group font-mono text-sm/6 border border-border bg-code-bg text-code-fg px-4 py-3 whitespace-pre-wrap wrap-break-word overflow-x-auto"
+      class="font-mono text-sm/6 border border-border bg-code-bg text-code-fg px-4 py-3 whitespace-pre-wrap wrap-break-word overflow-x-auto"
       :class="[filename && !hideHeader ? 'rounded-t-none' : 'rounded-md', shikiClass]"
     ><slot /></pre>
 
@@ -66,7 +66,7 @@ function copyCode() {
       size="sm"
       :icon="copied ? 'lucide:check' : 'lucide:copy'"
       aria-label="复制代码"
-      class="absolute top-[11px] end-[11px] lg:opacity-0 lg:group-hover:opacity-100 lg:focus-visible:opacity-100 transition"
+      class="absolute top-[11px] end-[11px]"
       @click="copyCode"
     />
   </div>
