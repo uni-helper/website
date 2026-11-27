@@ -9,6 +9,7 @@ const props = defineProps<{
 const active = ref(props.commands[0]?.name)
 const current = computed(() => props.commands.find(command => command.name === active.value) ?? props.commands[0] ?? { name: '', code: '' })
 const { copy, copied } = useClipboard()
+const copyLabel = computed(() => copied.value ? '已复制' : '复制命令')
 </script>
 
 <template>
@@ -23,16 +24,21 @@ const { copy, copied } = useClipboard()
       >
         {{ command.name }}
       </button>
-      <UButton
-        class="ml-auto"
-        color="neutral"
-        variant="ghost"
-        square
-        size="xs"
-        :icon="copied ? 'lucide:check' : 'lucide:clipboard'"
-        aria-label="复制命令"
-        @click="copy(current.code)"
-      />
+      <div class="ml-auto mr-1">
+        <UTooltip :text="copyLabel">
+          <UButton
+            color="neutral"
+            variant="ghost"
+            square
+            size="xs"
+            aria-label="复制命令"
+            @click="copy(current.code)"
+          >
+            <UIcon v-if="copied" name="lucide:check" class="size-4" />
+            <UIcon v-else name="lucide:clipboard" class="size-4" />
+          </UButton>
+        </UTooltip>
+      </div>
     </div>
     <pre class="overflow-x-auto p-4 text-sm leading-7"><code>{{ current.code }}</code></pre>
   </div>
