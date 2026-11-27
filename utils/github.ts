@@ -12,7 +12,7 @@ export async function fetchGitHubRepo(name: string) {
       id: zod.number(),
       name: zod.string(),
       repo: zod.string(),
-      description: zod.string(),
+      description: zod.string().or(zod.null()),
       createdAt: zod.string(),
       updatedAt: zod.string(),
       pushedAt: zod.string(),

@@ -9,7 +9,7 @@ const page = {
 
 usePageSeo({ title: page.title, description: page.description })
 
-const { data: releases } = await useFetch<Release[]>('/api/_content/releases.json', {
+const { data: releases, error: releasesError } = await useFetch<Release[]>('/api/_content/releases.json', {
   default: () => [],
 })
 </script>
@@ -41,7 +41,16 @@ const { data: releases } = await useFetch<Release[]>('/api/_content/releases.jso
     </section>
 
     <div class="px-4 sm:px-6 xl:-ms-30 xl:flex-1 xl:px-0">
+      <div v-if="releasesError" class="mx-auto max-w-2xl py-16 sm:py-24 lg:py-32">
+        <UAlert
+          color="warning"
+          icon="lucide:triangle-alert"
+          title="更新日志暂时不可用"
+          description="读取 GitHub Releases 失败，请稍后刷新重试。"
+        />
+      </div>
       <UiChangelogVersions
+        v-else
         :indicator-motion="false"
         :ui="{
           root: 'py-16 sm:py-24 lg:py-32',

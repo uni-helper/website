@@ -5,6 +5,7 @@ import { useMediaQuery } from '@vueuse/core'
 import colors from 'tailwindcss/colors'
 import { getColors } from 'theme-colors'
 import { Network } from 'vis-network'
+import { getSelectionChildren } from '~/utils/relations'
 
 const emits = defineEmits<{
   loading: [boolean]
@@ -55,51 +56,8 @@ const data = computed<Data>(() => {
 
   // Use a condition to avoid unnecessary computation
   const selectionChildrenPackages: RelationPackage[] = []
-  const selectionChildrenPackagesName: string[] = []
-  if (settings.value.showChildren) {
-    /** Children */
-    selectionChildrenPackages.push(...packages.value
-      // Filter out packages that have not selected packages as dependencies or devDependencies
-      .filter((pkg) => {
-        if (settings.value.showDependencies) {
-          // Check if current package use any of the selected packages
-          const hasUsedBy = pkg.dependencies.some((dep) => {
-            return selectionNames.value.includes(dep)
-          })
-
-          if (hasUsedBy)
-            return true
-        }
-
-        if (settings.value.showDependencies) {
-          // Check if current package use any of the selected packages
-          const hasUsedBy = pkg.devDependencies.some((dep) => {
-            return selectionNames.value.includes(dep)
-          })
-
-          if (hasUsedBy)
-            return true
-        }
-
-        return false
-      })
-      // Remove dependencies and devDependencies that are not selected
-      .map((pkg) => {
-        return {
-          ...pkg,
-          dependencies: pkg.dependencies.filter((dep) => {
-            return selectionNames.value.includes(dep)
-          }),
-          devDependencies: pkg.devDependencies.filter((dep) => {
-            return selectionNames.value.includes(dep)
-          }),
-        }
-      }))
-
-    selectionChildrenPackagesName.push(...selectionChildrenPackages.map((pkg) => {
-      return pkg.npmName
-    }))
-  }
+  if (settings.value.showChildren)
+    selectionChildrenPackages.push(...getSelectionChildren(packages.value, selectionNames.value, settings.value))
 
   /** Dependencies and Dev Dependencies */
   const allDependencies = [...selection.value, ...selectionChildrenPackages].flatMap((pkg) => {
@@ -205,6 +163,10 @@ const data = computed<Data>(() => {
   }
 })
 
+let network: Network | null = null
+let stopDataWatch: (() => void) | undefined
+let stopColorWatch: (() => void) | undefined
+
 onMounted(() => {
   const generalOptions: Options = {
     nodes: {
@@ -299,17 +261,18 @@ onMounted(() => {
     },
   }
 
-  const network = new Network(container.value!, data.value, {
+  const graph = new Network(container.value!, data.value, {
     ...generalOptions,
     ...colorMode.value === 'light' ? lightOptions : darkOptions,
   })
+  network = graph
 
   // Does not emit the event if there is no data
-  network.on('stabilizationIterationsDone', () => {
+  graph.on('stabilizationIterationsDone', () => {
     // At 390px the default fit overlaps most labels. Start closer on mobile;
     // pan and pinch-zoom remain available for the rest of the graph.
     if (isMobile.value)
-      network.moveTo({ scale: 1.4 })
+      graph.moveTo({ scale: 1.4 })
     emits('loading', false)
   })
 
@@ -317,7 +280,7 @@ onMounted(() => {
   if (selection.value.length === 0)
     emits('loading', false)
 
-  network.on('doubleClick', ({ nodes }) => {
+  graph.on('doubleClick', ({ nodes }) => {
     const clickedNode = nodes[0]
 
     if (!clickedNode)
@@ -330,18 +293,25 @@ onMounted(() => {
     emits('selectedNode', _package)
   })
 
-  watch(data, () => {
+  stopDataWatch = watch(data, () => {
     if (data.value.nodes?.length)
       emits('loading', true)
-    network.setData(data.value)
+    graph.setData(data.value)
   })
 
-  watch(colorMode, (newMode) => {
-    network.setOptions({
+  stopColorWatch = watch(colorMode, (newMode) => {
+    graph.setOptions({
       ...generalOptions,
-      ...(newMode.value === 'light' ? lightOptions : darkOptions),
+      ...(newMode === 'light' ? lightOptions : darkOptions),
     })
   })
+})
+
+onBeforeUnmount(() => {
+  stopDataWatch?.()
+  stopColorWatch?.()
+  network?.destroy()
+  network = null
 })
 </script>
 

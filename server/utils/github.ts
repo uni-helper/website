@@ -2,11 +2,8 @@ import { fetchGitHubFile, fetchGitHubRepo } from '@/utils/github'
 
 const cachedGitHubPackageJsons = defineCachedFunction(async (repo: string) => {
   const { repo: repository } = await fetchGitHubRepo(repo)
-  const packageJsonPath = 'package.json'
-  if (!packageJsonPath)
-    return null
   try {
-    return await fetchGitHubFile(repo, repository.defaultBranch, packageJsonPath)
+    return await fetchGitHubFile(repo, repository.defaultBranch, 'package.json')
   }
   catch {
     return null
