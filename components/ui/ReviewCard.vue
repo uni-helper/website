@@ -11,7 +11,7 @@ defineProps<Props>()
 
 <template>
   <figure
-    class="relative w-64 cursor-pointer overflow-hidden rounded-xl border border-border bg-card p-4 hover:bg-card-hover"
+    class="relative w-64 overflow-hidden rounded-lg border border-border bg-card p-4 hover:bg-card-hover"
   >
     <div class="flex flex-row items-center gap-2">
       <img
@@ -25,7 +25,7 @@ defineProps<Props>()
         <span class="text-sm font-medium text-foreground">
           {{ name }}
         </span>
-        <p class="text-xs font-medium text-muted-foreground">
+        <p class="text-sm font-medium text-muted-foreground">
           {{ username }}
         </p>
       </div>

@@ -45,32 +45,28 @@ onMounted(() => {
     />
     <NuxtLink
       to="/packages"
-      target=""
-      class="inline-flex items-center rounded-full bg-muted px-4 py-1.5 text-sm font-medium hover:cursor-pointer"
+      class="inline-flex items-center rounded-full bg-muted px-4 py-1.5 text-sm font-medium"
     >
       <SmartIcon
         name="lucide:rocket"
         :size="16"
       />
       <span class="mx-2 h-4 w-px bg-border" />
-      <span class="underline-offset-4 hover:underline">Get Started</span>
+      <span class="underline-offset-4 hover:underline">查看项目</span>
       <SmartIcon
         name="lucide:arrow-right"
         class="ml-1"
         :size="16"
       />
     </NuxtLink>
-    <h1
-      class="transition-all duration-300 text-center text-3xl font-bold leading-tight tracking-tighter lg:leading-[1.1] md:text-6xl"
-    >
-      uni -
-      <UiFlipWords
+    <h1 class="uh-type-display transition-all duration-300 text-center">
+      uni-<UiFlipWords
         :words="shuffledPackagesName"
         :duration="3000"
       />
     </h1>
 
-    <span class="mt-4 text-center text-lg text-muted-foreground sm:text-xl">
+    <span class="mt-4 text-center uh-type-body text-muted-foreground">
       旨在增强 uni-app 系列产品的开发体验
     </span>
 
@@ -87,7 +83,7 @@ onMounted(() => {
             name="lucide:github"
             class="mr-1"
           />
-          Github
+          GitHub
         </UButton>
       </NuxtLink>
     </div>

@@ -67,7 +67,7 @@ watch(isVisible, (newValue) => {
 </script>
 
 <template>
-  <div class="relative inline-block px-2">
+  <div class="relative inline-block">
     <Transition
       @after-enter="$emit('animationStart')"
       @after-leave="$emit('animationComplete')"
@@ -100,7 +100,7 @@ watch(isVisible, (newValue) => {
             >
               {{ letter }}
             </span>
-            <span class="inline-block">&nbsp;</span>
+            <span v-if="wordIndex < splitWords.length - 1" class="inline-block">&nbsp;</span>
           </span>
         </template>
       </div>

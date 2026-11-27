@@ -82,7 +82,7 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="text-6xl font-bold"
+    class="uh-type-display"
     :class="props.class"
   >
     <span class="relative inline-block">

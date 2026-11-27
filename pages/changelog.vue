@@ -33,7 +33,7 @@ const { data: releases, error: releasesError } = await useFetch<Release[]>('/api
           <h1 class="uh-type-display text-left">
             {{ page.title }}
           </h1>
-          <p class="text-muted-foreground mt-6 max-w-lg text-left text-base text-balance sm:text-lg">
+          <p class="text-muted-foreground mt-6 max-w-lg text-left uh-type-body text-balance">
             {{ page.description }}
           </p>
         </div>

@@ -51,14 +51,13 @@ function slug(name: string) {
             class="item relative flex items-center"
             :to="slug(key) !== 'vs-code' ? `/${item.name}` : `/${slug(key)}/${item.name}`"
 
-            target=""
             :title="item.name"
           >
             <div v-if="item.icon" class="pt-2 pr-5">
               <SmartIcon :name="item.icon" class="opacity-50" :size="32" />
             </div>
             <div class="flex-auto">
-              <div class="text-normal">
+              <div class="uh-type-body">
                 {{ item.name }}
               </div>
               <p class="desc text-sm text-muted-foreground font-normal">
@@ -84,8 +83,8 @@ function slug(name: string) {
       </div>
     </div>
   </PatternBackground>
-  <div class="text-xs text-muted-foreground ml-auto text-right pt-0.5">
-    Design by
+  <div class="text-sm text-muted-foreground ml-auto text-right pt-0.5">
+    设计来自
     <a href="https://antfu.me/projects">antfu.me</a>
   </div>
 </template>
@@ -93,11 +92,10 @@ function slug(name: string) {
 <style scoped>
 .project-grid a.item {
   background: transparent;
-  font-size: 1.1rem;
   width: 350px;
   max-width: 100%;
   padding: 0.5rem 0.875rem 0.875rem;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
 }
 
 .project-grid a.item:hover {
@@ -108,7 +106,7 @@ function slug(name: string) {
   position: fixed;
   top: 90px;
   bottom: 0;
-  font-size: 0.8em;
+  font: var(--text-small);
   left: 20px;
   z-index: 200;
   overflow: hidden;
@@ -140,13 +138,13 @@ function slug(name: string) {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.25rem;
-  color: #8887;
+  border-radius: var(--radius-sm);
+  color: var(--muted-foreground);
   border-width: 1px;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow-sm);
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-  transition-duration: .4s;
+  transition-timing-function: var(--ease-standard);
+  transition-duration: var(--duration-slow);
 }
 
 @media (min-width: 768px) {
@@ -160,13 +158,13 @@ function slug(name: string) {
   text-overflow: ellipsis;
   height: 100%;
   overflow-y: auto;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
   opacity: 0;
   margin-top: 0.25rem;
   padding-bottom: 1.25rem;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-  transition-duration: .7s;
+  transition-timing-function: var(--ease-standard);
+  transition-duration: var(--duration-slow);
 }
 
 *:hover > .table-of-contents > .table-of-contents-anchor,
@@ -195,8 +193,8 @@ function slug(name: string) {
 .table-of-contents ul > li > a {
   opacity: 0.75;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-  transition-duration: .15s;
+  transition-timing-function: var(--ease-standard);
+  transition-duration: var(--duration-fast);
 }
 
 .table-of-contents ul > li > a:hover {

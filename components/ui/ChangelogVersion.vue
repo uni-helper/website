@@ -74,15 +74,15 @@ const metaVariants = cva('flex items-center gap-3 mb-2', {
     },
   },
 })
-const dateVariants = cva('text-sm/6 text-accent-foreground truncate', {
+const dateVariants = cva('text-sm/6 text-muted-foreground truncate', {
   variants: {
     hidden: {
       true: 'lg:hidden',
     },
   },
 })
-const titleVariants = cva('relative text-xl text-pretty font-semibold text-foreground')
-const descriptionVariants = cva('text-base text-pretty text-muted mt-1')
+const titleVariants = cva('relative text-pretty text-foreground')
+const descriptionVariants = cva('uh-type-body text-pretty text-muted-foreground mt-1')
 const imageWrapperVariants = cva('relative overflow-hidden rounded-lg aspect-[16/9] mt-5')
 const authorsVariants = cva('flex flex-wrap gap-x-4 gap-y-1.5')
 const footerVariants = cva('border-t border-border pt-5 flex items-center justify-between', {

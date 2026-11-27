@@ -48,9 +48,9 @@ const body = computed(() => normalizeBody(props.release.body, props.release.repo
       root: 'flex items-start',
       container: 'max-w-xl 2xl:mx-12 w-full',
       header: 'border-b border-border pb-4',
-      title: 'text-3xl',
-      date: 'text-xs/9 font-mono',
-      indicator: 'sticky top-0 pt-16 -mt-16 sm:pt-24 sm:-mt-24 lg:pt-32 lg:-mt-32',
+      title: 'uh-type-heading-1 uh-nums',
+      date: 'text-sm/9 font-mono uh-nums',
+      indicator: 'sticky top-0 pt-16 -mt-16 w-36 sm:pt-24 sm:-mt-24 lg:pt-32 lg:-mt-32',
     }"
   >
     <template #badge>
@@ -59,7 +59,7 @@ const body = computed(() => normalizeBody(props.release.body, props.release.repo
         target="_blank"
         class="flex items-center"
       >
-        <UBadge variant="outline" color="neutral" class="gap-1 rounded-md">
+        <UBadge variant="outline" color="neutral" class="gap-1 rounded-sm">
           <SmartIcon :name="release.icon" class="mr-1" :size="12" />
           {{ release.repo }}
         </UBadge>
@@ -77,12 +77,11 @@ const body = computed(() => normalizeBody(props.release.body, props.release.repo
         <div
           v-if="release.body?.children?.length"
           class="docs-content changelog-body mt-6"
-          style="zoom: 0.85"
         >
           <MDCRenderer :body="body" :components="{ h3: false }" />
         </div>
-        <p v-else class="mt-6 leading-7" style="zoom: 0.85">
-          <em>No significant changes</em>
+        <p v-else class="mt-6 uh-type-body">
+          <em>无重要变更</em>
         </p>
 
         <div
