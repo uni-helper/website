@@ -65,7 +65,7 @@ const props = withDefaults(defineProps<ChangelogVersionProps>(), {
 
 const slots = defineSlots<ChangelogVersionSlots>()
 
-const rootVariants = cva('relative')
+const rootVariants = cva('relative bg-background')
 const containerVariants = cva('flex flex-col mx-auto max-w-2xl')
 const metaVariants = cva('flex items-center gap-3 mb-2', {
   variants: {
@@ -96,7 +96,7 @@ const indicatorVariants = cva('absolute start-0 top-0 w-32 hidden lg:flex items-
 const dotVariants = cva('size-4 rounded-full bg-background ring-1 ring-border flex items-center justify-center my-1')
 const dotInnerVariants = cva('size-2 rounded-full bg-primary')
 
-const formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' })
+const formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium', timeZone: 'UTC' })
 
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate()
 const [DefineDateTemplate, ReuseDateTemplate] = createReusableTemplate<{ hidden?: boolean }>({
@@ -139,6 +139,7 @@ const datetime = computed(() => {
       v-bind="{ to, target, ...$attrs }"
       :class="cn('focus:outline-none peer')"
       tabindex="-1"
+      aria-hidden="true"
     >
       <span class="absolute inset-0" aria-hidden="true" />
     </NuxtLink>
@@ -177,11 +178,20 @@ const datetime = computed(() => {
           </div>
 
           <h2 v-if="title || !!slots.title" :class="cn(titleVariants(), ui?.title)">
-            <ReuseLinkTemplate />
-
-            <slot name="title">
-              {{ title }}
-            </slot>
+            <NuxtLink
+              v-if="to"
+              v-bind="{ to, target }"
+              class="hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
+              <slot name="title">
+                {{ title }}
+              </slot>
+            </NuxtLink>
+            <template v-else>
+              <slot name="title">
+                {{ title }}
+              </slot>
+            </template>
           </h2>
 
           <div v-if="description || !!slots.description" :class="cn(descriptionVariants(), ui?.description)">

@@ -1,12 +1,41 @@
 <script setup lang="ts">
 import type { Release } from '~/types/releases'
-import { formatTimeAgo } from '@vueuse/core'
+import type { MDCRoot } from '@nuxtjs/mdc'
 
-defineProps<{
+const props = defineProps<{
   release: Release
 }>()
 
 const expanded = ref(false)
+
+/**
+ * GitHub release bodies repeat heading ids such as #features across releases
+ * and use h4/h5 for their sections. Prefix every id with the version and render
+ * the body sections as h3 so the page keeps one h1 and a valid outline.
+ */
+function normalizeBody(body: MDCRoot, repo: string, tag: string): MDCRoot {
+  const clone = structuredClone(body)
+  const prefix = `${repo}-${tag}`.replace(/[^\w.-]/g, '-')
+
+  function visit(node: any) {
+    if (!node || typeof node !== 'object')
+      return
+
+    if (node.type === 'element' && typeof node.tag === 'string' && /^h[1-6]$/.test(node.tag)) {
+      if (node.props?.id)
+        node.props.id = `${prefix}-${node.props.id}`
+      node.tag = 'h3'
+    }
+
+    if (Array.isArray(node.children))
+      node.children.forEach(visit)
+  }
+
+  visit(clone)
+  return clone
+}
+
+const body = computed(() => normalizeBody(props.release.body, props.release.repo, props.release.tag))
 </script>
 
 <template>
@@ -14,7 +43,7 @@ const expanded = ref(false)
     :to="release.url"
     target="_blank"
     :title="release.title"
-    :date="formatTimeAgo(new Date(release.date))"
+    :date="release.date"
     :ui="{
       root: 'flex items-start',
       container: 'max-w-xl 2xl:mx-12 w-full',
@@ -50,7 +79,7 @@ const expanded = ref(false)
           class="docs-content changelog-body mt-6"
           style="zoom: 0.85"
         >
-          <MDCRenderer :body="release.body" />
+          <MDCRenderer :body="body" :components="{ h3: false }" />
         </div>
         <p v-else class="mt-6 leading-7" style="zoom: 0.85">
           <em>No significant changes</em>

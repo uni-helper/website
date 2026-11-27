@@ -137,6 +137,9 @@ export default async () => {
       },
       build: {
         markdown: {
+          rehypePlugins: {
+            [new URL('./scripts/rehype-lazy-images.ts', import.meta.url).pathname]: {},
+          },
           highlight: {
             langs: ['jsonc', 'python'],
             theme: {

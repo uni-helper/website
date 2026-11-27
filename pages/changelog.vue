@@ -30,9 +30,9 @@ const { data: releases } = await useFetch<Release[]>('/api/_content/releases.jso
             <img src="/logo-dark.svg" alt="" class="hidden h-7 dark:block">
             <span class="ml-3 self-center font-bold">uni-helper</span>
           </NuxtLink>
-          <h2 class="text-left text-4xl font-bold tracking-tight text-pretty sm:text-4xl lg:text-5xl">
+          <h1 class="uh-type-display text-left">
             {{ page.title }}
-          </h2>
+          </h1>
           <p class="text-muted-foreground mt-6 max-w-lg text-left text-base text-balance sm:text-lg">
             {{ page.description }}
           </p>

@@ -14,7 +14,10 @@ export function usePageSeo(options: {
   const route = useRoute()
 
   const title = computed(() => toValue(options.title))
-  const description = computed(() => toValue(options.description))
+  const description = computed(() => {
+    const value = toValue(options.description)?.trim()
+    return value || `${title.value || config.site.name} - ${config.site.description}`
+  })
   // 静态输出不带末尾斜杠，canonical 要和 sitemap 里的 URL 完全一致。
   const canonical = computed(() => `${config.site.url}${route.path === '/' ? '/' : route.path.replace(/\/$/, '')}`)
 
