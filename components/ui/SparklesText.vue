@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { usePreferredReducedMotion } from '@vueuse/core'
 import { Motion } from 'motion-v'
 import { onMounted, onUnmounted, ref } from 'vue'
 
@@ -29,6 +30,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const sparkles = ref<Sparkle[]>([])
+const reducedMotion = usePreferredReducedMotion()
 
 // Generate a new sparkle with randomized properties
 function generateStar(): Sparkle {
@@ -63,6 +65,9 @@ let interval: number
 
 // Start animation loop
 onMounted(() => {
+  if (reducedMotion.value === 'reduce')
+    return
+
   initializeStars()
   interval = window.setInterval(updateStars, 100)
 })

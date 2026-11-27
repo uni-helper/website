@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { Data, Edge, Options } from 'vis-network'
 import type { RelationPackage } from '~/types/package'
+import { useMediaQuery } from '@vueuse/core'
 import colors from 'tailwindcss/colors'
 import { getColors } from 'theme-colors'
 import { Network } from 'vis-network'
@@ -17,6 +18,7 @@ const _violet = colors.violet
 const _brand = getColors('#2b9939')
 
 const colorMode = useColorMode()
+const isMobile = useMediaQuery('(max-width: 767px)')
 const { packages } = useRelationsPackages()
 const { selection } = useRelationsSelection()
 const { settings } = useRelationsSettings()
@@ -170,6 +172,7 @@ const data = computed<Data>(() => {
             },
             relation: 'dependencies',
             arrows: 'to',
+            dashes: false,
           }
         }))
       }
@@ -187,6 +190,7 @@ const data = computed<Data>(() => {
             },
             relation: 'devDependencies',
             arrows: 'to',
+            dashes: true,
           }
         }))
       }
@@ -302,6 +306,10 @@ onMounted(() => {
 
   // Does not emit the event if there is no data
   network.on('stabilizationIterationsDone', () => {
+    // At 390px the default fit overlaps most labels. Start closer on mobile;
+    // pan and pinch-zoom remain available for the rest of the graph.
+    if (isMobile.value)
+      network.moveTo({ scale: 1.4 })
     emits('loading', false)
   })
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDevicePixelRatio, useMouse } from '@vueuse/core'
+import { useDevicePixelRatio, useMouse, usePreferredReducedMotion } from '@vueuse/core'
 import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 
 interface Circle {
@@ -41,6 +41,7 @@ const mouse = reactive<{ x: number, y: number }>({ x: 0, y: 0 })
 const canvasSize = reactive<{ w: number, h: number }>({ w: 0, h: 0 })
 const { x: mouseX, y: mouseY } = useMouse()
 const { pixelRatio } = useDevicePixelRatio()
+const reducedMotion = usePreferredReducedMotion()
 
 const color = computed(() => {
   // Remove the leading '#' if it's present
@@ -70,7 +71,8 @@ onMounted(() => {
   }
 
   initCanvas()
-  animate()
+  if (reducedMotion.value !== 'reduce')
+    animate()
 
   // 首屏样式或布局还没就绪时容器可能是 0×0，只初始化一次会让画布永久空白。
   resizeObserver = new ResizeObserver(() => initCanvas())

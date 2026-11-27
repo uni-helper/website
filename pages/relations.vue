@@ -160,7 +160,10 @@ defineShortcuts({
 </script>
 
 <template>
-  <div class="w-full h-screen fixed top-0 overflow-hidden">
+  <main class="w-full h-screen fixed top-0 overflow-hidden">
+    <p class="sr-only">
+      uni-helper 包依赖关系图，当前已选择 {{ selection.length }} 个包。使用左上角菜单选择包和依赖类型，使用图例查看节点和边的含义。
+    </p>
     <RelationsMenu
       v-if="openMenu" v-model:about="openAbout" v-model:menu="openMenu" v-model:legend="openLegend"
       class="absolute left-4 top-20 z-10" @open-uni-helper="openUniHelper = $event" @open-npm="openNpm = $event"
@@ -172,10 +175,16 @@ defineShortcuts({
       <ContentRenderer v-if="page" :value="page" />
     </RelationsModalAbout>
     <RelationsSlideoverPackage v-model:open="openSlideover" :package="selectedNode" @view-relations="onViewRelations" />
-    <RelationsGraph
-      v-if="hasSelectionAndSettings" class="w-full h-full" @loading="loading = $event"
-      @selected-node="onSelectedNode"
-    />
+    <div
+      class="w-full h-full"
+      role="img"
+      :aria-label="`uni-helper 包依赖关系图，当前已选择 ${selection.length} 个包`"
+    >
+      <RelationsGraph
+        v-if="hasSelectionAndSettings" class="w-full h-full" @loading="loading = $event"
+        @selected-node="onSelectedNode"
+      />
+    </div>
     <div
       v-if="loading || !selection.length"
       class="absolute z-0 inset-0 flex items-center justify-center font-medium backdrop-blur-sm"
@@ -204,5 +213,8 @@ defineShortcuts({
     >
       <SmartIcon name="i-ph:info" />
     </UButton>
-  </div>
+    <p class="pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-background/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur md:hidden">
+      双指缩放、拖动画布
+    </p>
+  </main>
 </template>

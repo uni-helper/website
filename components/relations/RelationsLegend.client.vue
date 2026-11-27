@@ -7,10 +7,10 @@ const legend = [{
   text: 'Uni-Helper 包',
 }, {
   color: 'bg-pink-300 ring-pink-500 dark:bg-pink-900 dark:ring-pink-800',
-  text: '生产依赖项',
+  text: '生产依赖项（实线）',
 }, {
   color: 'bg-purple-300 ring-purple-500 dark:bg-purple-900 dark:ring-purple-800',
-  text: '开发依赖项',
+  text: '开发依赖项（虚线）',
 }]
 </script>
 

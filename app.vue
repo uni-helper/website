@@ -67,7 +67,7 @@ useHead({
 <template>
   <UApp>
     <!-- Agent 靠这段隐藏说明找到索引和 Markdown 版本，删掉会失去 Agent 可发现性。 -->
-    <div class="sr-only">
+    <div class="sr-only" role="region" aria-label="Agent resources">
       For AI agents: the documentation index is at <a href="/llms.txt">/llms.txt</a>, and every documentation page is available as Markdown by appending <code>.md</code> to its URL.
     </div>
     <NuxtLoadingIndicator :color="false" class="z-100 bg-primary/80" />

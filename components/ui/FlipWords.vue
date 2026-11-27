@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { usePreferredReducedMotion } from '@vueuse/core'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 interface Props {
@@ -17,8 +18,12 @@ defineEmits(['animationStart', 'animationComplete'])
 const currentWord = ref(props.words[0])
 const isVisible = ref(true)
 const timeoutId = ref<number | null>(null)
+const reducedMotion = usePreferredReducedMotion()
 
 function startAnimation() {
+  if (reducedMotion.value === 'reduce')
+    return
+
   isVisible.value = false
 
   setTimeout(() => {
@@ -44,7 +49,8 @@ function startTimeout() {
 }
 
 onMounted(() => {
-  startTimeout()
+  if (reducedMotion.value !== 'reduce')
+    startTimeout()
 })
 
 onBeforeUnmount(() => {
